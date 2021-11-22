@@ -13,7 +13,7 @@
 
       ./packages/gui.nix
       
-      # ./server/synapse.nix
+      ./server/nginx.nix
 
 
       # ./system/xp-pen.nix

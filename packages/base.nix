@@ -26,6 +26,7 @@ in {
   environment.systemPackages = with pkgs; [
     usbutils
     diffutils
+    pciutils
     nix-diff
     findutils
     utillinux
@@ -39,6 +40,7 @@ in {
 
     wget
     curl
+    htop
     man
     tealdeer
 
