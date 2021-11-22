@@ -37,12 +37,12 @@ in {
     clementine
 
     keepassxc
+    libreoffice
 
     firefox
-    libreoffice
+    element-desktop
     qbittorrent
     lmms
-    mullvad-vpn
 
     lutris
     discord
@@ -55,8 +55,6 @@ in {
     partition-manager.enable = true;
     steam.enable = true;
   };
-
-  services.mullvad-vpn.enable = true;
 
 }
 

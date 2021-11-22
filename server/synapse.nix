@@ -87,7 +87,7 @@ in {
 
 
   services.matrix-synapse = {
-    enable = false;
+    enable = true;
     server_name = "klaymore.me";
 
     dataDir = "/nix/persist/server/synapse";
