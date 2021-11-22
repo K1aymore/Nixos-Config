@@ -5,6 +5,14 @@
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
+#   security.acme.certs = {
+#     "klaymore.me" = {
+#       directory = "/nix/persist/server/acmeCerts/klaymore.me";
+#       webroot = "/synced/Websites/klaymore.me";
+#       email = "klaymorer@protonmail.com";
+#       extraDomainNames = [ "matrix.klaymore.me" ];
+#     };
+#   };
 
   services.nginx = {
     enable = true;

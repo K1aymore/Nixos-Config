@@ -15,6 +15,7 @@
       
       ./server/nginx.nix
       ./server/synapse.nix
+      # ./server/vaultwarden.nix
 
 
       # ./system/xp-pen.nix
@@ -123,14 +124,6 @@
   };
 
 
-#   security.acme.certs = {
-#     "klaymore.me" = {
-#       directory = "/nix/persist/server/acmeCerts/klaymore.me";
-#       webroot = "/synced/Websites/klaymore.me";
-#       email = "klaymorer@protonmail.com";
-#       extraDomainNames = [ "matrix.klaymore.me" ];
-#     };
-#   };
 
   security.acme.email = "klaymorer@protonmail.com";
   security.acme.acceptTerms = true;

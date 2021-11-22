@@ -36,31 +36,33 @@ in {
       # This host section can be placed on a different host than the rest,
       # i.e. to delegate from the host being accessible as ${config.networking.domain}
       # to another host actually running the Matrix homeserver.
-       "klaymore.me" = {
-         forceSSL = false;
+        "klaymore.me" = {
+          enableACME = true;
+          addSSL = true;
+          forceSSL = false;
 
-         locations."= /.well-known/matrix/server".extraConfig =
-           let
-            # use 443 instead of the default 8448 port to unite
-            # the client-server and server-server port for simplicity
-             server = { "m.server" = "matrix.klaymore.me:443"; };
-           in ''
-             add_header Content-Type application/json;
-             return 200 '${builtins.toJSON server}';
-           '';
-#         locations."= /.well-known/matrix/client".extraConfig =
-#            let
-#              client = {
-#                "m.homeserver" =  { "base_url" = "https://klaymore.me"; };
-#                "m.identity_server" =  { "base_url" = "https://vector.im"; };
-#              };
-          # ACAO required to allow element-web on any URL to request this json file
-#            in ''
-#              add_header Content-Type application/json;true
-#              add_header Access-Control-Allow-Origin *;
-#              return 200 '${builtins.toJSON client}';
-#            '';
-       };
+          locations."= /.well-known/matrix/server".extraConfig =
+            let
+             # use 443 instead of the default 8448 port to unite
+             # the client-server and server-server port for simplicity
+              server = { "m.server" = "matrix.klaymore.me:443"; };
+            in ''
+              add_header Content-Type application/json;
+              return 200 '${builtins.toJSON server}';
+            '';
+#          locations."= /.well-known/matrix/client".extraConfig =
+#             let
+#               client = {
+#                 "m.homeserver" =  { "base_url" = "https://klaymore.me"; };
+#                 "m.identity_server" =  { "base_url" = "https://vector.im"; };
+#               };
+           # ACAO required to allow element-web on any URL to request this json file
+#             in ''
+#               add_header Content-Type application/json;true
+#               add_header Access-Control-Allow-Origin *;
+#               return 200 '${builtins.toJSON client}';
+#             '';
+        };
 
 
       # Reverse proxy for Matrix client-server and server-server communication
