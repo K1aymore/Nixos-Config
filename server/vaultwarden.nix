@@ -5,7 +5,7 @@
 
   networking.firewall.allowedTCPPorts = [ 80 443 3012 ];
 
-  security.acme.certs."vw.example.com" = {
+  security.acme.certs."vault.example.com" = {
     group = "vaultwarden";
     keyType = "rsa2048";
   };
@@ -19,7 +19,7 @@
     recommendedTlsSettings = true;
 
     virtualHosts = {
-      "vw.klaymore.me" = {
+      "vault.klaymore.me" = {
         addSSL = true;
         enableACME = true;
 #         locations."/" = {
@@ -41,7 +41,6 @@
   services.bitwarden_rs = {
     enable = true;
     backupDir = "/nix/persist/server/vaultwarden/backup";
-
 
     config = {
       WEB_VAULT_FOLDER = "/nix/persist/server/vaultwarden/webVault";

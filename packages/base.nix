@@ -37,6 +37,7 @@ in {
     zip
     unzip
     tzdata
+    php
 
     wget
     curl
@@ -51,6 +52,8 @@ in {
     ffmpeg
     yt-dlp
     r128gain
+
+    apacheHttpd
 
     lolcat
     thefuck
