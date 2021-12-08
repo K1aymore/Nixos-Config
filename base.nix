@@ -18,13 +18,26 @@
     # keyMap = "us";
   };
 
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts
+    dina-font
+    proggyfonts
+
+    font-awesome
+    font-awesome_4
+  ];
+
 
   hardware.opengl.driSupport32Bit = true;
 
-
   networking.networkmanager.enable = true;
   networking.enableIPv6 = true;
-
 
   # security.doas.enable = true;
 

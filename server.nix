@@ -17,6 +17,7 @@
       ./server/ssh.nix
 
       ./server/nginx.nix
+      #./server/httpd.nix
       ./server/synapse.nix
       # ./server/radicale.nix
       # ./server/vaultwarden.nix
