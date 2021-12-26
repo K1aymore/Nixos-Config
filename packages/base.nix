@@ -34,10 +34,11 @@ in {
     gnugrep
     gnutar
     gzip
+    xz
     zip
     unzip
     tzdata
-    php
+    glibc
 
     wget
     curl
@@ -52,8 +53,12 @@ in {
     ffmpeg
     yt-dlp
     r128gain
+    rclone
 
-    apacheHttpd
+    ldns
+    bind
+    php
+    nodejs
 
     lolcat
     thefuck

@@ -40,11 +40,9 @@
       enable = false;
 
       allowedUDPPorts = [
-        51820   # Mullvad
         8055
       ];
       allowedTCPPorts = [
-        51820   # Mullvad
         8055
       ];
     };

@@ -7,7 +7,7 @@
     nrs="sudo nixos-rebuild switch";
     nrsu="sudo nixos-rebuild switch --upgrade";
 
-    # nbrc="nvim /nix/cfg/bash/aliases.nix";
+    nbrc="micro /nix/cfg/bash/aliases.nix";
 
     brup="brightnessctl set 5+%";
     brdown="brightnessctl set 5-%";

@@ -4,8 +4,8 @@
 {
 
   networking.firewall = {
-    allowedTCPPorts = [ 22000 ];  # transfers
-    allowedUDPPorts = [ 21027 ];  # discovery
+    allowedTCPPorts = [ 22000 22067 ];  # transfers & relay
+    allowedUDPPorts = [ 21027 22067 ];  # discovery
   };
 
   services.syncthing = {
@@ -14,7 +14,7 @@
     configDir = "/nix/persist/appdata/syncthing";
     user = "klaymore";
     group = "users";
-    guiAddress = "127.0.0.1:8384";
+    relay.enable = true;
     overrideDevices = true;
     overrideFolders = true;
     devices = {
@@ -28,11 +28,21 @@
         devices = [ "pc" "laptop" "phone" ];
         ignorePerms = false;
       };
+      "Dotfiles" = {
+        path = "/nix/dotfiles";
+        devices = [ "pc" "laptop" ];
+        ignorePerms = false;
+      };
       "NixCfg" = {
         path = "/nix/cfg";
         devices = [ "pc" "laptop" "phone" ];
         ignorePerms = false;
       };
+#       "NixPersist" = {
+#         path = "/nix/persist";
+#         devices = [ "pc" "laptop" ];
+#         ignorePerms = false;
+#       };
       "Archive" = {
         path = "/synced/Archive";
         devices = [ "pc" "laptop" ];
@@ -52,6 +62,7 @@
         path = "/synced/Websites";
         devices = [ "pc" "laptop" "phone" ];
         ignorePerms = false;
+        rescanInterval = 30;
       };
     };
   };

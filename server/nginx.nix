@@ -3,22 +3,22 @@
 let
   app = "php";
   domain = "klaymore.me";
-  dataDir = "/synced/Websites/klaymore.me";
+  dataDir = "/synced/Websites/klaymore.me/_site";
 in {
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
   
   services.nginx = {
     enable = true;
 
     virtualHosts.${domain} = {
       enableACME = true;
-      addSSL = true;
+      forceSSL = true;
       root = dataDir;
 
       locations = {
         "/" = {
-          index = "index.php";
+          index = "index.html";
         };
     
         "~ .php$" = {     # ~ .php$
@@ -28,11 +28,19 @@ in {
 #             include ${pkgs.nginx}/conf/fastcgi_params;
 #             include ${pkgs.nginx}/conf/fastcgi.conf;
             fastcgi_pass unix:${config.services.phpfpm.pools.${app}.socket};
-            fastcgi_index index.php;
+            fastcgi_index index.html;
           '';
         };
       };
-    }; 
+    };
+
+    virtualHosts."shorecraft.club" = {
+      root="/synced/Websites/shorecraft.club";
+      locations."/" = {
+        return = "301 https://klaymore.me";
+      };
+    };
+
   };
   
 
@@ -43,7 +51,7 @@ in {
 #   };
 
   services.phpfpm.pools.${app} = {
-    user = app;
+    user = "klaymore";
     settings = {
       "listen.owner" = config.services.nginx.user;
       "pm" = "dynamic";
@@ -64,7 +72,7 @@ in {
   users.users.${app} = {
     isSystemUser = true;
     createHome = false;
-    home = dataDir;
+    home = "/synced/Websites/klaymore.me";
     group  = app;
   };
   users.groups.${app} = {
