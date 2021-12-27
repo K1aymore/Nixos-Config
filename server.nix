@@ -8,7 +8,7 @@
       ./base.nix
       ./locale/qwerty.nix
       ./locale/losAngeles.nix
-      # ./system/pipewire.nix
+      ./system/pipewire.nix
       ./de/plasma.nix
 
       ./packages/gui.nix
@@ -23,7 +23,7 @@
       # ./server/vaultwarden.nix
 
 
-      # ./system/xp-pen.nix
+      # ./system/opentablet.nix
 
       # ./impermanence/system.nix
       # ./impermanence/home.nix

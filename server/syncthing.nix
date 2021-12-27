@@ -43,6 +43,11 @@
 #         devices = [ "pc" "laptop" ];
 #         ignorePerms = false;
 #       };
+      "Projects" = {
+        path = "/synced/Projects";
+        devices = [ "pc" "laptop" ];
+        ignorePerms = false;
+      };
       "Archive" = {
         path = "/synced/Archive";
         devices = [ "pc" "laptop" ];
@@ -57,6 +62,11 @@
         path = "/synced/Ellida Sync";
         devices = [ "pc" "laptop" ];
         ignorePerms = false;
+      };
+      "Ellida Projects" = {
+        path = "/synced/Ellida Projects";
+        devices = [ "pc" "laptop" ];
+        ignorePerms = true;
       };
       "Websites" = {
         path = "/synced/Websites";
