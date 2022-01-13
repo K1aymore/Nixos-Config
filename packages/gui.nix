@@ -28,6 +28,7 @@ in {
   environment.systemPackages = with pkgs; [
     dolphin
     filelight
+    gparted
 
     kate
     atom
@@ -48,12 +49,18 @@ in {
     discord
     ungoogled-chromium
 
+    kdeconnect-kde
+
   ];
 
 
   programs = {
     partition-manager.enable = true;
     steam.enable = true;
+  };
+
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
   };
 
 }

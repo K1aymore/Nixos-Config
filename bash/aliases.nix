@@ -6,6 +6,8 @@
   programs.bash.shellAliases = {
     nrs="sudo nixos-rebuild switch";
     nrsu="sudo nixos-rebuild switch --upgrade";
+    nrb="sudo nixos-rebuild boot";
+    nrbu="sudo nixos-rebuild boot --upgrade";
 
     nbrc="micro /nix/cfg/bash/aliases.nix";
 

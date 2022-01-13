@@ -40,6 +40,12 @@ in {
     tzdata
     glibc
 
+    cryptsetup
+    ntfs3g
+    exfat
+    exfatprogs
+    f2fs-tools
+
     wget
     curl
     htop
@@ -49,6 +55,7 @@ in {
     micro
     xclip
     neovim
+    emacs
 
     ffmpeg
     yt-dlp
@@ -64,9 +71,14 @@ in {
     thefuck
 
     elinks
+
+    mullvad-vpn
   ];
 
 
+  networking.firewall.checkReversePath = "loose";
+  networking.wireguard.enable = true;
+  services.mullvad-vpn.enable = true;
 
 }
 

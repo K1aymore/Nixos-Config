@@ -12,7 +12,6 @@ in
   ];
 
 
-
   home-manager.users.klaymore = {
     home.homeDirectory = "/home/klaymore";
 
@@ -23,6 +22,11 @@ in
       ".atom/packages".source = "${dots}/Atom/.atom/packages";
       ".atom/config.cson".source = "${dots}/Atom/.atom/config.cson";
       ".atom/github.cson".source = "${dots}/Atom/.atom/github.cson";
+
+      ".config" = {
+        source = "${dots}/Plasma/.config";
+        recursive = true;
+      };
     };
 
     programs = {

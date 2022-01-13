@@ -10,6 +10,10 @@
         desktopManager.plasma5.enable = true;
     };
 
+  environment.systemPackages = with pkgs; [
+    sweet
+
+  ];
 }
 
 

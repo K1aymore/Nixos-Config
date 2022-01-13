@@ -25,18 +25,12 @@ in {
 
   services.nginx = {
     enable = true;
-    # only recommendedProxySettings and recommendedGzipSettings are strictly required,
-    # but the rest make sense as well
     recommendedTlsSettings = true;
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
     recommendedProxySettings = true;
 
     virtualHosts = {
-      # This host section can be placed on a different host than the rest,
-      # i.e. to delegate from the host being accessible as ${config.networking.domain}
-      # to another host actually running the Matrix homeserver.
-
       "klaymore.me" = {
         locations."= /.well-known/matrix/server".extraConfig =        # needed for reverse proxy
           let
@@ -47,22 +41,7 @@ in {
             add_header Content-Type application/json;
             return 200 '${builtins.toJSON server}';
           '';
-
-
-#          locations."= /.well-known/matrix/client".extraConfig =
-#             let
-#               client = {
-#                 "m.homeserver" =  { "base_url" = "https://klaymore.me"; };
-#                 "m.identity_server" =  { "base_url" = "https://vector.im"; };
-#               };
-           # ACAO required to allow element-web on any URL to request this json file
-#             in ''
-#               add_header Content-Type application/json;true
-#               add_header Access-Control-Allow-Origin *;
-#               return 200 '${builtins.toJSON client}';
-#             '';
       };
-
 
       # Reverse proxy for Matrix client-server and server-server communication
       "matrix.klaymore.me" = {
@@ -70,24 +49,40 @@ in {
         addSSL = true;
         forceSSL = false;
         root = "/synced/Websites/matrix.klaymore.me";
-
-        # Or do a redirect instead of the 404, or whatever is appropriate for you.
-        # But do not put a Matrix Web client here! See the Element web section below.
-#         locations."/".extraConfig = ''
-#           return 404;
-#         '';
-
         # forward all Matrix API calls to the synapse Matrix homeserver
-         locations."/_matrix" = {
-           proxyPass = "http://[::1]:8008"; # without a trailing /
-         };
+        locations."/_matrix" = {
+          proxyPass = "http://[::1]:8008"; # without a trailing /
+        };
       };
     };
   };
 
-
-
+  services.coturn = rec {
+    enable = true;
+    no-cli = true;
+    no-tcp-relay = true;
+    min-port = 49000;
+    max-port = 50000;
+    use-auth-secret = true;
+    static-auth-secret = "will be world readable for local users";
+    realm = "matrix.klaymore.me";
+    cert = "/nix/persist/server/coturn/full.pem";
+    pkey = "/nix/persist/server/coturn/key.pem";
+  };
+  
+  /*
+  security.acme.certs."matrix.klaymore.me" = {
+    /* insert here the right configuration to obtain a certificate
+    postRun = "systemctl restart coturn.service";
+    group = "turnserver";
+  };
+  */
+  
   services.matrix-synapse = {
+    turn_uris = ["turn:matrix.klaymore.me:3478?transport=udp" "turn:matrix.klaymore.me:3478?transport=tcp"];
+    turn_shared_secret = "will be world readable for local users";
+    turn_user_lifetime = "1h";
+    
     enable = true;
     server_name = "klaymore.me";
 
@@ -115,3 +110,25 @@ in {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
