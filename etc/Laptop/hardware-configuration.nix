@@ -22,36 +22,27 @@
   fileSystems."/home/klaymore" =
     { device = "none";
       fsType = "tmpfs";
-      options = [ "size=3G" "mode=777" ];
+      options = [ "size=5G" "mode=777" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/b6743e58-50e2-4774-99a5-cb110bd0f5e9";
+    { device = "/dev/disk/by-uuid/ad4445c3-dcbd-468e-8f8e-58be9ee33403";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."nix".device = "/dev/disk/by-uuid/0f3abd33-d2d2-47cc-a96f-cf2f8a0c0fc8";
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/93BD-AED6";
-      fsType = "vfat";
-    };
+  boot.initrd.luks.devices."luks-2a5e2984-0036-44d1-abea-83d7dea0b737".device = "/dev/disk/by-uuid/2a5e2984-0036-44d1-abea-83d7dea0b737";
 
   fileSystems."/synced" =
-    { device = "/dev/disk/by-uuid/7886c01d-d753-4395-8e10-d98a0b57cabf";
+    { device = "/dev/disk/by-uuid/42a94f20-5e45-40ca-bc35-07685bd3eb75";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."data".device = "/dev/disk/by-uuid/380b9589-4e43-416d-a474-175041d03246";
+  boot.initrd.luks.devices."luks-93bf8f5e-7fff-450c-96c6-1034fa503be2".device = "/dev/disk/by-uuid/93bf8f5e-7fff-450c-96c6-1034fa503be2";
 
-  fileSystems."/synced/Archive" =
-    { device = "/dev/disk/by-uuid/bcfc8710-26b8-4b2d-a0e5-ac856fe92d74";
-      fsType = "ext4";
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/90B6-CF61";
+      fsType = "vfat";
     };
-
-  boot.initrd.luks.devices."Archive".device = "/dev/disk/by-uuid/bb813aab-e636-4b0a-97c0-be4c3b379e5d";
-
-
 
   swapDevices = [ ];
 

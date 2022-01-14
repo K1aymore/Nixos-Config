@@ -49,8 +49,6 @@ in {
     discord
     ungoogled-chromium
 
-    kdeconnect-kde
-
   ];
 
 

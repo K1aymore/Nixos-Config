@@ -40,6 +40,8 @@ in {
     tzdata
     glibc
 
+    brightnessctl
+
     cryptsetup
     ntfs3g
     exfat
@@ -56,6 +58,7 @@ in {
     xclip
     neovim
     emacs
+    fd
 
     ffmpeg
     yt-dlp

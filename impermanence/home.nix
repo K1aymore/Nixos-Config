@@ -70,6 +70,9 @@ in
         "Firefox/.mozilla"
 
         "Clementine/.config/Clementine"
+        "OpenTabletDriver/.config/OpenTabletDriver"
+        "Keepassxc/.cache/keepassxc"
+        "Keepassxc/.config/keepassxc"
       ];
       files = [
         "Atom/.atom/config.cson"
