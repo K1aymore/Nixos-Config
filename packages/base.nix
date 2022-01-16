@@ -41,6 +41,7 @@ in {
     glibc
 
     brightnessctl
+    tlp
 
     cryptsetup
     ntfs3g
@@ -69,6 +70,7 @@ in {
     bind
     php
     nodejs
+    adoptopenjdk-icedtea-web
 
     lolcat
     thefuck

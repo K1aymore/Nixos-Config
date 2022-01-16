@@ -57,6 +57,8 @@ in
       allowOther = true;
       directories = [
         "Tealdeer/.cache/tealdeer"
+        "Element/.config/Element"
+        "Element/.pki"
       ];
     };
 

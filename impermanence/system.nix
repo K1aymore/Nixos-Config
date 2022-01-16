@@ -11,7 +11,6 @@ in
 
   environment.persistence."/nix/persist/system" = {
     directories = [
-      "/etc/nixos"
       "/etc/NetworkManager"
       "/etc/wpa_supplicant.conf"
       "/var/log"
@@ -20,9 +19,15 @@ in
 
     files = [
 #      "/etc/machine-id"
-      "/etc/nix/id_rsa"
+#       "/etc/nix/id_rsa"
     ];
   };
 
+  environment.persistence."/nix/cfg/persist/${config.networking.hostName}" = {
+    directories = [
+      "/etc/nixos"
+    ];
+
+  };
 
 }

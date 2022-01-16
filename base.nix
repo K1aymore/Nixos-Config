@@ -41,6 +41,8 @@
 
   # security.doas.enable = true;
 
+  hardware.bluetooth.enable = true;
+
 
 
   users.mutableUsers = false;
