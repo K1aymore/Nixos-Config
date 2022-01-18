@@ -61,7 +61,10 @@
   };
 
 
-
+  networking.extraHosts = ''
+    172.16.0.115 serverlan
+    172.16.0.115:56789 serverlanssh
+  '';
 
 
 

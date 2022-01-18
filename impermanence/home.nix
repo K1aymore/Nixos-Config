@@ -32,35 +32,18 @@ in
     };
 
 
-#     home.persistence."/nix/persist/cache" = {       # app cache (last opened file, downloaded data, etc)
-#       removePrefixDirectory = true;
-#       allowOther = true;
-#       directories = [
-#         "KeepassXC"
-#         "Tealdeer"
-#         "qBittorrent"
-#         "Bash"
-#       ];
-#     };
-#
-#     home.persistence."/nix/persist/config" = {     # app config for specifically this computer
-#       removePrefixDirectory = true;
-#       allowOther = true;
-#       directories = [
-#       ];
-#       files = [
-#       ];
-#     };
 
-    home.persistence."/nix/persist/cache" = {
+    home.persistence."/nix/persist/home" = {
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
         "Tealdeer/.cache/tealdeer"
         "Element/.config/Element"
         "Element/.pki"
+        "SSH/.ssh"
       ];
     };
+
 
     home.persistence."/nix/dotfiles" = {         # synced dotfiles - shared with other computers
       removePrefixDirectory = true;
@@ -70,11 +53,13 @@ in
         "Atom/.atom/packages"
 
         "Firefox/.mozilla"
-
         "Clementine/.config/Clementine"
         "OpenTabletDriver/.config/OpenTabletDriver"
+
         "Keepassxc/.cache/keepassxc"
         "Keepassxc/.config/keepassxc"
+
+        "Libreoffice/.config/libreoffice"
       ];
       files = [
         "Atom/.atom/config.cson"
@@ -159,8 +144,8 @@ in
         ".config/startkderc"
         ".config/systemsettingsrc"
         ".config/touchpadxlibinputrc"
-        ".config/Trolltech.conf"
-        ".config/user-dirs.dirs"
+#         ".config/Trolltech.conf"
+#         ".config/user-dirs.dirs"
         ".config/user-dirs.locale"
 
         ".local/share/krunnerstaterc"

@@ -4,8 +4,8 @@
 {
 
   # Select internationalisation properties.
-  console.keyMap = "us";
+  console.keyMap = "colemak";
 
-  services.xserver.xkbVariant = "qwerty";
+  services.xserver.xkbVariant = "colemak";
 
 }

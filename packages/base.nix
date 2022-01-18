@@ -60,6 +60,7 @@ in {
     neovim
     emacs
     fd
+    ranger
 
     ffmpeg
     yt-dlp
@@ -74,10 +75,12 @@ in {
 
     lolcat
     thefuck
+    hello
 
     elinks
 
     mullvad-vpn
+    kdeconnect
   ];
 
 

@@ -4,7 +4,7 @@
 
   imports = [
       ./base.nix
-      ./locale/qwerty.nix
+      ./locale/colemak.nix
       ./locale/losAngeles.nix
       ./system/pipewire.nix
       ./de/plasma.nix
@@ -18,20 +18,22 @@
       ./impermanence/home.nix
     ];
 
+  environment.variables = {
+    XKB_DEFAULT_VARIANT = "colemak";
+  };
+
 
   networking = {
     hostName = "laptop";
-    firewall.enable = true;
     interfaces.wlp2s0.useDHCP = true;
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 22000 22067 ];  # transfers & relay
+      allowedUDPPorts = [ 21027 22067 ];  # discovery
+    };
   };
 
 
-
-
-  networking.firewall = {
-    allowedTCPPorts = [ 22000 22067 ];  # transfers & relay
-    allowedUDPPorts = [ 21027 22067 ];  # discovery
-  };
 
   services.syncthing = {
     enable = true;
