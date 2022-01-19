@@ -89,6 +89,7 @@ in
         ".local/share/kscreen"
         ".local/share/kwalletd"
         ".local/share/kxmlgui5"
+        ".local/share/plasma"
         ".local/share/RecentDocuments"
         ".local/share/sddm"
       ];

@@ -16,6 +16,7 @@ in {
   ];
 
   nixpkgs.config = {
+    allowUnfree = true;
     packageOverrides = pkgs: with pkgs; {
       unstable = import unstableTarball {
         config = config.nixpkgs.config;
@@ -39,6 +40,7 @@ in {
     unzip
     tzdata
     glibc
+    glib
 
     brightnessctl
     tlp
@@ -71,7 +73,7 @@ in {
     bind
     php
     nodejs
-    adoptopenjdk-icedtea-web
+    jdk11
 
     lolcat
     thefuck

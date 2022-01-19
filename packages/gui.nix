@@ -29,6 +29,7 @@ in {
     dolphin
     filelight
     gparted
+    ark
 
     kate
     atom
@@ -36,6 +37,9 @@ in {
     okular
     gwenview
     clementine
+    krita
+
+    eclipses.eclipse-java
 
     keepassxc
     libreoffice

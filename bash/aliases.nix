@@ -33,6 +33,8 @@
 
     eleventy="npx @11ty/eleventy";
 
+    jcr="javac *.java && java";
+
 
 #   nbrc="$EDITOR ~/.bashrc && source ~/.bashrc"
 
