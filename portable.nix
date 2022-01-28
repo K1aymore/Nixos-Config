@@ -8,6 +8,7 @@
       ./locale/losAngeles.nix
       ./system/pipewire.nix
       ./de/plasma.nix
+      ./de/sway.nix
 
       ./packages/gui.nix
 
@@ -71,7 +72,7 @@
       };
       "Archive" = {
         path = "/synced/Archive";
-        devices = [ "server" "pc" "laptop" ];
+        devices = [ "server" "pc" ];
         ignorePerms = false;
       };
       "Ellida Sync" = {

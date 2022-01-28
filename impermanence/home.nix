@@ -41,6 +41,13 @@ in
         "Element/.config/Element"
         "Element/.pki"
         "SSH/.ssh"
+
+        "Minecraft/.minecraft"
+        "Multimc/.local/share/multimc"
+        "Gradle/.gradle"
+      ];
+      files = [
+        "Multimc/.config/MultiMC5rc"
       ];
     };
 
@@ -49,9 +56,7 @@ in
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
-        "Atom/.atom/atom-discord"
-        "Atom/.atom/packages"
-
+        "Atom/.atom"
         "Firefox/.mozilla"
         "Clementine/.config/Clementine"
         "OpenTabletDriver/.config/OpenTabletDriver"
@@ -60,10 +65,15 @@ in
         "Keepassxc/.config/keepassxc"
 
         "Libreoffice/.config/libreoffice"
+
+        "JetBrains/.cache/JetBrains"
+        "JetBrains/.config/JetBrains"
+        "JetBrains/.local/share/JetBrains"
+
+        "VSCodium/.vscode-oss"
+        "VSCodium/.config/VSCodium"
       ];
       files = [
-        "Atom/.atom/config.cson"
-        "Atom/.atom/github.cson"
       ];
     };
 

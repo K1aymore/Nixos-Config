@@ -39,8 +39,6 @@ in {
     clementine
     krita
 
-    eclipses.eclipse-java
-
     keepassxc
     libreoffice
 
@@ -52,6 +50,14 @@ in {
     lutris
     discord
     ungoogled-chromium
+
+    eclipses.eclipse-java
+    jetbrains.idea-community
+    vscodium
+
+    fabric-installer
+    minecraft
+    multimc
 
   ];
 

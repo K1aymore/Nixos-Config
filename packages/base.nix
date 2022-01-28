@@ -50,6 +50,9 @@ in {
     exfat
     exfatprogs
     f2fs-tools
+    btrfs-progs
+    btrfs-heatmap
+    zfs
 
     wget
     curl
@@ -73,8 +76,8 @@ in {
     bind
     php
     nodejs
-    jdk11
 
+    tree
     lolcat
     thefuck
     hello
@@ -89,6 +92,12 @@ in {
   networking.firewall.checkReversePath = "loose";
   networking.wireguard.enable = true;
   services.mullvad-vpn.enable = true;
+
+
+  programs = {
+    java.enable = true;
+  };
+
 
 }
 

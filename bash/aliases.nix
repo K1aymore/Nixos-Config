@@ -12,9 +12,6 @@
     nbrc="micro /nix/cfg/bash/aliases.nix";
 
 
-    npac="nix-env -iA";
-
-
     yd="/synced/Sync/Linux/BashScripts/yd";
 
 

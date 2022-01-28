@@ -25,7 +25,7 @@
 
   networking = {
     hostName = "laptop";
-    interfaces.wlp2s0.useDHCP = true;
+    #interfaces.wlp2s0.useDHCP = true;
     firewall = {
       enable = true;
       allowedTCPPorts = [ 22000 22067 ];  # transfers & relay
