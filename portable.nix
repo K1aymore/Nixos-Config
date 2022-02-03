@@ -22,16 +22,11 @@
 
   networking = {
     hostName = "portable";
-    firewall.enable = true;
-  };
-
-
-
-
-
-  networking.firewall = {
-    allowedTCPPorts = [ 22000 22067 ];  # transfers & relay
-    allowedUDPPorts = [ 21027 22067 ];  # discovery
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 22000 22067 ];  # transfers & relay
+      allowedUDPPorts = [ 21027 22067 ];  # discovery
+    };
   };
 
   services.syncthing = {
@@ -48,6 +43,7 @@
       "pc" = { id = "RSARTXL-H57CHF3-JBVXMNT-0SUZQ7I-XW5BFWX-DWUNQE5-2ZXGZ3A-QQI0YQQ"; };
       "laptop" = { id = "NIOZEVB-77F44UB-NTNFBCT-CRGPRRZ-YT73MD6-TFZ77XH-PFDTJWR-JHU7QQE"; };
       "phone" = { id = "2L2KW2W-BBEZ7LT-Z7OZDUO-RKTIXMW-LYWDTNR-Q2TABSU-4V7GM7R-VPSKIAZ"; };
+      "cDesk" = { id = "RLFHUVQ-HXAGZ54-DGEN2S3-YRHRWID-D6Q4S4B-PNOCIDP-T2NNWZP-GPY5NQG"; };
     };
     folders = {
       "Sync" = {
@@ -77,12 +73,12 @@
       };
       "Ellida Sync" = {
         path = "/synced/Ellida Sync";
-        devices = [ "server" "pc" "laptop" ];
+        devices = [ "server" "pc" "laptop" "cDesk" ];
         ignorePerms = false;
       };
       "Ellida Projects" = {
         path = "/synced/Ellida Projects";
-        devices = [ "server" "pc" "laptop" ];
+        devices = [ "server" "pc" "laptop" "cDesk" ];
         ignorePerms = true;
       };
       "Websites" = {

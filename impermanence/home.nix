@@ -57,8 +57,9 @@ in
       allowOther = true;
       directories = [
         "Atom/.atom"
-        "Firefox/.mozilla"
         "Clementine/.config/Clementine"
+        "Discord/.config/discord"
+        "Firefox/.mozilla"
         "OpenTabletDriver/.config/OpenTabletDriver"
 
         "Keepassxc/.cache/keepassxc"

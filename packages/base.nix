@@ -81,6 +81,7 @@ in {
     lolcat
     thefuck
     hello
+    nottetris2
 
     elinks
 

@@ -42,6 +42,7 @@ in {
     keepassxc
     libreoffice
 
+    google-chrome
     firefox
     element-desktop
     qbittorrent
