@@ -21,7 +21,7 @@
 
   networking = {
     hostName = "pc";
-    hostId = "7c980de5";
+    hostId = "7c980de5";  # head -c 8 /etc/machine-id
     firewall = {
       enable = true;
       allowedTCPPorts = [ 22000 22067 ];  # transfers & relay
