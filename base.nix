@@ -43,8 +43,8 @@
 
   hardware.bluetooth.enable = true;
 
-  boot.initrd.supportedFilesystems = ["zfs"]; # boot from zfs
-  boot.supportedFilesystems = [ "zfs" ];
+#   boot.initrd.supportedFilesystems = ["zfs"]; # boot from zfs
+#   boot.supportedFilesystems = [ "zfs" ];
 
 
   users.mutableUsers = false;

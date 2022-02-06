@@ -33,17 +33,23 @@ in {
 
     kate
     atom
+    geany
+    bluefish
     vlc
     okular
     gwenview
     clementine
+    strawberry
+    mediainfo-gui
     krita
+    syncplay
 
     keepassxc
     libreoffice
 
     google-chrome
     firefox
+    firefox-devedition-bin-unwrapped
     element-desktop
     qbittorrent
     lmms
@@ -59,6 +65,14 @@ in {
     fabric-installer
     minecraft
     multimc
+
+    gsettings-desktop-schemas
+    gsettings-qt
+    v4l-utils
+    libv4l
+
+    obs-studio
+    linuxKernel.packages.linux_5_16.v4l2loopback
 
   ];
 

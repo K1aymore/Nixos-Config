@@ -14,9 +14,22 @@
       ./system/opentablet.nix
       #./home-manager/home-manager.nix
 
+      ./pc/syncplay.nix
+      ./pc/i2p.nix
+
       ./impermanence/system.nix
       ./impermanence/home.nix
     ];
+
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  hardware.opengl.extraPackages = with pkgs; [
+   rocm-opencl-icd
+   rocm-opencl-runtime
+  ];
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
 
 
   networking = {
@@ -69,6 +82,11 @@
       "Archive" = {
         path = "/synced/Archive";
         devices = [ "server" "portable" ];
+        ignorePerms = false;
+      };
+      "Huge Archive" = {
+        path = "/synced/Huge Archive";
+        devices = [ "server" ];
         ignorePerms = false;
       };
       "Ellida Sync" = {

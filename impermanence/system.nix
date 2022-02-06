@@ -15,6 +15,8 @@ in
       "/etc/wpa_supplicant.conf"
       "/var/log"
       "/var/lib"
+
+      "/etc/mullvad-vpn"
     ];
 
     files = [

@@ -37,16 +37,29 @@ in
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
+        "Autostart/.config/autostart"
+        "Pipewire/.local/state/pipewire"
+
         "Tealdeer/.cache/tealdeer"
         "Element/.config/Element"
         "Element/.pki"
+        "Discord/.config/discord"
+
         "SSH/.ssh"
+        "Mullvad/.config/Mullvad VPN"
+        "qBittorrent/.local/share/qBittorrent"
+        "qBittorrent/.config/qBittorrent"
+        "qBittorrent/.cache/qBittorrent"
 
         "Minecraft/.minecraft"
         "Multimc/.local/share/multimc"
         "Gradle/.gradle"
+
+        "Steam/.steam"
+        "Steam/.local/share/Steam"
       ];
       files = [
+        "Bash/.bash_history"
         "Multimc/.config/MultiMC5rc"
       ];
     };
@@ -56,11 +69,11 @@ in
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
+        "OpenTabletDriver/.config/OpenTabletDriver"
+
         "Atom/.atom"
         "Clementine/.config/Clementine"
-        "Discord/.config/discord"
         "Firefox/.mozilla"
-        "OpenTabletDriver/.config/OpenTabletDriver"
 
         "Keepassxc/.cache/keepassxc"
         "Keepassxc/.config/keepassxc"

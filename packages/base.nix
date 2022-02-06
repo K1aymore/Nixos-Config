@@ -77,6 +77,8 @@ in {
     php
     nodejs
 
+    pfetch
+    neofetch
     tree
     lolcat
     thefuck
