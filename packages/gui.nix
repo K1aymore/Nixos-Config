@@ -39,7 +39,7 @@ in {
     okular
     gwenview
     clementine
-    strawberry
+#     strawberry
     mediainfo-gui
     krita
     syncplay
@@ -47,22 +47,22 @@ in {
     keepassxc
     libreoffice
 
-    google-chrome
+#     google-chrome
+    ungoogled-chromium
     firefox
-    firefox-devedition-bin-unwrapped
+#     firefox-devedition-bin-unwrapped
     element-desktop
     qbittorrent
     lmms
 
     lutris
     discord
-    ungoogled-chromium
 
     eclipses.eclipse-java
-    jetbrains.idea-community
+#     jetbrains.idea-community
     vscodium
 
-    fabric-installer
+#     fabric-installer
     minecraft
     multimc
 

@@ -13,7 +13,6 @@
 
       ./packages/gui.nix
       
-      ./server/syncthing.nix
       ./server/ssh.nix
 
       ./server/nginx.nix
@@ -34,8 +33,6 @@
   networking = {
     hostName = "server";
     domain = "klaymore.me";
-
-    firewall.enable = true;
   };
 
 
@@ -49,6 +46,58 @@
       "@daily sudo rclone sync /nix/persist /synced/Archive/NixPersist && sudo chown -R klaymore:users /synced/Archive/NixPersist"
     ];
   };
+
+
+  services.syncthing.folders = {
+      "Sync" = {
+        path = "/synced/Sync";
+        devices = [ "pc" "portable" "laptop" "phone" ];
+        ignorePerms = false;
+      };
+      "Dotfiles" = {
+        path = "/nix/dotfiles";
+        devices = [ "pc" "portable" "laptop" ];
+        ignorePerms = false;
+      };
+      "NixCfg" = {
+        path = "/nix/cfg";
+        devices = [ "pc" "portable" "laptop" "phone" ];
+        ignorePerms = false;
+      };
+      "Projects" = {
+        path = "/synced/Projects";
+        devices = [ "pc" "portable" "laptop" ];
+        ignorePerms = false;
+      };
+      "Archive" = {
+        path = "/synced/Archive";
+        devices = [ "pc" "portable" ];
+        ignorePerms = false;
+      };
+      "Huge Archive" = {
+        path = "/synced/Huge Archive";
+        devices = [ "pc" ];
+        ignorePerms = false;
+      };
+      "Ellida Sync" = {
+        path = "/synced/Ellida Sync";
+        devices = [ "pc" "portable" "laptop" "cDesk" ];
+        ignorePerms = false;
+      };
+      "Ellida Projects" = {
+        path = "/synced/Ellida Projects";
+        devices = [ "pc" "portable" "laptop" "cDesk" ];
+        ignorePerms = true;
+      };
+      "Websites" = {
+        path = "/synced/Websites";
+        devices = [ "pc" "portable" "laptop" "phone" ];
+        ignorePerms = false;
+        rescanInterval = 30;
+      };
+  };
+
+
 
 
 
