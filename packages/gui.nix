@@ -50,7 +50,7 @@ in {
 #     google-chrome
     ungoogled-chromium
     firefox
-#     firefox-devedition-bin-unwrapped
+    firefox-devedition-bin
     element-desktop
     qbittorrent
     lmms

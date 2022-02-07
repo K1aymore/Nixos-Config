@@ -28,21 +28,21 @@
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-666c7a02-fe93-4af0-bd0e-41ba2ace2052".device = "/dev/disk/by-uuid/666c7a02-fe93-4af0-bd0e-41ba2ace2052";
+  boot.initrd.luks.devices."nix".device = "/dev/disk/by-uuid/666c7a02-fe93-4af0-bd0e-41ba2ace2052";
 
   fileSystems."/synced" =
     { device = "/dev/disk/by-uuid/a4c7891f-bc43-4403-ba77-410f7c58b8c5";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-112baf35-dd03-49e2-baed-c9ede97eb328".device = "/dev/disk/by-uuid/112baf35-dd03-49e2-baed-c9ede97eb328";
+  boot.initrd.luks.devices."data".device = "/dev/disk/by-uuid/112baf35-dd03-49e2-baed-c9ede97eb328";
 
   fileSystems."/synced/Archive" =
     { device = "/dev/disk/by-uuid/bcfc8710-26b8-4b2d-a0e5-ac856fe92d74";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-bb813aab-e636-4b0a-97c0-be4c3b379e5d".device = "/dev/disk/by-uuid/bb813aab-e636-4b0a-97c0-be4c3b379e5d";
+  boot.initrd.luks.devices."archive".device = "/dev/disk/by-uuid/bb813aab-e636-4b0a-97c0-be4c3b379e5d";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/DDC1-2082";
