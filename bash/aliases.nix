@@ -25,6 +25,8 @@
     hey="echo hello there";
 
 
+    doom = "~/.emacs.d/bin/doom";
+
 
     rm="rm -i";
 
@@ -56,9 +58,9 @@
 
 
   # programs.bash.shellInit = [
- 
+
     # for i in /synced/Sync/Linux/BashScripts/*; do alias "${i##*/}"="$i"; done
-    
+
   # ];
 
 

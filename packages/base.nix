@@ -23,8 +23,9 @@ in {
       };
     };
   };
-  
+
   environment.systemPackages = with pkgs; [
+    coreutils
     usbutils
     diffutils
     pciutils
@@ -33,6 +34,7 @@ in {
     utillinux
     gnused
     gnugrep
+    ripgrep
     gnutar
     gzip
     xz
@@ -41,6 +43,7 @@ in {
     tzdata
     glibc
     glib
+    clang
 
     brightnessctl
     tlp
@@ -103,12 +106,3 @@ in {
 
 
 }
-
-
-
-
-
-
-
-
-

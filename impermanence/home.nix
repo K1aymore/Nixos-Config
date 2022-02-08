@@ -31,6 +31,11 @@ in
       };
     };
 
+    /* home.file = {
+      ".bashrc".text = ''
+        export PATH=”$PATH:$HOME/.emacs.d/bin”
+      '';
+    }; */
 
 
     home.persistence."/nix/persist/home" = {
@@ -86,6 +91,12 @@ in
 
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
+
+        "Emacs/.emacs.d"
+        "Emacs/.doom.d"
+
+        "VLC/.local/share/vlc"
+        "VLC/.config/vlc"
       ];
       files = [
       ];
