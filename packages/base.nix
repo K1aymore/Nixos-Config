@@ -63,6 +63,7 @@ in {
     htop
     man
     tealdeer
+    httrack
 
     micro
     xclip

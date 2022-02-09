@@ -24,7 +24,7 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-  
+
   hardware.opengl = {
     extraPackages = with pkgs; [
       rocm-opencl-icd
@@ -40,6 +40,10 @@
   networking = {
     hostName = "pc";
     hostId = "7c980de5";  # head -c 8 /etc/machine-id
+    firewall = {
+      allowedTCPPorts = [ 55434 57213 57227 61007 ];
+      allowedUDPPorts = [ 55434 57213 57227 61007 ];
+    };
   };
 
 
