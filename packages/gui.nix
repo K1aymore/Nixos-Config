@@ -23,7 +23,7 @@ in {
       };
     };
   };
-  
+
 
   environment.systemPackages = with pkgs; [
     dolphin
@@ -35,14 +35,15 @@ in {
     atom
     geany
     bluefish
-    vlc
     okular
     gwenview
     clementine
 #     strawberry
-    mediainfo-gui
     krita
+    vlc
+    mpv
     syncplay
+    mediainfo-gui
 
     keepassxc
     libreoffice
@@ -87,12 +88,3 @@ in {
   };
 
 }
-
-
-
-
-
-
-
-
-

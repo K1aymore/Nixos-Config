@@ -44,6 +44,7 @@ in {
     glibc
     glib
     clang
+    libva-utils
 
     brightnessctl
     tlp
