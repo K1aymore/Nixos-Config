@@ -47,7 +47,6 @@ in {
     libva-utils
 
     brightnessctl
-    tlp
 
     cryptsetup
     ntfs3g
@@ -93,6 +92,7 @@ in {
     elinks
 
     mullvad-vpn
+    yggdrasil
     kdeconnect
   ];
 

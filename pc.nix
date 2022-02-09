@@ -12,7 +12,7 @@
       ./packages/gui.nix
 
       ./system/opentablet.nix
-      #./home-manager/home-manager.nix
+      ./system/yggdrasil.nix
 
       ./pc/syncplay.nix
       ./pc/i2p.nix
@@ -41,11 +41,10 @@
     hostName = "pc";
     hostId = "7c980de5";  # head -c 8 /etc/machine-id
     firewall = {
-      allowedTCPPorts = [ 55434 57213 57227 61007 ];
-      allowedUDPPorts = [ 55434 57213 57227 61007 ];
+      allowedTCPPorts = [ 22000 22067 55434 57213 57227 61007 ];
+      allowedUDPPorts = [ 21027 22067 55434 57213 57227 61007 ];
     };
   };
-
 
 
   services.syncthing.folders = {

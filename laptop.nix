@@ -12,7 +12,7 @@
       ./packages/gui.nix
 
       ./system/opentablet.nix
-      #./home-manager/home-manager.nix
+      ./system/yggdrasil.nix
 
       ./impermanence/system.nix
       ./impermanence/home.nix
@@ -28,11 +28,13 @@
     #interfaces.wlp2s0.useDHCP = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22000 22067 ];  # transfers & relay
-      allowedUDPPorts = [ 21027 22067 ];  # discovery
+      allowedTCPPorts = [ 22000 22067 ];  # Syncthing transfers & relay
+      allowedUDPPorts = [ 21027 22067 ];  # Syncthing discovery
     };
   };
 
+
+  services.tlp.enable = true;
 
 
   services.syncthing.folders = {
