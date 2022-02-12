@@ -79,6 +79,8 @@ in
         "Atom/.atom"
         "Clementine/.config/Clementine"
         "Firefox/.mozilla"
+        "Chromium/.cache/chromium"
+        "Chromium/.config/chromium"
 
         "Keepassxc/.cache/keepassxc"
         "Keepassxc/.config/keepassxc"
@@ -91,6 +93,9 @@ in
 
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
+        "Godot/.local/share/godot"
+        "Godot/.cache/godot"
+        "Godot/.config/godot"
 
         "Emacs/.emacs.d"
         "Emacs/.doom.d"

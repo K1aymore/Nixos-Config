@@ -40,6 +40,11 @@
       fsType = "ext4";
     };
 
+  fileSystems."/Games" = {
+    device = "/dev/disk/by-uuid/01D8197C83229370";
+    fsType = "ntfs";
+  };
+
   boot.initrd.luks.devices."luks-89ebb9a7-f363-49c1-9e30-80b04bd3fdef".device = "/dev/disk/by-uuid/89ebb9a7-f363-49c1-9e30-80b04bd3fdef";
 
   swapDevices =

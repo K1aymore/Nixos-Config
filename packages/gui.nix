@@ -59,9 +59,10 @@ in {
     lutris
     discord
 
-    eclipses.eclipse-java
+    /* eclipses.eclipse-java */
 #     jetbrains.idea-community
     vscodium
+    godot
 
 #     fabric-installer
     minecraft

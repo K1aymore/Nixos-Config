@@ -15,7 +15,7 @@
       ./system/yggdrasil.nix
 
       ./pc/syncplay.nix
-      ./pc/i2p.nix
+      /* ./pc/i2p.nix */
 
       ./impermanence/system.nix
       ./impermanence/home.nix
