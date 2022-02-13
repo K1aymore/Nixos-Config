@@ -12,14 +12,13 @@
       ./de/plasma.nix
 
       ./packages/gui.nix
-      
+
       ./server/ssh.nix
 
       ./server/nginx.nix
-      #./server/httpd.nix
       ./server/synapse.nix
+      ./server/minecraft.nix
       # ./server/radicale.nix
-      # ./server/vaultwarden.nix
 
 
       # ./system/opentablet.nix
@@ -102,7 +101,3 @@
 
 
 }
-
-
-
-
