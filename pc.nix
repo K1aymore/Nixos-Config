@@ -12,7 +12,7 @@
       ./packages/gui.nix
 
       ./system/opentablet.nix
-      ./system/yggdrasil.nix
+      /* ./system/yggdrasil.nix */
 
       ./pc/syncplay.nix
       /* ./pc/i2p.nix */
@@ -22,7 +22,6 @@
     ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
-  services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   hardware.opengl = {
@@ -47,6 +46,14 @@
   };
 
 
+  services.boinc = {
+    enable = true;
+    /* dataDir = "/nix/persist/appdata/BOINC"; */
+  };
+  users.users.boinc.extraGroups = [ "video" ];
+
+
+  services.syncthing.relay.port = 61007;
   services.syncthing.folders = {
       "Sync" = {
         path = "/synced/Sync";

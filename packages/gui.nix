@@ -35,18 +35,17 @@ in {
     atom
     geany
     bluefish
+    libreoffice
     okular
     gwenview
     clementine
 #     strawberry
-    krita
     vlc
     mpv
     syncplay
     mediainfo-gui
 
     keepassxc
-    libreoffice
 
 #     google-chrome
     ungoogled-chromium
@@ -54,7 +53,6 @@ in {
 #     firefox-devedition-bin
     element-desktop
     qbittorrent
-    lmms
 
     lutris
     discord
@@ -63,6 +61,9 @@ in {
 #     jetbrains.idea-community
     vscodium
     godot
+    libresprite
+    krita
+    lmms
 
 #     fabric-installer
     minecraft

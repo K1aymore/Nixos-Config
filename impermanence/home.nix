@@ -87,9 +87,9 @@ in
 
         "Libreoffice/.config/libreoffice"
 
-        "JetBrains/.cache/JetBrains"
+        /* "JetBrains/.cache/JetBrains"
         "JetBrains/.config/JetBrains"
-        "JetBrains/.local/share/JetBrains"
+        "JetBrains/.local/share/JetBrains" */
 
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
@@ -97,13 +97,14 @@ in
         "Godot/.cache/godot"
         "Godot/.config/godot"
 
-        "Emacs/.emacs.d"
-        "Emacs/.doom.d"
+        /* "Emacs/.emacs.d"
+        "Emacs/.doom.d" */
 
         "VLC/.local/share/vlc"
         "VLC/.config/vlc"
       ];
       files = [
+        "LMMS/.lmmsrc.xml"
       ];
     };
 
