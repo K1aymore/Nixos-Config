@@ -33,8 +33,8 @@ in {
 
     kate
     atom
-    geany
-    bluefish
+    /* geany
+    bluefish */
     libreoffice
     okular
     gwenview
@@ -44,6 +44,8 @@ in {
     mpv
     syncplay
     mediainfo-gui
+    /* audacity */
+    tenacity
 
     keepassxc
 
@@ -54,7 +56,7 @@ in {
     element-desktop
     qbittorrent
 
-    lutris
+    /* lutris */
     discord
 
     /* eclipses.eclipse-java */
@@ -68,14 +70,15 @@ in {
 #     fabric-installer
     minecraft
     multimc
+    wesnoth
 
     gsettings-desktop-schemas
     gsettings-qt
     v4l-utils
     libv4l
 
-    obs-studio
-    linuxKernel.packages.linux_5_16.v4l2loopback
+    /* obs-studio */
+    /* linuxKernel.packages.linux_5_16.v4l2loopback */
 
   ];
 

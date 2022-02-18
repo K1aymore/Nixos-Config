@@ -1,4 +1,4 @@
- 
+
 { pkgs, lib, ... }:
 
 {
@@ -20,7 +20,7 @@
       "gitea.klaymore.me" = {
         enableACME = true;
         addSSL = true;
-        forceSSL = false;
+        forceSSL = true;
 #         root = "/synced/Websites/gitea.klaymore.me";
 
         # Or do a redirect instead of the 404, or whatever is appropriate for you.
@@ -42,7 +42,6 @@
   services.gitea = {
     enable = true;
     ssh.enable = false;
-
     cookieSecure = true;
 
     stateDir = "/nix/persist/server/gitea/state";

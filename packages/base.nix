@@ -40,7 +40,7 @@ in {
     xz
     zip
     unzip
-    tzdata
+    /* tzdata */
     glibc
     glib
     clang
@@ -51,7 +51,7 @@ in {
     cryptsetup
     ntfs3g
     exfat
-    exfatprogs
+    /* exfatprogs */
     f2fs-tools
     btrfs-progs
     btrfs-heatmap
@@ -92,7 +92,7 @@ in {
     elinks
 
     mullvad-vpn
-    yggdrasil
+    /* yggdrasil */
     kdeconnect
   ];
 

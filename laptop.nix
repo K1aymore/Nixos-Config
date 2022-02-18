@@ -12,7 +12,7 @@
       ./packages/gui.nix
 
       ./system/opentablet.nix
-      ./system/yggdrasil.nix
+      /* ./system/yggdrasil.nix */
 
       ./impermanence/system.nix
       ./impermanence/home.nix
