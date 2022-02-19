@@ -45,7 +45,6 @@ in
         "Autostart/.config/autostart"
         "Pipewire/.local/state/pipewire"
 
-        "Tealdeer/.cache/tealdeer"
         "Element/.config/Element"
         "Element/.pki"
         "Discord/.config/discord"
@@ -75,12 +74,13 @@ in
       allowOther = true;
       directories = [
         "OpenTabletDriver/.config/OpenTabletDriver"
+        "Tealdeer/.cache/tealdeer"
 
         "Atom/.atom"
         "Clementine/.config/Clementine"
         "Firefox/.mozilla"
-        "Chromium/.cache/chromium"
-        "Chromium/.config/chromium"
+        /* "Chromium/.cache/chromium"
+        "Chromium/.config/chromium" */
 
         "Keepassxc/.cache/keepassxc"
         "Keepassxc/.config/keepassxc"
