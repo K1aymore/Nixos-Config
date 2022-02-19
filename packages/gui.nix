@@ -39,7 +39,7 @@ in {
     okular
     gwenview
     clementine
-#     strawberry
+    /* strawberry */
     vlc
     mpv
     syncplay
@@ -49,28 +49,20 @@ in {
 
     keepassxc
 
-#     google-chrome
+    /* google-chrome */
     ungoogled-chromium
     firefox
 #     firefox-devedition-bin
     element-desktop
     qbittorrent
-
-    /* lutris */
     discord
 
     /* eclipses.eclipse-java */
-#     jetbrains.idea-community
     vscodium
     godot
     libresprite
     krita
     lmms
-
-#     fabric-installer
-    minecraft
-    multimc
-    wesnoth
 
     gsettings-desktop-schemas
     gsettings-qt
@@ -85,7 +77,6 @@ in {
 
   programs = {
     partition-manager.enable = true;
-    steam.enable = true;
   };
 
   environment.sessionVariables = {

@@ -9,7 +9,7 @@
       ./system/pipewire.nix
       ./de/plasma.nix
 
-      ./packages/gui.nix
+      ./packages/games.nix
 
       ./system/opentablet.nix
       /* ./system/yggdrasil.nix */
