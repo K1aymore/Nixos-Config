@@ -12,7 +12,7 @@
       ./packages/games.nix
 
       ./system/opentablet.nix
-      /* ./system/yggdrasil.nix */
+      ./system/touchegg.nix
 
       ./impermanence/system.nix
       ./impermanence/home.nix
