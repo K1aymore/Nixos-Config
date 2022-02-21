@@ -47,7 +47,7 @@ in {
       "matrix.klaymore.me" = {
         enableACME = true;
         addSSL = true;
-        forceSSL = false;
+        forceSSL = true;
         root = "/synced/Websites/matrix.klaymore.me";
         # forward all Matrix API calls to the synapse Matrix homeserver
         locations."/_matrix" = {
@@ -82,7 +82,7 @@ in {
     turn_uris = ["turn:matrix.klaymore.me:3478?transport=udp" "turn:matrix.klaymore.me:3478?transport=tcp"];
     turn_shared_secret = "will be world readable for local users";
     turn_user_lifetime = "1h";
-    
+
     enable = true;
     server_name = "klaymore.me";
 
@@ -110,25 +110,3 @@ in {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

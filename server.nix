@@ -18,6 +18,7 @@
       ./server/nginx.nix
       ./server/synapse.nix
       ./server/minecraft.nix
+      ./server/restyaboard.nix
       # ./server/radicale.nix
 
 
