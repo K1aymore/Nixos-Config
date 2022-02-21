@@ -40,12 +40,12 @@
   security.acme.acceptTerms = true;
 
 
-  services.cron = {
+  /* services.cron = {
     enable = true;
     systemCronJobs = [
       "@daily sudo rclone sync /nix/persist /synced/Archive/NixPersist && sudo chown -R klaymore:users /synced/Archive/NixPersist"
     ];
-  };
+  }; */
 
 
   services.syncthing.folders = {
