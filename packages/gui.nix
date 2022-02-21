@@ -33,8 +33,6 @@ in {
 
     kate
     atom
-    /* geany
-    bluefish */
     libreoffice
     okular
     gwenview
@@ -57,8 +55,6 @@ in {
     qbittorrent
     discord
 
-    /* eclipses.eclipse-java */
-    vscodium
     godot
     libresprite
     krita
@@ -68,6 +64,8 @@ in {
     gsettings-qt
     v4l-utils
     libv4l
+
+    exodus
 
     /* obs-studio */
     /* linuxKernel.packages.linux_5_16.v4l2loopback */

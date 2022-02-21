@@ -18,6 +18,11 @@
       fsType = "tmpfs";
     };
 
+  fileSystems."/home/klaymore" =
+    { device = "tmpfs";
+      fsType = "tmpfs";
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/AA62-C2F1";
       fsType = "vfat";

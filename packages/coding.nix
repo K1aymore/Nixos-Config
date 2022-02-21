@@ -12,6 +12,7 @@ let
 in {
 
   imports = [
+    # import stuff here
   ];
 
   nixpkgs.config = {
@@ -26,19 +27,14 @@ in {
 
   environment.systemPackages = with pkgs; [
 
-    /* lutris */
+    /* geany
+    bluefish */
 
-   /* fabric-installer */
-    minecraft
-    multimc
-    wesnoth
-
+    /* eclipses.eclipse-java */
+    jetbrains.idea-community
+    vscodium
   ];
 
-
-  programs = {
-    steam.enable = true;
-  };
 
 
 }

@@ -61,6 +61,8 @@ in
 
         "Steam/.steam"
         "Steam/.local/share/Steam"
+
+        "Exodus/.config/Exodus"
       ];
       files = [
         "Bash/.bash_history"
@@ -87,9 +89,9 @@ in
 
         "Libreoffice/.config/libreoffice"
 
-        /* "JetBrains/.cache/JetBrains"
+        "JetBrains/.cache/JetBrains"
         "JetBrains/.config/JetBrains"
-        "JetBrains/.local/share/JetBrains" */
+        "JetBrains/.local/share/JetBrains"
 
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"

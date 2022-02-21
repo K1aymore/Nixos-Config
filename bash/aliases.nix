@@ -24,7 +24,7 @@
 
     hey="echo hello there";
 
-    fileCount = "find . -type d | cut -d/ -f 2 | uniq -c";
+    fileCount = "find . -type f | cut -d/ -f 2 | uniq -c";
     doom = "~/.emacs.d/bin/doom";
 
 
