@@ -28,15 +28,17 @@
 
   hardware.opengl = {
     extraPackages = with pkgs; [
-      rocm-opencl-icd
-      rocm-opencl-runtime
+      /* rocm-opencl-icd */
+      /* rocm-opencl-runtime */
       vaapiVdpau
       libvdpau-va-gl
+      amdvlk
     ];
     driSupport = true;
     driSupport32Bit = true;
   };
 
+  services.gvfs.enable = true;
 
   networking = {
     hostName = "pc";
@@ -48,11 +50,11 @@
   };
 
 
-  services.boinc = {
+  /* services.boinc = {
     enable = true;
-    /* dataDir = "/nix/persist/appdata/BOINC"; */
+    dataDir = "/nix/persist/appdata/BOINC";
   };
-  users.users.boinc.extraGroups = [ "video" ];
+  users.users.boinc.extraGroups = [ "video" ]; */
 
 
   services.syncthing.relay.port = 61007;

@@ -48,6 +48,8 @@ in
         "Element/.config/Element"
         "Element/.pki"
         "Discord/.config/discord"
+        "Session/.config/Session"
+        "Session/.config/session"
 
         "SSH/.ssh"
         "Mullvad/.config/Mullvad VPN"
@@ -92,21 +94,26 @@ in
         "JetBrains/.cache/JetBrains"
         "JetBrains/.config/JetBrains"
         "JetBrains/.local/share/JetBrains"
-
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
         "Godot/.local/share/godot"
         "Godot/.cache/godot"
         "Godot/.config/godot"
+        "Blender/.config/blender"
 
         /* "Emacs/.emacs.d"
         "Emacs/.doom.d" */
 
         "VLC/.local/share/vlc"
         "VLC/.config/vlc"
+
+        "Syncplay/.config/Syncplay"
       ];
       files = [
         "LMMS/.lmmsrc.xml"
+
+        "Syncplay/.config/syncplay.ini"
+        "Syncplay/.config/syncplayrc"
       ];
     };
 

@@ -34,8 +34,6 @@
   ];
 
 
-  hardware.opengl.driSupport32Bit = true;
-
   networking = {
     networkmanager.enable = true;
     enableIPv6 = true;

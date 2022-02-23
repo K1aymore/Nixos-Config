@@ -45,6 +45,7 @@ in {
     glib
     clang
     libva-utils
+    gvfs
 
     brightnessctl
 

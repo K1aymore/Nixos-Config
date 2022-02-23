@@ -54,8 +54,11 @@ in {
     element-desktop
     qbittorrent
     discord
+    session-desktop-appimage
+    zoom-us
 
     godot
+    blender
     libresprite
     krita
     lmms
