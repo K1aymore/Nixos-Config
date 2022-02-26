@@ -33,6 +33,11 @@ in {
     /* eclipses.eclipse-java */
     jetbrains.idea-community
     vscodium
+
+    qtcreator
+    qt5Full
+    libsForQt5.qmake
+    gdb
   ];
 
 

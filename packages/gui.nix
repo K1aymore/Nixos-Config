@@ -46,6 +46,10 @@ in {
     tenacity
 
     keepassxc
+    libsForQt5.kalk
+    libsForQt5.kcalc
+    speedcrunch
+    libsForQt5.akonadi-calendar
 
     /* google-chrome */
     ungoogled-chromium

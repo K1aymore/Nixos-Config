@@ -1,4 +1,4 @@
- 
+
 { pkgs, lib, config, ... }:
 
 
@@ -46,7 +46,6 @@ in {
       # Reverse proxy for Matrix client-server and server-server communication
       "matrix.klaymore.me" = {
         enableACME = true;
-        addSSL = true;
         forceSSL = true;
         root = "/synced/Websites/matrix.klaymore.me";
         # forward all Matrix API calls to the synapse Matrix homeserver
@@ -69,7 +68,7 @@ in {
     cert = "/nix/persist/server/coturn/full.pem";
     pkey = "/nix/persist/server/coturn/key.pem";
   };
-  
+
   /*
   security.acme.certs."matrix.klaymore.me" = {
     /* insert here the right configuration to obtain a certificate
@@ -77,7 +76,7 @@ in {
     group = "turnserver";
   };
   */
-  
+
   services.matrix-synapse = {
     turn_uris = ["turn:matrix.klaymore.me:3478?transport=udp" "turn:matrix.klaymore.me:3478?transport=tcp"];
     turn_shared_secret = "will be world readable for local users";

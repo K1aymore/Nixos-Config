@@ -79,6 +79,8 @@ in
       directories = [
         "OpenTabletDriver/.config/OpenTabletDriver"
         "Tealdeer/.cache/tealdeer"
+        "AWSCLI/.aws"
+        "Rclone/.config/rclone"
 
         "Atom/.atom"
         "Clementine/.config/Clementine"
@@ -94,6 +96,9 @@ in
         "JetBrains/.cache/JetBrains"
         "JetBrains/.config/JetBrains"
         "JetBrains/.local/share/JetBrains"
+
+        "QtCreator/.cache/QtProject"
+        "QtCreator/.config/QtProject"
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
         "Godot/.local/share/godot"
@@ -114,6 +119,7 @@ in
 
         "Syncplay/.config/syncplay.ini"
         "Syncplay/.config/syncplayrc"
+        "QtCreator/.config/QtProject.conf"
       ];
     };
 
