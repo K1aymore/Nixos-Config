@@ -63,7 +63,6 @@ in {
     htop
     man
     tealdeer
-    httrack
     awscli2
 
     micro
