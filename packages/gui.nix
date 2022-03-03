@@ -40,18 +40,22 @@ in {
     /* strawberry */
     vlc
     mpv
-    syncplay
     mediainfo-gui
     /* audacity */
     tenacity
 
+    syncplay
+    python39Packages.certifi
+    python39Packages.twisted
+
     keepassxc
+
     libsForQt5.kalk
     libsForQt5.kcalc
     speedcrunch
     libsForQt5.akonadi-calendar
 
-    /* google-chrome */
+    google-chrome
     ungoogled-chromium
     firefox
 #     firefox-devedition-bin
@@ -74,6 +78,7 @@ in {
 
     exodus
 
+    nottetris2
     /* obs-studio */
     /* linuxKernel.packages.linux_5_16.v4l2loopback */
 

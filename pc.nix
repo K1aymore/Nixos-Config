@@ -14,7 +14,7 @@
       ./packages/coding.nix
 
       ./system/opentablet.nix
-      /* ./system/yggdrasil.nix */
+      ./system/ipfs.nix
 
       ./pc/syncplay.nix
       /* ./pc/i2p.nix */

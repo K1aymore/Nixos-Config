@@ -34,6 +34,7 @@ in {
     utillinux
     gnused
     gnugrep
+    gnupg
     ripgrep
     gnutar
     gzip
@@ -64,6 +65,8 @@ in {
     man
     tealdeer
     awscli2
+    httrack
+    elinks
 
     micro
     xclip
@@ -88,9 +91,8 @@ in {
     lolcat
     thefuck
     hello
-    nottetris2
+    vitetris
 
-    elinks
 
     mullvad-vpn
     /* yggdrasil */

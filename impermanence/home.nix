@@ -44,6 +44,8 @@ in
       directories = [
         "Autostart/.config/autostart"
         "Pipewire/.local/state/pipewire"
+        
+        "Blender/.config/blender"
 
         "Element/.config/Element"
         "Element/.pki"
@@ -90,6 +92,7 @@ in
 
         "Keepassxc/.cache/keepassxc"
         "Keepassxc/.config/keepassxc"
+        "GPG/.gnupg"
 
         "Libreoffice/.config/libreoffice"
 
@@ -104,7 +107,6 @@ in
         "Godot/.local/share/godot"
         "Godot/.cache/godot"
         "Godot/.config/godot"
-        "Blender/.config/blender"
 
         /* "Emacs/.emacs.d"
         "Emacs/.doom.d" */

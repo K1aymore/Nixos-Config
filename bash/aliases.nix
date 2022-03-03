@@ -33,6 +33,7 @@
     eleventy = "npx @11ty/eleventy";
     webFullMirror = "wget --mirror --convert-links --adjust-extension --page-requisites";
     webMirror = "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent";
+    rcloneS3 = "rclone sync --fast-list --checksum --progress";
 
     jcr = "javac *.java && java";
 
