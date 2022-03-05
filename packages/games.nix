@@ -26,7 +26,8 @@ in {
 
   environment.systemPackages = with pkgs; [
 
-    /* lutris */
+    wine
+    lutris
 
    /* fabric-installer */
     minecraft

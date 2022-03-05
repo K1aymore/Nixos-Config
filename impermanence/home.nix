@@ -62,6 +62,8 @@ in
         "Minecraft/.minecraft"
         "Multimc/.local/share/multimc"
         "Gradle/.gradle"
+        
+        "Wine/.wine"
 
         "Steam/.steam"
         "Steam/.local/share/Steam"

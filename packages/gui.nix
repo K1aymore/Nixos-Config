@@ -30,6 +30,8 @@ in {
     filelight
     gparted
     ark
+    libsForQt5.kio
+    pavucontrol
 
     kate
     atom
@@ -61,6 +63,8 @@ in {
 #     firefox-devedition-bin
     element-desktop
     qbittorrent
+    onionshare-gui
+    tor-browser-bundle-bin
     discord
     session-desktop-appimage
     zoom-us
