@@ -28,10 +28,11 @@ in {
 
     wine
     lutris
+    grapejuice
 
    /* fabric-installer */
     minecraft
-    multimc
+    polymc
     wesnoth
 
   ];

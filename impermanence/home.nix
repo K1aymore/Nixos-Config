@@ -60,7 +60,7 @@ in
         "qBittorrent/.cache/qBittorrent"
 
         "Minecraft/.minecraft"
-        "Multimc/.local/share/multimc"
+        "Polymc/.local/share/polymc"
         "Gradle/.gradle"
         
         "Wine/.wine"
@@ -72,7 +72,7 @@ in
       ];
       files = [
         "Bash/.bash_history"
-        "Multimc/.config/MultiMC5rc"
+        "Polymc/.config/PolyMCrc"
       ];
     };
 

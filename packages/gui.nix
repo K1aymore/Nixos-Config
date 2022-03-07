@@ -43,7 +43,7 @@ in {
     vlc
     mpv
     mediainfo-gui
-    /* audacity */
+    audacity
     tenacity
 
     syncplay
@@ -82,7 +82,6 @@ in {
 
     exodus
 
-    nottetris2
     /* obs-studio */
     /* linuxKernel.packages.linux_5_16.v4l2loopback */
 
