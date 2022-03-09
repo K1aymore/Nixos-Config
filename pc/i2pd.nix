@@ -9,6 +9,12 @@
   };
 
   # uses port 7657 for console
-  services.i2p.enable = true;
+  services.i2pd = {
+    enable = true;
+    port = 57213;
+    enableIPv6 = true;
+    
+    dataDir = "/synced/other/i2pd";
 
+  };
 }

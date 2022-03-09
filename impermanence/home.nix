@@ -44,14 +44,14 @@ in
       directories = [
         "Autostart/.config/autostart"
         "Pipewire/.local/state/pipewire"
-        
+        "Pipewire/.config/pulse"
+
         "Blender/.config/blender"
 
         "Element/.config/Element"
         "Element/.pki"
         "Discord/.config/discord"
         "Session/.config/Session"
-        "Session/.config/session"
 
         "SSH/.ssh"
         "Mullvad/.config/Mullvad VPN"
@@ -62,7 +62,7 @@ in
         "Minecraft/.minecraft"
         "Polymc/.local/share/polymc"
         "Gradle/.gradle"
-        
+
         "Wine/.wine"
 
         "Steam/.steam"
@@ -137,6 +137,7 @@ in
         ".config/KDE"
         ".config/kde.org"
         ".config/plasma-workspace"
+        ".config/session"
         ".config/xsettingsd"
         ".kde"
 

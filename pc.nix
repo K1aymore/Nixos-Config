@@ -14,11 +14,11 @@
       ./packages/coding.nix
 
       ./system/opentablet.nix
-      ./system/ipfs.nix
 
+      ./system/ipfs.nix
+      ./pc/i2pd.nix
       ./pc/syncplay.nix
       ./server/minecraft.nix
-      /* ./pc/i2p.nix */
 
       ./impermanence/system.nix
       ./impermanence/home.nix
@@ -32,8 +32,8 @@
       /* rocm-opencl-icd
       rocm-opencl-runtime */
       /* vaapiVdpau
-      libvdpau-va-gl
-      amdvlk */
+      libvdpau-va-gl */
+      amdvlk
     ];
     driSupport = true;
     driSupport32Bit = true;

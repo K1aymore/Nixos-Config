@@ -73,6 +73,7 @@ in {
     blender
     libresprite
     krita
+    libsForQt5.kdenlive
     lmms
 
     gsettings-desktop-schemas

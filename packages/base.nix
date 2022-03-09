@@ -93,6 +93,8 @@ in {
     thefuck
     hello
     vitetris
+    asciiquarium
+    oneko
 
 
     mullvad-vpn
