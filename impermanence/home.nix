@@ -24,12 +24,6 @@ in
     programs = {
       home-manager.enable = true;
 
-      git = {
-        enable = true;
-        userName  = "Klaymore";
-        userEmail = "klaymorer@protonmail.com";
-      };
-
     };
 
     /* home.file = {
@@ -78,17 +72,18 @@ in
     };
 
 
-    home.persistence."/nix/dotfiles" = {         # synced dotfiles - shared with other computers
+    home.persistence."/nix/dotfiles" = {
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
         "OpenTabletDriver/.config/OpenTabletDriver"
+
         "Tealdeer/.cache/tealdeer"
         "AWSCLI/.aws"
         "Rclone/.config/rclone"
+        "GitHubCLI/.config/gh"
+        "Git/.config/git"
 
-        "Atom/.atom"
-        "Clementine/.config/Clementine"
         "Firefox/.mozilla"
         /* "Chromium/.cache/chromium"
         "Chromium/.config/chromium" */
@@ -99,21 +94,22 @@ in
 
         "Libreoffice/.config/libreoffice"
 
+        "Atom/.atom"
+        "Godot/.local/share/godot"
+        "Godot/.cache/godot"
+        "Godot/.config/godot"
         "JetBrains/.cache/JetBrains"
         "JetBrains/.config/JetBrains"
         "JetBrains/.local/share/JetBrains"
-
         "QtCreator/.cache/QtProject"
         "QtCreator/.config/QtProject"
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
-        "Godot/.local/share/godot"
-        "Godot/.cache/godot"
-        "Godot/.config/godot"
 
         /* "Emacs/.emacs.d"
         "Emacs/.doom.d" */
 
+        "Clementine/.config/Clementine"
         "VLC/.local/share/vlc"
         "VLC/.config/vlc"
 
