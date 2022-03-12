@@ -26,7 +26,8 @@ in {
 
 
   environment.systemPackages = with pkgs; [
-
+    gh
+    
     /* geany
     bluefish */
 

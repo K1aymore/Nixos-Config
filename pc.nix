@@ -16,9 +16,9 @@
       ./system/opentablet.nix
 
       ./system/ipfs.nix
-      ./pc/i2pd.nix
       ./pc/syncplay.nix
-      ./server/minecraft.nix
+      /* ./pc/i2pd.nix */
+      /* ./server/minecraft.nix */
 
       ./impermanence/system.nix
       ./impermanence/home.nix
