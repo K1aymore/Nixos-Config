@@ -81,7 +81,6 @@ in {
     v4l-utils
     libv4l
 
-    exodus
 
     /* obs-studio */
     /* linuxKernel.packages.linux_5_16.v4l2loopback */

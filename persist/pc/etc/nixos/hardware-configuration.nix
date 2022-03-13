@@ -16,13 +16,13 @@
   fileSystems."/" = {
       device = "tmpfs";
       fsType = "tmpfs";
-      options = [ "size=2G" "mode=755" ];
+      options = [ "size=4G" "mode=755" ];
     };
 
   fileSystems."/home/klaymore" = {
       device = "tmpfs";
       fsType = "tmpfs";
-      options = [ "size=3G" "mode=777" ];
+      options = [ "size=2G" "mode=777" ];
     };
 
   fileSystems."/boot" = {

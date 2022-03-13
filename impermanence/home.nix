@@ -39,6 +39,7 @@ in
       directories = [
         "Autostart/.config/autostart"
         "Pipewire/.local/state/pipewire"
+        "Pipewire/.local/state/wireplumber"
         "Pipewire/.config/pulse"
 
         "Blender/.config/blender"

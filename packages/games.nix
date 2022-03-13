@@ -29,6 +29,7 @@ in {
     wine
     lutris
     grapejuice
+    protonup
 
    /* fabric-installer */
     minecraft
