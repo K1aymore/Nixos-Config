@@ -5,11 +5,11 @@
 
   services.ipfs = {
     enable = true;
-    dataDir = "/synced/other/ipfs";
+    dataDir = "/nix/persist/ipfs";
     localDiscovery = true;
     gatewayAddress = "/ip4/127.0.0.1/tcp/8081";
     startWhenNeeded = true;
-    
+
     swarmAddress = [
     "/ip4/0.0.0.0/tcp/55434"
     "/ip6/::/tcp/55434"

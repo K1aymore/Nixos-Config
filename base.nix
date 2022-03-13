@@ -54,6 +54,7 @@
 
   hardware.bluetooth.enable = true;
 
+  boot.initrd.network.enable = true;
 
   # ZFS support
   boot.initrd.supportedFilesystems = ["zfs"]; # boot from zfs

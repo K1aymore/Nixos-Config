@@ -4,9 +4,9 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "uas" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
@@ -16,7 +16,7 @@
   fileSystems."/" = {
       device = "tmpfs";
       fsType = "tmpfs";
-      options = [ "size=4G" "mode=755" ];
+      options = [ "size=10G" "mode=755" ];
     };
 
   fileSystems."/home/klaymore" = {
@@ -42,7 +42,7 @@
 
   boot.initrd.luks.devices."luks-a1d87862-3676-4f71-ab9d-2d63734eb5b2".device = "/dev/disk/by-uuid/a1d87862-3676-4f71-ab9d-2d63734eb5b2";
 
-  fileSystems."/synced/Huge Archive" = {
+  fileSystems."/synced/HugeArchive" = {
       device = "/dev/disk/by-uuid/764e306b-807f-4fe8-b9ad-8401c384f40e";
       fsType = "ext4";
     };

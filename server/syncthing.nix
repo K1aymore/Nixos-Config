@@ -56,17 +56,17 @@
         ignorePerms = false;
       };
       "Huge Archive" = {
-        path = "/synced/Huge Archive";
+        path = "/synced/HugeArchive";
         devices = [ "pc" ];
         ignorePerms = false;
       };
       "Ellida Sync" = {
-        path = "/synced/Ellida Sync";
+        path = "/synced/EllidaSync";
         devices = [ "pc" "portable" "laptop" "cDesk" ];
         ignorePerms = false;
       };
       "Ellida Projects" = {
-        path = "/synced/Ellida Projects";
+        path = "/synced/EllidaProjects";
         devices = [ "pc" "portable" "laptop" "cDesk" ];
         ignorePerms = true;
       };

@@ -65,6 +65,7 @@ in {
     htop
     man
     tealdeer
+    nixos-option
     awscli2
     httrack
     elinks
