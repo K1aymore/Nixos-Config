@@ -5,7 +5,7 @@
 
   services.ipfs = {
     enable = true;
-    dataDir = "/nix/persist/ipfs";
+    dataDir = "/nix/persist/appdata/ipfs";
     localDiscovery = true;
     gatewayAddress = "/ip4/127.0.0.1/tcp/8081";
     startWhenNeeded = true;
