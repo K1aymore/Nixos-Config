@@ -27,6 +27,7 @@
 
   networking = {
     hostName = "laptop";
+    hostId = "e86a53d5";  # head -c 8 /etc/machine-id
     #interfaces.wlp2s0.useDHCP = true;
     firewall = {
       enable = true;

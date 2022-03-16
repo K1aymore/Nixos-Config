@@ -122,6 +122,7 @@ in
         "Syncplay/.config/syncplay.ini"
         "Syncplay/.config/syncplayrc"
         "QtCreator/.config/QtProject.conf"
+        "QtCreator/.config/QtCreatorrc"
       ];
     };
 
