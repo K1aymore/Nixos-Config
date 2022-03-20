@@ -3,22 +3,24 @@
 {
 
   imports = [
-      ./base.nix
-      ./locale/colemak.nix
-      ./locale/losAngeles.nix
-      ./system/pipewire.nix
-      ./de/plasma.nix
+    ./base.nix
+    ./locale/colemak.nix
+    ./locale/losAngeles.nix
+    ./system/pipewire.nix
+	  ./de/sway.nix
+    ./de/plasma.nix
 
-      ./packages/gui.nix
-      ./packages/games.nix
-      ./packages/coding.nix
+    ./packages/gui.nix
+    ./packages/games.nix
+    ./packages/coding.nix
 
-      ./system/opentablet.nix
-      ./system/touchegg.nix
+    ./system/opentablet.nix
+    ./system/touchegg.nix
 
-      ./impermanence/system.nix
-      ./impermanence/home.nix
-    ];
+    ./impermanence/system.nix
+    ./impermanence/home.nix
+  ];
+
 
   environment.variables = {
     XKB_DEFAULT_VARIANT = "colemak";
@@ -36,6 +38,7 @@
     };
   };
 
+  /* services.xserver.displayManager.startx.enable = true; */
 
   services.tlp.enable = true;
 

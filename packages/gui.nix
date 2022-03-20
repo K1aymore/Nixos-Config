@@ -81,6 +81,8 @@ in {
     v4l-utils
     libv4l
 
+    xfce.xfce4-terminal
+
 
     /* obs-studio */
     /* linuxKernel.packages.linux_5_16.v4l2loopback */

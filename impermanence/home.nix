@@ -78,6 +78,7 @@ in
       allowOther = true;
       directories = [
         "OpenTabletDriver/.config/OpenTabletDriver"
+		    "Sway/.config/sway"
 
         "Tealdeer/.cache/tealdeer"
         "AWSCLI/.aws"
@@ -107,8 +108,8 @@ in
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
 
-        /* "Emacs/.emacs.d"
-        "Emacs/.doom.d" */
+        "Emacs/.emacs.d"
+        "Emacs/.doom.d"
 
         "Clementine/.config/Clementine"
         "VLC/.local/share/vlc"

@@ -69,6 +69,8 @@ in {
     awscli2
     httrack
     elinks
+    links2
+    w3m
 
     micro
     xclip
