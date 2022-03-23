@@ -75,6 +75,7 @@ in {
     micro
     xclip
     neovim
+    vim
     emacs
     fd
     ranger

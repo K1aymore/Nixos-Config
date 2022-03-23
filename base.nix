@@ -33,6 +33,9 @@
     font-awesome_4
   ];
 
+  nix.extraOptions = ''
+    experimental-features = nix-command
+  '';
 
   networking = {
     networkmanager.enable = true;

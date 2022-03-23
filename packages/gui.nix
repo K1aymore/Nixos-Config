@@ -31,7 +31,12 @@ in {
     gparted
     ark
     libsForQt5.kio
+    spectacle
     pavucontrol
+    qjackctl
+    carla
+    gnome.gnome-bluetooth
+    gnome.gnome-control-center
 
     kate
     atom

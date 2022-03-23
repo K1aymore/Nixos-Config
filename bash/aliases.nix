@@ -10,7 +10,9 @@
     nrbu = "sudo nixos-rebuild boot --upgrade";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
-	  conf = "cd /nix/cfg";
+    e = "nvim";
+    conf = "cd /nix/cfg";
+    cdhw = "cd /synced/Sync/12th\ Grade";
 
     yd = "/synced/Sync/Linux/BashScripts/yd";
 

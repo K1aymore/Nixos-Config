@@ -39,7 +39,8 @@
 
   fileSystems."/synced" = {
     device = "/dev/disk/by-uuid/578ff020-2da7-497d-af01-f8983e1c2e40";
-    fsType = "ext4";
+    #device = "serverlan:/synced";
+    #fsType = "ext4";
   };
 
   boot.initrd.luks.devices."luks-a1d87862-3676-4f71-ab9d-2d63734eb5b2".device = "/dev/disk/by-uuid/a1d87862-3676-4f71-ab9d-2d63734eb5b2";
@@ -50,7 +51,7 @@
   };
 
   fileSystems."/Games" = {
-    device = "/dev/disk/by-uuid/01D834470BA0CE80";
+    device = "/dev/disk/by-uuid/01D83C2C20EC6320";
     fsType = "ntfs";
   };
 

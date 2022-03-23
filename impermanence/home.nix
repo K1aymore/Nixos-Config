@@ -49,6 +49,7 @@ in
         "Discord/.config/discord"
         "Session/.config/Session"
 
+        "Firefox/.mozilla"
         "SSH/.ssh"
         "Mullvad/.config/Mullvad VPN"
         "qBittorrent/.local/share/qBittorrent"
@@ -86,7 +87,6 @@ in
         "GitHubCLI/.config/gh"
         "Git/.config/git"
 
-        "Firefox/.mozilla"
         /* "Chromium/.cache/chromium"
         "Chromium/.config/chromium" */
 

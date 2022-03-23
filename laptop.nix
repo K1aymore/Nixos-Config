@@ -7,8 +7,8 @@
     ./locale/colemak.nix
     ./locale/losAngeles.nix
     ./system/pipewire.nix
-	  ./de/sway.nix
-    ./de/plasma.nix
+    ./de/sway.nix
+    #./de/plasma.nix
 
     ./packages/gui.nix
     ./packages/games.nix
@@ -38,7 +38,7 @@
     };
   };
 
-  /* services.xserver.displayManager.startx.enable = true; */
+  services.xserver.displayManager.startx.enable = true; 
 
   services.tlp.enable = true;
 

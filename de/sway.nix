@@ -9,6 +9,7 @@
       swaylock
       swayidle
       wl-clipboard
+      wob
       mako # notification daemon
       alacritty # Alacritty is the default terminal in the config
       dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
