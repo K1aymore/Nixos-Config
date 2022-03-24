@@ -32,6 +32,7 @@
 
   networking = {
     hostName = "server";
+    hostId = "03828261";
     domain = "klaymore.me";
   };
 
@@ -74,11 +75,11 @@
         devices = [ "pc" "portable" ];
         ignorePerms = false;
       };
-      "Huge Archive" = {
+      /*"Huge Archive" = {
         path = "/synced/Huge Archive";
         devices = [ "pc" ];
         ignorePerms = false;
-      };
+      };*/
       "Ellida Sync" = {
         path = "/synced/Ellida Sync";
         devices = [ "pc" "portable" "laptop" "cDesk" ];

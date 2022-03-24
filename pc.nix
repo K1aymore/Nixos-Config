@@ -85,11 +85,11 @@
         devices = [ "server" "portable" ];
         ignorePerms = false;
       };
-      "Huge Archive" = {
+      /* "Huge Archive" = {
         path = "/synced/HugeArchive";
         devices = [ "server" ];
         ignorePerms = false;
-      };
+      }; */
       "Ellida Sync" = {
         path = "/synced/EllidaSync";
         devices = [ "server" "laptop" "portable" "cDesk" ];

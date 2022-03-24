@@ -10,8 +10,7 @@
     nrbu = "sudo nixos-rebuild boot --upgrade";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
-    e = "nvim";
-    conf = "cd /nix/cfg";
+    cfg = "cd /nix/cfg";
     cdhw = "cd /synced/Sync/12th\ Grade";
 
     yd = "/synced/Sync/Linux/BashScripts/yd";
@@ -39,7 +38,7 @@
     webMirror = "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent";
     rcloneS3 = "rclone sync --fast-list --checksum --progress";
 
-    jcr = "javac *.java && java";
+    jcr = "/synced/Sync/Linux/BashScripts/jcr";
 
 
 #   nbrc = "$EDITOR ~/.bashrc && source ~/.bashrc"

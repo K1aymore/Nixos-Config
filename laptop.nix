@@ -25,7 +25,8 @@
   environment.variables = {
     XKB_DEFAULT_VARIANT = "colemak";
   };
-
+  
+  services.getty.autologinUser = "klaymore";
 
   networking = {
     hostName = "laptop";

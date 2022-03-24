@@ -79,6 +79,7 @@ in {
     emacs
     fd
     ranger
+    bat
 
     ffmpeg
     yt-dlp

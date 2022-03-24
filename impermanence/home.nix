@@ -14,6 +14,9 @@ in
 
 
   programs.fuse.userAllowOther = true;
+  
+
+
 
 
   home-manager.users.klaymore = {
@@ -24,7 +27,25 @@ in
     programs = {
       home-manager.enable = true;
 
+      neovim = {
+        enable = true;
+        vimAlias = true;
+	viAlias = true;
+        vimdiffAlias = true;
+
+        coc.enable = true;
+        plugins = with pkgs.vimPlugins; [ vim-airline nerdtree vim-nix ];
+
+        extraConfig = ''
+          syntax on
+          set number
+          set relativenumber
+        '';
+      };
+
     };
+
+
 
     /* home.file = {
       ".bashrc".text = ''
@@ -79,7 +100,7 @@ in
       allowOther = true;
       directories = [
         "OpenTabletDriver/.config/OpenTabletDriver"
-		    "Sway/.config/sway"
+        "Sway/.config/sway"
 
         "Tealdeer/.cache/tealdeer"
         "AWSCLI/.aws"
