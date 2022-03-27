@@ -65,6 +65,7 @@ in {
     google-chrome
     ungoogled-chromium
     firefox
+    librewolf
 #     firefox-devedition-bin
     element-desktop
     qbittorrent

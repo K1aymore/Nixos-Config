@@ -10,10 +10,13 @@
     nrbu = "sudo nixos-rebuild boot --upgrade";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
-    cfg = "cd /nix/cfg";
-    cdhw = "cd /synced/Sync/12th\ Grade";
+    conf = "cd /nix/cfg";
 
     yd = "/synced/Sync/Linux/BashScripts/yd";
+    jcr = "/synced/Sync/Linux/BashScripts/jcr";
+    j = "java";
+    ecw = "source /synced/Sync/Linux/BashScripts/ecw";
+    bashscr = "cd /synced/Sync/Linux/BashScripts";
 
 
     brup = "brightnessctl set 5+%";
@@ -24,7 +27,9 @@
     batlvl = "cat /sys/class/power_supply/BAT1/capacity";
 
     hey = "echo hello there";
+    claer = "tree / | lolcat";
 
+    findSyncConflict = ''find . -name "*sync-conflict*"'';
     fileCount = "find . -type f | cut -d/ -f 2 | uniq -c";
     doom = "~/.emacs.d/bin/doom";
 
@@ -38,7 +43,6 @@
     webMirror = "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent";
     rcloneS3 = "rclone sync --fast-list --checksum --progress";
 
-    jcr = "/synced/Sync/Linux/BashScripts/jcr";
 
 
 #   nbrc = "$EDITOR ~/.bashrc && source ~/.bashrc"

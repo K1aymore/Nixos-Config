@@ -28,6 +28,7 @@ in {
 
     wine
     lutris
+    /* playonlinux */
     grapejuice
     protonup
 

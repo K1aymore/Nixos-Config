@@ -75,11 +75,15 @@ in {
     micro
     xclip
     neovim
+    universal-ctags
     vim
     emacs
     fd
     ranger
     bat
+    sc-im
+
+    jdk8
 
     ffmpeg
     yt-dlp
@@ -108,14 +112,13 @@ in {
   ];
 
 
-  networking.firewall.checkReversePath = "loose";
-  networking.wireguard.enable = true;
-  services.mullvad-vpn.enable = true;
-
-
   programs = {
     java.enable = true;
   };
+
+  networking.firewall.checkReversePath = "loose";
+  networking.wireguard.enable = true;
+  services.mullvad-vpn.enable = true;
 
 
 }

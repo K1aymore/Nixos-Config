@@ -13,11 +13,11 @@
       ./packages/games.nix
       ./packages/coding.nix
 
-      /* ./system/opentablet.nix */
+      ./system/opentablet.nix
 
       ./system/ipfs.nix
       ./pc/syncplay.nix
-      /* ./pc/i2pd.nix */
+      ./pc/i2pd.nix
       /* ./server/minecraft.nix */
 
       ./impermanence/system.nix

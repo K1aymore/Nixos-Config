@@ -14,9 +14,6 @@ in
 
 
   programs.fuse.userAllowOther = true;
-  
-
-
 
 
   home-manager.users.klaymore = {
@@ -30,16 +27,23 @@ in
       neovim = {
         enable = true;
         vimAlias = true;
-	viAlias = true;
+	      viAlias = true;
         vimdiffAlias = true;
 
-        coc.enable = true;
-        plugins = with pkgs.vimPlugins; [ vim-airline nerdtree vim-nix ];
+        # coc.enable = true;
+        # nerdtree vim-airline ultisnips
+        plugins = with pkgs.vimPlugins; [ vim-nix tagbar indentLine vim-closer YouCompleteMe ]; 
 
         extraConfig = ''
           syntax on
           set number
           set relativenumber
+
+          set expandtab
+          set tabstop=2
+          set shiftwidth=2
+          set softtabstop=2
+          
         '';
       };
 
@@ -82,6 +86,7 @@ in
         "Gradle/.gradle"
 
         "Wine/.wine"
+        "PlayOnLinux/.PlayOnLinux"
 
         "Steam/.steam"
         "Steam/.local/share/Steam"
