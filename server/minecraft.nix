@@ -7,7 +7,7 @@
     eula = true;
     declarative = true;
     openFirewall = true;
-    /* package = pkgs.minecraft-fabric-server; */
+    /* package = pkgs.minecraftServers.fabric; */
 
     dataDir = "/nix/persist/server/Minecraft";
     jvmOpts = "-Xmx8192M -Xms8192M";

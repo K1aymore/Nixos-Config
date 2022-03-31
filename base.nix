@@ -25,11 +25,11 @@
     liberation_ttf
     fira-code
     fira-code-symbols
-    mplus-outline-fonts
+    #mplus-outline-fonts
     dina-font
     proggyfonts
 
-    font-awesome
+    #font-awesome
     font-awesome_4
   ];
 
@@ -80,7 +80,8 @@
       "pc" = { id = "DVE2QBI-74SE2H7-T5Y6MAY-JMYH7BD-TRILYYI-3QLJO72-LT3BMCR-CMMNFQB"; };
       "laptop" = { id = "NIOZEVB-77F44UB-NTNFBCT-CRGPRRZ-YT73MD6-TFZ77XH-PFDTJWR-JHU7QQE"; };
       "portable" = { id = "XRMEW3S-FABIUWA-BDL7YIX-AO2JD77-F6P2NOD-PRDCDV4-QZIZEHX-Q6ASDQS"; };
-      "phone" = { id = "2L2KW2W-BBEZ7LT-Z7OZDUO-RKTIXMW-LYWDTNR-Q2TABSU-4V7GM7R-VPSKIAZ"; };
+      "pixel" = { id = "2L2KW2W-BBEZ7LT-Z7OZDUO-RKTIXMW-LYWDTNR-Q2TABSU-4V7GM7R-VPSKIAZ"; };
+      "pinephone" = { id = "JV7MRGF-3EWPV6T-RSWGPCM-BEF6XTZ-V25WSAA-JANBISL-SGKVZFH-6OKUQQ7"; };
       "cDesk" = { id = "RLFHUVQ-HXAGZ54-DGEN2S3-YRHRWID-D6Q4S4B-PNOCIDP-T2NNWZP-GPY5NQG"; };
     };
   };

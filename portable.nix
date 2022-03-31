@@ -30,7 +30,7 @@
   services.syncthing.folders = {
     "Sync" = {
       path = "/synced/Sync";
-      devices = [ "server" "pc" "laptop" "phone" ];
+      devices = [ "server" "pc" "laptop" "pinephone" "pixel" ];
       ignorePerms = false;
     };
     "Dotfiles" = {
@@ -40,7 +40,7 @@
     };
     "NixCfg" = {
       path = "/nix/cfg";
-      devices = [ "server" "pc" "laptop" "phone" ];
+      devices = [ "server" "pc" "laptop" "pinephone" "pixel" ];
       ignorePerms = false;
     };
     "Projects" = {
@@ -55,7 +55,7 @@
     };
     "Ellida Sync" = {
       path = "/synced/Ellida Sync";
-      devices = [ "server" "pc" "laptop" "cDesk" ];
+      devices = [ "server" "pc" "cDesk" ];
       ignorePerms = false;
     };
     "Ellida Projects" = {
@@ -65,7 +65,7 @@
     };
     "Websites" = {
       path = "/synced/Websites";
-      devices = [ "server" "pc" "laptop" "phone" ];
+      devices = [ "server" "pc" "laptop" "pinephone" "pixel" ];
       ignorePerms = false;
     };
   };

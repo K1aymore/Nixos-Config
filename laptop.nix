@@ -25,7 +25,7 @@
   environment.variables = {
     XKB_DEFAULT_VARIANT = "colemak";
   };
-  
+
   services.getty.autologinUser = "klaymore";
 
   networking = {
@@ -45,9 +45,14 @@
 
 
   services.syncthing.folders = {
+    "Archive" = {
+      path = "/synced/Archive";
+      devices = [ "server" "pc" "portable" ];
+      ignorePerms = false;
+    };
     "Sync" = {
       path = "/synced/Sync";
-      devices = [ "server" "pc" "portable" "phone" ];
+      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
       ignorePerms = false;
     };
     "Dotfiles" = {
@@ -57,7 +62,7 @@
     };
     "NixCfg" = {
       path = "/nix/cfg";
-      devices = [ "server" "pc" "portable" "phone" ];
+      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
       ignorePerms = false;
     };
     "Projects" = {
@@ -65,11 +70,11 @@
       devices = [ "server" "pc" "portable" ];
       ignorePerms = false;
     };
-    "Ellida Sync" = {
+    /* "Ellida Sync" = {
       path = "/synced/Ellida Sync";
       devices = [ "server" "pc" "portable" "cDesk" ];
       ignorePerms = false;
-    };
+    }; */
     "Ellida Projects" = {
       path = "/synced/Ellida Projects";
       devices = [ "server" "pc" "portable" "cDesk" ];
@@ -77,7 +82,7 @@
     };
     "Websites" = {
       path = "/synced/Websites";
-      devices = [ "server" "pc" "portable" "phone" ];
+      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
       ignorePerms = false;
       rescanInterval = 30;
     };

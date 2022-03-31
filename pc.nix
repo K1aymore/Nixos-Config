@@ -17,7 +17,8 @@
 
       ./system/ipfs.nix
       ./pc/syncplay.nix
-      ./pc/i2pd.nix
+      ./pc/jellyfin.nix
+      /* ./pc/i2pd.nix */
       /* ./server/minecraft.nix */
 
       ./impermanence/system.nix
@@ -62,7 +63,7 @@
   services.syncthing.folders = {
       "Sync" = {
         path = "/synced/Sync";
-        devices = [ "server" "laptop" "portable" "phone" ];
+        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
         ignorePerms = false;
       };
       "Dotfiles" = {
@@ -72,7 +73,7 @@
       };
       "NixCfg" = {
         path = "/nix/cfg";
-        devices = [ "server" "laptop" "portable" "phone" ];
+        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
         ignorePerms = false;
       };
       "Projects" = {
@@ -92,7 +93,7 @@
       }; */
       "Ellida Sync" = {
         path = "/synced/EllidaSync";
-        devices = [ "server" "laptop" "portable" "cDesk" ];
+        devices = [ "server" "portable" "cDesk" ];
         ignorePerms = false;
       };
       "Ellida Projects" = {
@@ -102,7 +103,7 @@
       };
       "Websites" = {
         path = "/synced/Websites";
-        devices = [ "server" "laptop" "portable" "phone" ];
+        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
         ignorePerms = false;
       };
   };
