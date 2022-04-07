@@ -71,6 +71,7 @@ in {
     elinks
     links2
     w3m
+    openssl
 
     micro
     xclip
@@ -82,6 +83,7 @@ in {
     ranger
     bat
     sc-im
+    ttyper
 
     jdk8
 

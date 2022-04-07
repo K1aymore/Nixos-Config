@@ -6,10 +6,10 @@
   imports =
     [
       ./base.nix
-      ./locale/qwerty.nix
+      ./locale/colemak.nix
       ./locale/losAngeles.nix
       ./system/pipewire.nix
-      ./de/plasma.nix
+      ./de/sway.nix
 
       ./packages/gui.nix
 
@@ -18,14 +18,14 @@
       ./server/nginx.nix
       ./server/synapse.nix
       ./server/minecraft.nix
-      ./server/restyaboard.nix
+      # ./server/restyaboard.nix
       # ./server/radicale.nix
 
 
       # ./system/opentablet.nix
 
-      # ./impermanence/system.nix
-      # ./impermanence/home.nix
+      ./impermanence/system.nix
+      ./impermanence/home.nix
     ];
 
 
@@ -37,7 +37,7 @@
   };
 
 
-  security.acme.email = "klaymorer@protonmail.com";
+  security.acme.defaults.email = "klaymorer@protonmail.com";
   security.acme.acceptTerms = true;
 
 
@@ -72,7 +72,7 @@
       };
       "Archive" = {
         path = "/synced/Archive";
-        devices = [ "pc" "portable" ];
+        devices = [ "pc" "laptop" "portable" ];
         ignorePerms = false;
       };
       /*"Huge Archive" = {

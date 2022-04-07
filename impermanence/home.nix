@@ -32,7 +32,7 @@ in
 
         # coc.enable = true;
         # nerdtree vim-airline ultisnips
-        plugins = with pkgs.vimPlugins; [ vim-nix tagbar indentLine vim-closer YouCompleteMe ]; 
+        plugins = with pkgs.vimPlugins; [ vim-nix tagbar indentLine vim-closer YouCompleteMe vim-surround ];
 
         extraConfig = ''
           syntax on
@@ -43,7 +43,12 @@ in
           set tabstop=2
           set shiftwidth=2
           set softtabstop=2
-          
+
+          set splitright
+          set splitbelow
+
+          autocmd Filetype json
+            \ let g:indentLine_setConceal = 0
         '';
       };
 
@@ -86,6 +91,7 @@ in
         "Gradle/.gradle"
 
         "Wine/.wine"
+        "Grapejuice/.local/share/grapejuice"
         "PlayOnLinux/.PlayOnLinux"
 
         "Steam/.steam"

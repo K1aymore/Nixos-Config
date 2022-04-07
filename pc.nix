@@ -83,7 +83,7 @@
       };
       "Archive" = {
         path = "/synced/Archive";
-        devices = [ "server" "portable" ];
+        devices = [ "server" "laptop" ];
         ignorePerms = false;
       };
       /* "Huge Archive" = {

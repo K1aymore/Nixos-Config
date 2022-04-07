@@ -17,6 +17,7 @@
     j = "java";
     ecw = "source /synced/Sync/Linux/BashScripts/ecw";
     bashscr = "cd /synced/Sync/Linux/BashScripts";
+    nwk = "source /synced/Sync/Linux/BashScripts/nwk";
 
 
     brup = "brightnessctl set 5+%";

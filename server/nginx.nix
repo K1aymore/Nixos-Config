@@ -44,6 +44,13 @@ in {
   };
   
 
+  security.acme.certs = {
+  	"klaymore.me" = {
+  		webroot = "/synced/Websites/klaymore.me";
+  		extraDomainNames = [ "matrix.klaymore.me" ];
+  	};
+  };
+
   # phpfpm fails to start for me
 #   services.phpfpm.settings = {
 #     "user" = app;
