@@ -46,7 +46,7 @@ in {
       # Reverse proxy for Matrix client-server and server-server communication
       "matrix.klaymore.me" = {
         enableACME = true;
-        forceSSL = true;
+        addSSL = true;
         root = "/synced/Websites/matrix.klaymore.me";
         # forward all Matrix API calls to the synapse Matrix homeserver
         locations."/_matrix" = {
@@ -90,6 +90,7 @@ in {
     enable = true;
 
     dataDir = "/nix/persist/server/synapse";
+    registration_shared_secret = "W72lPZDYLLc7vHL6z6uMm8lhrXZ6nz82skZo76bS0bd6fOPKB4fe9VJ8tPKQCqN3"; 
 
     listeners = [
       {

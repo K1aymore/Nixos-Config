@@ -9,7 +9,7 @@
       ./locale/colemak.nix
       ./locale/losAngeles.nix
       ./system/pipewire.nix
-      ./de/sway.nix
+      ./de/plasma.nix
 
       ./packages/gui.nix
 

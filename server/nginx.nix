@@ -7,20 +7,21 @@ let
 in {
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  
+
   services.nginx = {
     enable = true;
+    resolver.addresses = [ "8.8.8.8" "8.8.4.4" ];
 
     virtualHosts.${domain} = {
       enableACME = true;
-      forceSSL = true;
+      addSSL = true;
       root = dataDir;
 
       locations = {
         "/" = {
           index = "index.html";
         };
-    
+
         "~ .php$" = {     # ~ .php$
 #           index = "index.php";
           extraConfig = ''
@@ -42,13 +43,13 @@ in {
     };
 
   };
-  
+
 
   security.acme.certs = {
-  	"klaymore.me" = {
-  		webroot = "/synced/Websites/klaymore.me";
-  		extraDomainNames = [ "matrix.klaymore.me" ];
-  	};
+    "klaymore.me" = {
+      webroot = pkgs.lib.mkForce dataDir;
+      extraDomainNames = [ "matrix.klaymore.me" ];
+    };
   };
 
   # phpfpm fails to start for me

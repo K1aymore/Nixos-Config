@@ -56,7 +56,6 @@
   # security.doas.enable = true;
 
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
 
   boot.initrd.network.enable = true;
 
@@ -66,6 +65,12 @@
   boot.loader.grub.copyKernels = true;
   services.zfs.autoScrub.enable = true;
 
+  boot.kernel.sysctl = {
+    # Note that inotify watches consume 1kB on 64-bit machines.
+    "fs.inotify.max_user_watches"   = 1048576;   # default:  8192
+    "fs.inotify.max_user_instances" =    1024;   # default:   128
+    "fs.inotify.max_queued_events"  =   32768;   # default: 16384
+  };
 
   services.syncthing = {
     enable = true;

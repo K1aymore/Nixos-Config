@@ -49,6 +49,11 @@ in {
     gvfs
     libcdio  # cd stuff for kde
     faac   # mp4 aac
+    faad2
+    gst_all_1.gst-libav
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
 
     brightnessctl
 
@@ -85,6 +90,7 @@ in {
     bat
     sc-im
     ttyper
+    pwgen
 
     jdk8
     clang

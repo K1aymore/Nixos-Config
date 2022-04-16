@@ -16,6 +16,7 @@
       /synced/Archive             172.16.0.1(rw,nohide,insecure,no_subtree_check)
       /synced/EllidaProjects      172.16.0.1(rw,nohide,insecure,no_subtree_check)
       /synced/EllidaSync          172.16.0.1(rw,nohide,insecure,no_subtree_check)
+      /synced/HugeArchive         172.16.0.1(rw,nohide,insecure,no_subtree_check)
       /synced/Projects            172.16.0.1(rw,nohide,insecure,no_subtree_check)
       /synced/Sync                172.16.0.1(rw,nohide,insecure,no_subtree_check)
       /synced/Websites            172.16.0.1(rw,nohide,insecure,no_subtree_check)
