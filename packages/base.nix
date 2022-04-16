@@ -47,7 +47,8 @@ in {
     clang
     libva-utils
     gvfs
-    libcdio
+    libcdio  # cd stuff for kde
+    faac   # mp4 aac
 
     brightnessctl
 
@@ -86,6 +87,8 @@ in {
     ttyper
 
     jdk8
+    clang
+    gcc
 
     ffmpeg
     yt-dlp
@@ -100,6 +103,7 @@ in {
     pfetch
     neofetch
     tree
+    cmatrix
     lolcat
     thefuck
     hello

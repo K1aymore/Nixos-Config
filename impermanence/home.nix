@@ -144,6 +144,9 @@ in
         "Emacs/.doom.d"
 
         "Clementine/.config/Clementine"
+        "Strawberry/.config/strawberry"
+        "Strawberry/.cache/strawberry"
+        "Strawberry/.local/share/strawberry"
         "VLC/.local/share/vlc"
         "VLC/.config/vlc"
 

@@ -33,9 +33,9 @@
     font-awesome_4
   ];
 
-  nix.extraOptions = ''
-    experimental-features = nix-command
-  '';
+  #nix.extraOptions = ''
+  #  experimental-features = nix-command
+  #'';
 
   networking = {
     networkmanager.enable = true;
@@ -56,6 +56,7 @@
   # security.doas.enable = true;
 
   hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   boot.initrd.network.enable = true;
 
@@ -81,7 +82,7 @@
       "laptop" = { id = "NIOZEVB-77F44UB-NTNFBCT-CRGPRRZ-YT73MD6-TFZ77XH-PFDTJWR-JHU7QQE"; };
       "portable" = { id = "XRMEW3S-FABIUWA-BDL7YIX-AO2JD77-F6P2NOD-PRDCDV4-QZIZEHX-Q6ASDQS"; };
       "pixel" = { id = "2L2KW2W-BBEZ7LT-Z7OZDUO-RKTIXMW-LYWDTNR-Q2TABSU-4V7GM7R-VPSKIAZ"; };
-      "pinephone" = { id = "JV7MRGF-3EWPV6T-RSWGPCM-BEF6XTZ-V25WSAA-JANBISL-SGKVZFH-6OKUQQ7"; };
+      "pinephone" = { id = "4XLSS5A-V4FMDW7-SY4F7Y2-EG5KCTD-PMGPYHN-QKP32VU-DKKU6VC-MIOUTAU"; };
       "cDesk" = { id = "RLFHUVQ-HXAGZ54-DGEN2S3-YRHRWID-D6Q4S4B-PNOCIDP-T2NNWZP-GPY5NQG"; };
     };
   };

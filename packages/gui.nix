@@ -37,6 +37,7 @@ in {
     carla
     gnome.gnome-bluetooth
     gnome.gnome-control-center
+    mono
 
     kate
     atom
@@ -44,7 +45,10 @@ in {
     okular
     gwenview
     clementine
-    /* strawberry */
+    strawberry
+    puddletag
+    kid3
+    tageditor
     vlc
     mpv
     mediainfo-gui
@@ -65,12 +69,12 @@ in {
     google-chrome
     ungoogled-chromium
     firefox
-    librewolf
+    /* librewolf */
 #     firefox-devedition-bin
     element-desktop
     qbittorrent
-    onionshare-gui
-    tor-browser-bundle-bin
+    #onionshare-gui
+    #tor-browser-bundle-bin
     discord
     session-desktop-appimage
     zoom-us
