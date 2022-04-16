@@ -37,7 +37,7 @@
   };
 
 
-  security.acme.defaults.email = "klaymorer@protonmail.com";
+  security.acme.email = "klaymorer@protonmail.com";
   security.acme.acceptTerms = true;
 
 

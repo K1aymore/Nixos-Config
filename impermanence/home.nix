@@ -88,6 +88,7 @@ in
 
         "Minecraft/.minecraft"
         "Polymc/.local/share/polymc"
+        "MultiMC/.local/share/multimc"
         "Gradle/.gradle"
 
         "Wine/.wine"

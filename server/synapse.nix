@@ -78,23 +78,23 @@ in {
   */
 
   services.matrix-synapse = {
-    settings = {
+    #settings = {
       turn_uris = ["turn:matrix.klaymore.me:3478?transport=udp" "turn:matrix.klaymore.me:3478?transport=tcp"];
       turn_shared_secret = "will be world readable for local users";
       turn_user_lifetime = "1h";
 
       max_upload_size = "50M";
       server_name = "klaymore.me";
-    };
+    #};
 
     enable = true;
 
     dataDir = "/nix/persist/server/synapse";
 
-    settings.listeners = [
+    listeners = [
       {
         port = 8008;
-        bind_addresses = [ "::1" ];
+        bind_address = "::1";
         type = "http";
         tls = false;
         x_forwarded = true;
