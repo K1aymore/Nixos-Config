@@ -9,15 +9,17 @@
       ./locale/colemak.nix
       ./locale/losAngeles.nix
       ./system/pipewire.nix
+      ./de/sway.nix
       ./de/plasma.nix
 
       ./packages/gui.nix
 
       ./server/ssh.nix
+      ./server/nfs.nix
 
       ./server/nginx.nix
       ./server/synapse.nix
-      ./server/minecraft.nix
+      #./server/minecraft.nix
       # ./server/restyaboard.nix
       # ./server/radicale.nix
 

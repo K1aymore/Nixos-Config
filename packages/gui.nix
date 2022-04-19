@@ -38,6 +38,7 @@ in {
     gnome.gnome-bluetooth
     gnome.gnome-control-center
     mono
+    libsForQt5.breeze-qt5 
 
     kate
     atom

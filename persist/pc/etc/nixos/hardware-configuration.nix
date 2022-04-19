@@ -45,9 +45,15 @@
 
   boot.initrd.luks.devices."luks-a1d87862-3676-4f71-ab9d-2d63734eb5b2".device = "/dev/disk/by-uuid/a1d87862-3676-4f71-ab9d-2d63734eb5b2";
 
-  fileSystems."/synced/HugeArchive" = {
+  fileSystems."/synced/Huge Archive" = {
     device = "/dev/disk/by-uuid/764e306b-807f-4fe8-b9ad-8401c384f40e";
     fsType = "ext4";
+  };
+
+  fileSystems."/synced/HugeArchive" = {
+    device = "serverlan:/HugeArchive";
+    fsType = "nfs";
+    options = [ "nfsvers=4.2" ];  # "x-systemd.automount" "noauto"
   };
 
   fileSystems."/Games" = {

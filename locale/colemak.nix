@@ -8,4 +8,8 @@
 
   services.xserver.xkbVariant = "colemak";
 
+  environment.variables = {
+    XKB_DEFAULT_VARIANT = "colemak";
+  };
+
 }

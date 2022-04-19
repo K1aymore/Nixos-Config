@@ -65,12 +65,14 @@ in {
     btrfs-progs
     btrfs-heatmap
     zfs
+    nfs-utils
+    libnfs
 
     wget
     curl
     htop
     man
-    tealdeer
+    tldr
     nixos-option
     awscli2
     httrack

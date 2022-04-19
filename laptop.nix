@@ -8,7 +8,7 @@
     ./locale/losAngeles.nix
     ./system/pipewire.nix
     ./de/sway.nix
-    #./de/plasma.nix
+    ./de/plasma.nix
 
     ./packages/gui.nix
     ./packages/games.nix
@@ -21,10 +21,6 @@
     ./impermanence/home.nix
   ];
 
-
-  environment.variables = {
-    XKB_DEFAULT_VARIANT = "colemak";
-  };
 
   services.getty.autologinUser = "klaymore";
 
@@ -39,9 +35,10 @@
     };
   };
 
-  services.xserver.displayManager.startx.enable = true;
+  #services.xserver.displayManager.startx.enable = true;
 
   services.tlp.enable = true;
+  services.blueman.enable = true;
 
 
   services.syncthing.folders = {

@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
-
-{
+let
+  scripts = "/synced/Sync/Linux/BashScripts";
+in {
 
   programs.bash.shellAliases = {
     nrs = "sudo nixos-rebuild switch";
@@ -14,6 +15,7 @@
 
     yd = "/synced/Sync/Linux/BashScripts/yd";
     jcr = "/synced/Sync/Linux/BashScripts/jcr";
+    gcr = "/synced/Sync/Linux/BashScripts/gcr";
     j = "java";
     ecw = "source /synced/Sync/Linux/BashScripts/ecw";
     bashscr = "cd /synced/Sync/Linux/BashScripts";
