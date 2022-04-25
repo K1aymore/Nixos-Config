@@ -29,11 +29,16 @@ in {
     git
     gh
 
+    jdk8
+    clang
+    gcc
+    ghc
+
     /* geany
     bluefish */
 
-    /* eclipses.eclipse-java */
-    jetbrains.idea-community
+    # eclipses.eclipse-java
+    # jetbrains.idea-community
     vscodium
 
     qtcreator

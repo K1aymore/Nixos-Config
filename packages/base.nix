@@ -73,6 +73,7 @@ in {
     htop
     man
     tldr
+    git
     nixos-option
     awscli2
     httrack
@@ -93,10 +94,6 @@ in {
     sc-im
     ttyper
     pwgen
-
-    jdk8
-    clang
-    gcc
 
     ffmpeg
     yt-dlp

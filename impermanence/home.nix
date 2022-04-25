@@ -32,7 +32,7 @@ in
 
         # coc.enable = true;
         # nerdtree vim-airline ultisnips
-        plugins = with pkgs.vimPlugins; [ vim-nix tagbar indentLine vim-closer YouCompleteMe vim-surround ];
+        plugins = with pkgs.vimPlugins; [ vim-nix tagbar indentLine vim-closer YouCompleteMe vim-surround haskell-vim vimproc ];
 
         extraConfig = ''
           syntax on

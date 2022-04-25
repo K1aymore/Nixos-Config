@@ -52,6 +52,11 @@
       devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
       ignorePerms = false;
     };
+    "Media" = {
+      path = "/synced/Media";
+      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
+      ignorePerms = false;
+    };
     "Dotfiles" = {
       path = "/nix/dotfiles";
       devices = [ "server" "pc" "portable" ];

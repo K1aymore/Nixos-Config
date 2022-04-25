@@ -75,7 +75,7 @@ in {
     element-desktop
     qbittorrent
     #onionshare-gui
-    #tor-browser-bundle-bin
+    tor-browser-bundle-bin
     discord
     session-desktop-appimage
     zoom-us
