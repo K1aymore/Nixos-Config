@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware.nix
       ../../nix/cfg/pc.nix
     ];
 
@@ -25,4 +25,3 @@
   system.stateVersion = "21.11"; # Did you read the comment?
 
 }
-
