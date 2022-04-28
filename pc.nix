@@ -17,7 +17,8 @@
 
       ./system/ipfs.nix
       ./pc/syncplay.nix
-      ./pc/jellyfin.nix
+      #./pc/jellyfin.nix
+      #./pc/rtorrent.nix
       /* ./pc/i2pd.nix */
       /* ./server/minecraft.nix */
 
@@ -83,7 +84,7 @@
       };
       "Projects" = {
         path = "/synced/Projects";
-        devices = [ "server" "laptop" "portable" ];
+        devices = [ "server" "laptop" "portable" "pinephone" ];
         ignorePerms = false;
       };
       "Archive" = {

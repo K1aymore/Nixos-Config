@@ -26,6 +26,9 @@ in {
 
 
   environment.systemPackages = with pkgs; [
+    gtk3
+    swt
+
     dolphin
     filelight
     gparted
@@ -38,7 +41,8 @@ in {
     gnome.gnome-bluetooth
     gnome.gnome-control-center
     mono
-    libsForQt5.breeze-qt5 
+    libsForQt5.breeze-qt5
+    libsForQt5.libksysguard
 
     kate
     atom
@@ -74,6 +78,7 @@ in {
 #     firefox-devedition-bin
     element-desktop
     qbittorrent
+    flood
     #onionshare-gui
     tor-browser-bundle-bin
     discord

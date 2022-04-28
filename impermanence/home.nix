@@ -85,6 +85,9 @@ in
         "qBittorrent/.local/share/qBittorrent"
         "qBittorrent/.config/qBittorrent"
         "qBittorrent/.cache/qBittorrent"
+        "BiglyBT/.biglybt"
+        "Flood/.local/share/flood"
+
 
         "Minecraft/.minecraft"
         "Polymc/.local/share/polymc"

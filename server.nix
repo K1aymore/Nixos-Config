@@ -15,7 +15,7 @@
       ./packages/gui.nix
 
       ./server/ssh.nix
-      ./server/nfs.nix
+      #./server/nfs.nix
 
       ./server/nginx.nix
       ./server/synapse.nix
@@ -74,7 +74,7 @@
       };
       "Projects" = {
         path = "/synced/Projects";
-        devices = [ "pc" "portable" "laptop" ];
+        devices = [ "pc" "portable" "laptop" "pinephone" ];
         ignorePerms = false;
       };
       "Archive" = {

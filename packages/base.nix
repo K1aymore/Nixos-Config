@@ -50,10 +50,10 @@ in {
     libcdio  # cd stuff for kde
     faac   # mp4 aac
     faad2
-    gst_all_1.gst-libav
+    /* gst_all_1.gst-libav
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad
-    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-plugins-ugly */
 
     brightnessctl
 
@@ -98,6 +98,7 @@ in {
     ffmpeg
     yt-dlp
     r128gain
+    mediainfo
     rclone
 
     ldns

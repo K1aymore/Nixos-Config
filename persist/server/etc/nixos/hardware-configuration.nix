@@ -36,10 +36,10 @@
     fsType = "ext4";
   };
 
-  fileSystems."/synced/HugeArchive" = {
+  /* fileSystems."/synced/HugeArchive" = {
     device = "/dev/disk/by-uuid/ee575e80-6b75-4abe-854a-bf31fcf3d2b9";
     fsType = "ext4";
-  };
+  }; */
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/a1d47570-1639-4aee-bf8e-106abc6d7047";
