@@ -111,6 +111,7 @@
         path = "/synced/Websites";
         devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
         ignorePerms = false;
+        rescanInterval = 30;
       };
   };
 

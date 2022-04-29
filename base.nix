@@ -62,7 +62,7 @@
   # ZFS support
   boot.initrd.supportedFilesystems = ["zfs"]; # boot from zfs
   boot.supportedFilesystems = [ "zfs" ];
-  boot.loader.grub.copyKernels = true;
+  boot.loader.grub.copyKernels = true; # often true anyways
   services.zfs.autoScrub.enable = true;
 
   boot.kernel.sysctl = {

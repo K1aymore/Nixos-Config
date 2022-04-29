@@ -33,7 +33,6 @@
 
   # Nix
   boot.initrd.luks.devices."luks-c0d06bb6-c826-40a1-98ee-fad6b524c80e".device = "/dev/disk/by-uuid/c0d06bb6-c826-40a1-98ee-fad6b524c80e";
-
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/4a3c554d-9284-4dff-93da-338911c963f0";
     fsType = "ext4";
@@ -42,7 +41,6 @@
 
   # Synced
   boot.initrd.luks.devices."luks-a1d87862-3676-4f71-ab9d-2d63734eb5b2".device = "/dev/disk/by-uuid/a1d87862-3676-4f71-ab9d-2d63734eb5b2";
-
   fileSystems."/synced" = {
     device = "/dev/disk/by-uuid/578ff020-2da7-497d-af01-f8983e1c2e40";
     #device = "serverlan:/synced";
@@ -51,12 +49,11 @@
 
 
   # Stuff
-  boot.initrd.luks.devices."luks-89ebb9a7-f363-49c1-9e30-80b04bd3fdef".device = "/dev/disk/by-uuid/89ebb9a7-f363-49c1-9e30-80b04bd3fdef";
-
-  /* fileSystems."/synced/Stuff" = {
-    device = "/dev/disk/by-uuid/764e306b-807f-4fe8-b9ad-8401c384f40e";
-    fsType = "ext4";
-  }; */
+  fileSystems."/synced/Stuff" = {
+    device = "stuff/main";
+    fsType = "zfs";
+    options = [ "zfsutil" ];
+  };
 
   /* fileSystems."/synced/HugeArchive" = {
     device = "serverlan:/HugeArchive";
@@ -67,7 +64,6 @@
 
   # HugeArchive
   boot.initrd.luks.devices."luks-1200dbe8-1413-479c-8a4f-e8be0b8a21e3".device = "/dev/disk/by-uuid/1200dbe8-1413-479c-8a4f-e8be0b8a21e3";
-
   fileSystems."/synced/HugeArchive" = {
     device = "/dev/disk/by-uuid/dbad8e8f-a1af-4f78-a078-f4bd75e41434";
     fsType = "ext4";
