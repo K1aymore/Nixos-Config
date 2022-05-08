@@ -19,18 +19,26 @@ in {
 
 
   environment.systemPackages = with pkgs; [
-
     wine
     lutris
     # playonlinux
     grapejuice
     protonup
+    protontricks
+    openal
 
     minecraft
     multimc
+    /* unstable.itch */
     # unstable.polymc
-    wesnoth
 
+    wesnoth
+    opendune
+    zeroad
+    galaxis
+    xlife
+    openrct2
+    eternity
   ];
 
 

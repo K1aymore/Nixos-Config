@@ -130,6 +130,9 @@ in
         "Keepassxc/.config/keepassxc"
         "GPG/.gnupg"
 
+        "OpenTTD/.config/openttd"
+        "OpenTTD/.local/share/openttd"
+
         "Libreoffice/.config/libreoffice"
 
         "Atom/.atom"

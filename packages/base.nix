@@ -41,6 +41,7 @@ in {
     xz
     zip
     unzip
+    unrar
     /* tzdata */
     glibc
     glib
@@ -116,6 +117,7 @@ in {
     vitetris
     asciiquarium
     oneko
+    openttd
 
 
     mullvad-vpn

@@ -17,6 +17,7 @@ in
       "/var/lib"
 
       "/etc/mullvad-vpn"
+      "/tmp"
     ];
 
     files = [

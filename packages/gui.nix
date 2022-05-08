@@ -37,12 +37,16 @@ in {
     spectacle
     pavucontrol
     qjackctl
+    
+    #jamesdsp
     carla
     gnome.gnome-bluetooth
     gnome.gnome-control-center
     mono
     libsForQt5.breeze-qt5
-    libsForQt5.libksysguard
+    libsForQt5.kleopatra
+    pinentry
+    pinentry-qt
 
     kate
     atom
@@ -89,6 +93,7 @@ in {
     blender
     libresprite
     krita
+    inkscape
     libsForQt5.kdenlive
     lmms
 

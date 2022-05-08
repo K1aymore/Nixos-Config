@@ -43,8 +43,8 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22000 22067 ];  # syncthing transfers & relay
-      allowedUDPPorts = [ 21027 22067 ];  # syncthing discovery
+      allowedTCPPorts = [ 22000 22067 3978 3979 ];  # syncthing transfers & relay
+      allowedUDPPorts = [ 21027 22067 3978 3979 ];  # syncthing discovery
     };
 
     extraHosts = ''
