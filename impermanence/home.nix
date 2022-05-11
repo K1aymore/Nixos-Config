@@ -32,7 +32,7 @@ in
 
         # coc.enable = true;
         # nerdtree vim-airline ultisnips
-        plugins = with pkgs.vimPlugins; [ vim-nix tagbar indentLine vim-closer YouCompleteMe vim-surround haskell-vim vimproc ];
+        plugins = with pkgs.vimPlugins; [ vim-nix vim-airline tagbar indentLine YouCompleteMe vim-surround haskell-vim vimproc slimv ];
 
         extraConfig = ''
           syntax on
@@ -56,11 +56,12 @@ in
 
 
 
-    /* home.file = {
+     home.file = {
+      # export PATH=”$PATH:/synced/Sync/Linux/BashScripts”  # this breaks sudo
       ".bashrc".text = ''
-        export PATH=”$PATH:$HOME/.emacs.d/bin”
+        export GPG_TTY=$(tty)
       '';
-    }; */
+    };
 
 
     home.persistence."/nix/persist/home" = {

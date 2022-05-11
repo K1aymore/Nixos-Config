@@ -16,13 +16,13 @@
   fileSystems."/" = {
     device = "tmpfs";
     fsType = "tmpfs";
-    options = [ "size=2G" "mode=755" ];
+    options = [ "size=1G" "mode=755" ];
   };
 
   fileSystems."/home/klaymore" = {
     device = "tmpfs";
     fsType = "tmpfs";
-    options = [ "size=2G" "mode=777" ];
+    options = [ "size=1G" "mode=777" ];
   };
 
   fileSystems."/boot" = {
@@ -32,10 +32,11 @@
 
 
   # Nix
-  boot.initrd.luks.devices."luks-c0d06bb6-c826-40a1-98ee-fad6b524c80e".device = "/dev/disk/by-uuid/c0d06bb6-c826-40a1-98ee-fad6b524c80e";
+  boot.initrd.luks.devices."luks-5a7b63e6-7124-4dea-9931-586d66f22c9d".device = "/dev/disk/by-uuid/5a7b63e6-7124-4dea-9931-586d66f22c9d";
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/4a3c554d-9284-4dff-93da-338911c963f0";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/d2bef521-48a3-4f71-a30b-7b30172007ad";
+    fsType = "btrfs";
+    options = [ "compress-force=zstd:2" ];
   };
 
 

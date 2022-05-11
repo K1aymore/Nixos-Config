@@ -14,7 +14,7 @@ in {
     conf = "cd /nix/cfg";
 
     yd = "/synced/Sync/Linux/BashScripts/yd";
-    r128all = "find . -exec r128gain {} \;";
+    r128all = "find . -exec r128gain {} \\;";
 
     jcr = "/synced/Sync/Linux/BashScripts/jcr";
     gcr = "/synced/Sync/Linux/BashScripts/gcr";

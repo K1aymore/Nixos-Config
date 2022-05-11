@@ -16,13 +16,13 @@
   fileSystems."/" =
     { device = "none";
       fsType = "tmpfs";
-      options = [ "size=3G" "mode=755" ];
+      options = [ "size=1G" "mode=755" ];
     };
 
   fileSystems."/home/klaymore" =
     { device = "none";
       fsType = "tmpfs";
-      options = [ "size=5G" "mode=777" ];
+      options = [ "size=1G" "mode=777" ];
     };
 
   fileSystems."/nix" =
@@ -44,8 +44,9 @@
       fsType = "vfat";
     };
 
-  swapDevices = [ ];
+  boot.initrd.luks.devices."luks-a6321344-ea78-45ee-8f5d-21f3059f09d4".device = "/dev/disk/by-uuid/a6321344-ea78-45ee-8f5d-21f3059f09d4";
+  swapDevices = [ { device = "/dev/disk/by-uuid/5e4fceac-8af0-4a3b-9108-f27461ce7d63"; } ];
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "performance"; # powersave
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

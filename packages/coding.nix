@@ -33,6 +33,7 @@ in {
     clang
     gcc
     ghc
+    sbcl
 
     /* geany
     bluefish */
