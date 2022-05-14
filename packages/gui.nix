@@ -37,7 +37,7 @@ in {
     spectacle
     pavucontrol
     qjackctl
-    
+
     #jamesdsp
     carla
     gnome.gnome-bluetooth
@@ -53,6 +53,7 @@ in {
     libreoffice
     okular
     gwenview
+    digikam
     clementine
     strawberry
     puddletag

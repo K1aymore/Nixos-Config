@@ -57,6 +57,7 @@
 
   hardware.bluetooth.enable = true;
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.brlaser ];
 
   boot.initrd.network.enable = true;
 

@@ -16,6 +16,13 @@ in {
     yd = "/synced/Sync/Linux/BashScripts/yd";
     r128all = "find . -exec r128gain {} \\;";
 
+    ga = "git add";
+    gc = "git commit";
+    gs = "git status";
+    gp = "git pull";
+    gsl = "git shortlog";
+    gl = "git log";
+
     jcr = "/synced/Sync/Linux/BashScripts/jcr";
     gcr = "/synced/Sync/Linux/BashScripts/gcr";
     j = "java";

@@ -31,8 +31,9 @@ in
         vimdiffAlias = true;
 
         # coc.enable = true;
-        # nerdtree vim-airline ultisnips
-        plugins = with pkgs.vimPlugins; [ vim-nix vim-airline tagbar indentLine YouCompleteMe vim-surround haskell-vim vimproc slimv ];
+        # nerdtree ultisnips vimproc slimv
+        plugins = with pkgs.vimPlugins; [ vim-airline tagbar indentLine YouCompleteMe vim-surround
+          vim-nix haskell-vim vim-parinfer ];
 
         extraConfig = ''
           syntax on
@@ -49,6 +50,9 @@ in
 
           autocmd Filetype json
             \ let g:indentLine_setConceal = 0
+
+          let g:paredit_electric_return=0
+          let g:paredit_disable_ftindent=1
         '';
       };
 
