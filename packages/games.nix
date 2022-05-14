@@ -33,8 +33,10 @@ in {
     # unstable.polymc
 
     wesnoth
-    opendune
     zeroad
+    opendungeons
+    crawl
+    opendune
     galaxis
     xlife
     openrct2

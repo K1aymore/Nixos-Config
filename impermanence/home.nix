@@ -137,6 +137,9 @@ in
 
         "OpenTTD/.config/openttd"
         "OpenTTD/.local/share/openttd"
+        "OpenDungeons/.config/opendungeons"
+        "OpenDungeons/.local/share/opendungeons"
+        "Crawl/.crawl"
 
         "Libreoffice/.config/libreoffice"
 
