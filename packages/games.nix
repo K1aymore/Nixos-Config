@@ -41,6 +41,7 @@ in {
     xlife
     openrct2
     eternity
+    osu-lazer
   ];
 
 

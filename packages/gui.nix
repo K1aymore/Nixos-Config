@@ -37,6 +37,8 @@ in {
     spectacle
     pavucontrol
     qjackctl
+    onboard
+    xkbd
 
     #jamesdsp
     carla
@@ -83,12 +85,13 @@ in {
 #     firefox-devedition-bin
     element-desktop
     qbittorrent
-    flood
+    #flood
     #onionshare-gui
     tor-browser-bundle-bin
     discord
-    session-desktop-appimage
-    zoom-us
+    #session-desktop-appimage
+    #zoom-us
+    lbry
 
     godot
     blender

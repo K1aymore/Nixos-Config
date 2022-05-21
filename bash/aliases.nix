@@ -12,6 +12,7 @@ in {
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
     conf = "cd /nix/cfg";
+    lisp = "cd /synced/Projects/Programming/Lisp";
 
     yd = "/synced/Sync/Linux/BashScripts/yd";
     r128all = "find . -exec r128gain {} \\;";
@@ -19,7 +20,7 @@ in {
     ga = "git add";
     gc = "git commit";
     gs = "git status";
-    gp = "git pull";
+    gp = "git push";
     gsl = "git shortlog";
     gl = "git log";
 

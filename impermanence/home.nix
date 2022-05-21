@@ -24,6 +24,23 @@ in
     programs = {
       home-manager.enable = true;
 
+      git = {
+        enable = true;
+        userName  = "K1aymore";
+        userEmail = "klaymorer@protonmail.com";
+        signing = {
+          key = "BAE085A5C70F19F7";
+          signByDefault = true;
+        };
+        ignores = [
+          "*.swp"
+          ".syncthing*"
+        ];
+        extraConfig = {
+          init.defaultbranch = "main";
+        };
+      };
+
       neovim = {
         enable = true;
         vimAlias = true;
@@ -126,7 +143,7 @@ in
         "AWSCLI/.aws"
         "Rclone/.config/rclone"
         "GitHubCLI/.config/gh"
-        "Git/.config/git"
+        #"Git/.config/git"
 
         /* "Chromium/.cache/chromium"
         "Chromium/.config/chromium" */

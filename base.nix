@@ -37,6 +37,10 @@
   #  experimental-features = nix-command
   #'';
 
+  environment.variables = {
+     GPG_TTY = "$(tty)";
+  };
+
   networking = {
     networkmanager.enable = true;
     enableIPv6 = true;
