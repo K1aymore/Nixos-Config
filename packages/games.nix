@@ -1,11 +1,7 @@
 { config, pkgs, ... }:
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
 let
-  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
-  /* unstable = import (builtins.fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz); */
+  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
 in {
 
   nixpkgs.config = {
@@ -29,8 +25,8 @@ in {
 
     minecraft
     multimc
-    /* unstable.itch */
-    # unstable.polymc
+    unstable.itch
+    unstable.polymc
 
     wesnoth
     zeroad

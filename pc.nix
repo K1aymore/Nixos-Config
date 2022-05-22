@@ -113,6 +113,10 @@
         ignorePerms = false;
         rescanInterval = 30;
       };
+      "MasterKitty" = {
+        path = "/synced/Stuff/masterkitty";
+        devices = [ "masterkitty" ];
+      };
   };
 
 

@@ -1,19 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-
 let
-  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
 in {
-
-  imports = [
-    # import stuff here
-  ];
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -90,7 +79,7 @@ in {
     tor-browser-bundle-bin
     discord
     #session-desktop-appimage
-    #zoom-us
+    zoom-us
     lbry
 
     godot
@@ -109,7 +98,7 @@ in {
     xfce.xfce4-terminal
 
 
-    /* obs-studio */
+    obs-studio
     /* linuxKernel.packages.linux_5_16.v4l2loopback */
 
   ];
