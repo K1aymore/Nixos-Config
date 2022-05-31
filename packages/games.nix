@@ -24,9 +24,9 @@ in {
     openal
 
     minecraft
-    multimc
-    unstable.itch
-    unstable.polymc
+    #multimc
+    itch
+    polymc
 
     wesnoth
     zeroad
@@ -40,10 +40,11 @@ in {
     osu-lazer
   ];
 
-
-  programs = {
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
+  /* programs = {
     steam.enable = true;
-  };
+  }; */
 
 
 }

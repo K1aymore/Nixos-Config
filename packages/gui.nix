@@ -52,6 +52,9 @@ in {
     tageditor
     vlc
     mpv
+    #haruna
+    #mpc-qt
+    smplayer
     mediainfo-gui
     audacity
     tenacity
@@ -88,7 +91,10 @@ in {
     krita
     inkscape
     libsForQt5.kdenlive
+    davinci-resolve
+    log4cxx
     lmms
+    reaper
 
     gsettings-desktop-schemas
     gsettings-qt

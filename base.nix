@@ -47,8 +47,27 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22000 22067 3978 3979 ];  # syncthing transfers & relay
-      allowedUDPPorts = [ 21027 22067 3978 3979 ];  # syncthing discovery
+      allowedTCPPorts = [
+        22000 22067  # syncthing transfers & relay
+        3978 3979  # OpenTTD
+        1714
+      ];
+      allowedUDPPorts = [
+        21027 22067  # syncthing discovery
+        3978 3979   # OpenTTD
+      ];
+      allowedTCPPortRanges = [
+        {
+          from = 1714;  # KDE Connect
+          to = 1764;
+        }
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1714;  # KDE Connect
+          to = 1764;
+        }
+      ];
     };
 
     extraHosts = ''
@@ -70,6 +89,7 @@
   boot.supportedFilesystems = [ "zfs" ];
   boot.loader.grub.copyKernels = true; # often true anyways
   services.zfs.autoScrub.enable = true;
+  boot.kernelParams = [ "nohibernate" ]; # can cause ZFS corruption
 
   boot.kernel.sysctl = {
     # Note that inotify watches consume 1kB on 64-bit machines.

@@ -29,7 +29,12 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+
   hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
     extraPackages = with pkgs; [
       /* rocm-opencl-icd
       rocm-opencl-runtime */
@@ -37,9 +42,13 @@
       libvdpau-va-gl */
       amdvlk
     ];
-    driSupport = true;
-    driSupport32Bit = true;
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
   };
+
+  hardware.steam-hardware.enable = true;
+  hardware.pulseaudio.support32Bit = true;
 
   services.gvfs.enable = true;
 

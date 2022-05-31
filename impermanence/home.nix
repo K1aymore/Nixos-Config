@@ -95,6 +95,7 @@ in
         "Pipewire/.config/pulse"
 
         "Blender/.config/blender"
+        "DaVinci/.local/share/DaVinciResolve"
 
         "Element/.config/Element"
         "Element/.pki"
@@ -120,8 +121,12 @@ in
         "Grapejuice/.local/share/grapejuice"
         "PlayOnLinux/.PlayOnLinux"
 
+        "Flatpak/.local/share/flatpak"
+        "Flatpak/.var"
         "Steam/.steam"
         "Steam/.local/share/Steam"
+        "Itch.io/.itch"
+        "Itch.io/.config/itch"
 
         "Exodus/.config/Exodus"
       ];

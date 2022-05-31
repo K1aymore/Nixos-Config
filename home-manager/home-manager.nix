@@ -15,6 +15,16 @@ in
   home-manager.users.klaymore = {
     home.homeDirectory = "/home/klaymore";
 
+    programs = {
+      home-manager.enable = true;
+
+      git = {
+        enable = true;
+        userName  = "Klaymore";
+        userEmail = "klaymorer@protonmail.com";
+      };
+    };
+
     home.file = {
       ".bashrc".source = "/synced/Sync/Linux/bashrc";
 
@@ -29,15 +39,6 @@ in
       };
     };
 
-    programs = {
-      home-manager.enable = true;
-
-      git = {
-        enable = true;
-        userName  = "Klaymore";
-        userEmail = "klaymorer@protonmail.com";
-      };
-    };
 
 
     home.stateVersion = "21.11";

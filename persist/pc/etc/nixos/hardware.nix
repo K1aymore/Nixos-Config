@@ -70,10 +70,10 @@
     fsType = "ext4";
   };
 
-
-  fileSystems."/Games" = {
-    device = "/dev/disk/by-uuid/01D83C2C20EC6320";
-    fsType = "ntfs";
+  # Games
+  fileSystems."/nix/persist/home/Flatpak/.var/app" = {
+    device = "/dev/disk/by-uuid/88a458e3-3367-44c5-857e-f5e264ad008f";
+    fsType = "btrfs";
   };
 
   /* swapDevices = [

@@ -32,7 +32,6 @@ in {
     vscodium
 
     qtcreator
-    qt5Full
     libsForQt5.qmake
     cmake
     gdb
