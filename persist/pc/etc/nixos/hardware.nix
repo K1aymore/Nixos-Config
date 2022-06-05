@@ -71,14 +71,14 @@
   };
 
   # Games
-  fileSystems."/nix/persist/home/Flatpak/.var/app" = {
-    device = "/dev/disk/by-uuid/88a458e3-3367-44c5-857e-f5e264ad008f";
-    fsType = "btrfs";
+  fileSystems."/Games" = {
+    device = "/dev/disk/by-uuid/096d1694-265a-48a7-b826-ddf2b5a85121";
+    fsType = "ext4";
   };
 
-  /* swapDevices = [
-    { device = "/dev/disk/by-uuid/7e864f4a-f5fe-4e1a-8b02-3d5db4dc19cd"; }
-  ]; */
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/46249488-631c-498e-b600-77d3ba10cbe1"; }
+  ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

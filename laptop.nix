@@ -19,6 +19,7 @@
 
     ./impermanence/system.nix
     ./impermanence/home.nix
+    #./home/home.nix
   ];
 
 

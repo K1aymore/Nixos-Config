@@ -24,6 +24,9 @@
 
       ./impermanence/system.nix
       ./impermanence/home.nix
+      #./home/home.nix
+      #./home/mounts.nix
+      #./home/persist.nix
     ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];

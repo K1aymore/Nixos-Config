@@ -38,7 +38,7 @@ in
       neovim = {
         enable = true;
         vimAlias = true;
-	      viAlias = true;
+        viAlias = true;
         vimdiffAlias = true;
 
         # coc.enable = true;
@@ -70,17 +70,17 @@ in
     };
 
 
-
     home.file = {
-      # export PATH=”$PATH:/synced/Sync/Linux/BashScripts”  # this breaks sudo
-      ".bashrc".text = ''
-        export GPG_TTY=$(tty)
-      '';
+     # export PATH=”$PATH:/synced/Sync/Linux/BashScripts”  # this breaks sudo
+     ".bashrc".text = ''
+       export GPG_TTY=$(tty)
+     '';
 
-      /* ".atom/atom-discord".source = "${dots}/Atom/.atom/atom-discord";
+      /*
+      ".atom/atom-discord".source = "${dots}/Atom/.atom/atom-discord";
       ".atom/packages".source = "${dots}/Atom/.atom/packages";
       ".atom/config.cson".source = "${dots}/Atom/.atom/config.cson";
-      ".atom/github.cson".source = "${dots}/Atom/.atom/github.cson"; */
+      ".atom/github.cson".source = "${dots}/Atom/.atom/github.cson";
 
       ".atom" = {
         source = "${dots}/Atom/.atom";
@@ -88,12 +88,14 @@ in
       };
 
       ".config" = {
-        source = "${dots}/Plasma/.config";
+        source = config.lib.file.mkOutOfStoreSymlink "${dots}/Plasma/.config";
         recursive = true;
-      };
+      }; */
     };
 
-
+    /* systemd.user.tmpfiles.rules = {
+      "L /home/klaymore/.bash_history - - - - ${dots}/Bash/.bash_history"
+    }; */
 
     home.stateVersion = "21.11";
   };

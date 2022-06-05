@@ -77,10 +77,12 @@ in {
 #     firefox-devedition-bin
     element-desktop
     qbittorrent
+    transmission-qt
+    deluge
     #flood
     #onionshare-gui
-    tor-browser-bundle-bin
-    discord
+    #tor-browser-bundle-bin
+    unstable.discord
     #session-desktop-appimage
     zoom-us
     lbry
@@ -91,7 +93,7 @@ in {
     krita
     inkscape
     libsForQt5.kdenlive
-    davinci-resolve
+    #unstable.davinci-resolve
     log4cxx
     lmms
     reaper

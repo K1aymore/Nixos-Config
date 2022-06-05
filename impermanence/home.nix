@@ -99,7 +99,6 @@ in
 
         "Element/.config/Element"
         "Element/.pki"
-        "Discord/.config/discord"
         "Session/.config/Session"
 
         "Firefox/.mozilla"
@@ -176,6 +175,7 @@ in
         "QtCreator/.config/QtProject"
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
+        "Discord/.config/discord"
 
         "Emacs/.emacs.d"
         "Emacs/.doom.d"

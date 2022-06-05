@@ -25,8 +25,8 @@ in {
 
     minecraft
     #multimc
-    itch
-    polymc
+    unstable.itch
+    unstable.polymc
 
     wesnoth
     zeroad
@@ -37,14 +37,14 @@ in {
     xlife
     openrct2
     eternity
-    osu-lazer
+    #osu-lazer
   ];
 
-  services.flatpak.enable = true;
-  xdg.portal.enable = true;
-  /* programs = {
+  #services.flatpak.enable = true;
+  #xdg.portal.enable = true;
+  programs = {
     steam.enable = true;
-  }; */
+  };
 
 
 }
