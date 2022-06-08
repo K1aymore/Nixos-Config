@@ -113,7 +113,7 @@ in {
     openttd
 
 
-    mullvad-vpn
+    unstable.mullvad-vpn
     /* yggdrasil */
     kdeconnect
   ];

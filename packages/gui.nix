@@ -13,6 +13,7 @@ in {
     };
   };
 
+  nixpkgs.config.ungoogled-chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
 
   environment.systemPackages = with pkgs; [
     gtk3
@@ -72,9 +73,10 @@ in {
 
     google-chrome
     ungoogled-chromium
-    firefox
+    firefox-wayland
     /* librewolf */
 #     firefox-devedition-bin
+    unstable.discord
     element-desktop
     qbittorrent
     transmission-qt
@@ -82,7 +84,6 @@ in {
     #flood
     #onionshare-gui
     #tor-browser-bundle-bin
-    unstable.discord
     #session-desktop-appimage
     zoom-us
     lbry
@@ -93,7 +94,7 @@ in {
     krita
     inkscape
     libsForQt5.kdenlive
-    #unstable.davinci-resolve
+    davinci-resolve
     log4cxx
     lmms
     reaper

@@ -3,31 +3,31 @@
 {
 
   imports = [
-      ./base.nix
-      ./locale/qwerty.nix
-      ./locale/losAngeles.nix
-      ./system/pipewire.nix
-      ./de/plasma.nix
+    ./base.nix
+    ./locale/qwerty.nix
+    ./locale/losAngeles.nix
+    ./system/pipewire.nix
+    ./de/plasma.nix
 
-      ./packages/gui.nix
-      ./packages/games.nix
-      ./packages/coding.nix
+    ./packages/gui.nix
+    ./packages/games.nix
+    ./packages/coding.nix
 
-      ./system/opentablet.nix
+    ./system/opentablet.nix
 
-      ./system/ipfs.nix
-      ./pc/syncplay.nix
+    ./system/ipfs.nix
+    ./pc/syncplay.nix
       #./pc/jellyfin.nix
-      #./pc/rtorrent.nix
-      /* ./pc/i2pd.nix */
-      /* ./server/minecraft.nix */
+    #./pc/rtorrent.nix
+    /* ./pc/i2pd.nix */
+    /* ./server/minecraft.nix */
 
-      ./impermanence/system.nix
-      ./impermanence/home.nix
-      #./home/home.nix
-      #./home/mounts.nix
-      #./home/persist.nix
-    ];
+    ./impermanence/system.nix
+    ./impermanence/home.nix
+    #./home/home.nix
+    #./home/mounts.nix
+    #./home/persist.nix
+  ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -39,8 +39,8 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      /* rocm-opencl-icd
-      rocm-opencl-runtime */
+      rocm-opencl-icd
+      rocm-opencl-runtime
       /* vaapiVdpau
       libvdpau-va-gl */
       amdvlk
@@ -54,6 +54,13 @@
   hardware.pulseaudio.support32Bit = true;
 
   services.gvfs.enable = true;
+
+  /* environment.systemPackages = with pkgs; [
+    linuxKernel.packages.linux_5_15.amdgpu-pro
+  ]; */
+
+
+
 
   networking = {
     hostName = "pc";

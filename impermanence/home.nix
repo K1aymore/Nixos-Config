@@ -2,7 +2,7 @@
 
 
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz";
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz";
   impermanence = builtins.fetchTarball "https://github.com/nix-community/impermanence/archive/master.tar.gz";
 
 in
@@ -10,10 +10,24 @@ in
 
   imports = [
     (import "${home-manager}/nixos")
+    "${impermanence}/nixos.nix"
   ];
 
 
   programs.fuse.userAllowOther = true;
+
+  /* environment.persistence."/nix/persist/home/qBittorrent" = {
+    directories = [
+      "/home/klaymore/.local/share/qBittorrent"
+      "/home/klaymore/.config/qBittorrent"
+      "/home/klaymore/.cache/qBittorrent"
+    ];
+
+    files = [
+#      "/etc/machine-id"
+#       "/etc/nix/id_rsa"
+    ];
+  }; */
 
 
   home-manager.users.klaymore = {
@@ -100,6 +114,8 @@ in
         "Element/.config/Element"
         "Element/.pki"
         "Session/.config/Session"
+        "Chromium/.cache/chromium"
+        "Chromium/.config/chromium"
 
         "Firefox/.mozilla"
         "SSH/.ssh"
@@ -117,7 +133,9 @@ in
         "Gradle/.gradle"
 
         "Wine/.wine"
+        "Grapejuice/.local/var/log/grapejuice"
         "Grapejuice/.local/share/grapejuice"
+        "Grapejuice/.config/brinkervii"
         "PlayOnLinux/.PlayOnLinux"
 
         "Flatpak/.local/share/flatpak"

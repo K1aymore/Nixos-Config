@@ -15,20 +15,21 @@ in {
 
 
   environment.systemPackages = with pkgs; [
-    wine
-    lutris
+    wine-wayland
+    # lutris
     # playonlinux
-    grapejuice
+    unstable.grapejuice
     protonup
     protontricks
     openal
 
     minecraft
     #multimc
-    unstable.itch
-    unstable.polymc
+    itch
+    polymc
 
     wesnoth
+    openttd
     zeroad
     opendungeons
     crawl
@@ -40,11 +41,11 @@ in {
     #osu-lazer
   ];
 
-  #services.flatpak.enable = true;
-  #xdg.portal.enable = true;
-  programs = {
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
+  /* programs = {
     steam.enable = true;
-  };
+  }; */
 
 
 }

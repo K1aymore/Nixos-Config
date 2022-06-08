@@ -25,10 +25,8 @@
         naturalScrolling = true;
       };
     };
-    
+
   };
-  
+
 
 }
-
-
