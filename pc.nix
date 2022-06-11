@@ -40,18 +40,22 @@
     driSupport32Bit = true;
     extraPackages = with pkgs; [
       rocm-opencl-icd
-      rocm-opencl-runtime
-      /* vaapiVdpau
-      libvdpau-va-gl */
-      amdvlk
+      #rocm-opencl-runtime
+      libva
+      libva-utils
+      libvdpau-va-gl
+      vaapiVdpau
+      #amdvlk
     ];
     extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
+      #driversi686Linux.amdvlk
     ];
   };
+  
+  environment.variables.AMD_VULKAN_ICD = "RADV";
 
   hardware.steam-hardware.enable = true;
-  hardware.pulseaudio.support32Bit = true;
+  #hardware.pulseaudio.support32Bit = true;
 
   services.gvfs.enable = true;
 

@@ -13,11 +13,24 @@ in {
     };
   };
 
-  nixpkgs.config.ungoogled-chromium.commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+  nixpkgs.config.ungoogled-chromium.commandLineArgs = "
+    --ozone-platform=auto
+    --disable-features=UseChromeOSDirectVideoDecoder
+    --enable-features=RunVideoCaptureServiceInBrowserProcess
+    --disable-gpu-memory-buffer-compositor-resources
+    --disable-gpu-memory-buffer-video-frames
+    --enable-hardware-overlays
+  ";
 
   environment.systemPackages = with pkgs; [
     gtk3
     swt
+    xwayland
+    #eglinfo
+    glxinfo
+    clinfo
+    vulkan-tools
+    xorg.xdpyinfo
 
     dolphin
     filelight
