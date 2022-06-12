@@ -40,6 +40,11 @@ in {
     spectacle
     pavucontrol
     qjackctl
+    helvum
+    alsa-oss
+    alsa-lib
+    alsa-utils
+    alsa-plugins
     onboard
     xkbd
 
@@ -107,7 +112,9 @@ in {
     krita
     inkscape
     libsForQt5.kdenlive
-    davinci-resolve
+    unstable.davinci-resolve
+    shotcut
+    #olive-editor
     log4cxx
     lmms
     reaper

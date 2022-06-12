@@ -30,6 +30,7 @@ in {
     ecw = "source /synced/Sync/Linux/BashScripts/ecw";
     bashscr = "cd /synced/Sync/Linux/BashScripts";
     nwk = "source /synced/Sync/Linux/BashScripts/nwk";
+    dnxhdify = "source /synced/Sync/Linux/BashScripts/dnxhdify";
 
 
     brup = "brightnessctl set 5+%";

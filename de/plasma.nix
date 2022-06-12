@@ -8,9 +8,8 @@
   ];
 
   services.xserver = {
-      # Enable the KDE Plasma Desktop Environment.
       displayManager.sddm.enable = true;
-      #displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
+      displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
       desktopManager.plasma5.enable = true;
   };
 

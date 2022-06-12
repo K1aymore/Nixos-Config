@@ -8,6 +8,7 @@
     ./locale/losAngeles.nix
     ./system/pipewire.nix
     ./de/plasma.nix
+    ./de/sway.nix
 
     ./packages/gui.nix
     ./packages/games.nix
@@ -51,7 +52,7 @@
       #driversi686Linux.amdvlk
     ];
   };
-  
+
   environment.variables.AMD_VULKAN_ICD = "RADV";
 
   hardware.steam-hardware.enable = true;

@@ -52,6 +52,8 @@ in
 
       "/etc/mullvad-vpn"
       "/tmp"
+
+      "/root/.local/share/DaVinciResolve"
     ];
 
     files = [
@@ -64,7 +66,6 @@ in
     directories = [
       "/etc/nixos"
     ];
-
   };
 
 }

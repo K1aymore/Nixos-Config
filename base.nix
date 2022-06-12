@@ -134,7 +134,7 @@
   users.users.klaymore = {
     isNormalUser = true;
     initialHashedPassword = "$6$8TWC64JUVZ$uXCFLG0XECGYrdpC38rHoPLeujvCtQzykwHYh78VKy.oH9bfDyME1lXyhcK7DN877czSGPg0DgbuFNotq3XXj1";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "audio" ]; # Enable ‘sudo’ for the user.
   };
 
 
