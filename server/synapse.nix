@@ -78,36 +78,33 @@ in {
   */
 
   services.matrix-synapse = {
-    #settings = {
+    enable = true;
+
+    dataDir = "/nix/persist/server/synapse";
+    # registration_shared_secret = "W72lPZDYLLc7vHL6z6uMm8lhrXZ6nz82skZo76bS0bd6fOPKB4fe9VJ8tPKQCqN3";
+
+
+    settings = {
       turn_uris = ["turn:matrix.klaymore.me:3478?transport=udp" "turn:matrix.klaymore.me:3478?transport=tcp"];
       turn_shared_secret = "will be world readable for local users";
       turn_user_lifetime = "1h";
 
       max_upload_size = "50M";
       server_name = "klaymore.me";
-    #};
 
-    enable = true;
-
-    dataDir = "/nix/persist/server/synapse";
-    registration_shared_secret = "W72lPZDYLLc7vHL6z6uMm8lhrXZ6nz82skZo76bS0bd6fOPKB4fe9VJ8tPKQCqN3"; 
-
-    listeners = [
-      {
+      listeners = [{
         port = 8008;
-        bind_address = "::1";
+        bind_addresses = [ "::1" ];
         type = "http";
         tls = false;
         x_forwarded = true;
-        resources = [
-          {
-            names = [ "client" "federation" ];
-            compress = false;
-          }
-        ];
-      }
-    ];
+        resources = [ {
+          names = [ "client" "federation" ];
+          compress = false;
+        } ];
+      }];
 
+    };
   };
 
 

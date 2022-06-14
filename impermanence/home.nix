@@ -137,6 +137,8 @@ in
         "Grapejuice/.local/share/grapejuice"
         "Grapejuice/.config/brinkervii"
         "PlayOnLinux/.PlayOnLinux"
+        "Lutris/.config/lutris"
+        "Lutris/.local/share/lutris"
 
         "Flatpak/.local/share/flatpak"
         "Flatpak/.var"

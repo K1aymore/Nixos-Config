@@ -16,7 +16,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     wine-wayland
-    # lutris
+    lutris
     playonlinux
     grapejuice
     protonup
