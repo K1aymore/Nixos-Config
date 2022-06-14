@@ -10,9 +10,9 @@
       ./locale/losAngeles.nix
       ./system/pipewire.nix
       ./de/sway.nix
-      ./de/plasma.nix
+      #./de/plasma.nix
 
-      #./packages/gui.nix
+      ./packages/gui.nix
 
       ./server/ssh.nix
       #./server/nfs.nix

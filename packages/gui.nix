@@ -94,7 +94,7 @@ in {
     firefox-wayland
     /* librewolf */
 #     firefox-devedition-bin
-    unstable.discord
+    discord
     element-desktop
     qbittorrent
     transmission-qt
@@ -112,7 +112,7 @@ in {
     krita
     inkscape
     libsForQt5.kdenlive
-    unstable.davinci-resolve
+    davinci-resolve
     shotcut
     #olive-editor
     log4cxx
