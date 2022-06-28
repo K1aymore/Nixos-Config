@@ -114,8 +114,6 @@ in
         "Element/.config/Element"
         "Element/.pki"
         "Session/.config/Session"
-        "Chromium/.cache/chromium"
-        "Chromium/.config/chromium"
 
         "Firefox/.mozilla"
         "SSH/.ssh"
@@ -196,6 +194,8 @@ in
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
         "Discord/.config/discord"
+        "Chromium/.cache/chromium"
+        "Chromium/.config/chromium"
 
         "Emacs/.emacs.d"
         "Emacs/.doom.d"

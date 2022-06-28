@@ -23,7 +23,7 @@
   ];
 
 
-  services.getty.autologinUser = "klaymore";
+  #services.getty.autologinUser = "klaymore";
 
   networking = {
     hostName = "laptop";

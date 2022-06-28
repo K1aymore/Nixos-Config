@@ -84,6 +84,8 @@
 
   boot.initrd.network.enable = true;
 
+  services.fstrim.enable = true; # for ssd trimming
+
   # ZFS support
   boot.initrd.supportedFilesystems = ["zfs"]; # boot from zfs
   boot.supportedFilesystems = [ "zfs" ];

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 
@@ -25,15 +25,13 @@
 
     ./impermanence/system.nix
     ./impermanence/home.nix
-    #./home/home.nix
-    #./home/mounts.nix
-    #./home/persist.nix
   ];
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   #boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.zfs.enableUnstable = true;
 
   hardware.opengl = {
     enable = true;

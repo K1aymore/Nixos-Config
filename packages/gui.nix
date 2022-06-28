@@ -47,6 +47,7 @@ in {
     alsa-plugins
     onboard
     xkbd
+    hushboard
 
     #jamesdsp
     carla

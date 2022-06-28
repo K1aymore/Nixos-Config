@@ -22,6 +22,7 @@ in {
     protonup
     protontricks
     openal
+    heroic
 
     minecraft
     #multimc
@@ -43,6 +44,11 @@ in {
 
   services.flatpak.enable = true;
   xdg.portal.enable = true;
+
+  # sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  # sudo flatpak install flathub com.valvesoftware.Steam
+  # flatpak run com.valvesoftware.Steam
+
   /* programs = {
     steam.enable = true;
   }; */
