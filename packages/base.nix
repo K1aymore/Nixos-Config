@@ -111,6 +111,7 @@ in {
     asciiquarium
     oneko
     openttd
+    pmbootstrap
 
 
     mullvad-vpn

@@ -146,6 +146,7 @@ in
         "Itch.io/.config/itch"
 
         "Exodus/.config/Exodus"
+        #"Pmbootstrap/.local/var/pmbootstrap"
       ];
       files = [
         "Bash/.bash_history"
@@ -181,6 +182,8 @@ in
         "Crawl/.crawl"
 
         "Libreoffice/.config/libreoffice"
+        "DigiKam/.local/share/digikam"
+        "DigiKam/.cache/digikam"
 
         "Atom/.atom"
         "Godot/.local/share/godot"
@@ -216,6 +219,8 @@ in
         "Syncplay/.config/syncplayrc"
         "QtCreator/.config/QtProject.conf"
         "QtCreator/.config/QtCreatorrc"
+
+        "DigiKam/.config/digikamrc"
       ];
     };
 

@@ -51,7 +51,7 @@ in {
     rm = "rm -i";
 
     eleventy = "npx @11ty/eleventy";
-    qtShell = "nix-shell -p qt5Full -p qtcreator --run qtcreator";
+    qtShell = "nix-shell -p libsForQt5.full -p qtcreator --run qtcreator";
 
     webFullMirror = "wget --mirror --convert-links --adjust-extension --page-requisites";
     webMirror = "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent";

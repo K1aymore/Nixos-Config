@@ -119,6 +119,8 @@ in {
     log4cxx
     lmms
     reaper
+    milkytracker
+    hivelytracker
 
     gsettings-desktop-schemas
     gsettings-qt

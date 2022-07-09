@@ -26,7 +26,7 @@ in {
 
     minecraft
     #multimc
-    itch
+    #itch
     polymc
 
     wesnoth
@@ -39,6 +39,7 @@ in {
     xlife
     openrct2
     eternity
+    freedroidrpg
     #osu-lazer
   ];
 

@@ -39,7 +39,7 @@
   #services.xserver.displayManager.startx.enable = true;
 
   services.tlp.enable = true;
-  services.blueman.enable = true;
+  services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
 
 
   services.syncthing.folders = {

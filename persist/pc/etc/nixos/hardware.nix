@@ -22,7 +22,7 @@
   fileSystems."/home/klaymore" = {
     device = "tmpfs";
     fsType = "tmpfs";
-    options = [ "size=1G" "mode=777" ];
+    options = [ "size=7G" "mode=777" ];
   };
 
   fileSystems."/boot" = {
