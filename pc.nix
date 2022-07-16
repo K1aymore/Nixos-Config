@@ -8,7 +8,6 @@
     ./locale/losAngeles.nix
     ./system/pipewire.nix
     ./de/plasma.nix
-    ./de/sway.nix
 
     ./packages/gui.nix
     ./packages/games.nix
@@ -18,10 +17,6 @@
 
     ./system/ipfs.nix
     ./pc/syncplay.nix
-      #./pc/jellyfin.nix
-    #./pc/rtorrent.nix
-    /* ./pc/i2pd.nix */
-    /* ./server/minecraft.nix */
 
     ./impermanence/system.nix
     ./impermanence/home.nix

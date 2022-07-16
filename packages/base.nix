@@ -88,6 +88,9 @@ in {
     sc-im
     ttyper
     pwgen
+    moc
+    ncmpcpp
+    mpc-cli
 
     ffmpeg
     yt-dlp

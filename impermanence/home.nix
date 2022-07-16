@@ -87,11 +87,49 @@ in
         '';
       };
 
+      ncmpcpp = {
+        enable = true;
+        package = pkgs.ncmpcpp.override { visualizerSupport = true; };
+        settings = {
+          mpd_host = "localhost";
+          mpd_port = "6600";
+
+          ignore_leading_the = "yes";
+          mouse_support = "yes";
+
+          playlist_display_mode = "columns";
+          progressbar_look = "-⊳";
+          user_interface = "alternative";
+          header_visibility = "no";
+          titles_visibility = "no";
+
+          visualizer_data_source = "/tmp/mpd.fifo";
+          visualizer_output_name = "my_fifo";
+          visualizer_in_stereo = "yes";
+          visualizer_type = "ellipse";
+          visualizer_look = "+|";
+        };
+      };
+
     };
 
 
 
-     home.file = {
+    wayland.windowManager.sway = {
+      enable = true;
+      config = {
+        gaps = {
+          inner = 10;
+        };
+        terminal = "alacritty";
+        window.border = 1;
+      };
+    };
+
+
+
+
+    home.file = {
       # export PATH=”$PATH:/synced/Sync/Linux/BashScripts”  # this breaks sudo
       ".bashrc".text = ''
         export GPG_TTY=$(tty)

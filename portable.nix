@@ -8,7 +8,6 @@
       ./locale/losAngeles.nix
       ./system/pipewire.nix
       ./de/plasma.nix
-      ./de/sway.nix
 
       ./packages/gui.nix
 

@@ -29,7 +29,7 @@ in {
 
     # eclipses.eclipse-java
     # jetbrains.idea-community
-    vscodium
+    vscodium-fhs
 
     qtcreator
     libsForQt5.full

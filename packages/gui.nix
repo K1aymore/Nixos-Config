@@ -32,22 +32,36 @@ in {
     vulkan-tools
     xorg.xdpyinfo
 
+    wl-clipboard
+    swaylock
+    swayidle
+    wob
+    mako # notification daemon, annoying on plasma
+    alacritty # Alacritty is the default terminal in Sway config
+    dmenu # Dmenu is the default in Sway config but i recommend wofi since its wayland native
+    wofi
+
     dolphin
     filelight
     gparted
     ark
     libsForQt5.kio
     spectacle
+    flameshot
+    onboard
+    xkbd
+    #latte-dock
+
     pavucontrol
     qjackctl
     helvum
+    easyeffects
     alsa-oss
     alsa-lib
     alsa-utils
     alsa-plugins
-    onboard
-    xkbd
     hushboard
+    libsForQt5.xdg-desktop-portal-kde
 
     #jamesdsp
     carla
@@ -91,7 +105,7 @@ in {
     libsForQt5.akonadi-calendar
 
     google-chrome
-    ungoogled-chromium
+    chromium
     firefox-wayland
     /* librewolf */
 #     firefox-devedition-bin
@@ -106,6 +120,8 @@ in {
     #session-desktop-appimage
     zoom-us
     lbry
+    libsForQt5.kmail
+    thunderbird
 
     godot
     blender
