@@ -13,33 +13,9 @@ in {
     };
   };
 
-
   environment.systemPackages = with pkgs; [
-    git
-    gh
-
-    jdk8
-    clang
-    gcc
-    ghc
-    sbcl  # Lisp compiler
-
-    /* geany
-    bluefish */
-
-    # eclipses.eclipse-java
-    # jetbrains.idea-community
-    vscodium-fhs
-
-    qtcreator
-    libsForQt5.full
-    cmake
-    gdb
+    davinci-resolve
   ];
 
-
-  programs = {
-    java.enable = true;
-  };
 
 }

@@ -5,7 +5,7 @@
   imports = [
     ./base.nix
     ./locale/colemak.nix
-    ./locale/losAngeles.nix
+    ./locale/sweden.nix
     ./system/pipewire.nix
     ./de/plasma.nix
 
@@ -36,8 +36,24 @@
   };
 
   #services.xserver.displayManager.startx.enable = true;
+  
+  services.power-profiles-daemon.enable = false;
+  services.tlp = {
+    enable = true;
+    settings = {
+      START_CHARGE_THRESH_BAT0 = 0;  # dummy value
+      STOP_CHARGE_THRESH_BAT0 = 1; # charge to 60%
 
-  services.tlp.enable = true;
+      RESTORE_THRESHOLDS_ON_BAT = 1;
+
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+    };
+  };
+
+
   services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
 
 

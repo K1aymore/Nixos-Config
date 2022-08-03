@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 
 let
@@ -38,6 +38,7 @@ in
     programs = {
       home-manager.enable = true;
 
+
       git = {
         enable = true;
         userName  = "K1aymore";
@@ -55,6 +56,7 @@ in
         };
       };
 
+
       neovim = {
         enable = true;
         vimAlias = true;
@@ -64,7 +66,7 @@ in
         # coc.enable = true;
         # nerdtree ultisnips vimproc slimv
         plugins = with pkgs.vimPlugins; [ vim-airline tagbar indentLine YouCompleteMe vim-surround
-          vim-nix haskell-vim vim-parinfer ];
+          vim-nix haskell-vim vim-parinfer elvish-vim ];
 
         extraConfig = ''
           syntax on
@@ -86,6 +88,7 @@ in
           let g:paredit_disable_ftindent=1
         '';
       };
+
 
       ncmpcpp = {
         enable = true;
@@ -111,6 +114,13 @@ in
         };
       };
 
+
+      zellij = {
+        enable = true;
+        settings = {
+
+        };
+      };
     };
 
 
@@ -118,11 +128,29 @@ in
     wayland.windowManager.sway = {
       enable = true;
       config = {
+
+        input = {
+           type-keyboard = { xkb_variant = "colemak"; };
+        };
+
+        modifier = "Mod2";
+
+        keybindings = let
+          modifier = config.home-manager.users.klaymore.wayland.windowManager.sway.config.modifier;
+        in lib.mkOptionDefault {
+          "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
+          "${modifier}+Shift+q" = "kill";
+          "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        };
+
+        terminal = "alacritty";
+
+
         gaps = {
           inner = 10;
         };
-        terminal = "alacritty";
         window.border = 1;
+
       };
     };
 

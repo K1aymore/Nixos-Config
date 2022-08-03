@@ -4,7 +4,7 @@ let
   scripts = "/synced/Sync/Linux/BashScripts";
 in {
 
-  programs.bash.shellAliases = {
+  environment.shellAliases = {
     nrs = "sudo nixos-rebuild switch";
     nrsu = "sudo nixos-rebuild switch --upgrade";
     nrb = "sudo nixos-rebuild boot";

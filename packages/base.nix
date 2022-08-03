@@ -45,6 +45,7 @@ in {
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly */
     breakpad
+    fwupd
 
     pdftk
     imagemagick
@@ -91,6 +92,7 @@ in {
     moc
     ncmpcpp
     mpc-cli
+    starship
 
     ffmpeg
     yt-dlp

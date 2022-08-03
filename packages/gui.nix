@@ -129,7 +129,6 @@ in {
     krita
     inkscape
     libsForQt5.kdenlive
-    davinci-resolve
     shotcut
     #olive-editor
     log4cxx

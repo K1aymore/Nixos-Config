@@ -31,13 +31,14 @@ in {
 
     wesnoth
     openttd
+    simutrans
+    openrct2
     zeroad
     opendungeons
     crawl
     opendune
     galaxis
     xlife
-    openrct2
     eternity
     freedroidrpg
     #osu-lazer
