@@ -7,18 +7,19 @@
     ./packages/base.nix
     ./bash/aliases.nix
 
-    ./term/elvish.nix
+    ./term/fish.nix
     ./term/mpd.nix
-    
+
   ];
 
 
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
+    font = "ter-i23b";
     # keyMap = "us";
+    useXkbConfig = true;
+    earlySetup = true;
   };
 
   fonts.fonts = with pkgs; [
@@ -34,6 +35,7 @@
 
     #font-awesome
     font-awesome_4
+    terminus_font
   ];
 
   #nix.extraOptions = ''

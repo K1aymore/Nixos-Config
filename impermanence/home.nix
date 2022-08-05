@@ -64,9 +64,9 @@ in
         vimdiffAlias = true;
 
         # coc.enable = true;
-        # nerdtree ultisnips vimproc slimv
-        plugins = with pkgs.vimPlugins; [ vim-airline tagbar indentLine YouCompleteMe vim-surround
-          vim-nix haskell-vim vim-parinfer elvish-vim ];
+        # nerdtree ultisnips vimproc slimv vim-surround vim-airline  haskell-vim vim-parinfer
+        plugins = with pkgs.vimPlugins; [ tagbar indentLine YouCompleteMe
+          vim-nix elvish-vim ];
 
         extraConfig = ''
           syntax on
@@ -89,69 +89,6 @@ in
         '';
       };
 
-
-      ncmpcpp = {
-        enable = true;
-        package = pkgs.ncmpcpp.override { visualizerSupport = true; };
-        settings = {
-          mpd_host = "localhost";
-          mpd_port = "6600";
-
-          ignore_leading_the = "yes";
-          mouse_support = "yes";
-
-          playlist_display_mode = "columns";
-          progressbar_look = "-⊳";
-          user_interface = "alternative";
-          header_visibility = "no";
-          titles_visibility = "no";
-
-          visualizer_data_source = "/tmp/mpd.fifo";
-          visualizer_output_name = "my_fifo";
-          visualizer_in_stereo = "yes";
-          visualizer_type = "ellipse";
-          visualizer_look = "+|";
-        };
-      };
-
-
-      zellij = {
-        enable = true;
-        settings = {
-
-        };
-      };
-    };
-
-
-
-    wayland.windowManager.sway = {
-      enable = true;
-      config = {
-
-        input = {
-           type-keyboard = { xkb_variant = "colemak"; };
-        };
-
-        modifier = "Mod2";
-
-        keybindings = let
-          modifier = config.home-manager.users.klaymore.wayland.windowManager.sway.config.modifier;
-        in lib.mkOptionDefault {
-          "${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
-          "${modifier}+Shift+q" = "kill";
-          "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
-        };
-
-        terminal = "alacritty";
-
-
-        gaps = {
-          inner = 10;
-        };
-        window.border = 1;
-
-      };
     };
 
 
@@ -173,6 +110,7 @@ in
         "Pipewire/.local/state/pipewire"
         "Pipewire/.local/state/wireplumber"
         "Pipewire/.config/pulse"
+        "Elvish/.local/state/elvish"
 
         "Blender/.config/blender"
         "DaVinci/.local/share/DaVinciResolve"

@@ -93,6 +93,10 @@ in {
     ncmpcpp
     mpc-cli
     starship
+    fzf
+    zoxide
+    tmux
+    zellij
 
     ffmpeg
     yt-dlp

@@ -31,11 +31,11 @@ in {
 
     wesnoth
     openttd
-    simutrans
-    openrct2
-    zeroad
+    #simutrans
+    #openrct2
+    #zeroad
     opendungeons
-    crawl
+    #crawl
     opendune
     galaxis
     xlife
