@@ -31,6 +31,7 @@ in {
     clinfo
     vulkan-tools
     xorg.xdpyinfo
+    kgpg
 
     wl-clipboard
     swaylock
@@ -81,7 +82,7 @@ in {
     digikam
     clementine
     strawberry
-    puddletag
+    #puddletag
     kid3
     tageditor
     vlc

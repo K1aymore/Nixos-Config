@@ -23,6 +23,7 @@ in {
     gcc
     ghc
     sbcl  # Lisp compiler
+    nasm  # assembly
 
     /* geany
     bluefish */

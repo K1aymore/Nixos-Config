@@ -97,6 +97,7 @@ in {
     zoxide
     tmux
     zellij
+    comma
 
     ffmpeg
     yt-dlp

@@ -19,7 +19,7 @@
     font = "ter-i23b";
     # keyMap = "us";
     useXkbConfig = true;
-    earlySetup = true;
+    /* earlySetup = true; */
   };
 
   fonts.fonts = with pkgs; [

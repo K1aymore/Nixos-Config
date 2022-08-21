@@ -8,13 +8,14 @@
     ./locale/sweden.nix
     ./system/pipewire.nix
     ./de/plasma.nix
+    ./de/sway.nix
 
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
 
-    ./system/opentablet.nix
-    ./system/touchegg.nix
+    #./system/opentablet.nix
+    #./system/touchegg.nix
 
     ./impermanence/system.nix
     ./impermanence/home.nix
@@ -46,10 +47,10 @@
 
       RESTORE_THRESHOLDS_ON_BAT = 1;
 
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      /* CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power"; */
     };
   };
 
