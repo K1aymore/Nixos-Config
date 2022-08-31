@@ -5,8 +5,8 @@
 
   imports = [
     ./packages/base.nix
-    ./bash/aliases.nix
 
+    ./term/aliases.nix
     ./term/fish.nix
     ./term/mpd.nix
 
@@ -106,6 +106,8 @@
   };
 
 
+  security.acme.defaults.email = "klaymorer@protonmail.com";
+  security.acme.acceptTerms = true;
 
 
   users.mutableUsers = false;

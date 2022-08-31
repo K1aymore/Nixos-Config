@@ -38,9 +38,6 @@
   };
 
 
-  security.acme.defaults.email = "klaymorer@protonmail.com";
-  security.acme.acceptTerms = true;
-
 
   /* services.cron = {
     enable = true;

@@ -49,6 +49,7 @@ in {
     "klaymore.me" = {
       webroot = pkgs.lib.mkForce dataDir;
       extraDomainNames = [ "matrix.klaymore.me" ];
+      email = "klaymorer@protonmail.com";
     };
   };
 

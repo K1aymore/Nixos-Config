@@ -188,6 +188,7 @@ in
         "Libreoffice/.config/libreoffice"
         "DigiKam/.local/share/digikam"
         "DigiKam/.cache/digikam"
+        "OBS/.config/obs-studio"
 
         "Atom/.atom"
         "Godot/.local/share/godot"

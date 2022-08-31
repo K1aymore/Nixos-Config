@@ -11,10 +11,10 @@
     startWhenNeeded = true;
 
     swarmAddress = [
-    "/ip4/0.0.0.0/tcp/55434"
-    "/ip6/::/tcp/55434"
-    "/ip4/0.0.0.0/udp/55434/quic"
-    "/ip6/::/udp/55434/quic"
+    "/ip4/0.0.0.0/tcp/54903"
+    "/ip6/::/tcp/54903"
+    "/ip4/0.0.0.0/udp/54903/quic"
+    "/ip6/::/udp/54903/quic"
     ];
   };
 

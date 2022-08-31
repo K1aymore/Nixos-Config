@@ -125,7 +125,7 @@ in {
     thunderbird
 
     godot
-    blender
+    blender-hip
     libresprite
     krita
     inkscape

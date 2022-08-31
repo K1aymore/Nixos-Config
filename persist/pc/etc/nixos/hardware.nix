@@ -22,7 +22,7 @@
   fileSystems."/home/klaymore" = {
     device = "tmpfs";
     fsType = "tmpfs";
-    options = [ "size=7G" "mode=777" ];
+    options = [ "size=2G" "mode=777" ];
   };
 
   fileSystems."/boot" = {
@@ -72,7 +72,7 @@
 
   # Games
   fileSystems."/home/klaymore/.var/app/com.valvesoftware.Steam" = {
-    device = "/dev/disk/by-uuid/096d1694-265a-48a7-b826-ddf2b5a85121";
+    device = "/dev/disk/by-uuid/59fad7f5-c05a-4660-b92d-d6b1f987ba0b";
     fsType = "ext4";
   };
 

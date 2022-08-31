@@ -12,6 +12,7 @@
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
+    ./packages/davinci.nix
 
     ./system/opentablet.nix
 
@@ -64,8 +65,8 @@
     hostName = "pc";
     hostId = "7c980de5";  # head -c 8 /etc/machine-id
     firewall = {
-      allowedTCPPorts = [ 22000 22067 55434 57213 57227 61007 ];
-      allowedUDPPorts = [ 21027 22067 55434 57213 57227 61007 ];
+      allowedTCPPorts = [ 22000 22067 54903 55054 58819 61456 ];
+      allowedUDPPorts = [ 21027 22067 54903 55054 58819 61456 ];
     };
   };
 
@@ -77,7 +78,7 @@
   users.users.boinc.extraGroups = [ "video" ]; */
 
 
-  services.syncthing.relay.port = 61007;
+  services.syncthing.relay.port = 61456;
   services.syncthing.folders = {
       "Sync" = {
         path = "/synced/Sync";

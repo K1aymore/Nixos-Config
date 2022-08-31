@@ -18,19 +18,22 @@ in {
     git
     gh
 
-    jdk8
+    jdk
+    #jdk8
     clang
     gcc
     ghc
     sbcl  # Lisp compiler
     nasm  # assembly
+    gnumake
 
     /* geany
     bluefish */
 
     # eclipses.eclipse-java
-    # jetbrains.idea-community
+    jetbrains.idea-community
     vscodium-fhs
+    arduino
 
     qtcreator
     libsForQt5.full
@@ -40,7 +43,10 @@ in {
 
 
   programs = {
-    java.enable = true;
+    java = {
+      enable = true;
+      package = pkgs.jdk;
+    };
   };
 
 }

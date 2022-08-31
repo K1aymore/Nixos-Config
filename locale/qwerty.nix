@@ -6,10 +6,10 @@
   # Select internationalisation properties.
   #console.keyMap = "us";
 
-  services.xserver.xkbVariant = "qwerty";
+  services.xserver.xkbVariant = "";
 
   environment.variables = {
-    XKB_DEFAULT_VARIANT = "qwerty";
+    XKB_DEFAULT_VARIANT = "";
   };
 
 }

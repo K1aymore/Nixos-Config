@@ -39,6 +39,7 @@ in {
     netstat = "vnstat -i enp30s0";
     bat = "cat /sys/class/power_supply/BAT1/capacity";
     batlvl = "cat /sys/class/power_supply/BAT1/capacity";
+    ramCheck = "sudo lshw -short -C memory";
 
     hey = "echo hello there";
     claer = "tree / | lolcat";
@@ -46,6 +47,8 @@ in {
     findSyncConflict = ''find . -name "*sync-conflict*"'';
     fileCount = "find . -type f | cut -d/ -f 2 | uniq -c";
     doom = "~/.emacs.d/bin/doom";
+    findjdk = "cd /nix/store && ls -d */ | grep jdk";
+    makeModule = "make -C $(nix-build -E '(import <nixpkgs> {}).linux.dev' --no-out-link)/lib/modules/*/build M=$(pwd) modules";
 
 
     rm = "rm -i";
@@ -58,9 +61,7 @@ in {
     rcloneS3 = "rclone sync --fast-list --checksum --progress";
 
 
-
 #   nbrc = "$EDITOR ~/.bashrc && source ~/.bashrc"
-
 
 
     sshServerLan = "ssh 172.16.0.115 -p 56789";
@@ -68,12 +69,8 @@ in {
     syncplayFraggie = "syncplay-server --port 59876 --salt 42069 --password Fraggie";
 
 
-
     ipfsbafysimple = "ipfs add --cid-version 1";
     ipfslist = "ipfs pin ls | grep recursive";
-
-
-
 
     elementSounds = "sudo rm -r /usr/share/webapps/element/media && sudo cp -r /synced/Sync/Linux/ElementSounds /usr/share/webapps/element/media";
   };
