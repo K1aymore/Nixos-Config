@@ -15,7 +15,7 @@ in {
 
 
   environment.systemPackages = with pkgs; [
-    wineWowPackages.wayland
+    wineWowPackages.waylandFull
     lutris
     playonlinux
     grapejuice

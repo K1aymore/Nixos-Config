@@ -52,6 +52,7 @@ in {
     onboard
     xkbd
     #latte-dock
+    remmina
 
     pavucontrol
     qjackctl

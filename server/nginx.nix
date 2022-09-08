@@ -8,6 +8,20 @@ in {
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "klaymorer@protonmail.com";
+    certs = {
+      "klaymore.me" = {
+        webroot = pkgs.lib.mkForce dataDir;
+        extraDomainNames = [ "matrix.klaymore.me" ];
+        email = "klaymorer@protonmail.com";
+      };
+    };
+  };
+
+
   services.nginx = {
     enable = true;
     resolver.addresses = [ "8.8.8.8" "8.8.4.4" ];
@@ -20,6 +34,7 @@ in {
       locations = {
         "/" = {
           index = "index.html";
+          root = datadir;
         };
 
         "~ .php$" = {     # ~ .php$
@@ -45,13 +60,6 @@ in {
   };
 
 
-  security.acme.certs = {
-    "klaymore.me" = {
-      webroot = pkgs.lib.mkForce dataDir;
-      extraDomainNames = [ "matrix.klaymore.me" ];
-      email = "klaymorer@protonmail.com";
-    };
-  };
 
   # phpfpm fails to start for me
 #   services.phpfpm.settings = {

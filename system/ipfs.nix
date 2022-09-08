@@ -8,7 +8,7 @@
     dataDir = "/synced/other/ipfs";
     localDiscovery = true;
     gatewayAddress = "/ip4/127.0.0.1/tcp/8081";
-    startWhenNeeded = true;
+    #startWhenNeeded = true;
 
     swarmAddress = [
     "/ip4/0.0.0.0/tcp/54903"

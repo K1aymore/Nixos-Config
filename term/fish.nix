@@ -8,6 +8,7 @@ in {
 
   home-manager.users.klaymore.programs.starship = {
     enable = true;
+    enableBashIntegration = true;
     enableFishIntegration = true;
     settings = {
       /* package.disabled = true; */
