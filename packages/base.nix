@@ -68,6 +68,7 @@ in {
     zfs
     nfs-utils
     libnfs
+    parted
 
     wget
     curl

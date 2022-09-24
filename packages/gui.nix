@@ -37,7 +37,7 @@ in {
     swaylock
     swayidle
     wob
-    mako # notification daemon, annoying on plasma
+    #mako # notification daemon, annoying on plasma
     alacritty # Alacritty is the default terminal in Sway config
     dmenu # Dmenu is the default in Sway config but i recommend wofi since its wayland native
     wofi

@@ -5,7 +5,7 @@
   imports = [
     ./base.nix
     ./locale/colemak.nix
-    ./locale/sweden.nix
+    ./locale/losAngeles.nix
     ./system/pipewire.nix
     ./de/plasma.nix
     ./de/sway.nix
@@ -45,7 +45,7 @@
       START_CHARGE_THRESH_BAT0 = 0;  # dummy value
       STOP_CHARGE_THRESH_BAT0 = 1; # charge to 60%
 
-      RESTORE_THRESHOLDS_ON_BAT = 1;
+      RESTORE_THRESHOLDS_ON_BAT = 1; # reset max charge after unplugging charger
 
       /* CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
