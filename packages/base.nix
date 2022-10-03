@@ -20,7 +20,7 @@ in {
     pciutils
     nix-diff
     findutils
-    utillinux
+    # utillinux
     gnused
     gnugrep
     gnupg
@@ -75,7 +75,7 @@ in {
     htop
     man
     tldr
-    git
+    /* git */   # home manager
     nixos-option
     awscli2
     httrack
@@ -86,7 +86,7 @@ in {
 
     micro
     xclip
-    neovim
+    /* neovim */    # home manager
     universal-ctags
     vim
     emacs
@@ -97,11 +97,11 @@ in {
     ttyper
     pwgen
     moc
-    ncmpcpp
+    /* ncmpcpp */ # HM
     mpc-cli
-    starship
+    /* starship */ # HM
     fzf
-    zoxide
+    /* zoxide */  # HM
     tmux
     zellij
     comma
@@ -133,7 +133,6 @@ in {
 
     mullvad-vpn
     /* yggdrasil */
-    kdeconnect
   ];
 
 

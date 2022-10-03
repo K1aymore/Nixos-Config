@@ -6,6 +6,7 @@
   imports = [
     ./packages/base.nix
 
+    ./term/programs.nix
     ./term/aliases.nix
     ./term/fish.nix
     ./term/mpd.nix

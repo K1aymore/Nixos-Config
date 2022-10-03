@@ -105,6 +105,7 @@ in {
     libsForQt5.kcalc
     speedcrunch
     libsForQt5.akonadi-calendar
+    plasma5Packages.kdeconnect-kde
 
     google-chrome
     chromium
@@ -138,6 +139,7 @@ in {
     reaper
     milkytracker
     hivelytracker
+    josm
 
     gsettings-desktop-schemas
     gsettings-qt

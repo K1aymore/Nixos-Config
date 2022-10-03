@@ -17,12 +17,13 @@ in {
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
     lutris
-    playonlinux
+    #playonlinux
     grapejuice
     protonup
     protontricks
     openal
     heroic
+    legendary-gl
 
     minecraft
     #multimc

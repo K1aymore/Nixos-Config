@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   scripts = "/synced/Sync/Linux/BashScripts";
@@ -11,7 +11,20 @@ in {
     enableBashIntegration = true;
     enableFishIntegration = true;
     settings = {
-      /* package.disabled = true; */
+      add_newline = true;
+
+      format = lib.concatStrings [
+        "$username$hostname$localip$shlvl$singularity$kubernetes$directory"
+        "$git_branch$git_commit$git_state$git_metrics$git_status"
+        "$line_break"
+        "$jobs$battery$time$status$container$shell$character"
+      ];
+
+      scan_timeout = 10;
+      character = {
+        success_symbol = "❯(bold green)";
+        error_symbol = "❯(bold red)";
+      };
     };
   };
 
@@ -19,6 +32,8 @@ in {
   home-manager.users.klaymore.programs.fish = {
     enable = true;
     shellAliases = config.environment.shellAliases;
+    interactiveShellInit =
+      "set -gx GPG_TTY = $(tty)";
   };
 
 }

@@ -35,64 +35,7 @@ in
 
     imports = [ "${impermanence}/home-manager.nix" ];
 
-    programs = {
-      home-manager.enable = true;
-
-
-      git = {
-        enable = true;
-        userName  = "K1aymore";
-        userEmail = "klaymorer@protonmail.com";
-        signing = {
-          key = "BAE085A5C70F19F7";
-          signByDefault = true;
-        };
-        ignores = [
-          "*.swp"
-          ".syncthing*"
-        ];
-        extraConfig = {
-          init.defaultbranch = "main";
-        };
-      };
-
-
-      neovim = {
-        enable = true;
-        vimAlias = true;
-	      viAlias = true;
-        vimdiffAlias = true;
-
-        # coc.enable = true;
-        # nerdtree ultisnips vimproc slimv vim-surround vim-airline  haskell-vim vim-parinfer
-        plugins = with pkgs.vimPlugins; [ tagbar indentLine YouCompleteMe
-          vim-nix elvish-vim ];
-
-        extraConfig = ''
-          syntax on
-          set number
-          set relativenumber
-
-          set expandtab
-          set tabstop=2
-          set shiftwidth=2
-          set softtabstop=2
-
-          set splitright
-          set splitbelow
-
-          autocmd Filetype json
-            \ let g:indentLine_setConceal = 0
-
-          let g:paredit_electric_return=0
-          let g:paredit_disable_ftindent=1
-        '';
-      };
-
-    };
-
-
-
+    programs.home-manager.enable = true;
 
     home.file = {
       # export PATH=”$PATH:/synced/Sync/Linux/BashScripts”  # this breaks sudo
@@ -141,6 +84,10 @@ in
         "PlayOnLinux/.PlayOnLinux"
         "Lutris/.config/lutris"
         "Lutris/.local/share/lutris"
+        "Heroic/.config/legendary"
+        "Heroic/.config/heroic"
+        "Games/Games"
+        "Games/My Games"
 
         "Flatpak/.local/share/flatpak"
         "Flatpak/.var"
