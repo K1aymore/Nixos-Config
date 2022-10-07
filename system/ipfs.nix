@@ -3,7 +3,7 @@
 
 {
 
-  services.ipfs = {
+  services.kubo = {
     enable = true;
     dataDir = "/synced/other/ipfs";
     localDiscovery = true;

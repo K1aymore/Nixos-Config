@@ -34,13 +34,13 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      rocm-opencl-icd
+      /* rocm-opencl-icd
       #rocm-opencl-runtime
       libva
       libva-utils
       libvdpau-va-gl
       vaapiVdpau
-      #amdvlk
+      #amdvlk */
     ];
     extraPackages32 = with pkgs; [
       #driversi686Linux.amdvlk
@@ -85,11 +85,6 @@
         devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
         ignorePerms = false;
       };
-      "Media" = {
-        path = "/synced/Media";
-        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
-        ignorePerms = false;
-      };
       "Dotfiles" = {
         path = "/nix/dotfiles";
         devices = [ "server" "laptop" "portable" ];
@@ -124,12 +119,6 @@
         path = "/synced/EllidaProjects";
         devices = [ "server" "laptop" "portable" "cDesk" ];
         ignorePerms = true;
-      };
-      "Websites" = {
-        path = "/synced/Websites";
-        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
-        ignorePerms = false;
-        rescanInterval = 30;
       };
       "MasterKitty" = {
         path = "/synced/Stuff/masterkitty";

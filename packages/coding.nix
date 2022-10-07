@@ -27,8 +27,8 @@ in {
     nasm  # assembly
     gnumake
 
-    /* geany
-    bluefish */
+    cargo
+    rustc
 
     # eclipses.eclipse-java
     jetbrains.idea-community

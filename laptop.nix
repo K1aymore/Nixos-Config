@@ -49,8 +49,8 @@
 
       /* CPU_SCALING_GOVERNOR_ON_AC = "performance"; */
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      /* CPU_ENERGY_PERF_POLICY_ON_AC = "performance"; */
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
     };
   };
 
@@ -68,11 +68,6 @@
     };
     "Sync" = {
       path = "/synced/Sync";
-      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
-      ignorePerms = false;
-    };
-    "Media" = {
-      path = "/synced/Media";
       devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
       ignorePerms = false;
     };
@@ -100,12 +95,6 @@
       path = "/synced/Ellida Projects";
       devices = [ "server" "pc" "portable" "cDesk" ];
       ignorePerms = true;
-    };
-    "Websites" = {
-      path = "/synced/Websites";
-      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
-      ignorePerms = false;
-      rescanInterval = 30;
     };
   };
 

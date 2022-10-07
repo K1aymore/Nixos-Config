@@ -3,11 +3,11 @@
 let
   app = "httpd";
   domain = "klaymore.me";
-  dataDir = "/synced/Websites/klaymore.me";
+  dataDir = "/synced/Projects/Websites/klaymore.me";
 in {
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  
+
 
   services.httpd = {
     enable = true;
@@ -36,11 +36,11 @@ in {
     };
   };
 
-  
+
   users.users.${app} =
   {
     isSystemUser = true;
   };
-  
-  
+
+
 }

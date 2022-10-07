@@ -3,7 +3,7 @@
 let
   app = "php";
   domain = "klaymore.me";
-  dataDir = "/synced/Websites/klaymore.me/_site";
+  datadir = "/synced/Projects/Websites/klaymore.me/_site";
 in {
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
@@ -14,7 +14,7 @@ in {
     defaults.email = "klaymorer@protonmail.com";
     certs = {
       "klaymore.me" = {
-        webroot = pkgs.lib.mkForce dataDir;
+        webroot = pkgs.lib.mkForce datadir;
         extraDomainNames = [ "matrix.klaymore.me" ];
         email = "klaymorer@protonmail.com";
       };
@@ -29,7 +29,7 @@ in {
     virtualHosts.${domain} = {
       enableACME = true;
       addSSL = true;
-      root = dataDir;
+      root = datadir;
 
       locations = {
         "/" = {
@@ -51,7 +51,7 @@ in {
     };
 
     virtualHosts."shorecraft.club" = {
-      root="/synced/Websites/shorecraft.club";
+      root="/synced/Projects/Websites/shorecraft.club";
       locations."/" = {
         return = "301 https://klaymore.me";
       };
@@ -89,7 +89,7 @@ in {
   users.users.${app} = {
     isSystemUser = true;
     createHome = false;
-    home = "/synced/Websites/klaymore.me";
+    home = datadir;
     group  = app;
   };
   users.groups.${app} = {

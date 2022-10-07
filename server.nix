@@ -52,11 +52,6 @@
         devices = [ "pc" "portable" "laptop" "pinephone" "pixel" ];
         ignorePerms = false;
       };
-      "Media" = {
-        path = "/synced/Media";
-        devices = [ "pc" "portable" "laptop" "pinephone" "pixel" ];
-        ignorePerms = false;
-      };
       "Dotfiles" = {
         path = "/nix/dotfiles";
         devices = [ "pc" "portable" "laptop" ];
@@ -91,12 +86,6 @@
         path = "/synced/Ellida Projects";
         devices = [ "pc" "portable" "laptop" "cDesk" ];
         ignorePerms = true;
-      };
-      "Websites" = {
-        path = "/synced/Websites";
-        devices = [ "pc" "portable" "laptop" "pinephone" "pixel" ];
-        ignorePerms = false;
-        rescanInterval = 30;
       };
   };
 

@@ -13,18 +13,18 @@ in {
     settings = {
       add_newline = true;
 
-      format = lib.concatStrings [
-        "$username$hostname$localip$shlvl$singularity$kubernetes$directory"
+      /* format = lib.concatStrings [   # Default is fine anyways https://starship.rs/config/#prompt
+        "$shlvl$directory"
         "$git_branch$git_commit$git_state$git_metrics$git_status"
         "$line_break"
         "$jobs$battery$time$status$container$shell$character"
-      ];
+      ]; */
 
       scan_timeout = 10;
-      character = {
+      /* character = {
         success_symbol = "❯(bold green)";
         error_symbol = "❯(bold red)";
-      };
+      }; */
     };
   };
 
@@ -33,7 +33,7 @@ in {
     enable = true;
     shellAliases = config.environment.shellAliases;
     interactiveShellInit =
-      "set -gx GPG_TTY = $(tty)";
+      "set -gx GPG_TTY (tty)";
   };
 
 }

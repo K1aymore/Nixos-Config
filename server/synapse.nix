@@ -47,7 +47,7 @@ in {
       "matrix.klaymore.me" = {
         enableACME = true;
         addSSL = true;
-        root = "/synced/Websites/matrix.klaymore.me";
+        root = "/synced/Projects/Websites/matrix.klaymore.me";
         # forward all Matrix API calls to the synapse Matrix homeserver
         locations."/_matrix" = {
           proxyPass = "http://[::1]:8008"; # without a trailing /

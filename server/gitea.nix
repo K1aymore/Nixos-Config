@@ -20,7 +20,7 @@
         enableACME = true;
         addSSL = true;
         forceSSL = true;
-#         root = "/synced/Websites/gitea.klaymore.me";
+#         root = "/synced/Projects/Websites/gitea.klaymore.me";
 
         # Or do a redirect instead of the 404, or whatever is appropriate for you.
         # But do not put a Matrix Web client here! See the Element web section below.
