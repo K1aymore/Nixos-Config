@@ -71,7 +71,7 @@
   };
 
   # Games
-  fileSystems."/home/klaymore/.var/app/com.valvesoftware.Steam" = {
+  fileSystems."/nix/persist/home/Flatpak/.var/app/com.valvesoftware.Steam" = {
     device = "/dev/disk/by-uuid/9bbfcd22-a284-41be-b7e2-b74bfd4939bf";
     fsType = "ext4";
   };

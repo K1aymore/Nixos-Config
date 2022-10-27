@@ -115,16 +115,16 @@ in {
     discord
     element-desktop
     qbittorrent
-    transmission-qt
-    deluge
+    #transmission-qt
+    #deluge
     #flood
     #onionshare-gui
     #tor-browser-bundle-bin
     #session-desktop-appimage
-    zoom-us
-    lbry
-    libsForQt5.kmail
-    thunderbird
+    #zoom-us
+    #lbry
+    #libsForQt5.kmail
+    #thunderbird
 
     godot
     blender-hip
@@ -132,11 +132,10 @@ in {
     krita
     inkscape
     libsForQt5.kdenlive
-    shotcut
-    #olive-editor
     log4cxx
     lmms
     reaper
+    ardour
     milkytracker
     hivelytracker
     josm

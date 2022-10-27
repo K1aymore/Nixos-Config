@@ -37,6 +37,7 @@ in {
     clang
     libva-utils
     lshw
+    libxcrypt
 
     gvfs
     libcdio  # cd stuff for kde

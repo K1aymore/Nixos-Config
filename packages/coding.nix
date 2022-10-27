@@ -26,6 +26,7 @@ in {
     sbcl  # Lisp compiler
     nasm  # assembly
     gnumake
+    avalonia-ilspy  # .NET exe decompiler
 
     cargo
     rustc
@@ -33,12 +34,15 @@ in {
     # eclipses.eclipse-java
     jetbrains.idea-community
     vscodium-fhs
+    codeblocks
     arduino
 
     qtcreator
     libsForQt5.full
     cmake
     gdb
+
+    glibc_multi
   ];
 
 

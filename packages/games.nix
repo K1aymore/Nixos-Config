@@ -17,8 +17,8 @@ in {
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
     lutris
-    #playonlinux
-    grapejuice
+    playonlinux
+    #grapejuice
     protonup
     protontricks
     openal
@@ -26,9 +26,10 @@ in {
     legendary-gl
 
     minecraft
-    #multimc
     #itch
-    polymc
+    #multimc
+    #polymc
+    prismlauncher
 
     wesnoth
     openttd
@@ -51,6 +52,10 @@ in {
   # sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   # sudo flatpak install flathub com.valvesoftware.Steam
   # flatpak run com.valvesoftware.Steam
+
+  #flatpak install flathub net.brinkervii.grapejuice
+  #flatpak run net.brinkervii.grapejuice
+
 
   /* programs = {
     steam.enable = true;

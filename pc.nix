@@ -12,7 +12,7 @@
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
-    ./packages/davinci.nix
+    ./packages/video-editing.nix
 
     ./system/opentablet.nix
 
@@ -26,28 +26,29 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  /* boot.kernelPackages = pkgs.linuxPackages_latest; */
   #boot.zfs.enableUnstable = true;
+  boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      /* rocm-opencl-icd
+      rocm-opencl-icd
       #rocm-opencl-runtime
       libva
       libva-utils
       libvdpau-va-gl
       vaapiVdpau
-      #amdvlk */
+      amdvlk
     ];
     extraPackages32 = with pkgs; [
-      #driversi686Linux.amdvlk
+      driversi686Linux.amdvlk
     ];
   };
 
-  environment.variables.AMD_VULKAN_ICD = "RADV";
+  /* environment.variables.AMD_VULKAN_ICD = "RADV"; */
 
   hardware.steam-hardware.enable = true;
   #hardware.pulseaudio.support32Bit = true;
@@ -68,6 +69,9 @@
       allowedTCPPorts = [ 22000 22067 54903 55054 58819 61456 ];
       allowedUDPPorts = [ 21027 22067 54903 55054 58819 61456 ];
     };
+    extraHosts = ''
+      0.0.0.0 youtube.com
+    '';
   };
 
 
@@ -82,6 +86,11 @@
   services.syncthing.folders = {
       "Sync" = {
         path = "/synced/Sync";
+        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
+        ignorePerms = false;
+      };
+      "Media" = {
+        path = "/synced/Media";
         devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
         ignorePerms = false;
       };

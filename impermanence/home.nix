@@ -132,6 +132,9 @@ in
         "OpenDungeons/.local/share/opendungeons"
         "Crawl/.crawl"
 
+        "JOSM/.config/JOSM"
+        "JOSM/.local/share/JOSM"
+
         "Libreoffice/.config/libreoffice"
         "DigiKam/.local/share/digikam"
         "DigiKam/.cache/digikam"
