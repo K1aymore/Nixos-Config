@@ -151,9 +151,13 @@ in
         "QtCreator/.config/QtProject"
         "VSCodium/.vscode-oss"
         "VSCodium/.config/VSCodium"
+        "VSCode/.vscode"
+        "VSCode/.config/Code"
         "Discord/.config/discord"
         "Chromium/.cache/chromium"
         "Chromium/.config/chromium"
+
+        "Ardour/.config/ardour6"
 
         "Emacs/.emacs.d"
         "Emacs/.doom.d"

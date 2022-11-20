@@ -18,6 +18,7 @@ in {
     #cinelerra
     olive-editor
     shotcut
+    flowblade
   ];
 
 

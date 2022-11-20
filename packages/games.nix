@@ -16,7 +16,7 @@ in {
 
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
-    lutris
+    #lutris
     playonlinux
     #grapejuice
     protonup
@@ -44,6 +44,7 @@ in {
     eternity
     freedroidrpg
     #osu-lazer
+    arx-libertatis
   ];
 
   services.flatpak.enable = true;

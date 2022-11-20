@@ -32,7 +32,7 @@
 
       # coc.enable = true;
       # nerdtree ultisnips vimproc slimv vim-surround vim-airline haskell-vim vim-parinfer
-      plugins = with pkgs.vimPlugins; [ tagbar indentLine YouCompleteMe
+      plugins = with pkgs.vimPlugins; [ tagbar indentLine #YouCompleteMe
         vim-nix elvish-vim ];
 
       extraConfig = ''

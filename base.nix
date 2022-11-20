@@ -38,9 +38,9 @@
     terminus_font
   ];
 
-  #nix.extraOptions = ''
-  #  experimental-features = nix-command
-  #'';
+  nix.extraOptions = ''
+    experimental-features = nix-command
+  '';
 
   environment.variables = {
      GPG_TTY = "$(tty)";
