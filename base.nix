@@ -38,9 +38,7 @@
     terminus_font
   ];
 
-  nix.extraOptions = ''
-    experimental-features = nix-command
-  '';
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.variables = {
      GPG_TTY = "$(tty)";
@@ -78,6 +76,7 @@
     extraHosts = ''
       172.16.0.115 serverlan
       172.16.0.115:56789 serverlanssh
+      192.30.255.113 github.com
     '';
   };
 
@@ -131,7 +130,6 @@
     configDir = "/nix/persist/appdata/syncthing";
     user = "klaymore";
     group = "users";
-    relay.enable = true;
     overrideDevices = true;
     overrideFolders = true;
     devices = {

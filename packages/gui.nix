@@ -128,10 +128,12 @@ in {
 
     godot
     blender-hip
+    python39Packages.pyzmq
     libresprite
     krita
     inkscape
     libsForQt5.kdenlive
+    movit
     log4cxx
     lmms
     reaper

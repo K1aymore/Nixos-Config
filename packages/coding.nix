@@ -38,7 +38,7 @@ in {
     arduino
 
     qtcreator
-    libsForQt5.full
+    /* libsForQt5.full */
     cmake
     gdb
 

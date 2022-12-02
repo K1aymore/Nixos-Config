@@ -13,6 +13,7 @@
     ./packages/games.nix
     ./packages/coding.nix
     ./packages/video-editing.nix
+    /* ./packages/blender-2-9.nix */
 
     ./system/opentablet.nix
 
@@ -35,12 +36,12 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      rocm-opencl-icd
+      #rocm-opencl-icd
       #rocm-opencl-runtime
-      libva
-      libva-utils
-      libvdpau-va-gl
-      vaapiVdpau
+      #libva
+      #libva-utils
+      #libvdpau-va-gl
+      #vaapiVdpau
       amdvlk
     ];
     extraPackages32 = with pkgs; [
@@ -82,6 +83,7 @@
   users.users.boinc.extraGroups = [ "video" ]; */
 
 
+  services.syncthing.relay.enable = true;
   services.syncthing.relay.port = 61456;
   services.syncthing.folders = {
       "Sync" = {

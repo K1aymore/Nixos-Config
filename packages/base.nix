@@ -38,6 +38,7 @@ in {
     libva-utils
     lshw
     libxcrypt
+    lm_sensors
 
     gvfs
     libcdio  # cd stuff for kde

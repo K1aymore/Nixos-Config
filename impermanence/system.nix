@@ -18,7 +18,7 @@ in
       "/var/log"
 
       "/etc/mullvad-vpn"
-      "/tmp"
+      #"/tmp"
 
       "/root/.local/share/DaVinciResolve"
     ];

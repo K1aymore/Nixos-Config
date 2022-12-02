@@ -14,7 +14,7 @@ in {
     conf = "cd /nix/cfg";
     lisp = "cd /synced/Projects/Programming/Lisp";
 
-    yd = "/synced/Sync/Linux/BashScripts/yd";
+    yd = "bash /synced/Sync/Linux/BashScripts/yd";
     r128all = "find . -exec r128gain {} \\;";
 
     ga = "git add";
@@ -27,10 +27,10 @@ in {
     jcr = "/synced/Sync/Linux/BashScripts/jcr";
     gcr = "/synced/Sync/Linux/BashScripts/gcr";
     j = "java";
-    ecw = "source /synced/Sync/Linux/BashScripts/ecw";
+    ecw = "bash /synced/Sync/Linux/BashScripts/ecw";
     bashscr = "cd /synced/Sync/Linux/BashScripts";
-    nwk = "source /synced/Sync/Linux/BashScripts/nwk";
-    dnxhdify = "source /synced/Sync/Linux/BashScripts/dnxhdify";
+    nwk = "bash /synced/Sync/Linux/BashScripts/nwk";
+    dnxhdify = "bash /synced/Sync/Linux/BashScripts/dnxhdify";
 
 
     brup = "brightnessctl set 5+%";
