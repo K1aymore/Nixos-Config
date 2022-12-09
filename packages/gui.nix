@@ -127,7 +127,7 @@ in {
     #thunderbird
 
     godot
-    blender-hip
+    blender
     python39Packages.pyzmq
     libresprite
     krita
