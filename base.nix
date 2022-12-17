@@ -90,13 +90,6 @@
 
   services.fstrim.enable = true; # for ssd trimming
 
-  # ZFS support
-  boot.initrd.supportedFilesystems = ["zfs"]; # boot from zfs
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.loader.grub.copyKernels = true; # often true anyways
-  services.zfs.autoScrub.enable = true;
-  boot.kernelParams = [ "nohibernate" ]; # can cause ZFS corruption
-
   boot.kernel.sysctl = { # for Syncthing watches
     # Note that inotify watches consume 1kB on 64-bit machines.
     "fs.inotify.max_user_watches"   = 1048576;   # default:  8192
