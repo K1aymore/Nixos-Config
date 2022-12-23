@@ -1,9 +1,8 @@
+**Usage**
 
-In your configuration.nix you basically just import pc.nix, or laptop.nix, or server.nix
-whichever setup you want.
+In /etc/nixos/configuration.nix just import pc.nix, laptop.nix, or server.nix, whichever setup you want.
 
-First get rid of all the Syncthing stuff though, I don't want you trying to
-sync stuff with my computers lol.
+First you should get rid of all the Syncthing devices though, so you don't try to connect to my computers.
 
-You should probably comment out the impermanence imports as well,
-unless you have it set up for impermanence.
+You should probably remove the impermanence imports as well, unless you have it set up for impermanence.
+With impermanence on, persist/{hostname}/etc/nixos will be linked to /etc/nixos, so that way it can be tracked by Git as well.
