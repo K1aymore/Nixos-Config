@@ -49,12 +49,12 @@
   services.syncthing.folders = {
       "Sync" = {
         path = "/synced/Sync";
-        devices = [ "pc" "portable" "laptop" "pinephone" "pixel" ];
+        devices = [ "pc" "portable" "laptop" "pinephone" "pixel" "winpc" ];
         ignorePerms = false;
       };
       "Media" = {
         path = "/synced/Media";
-        devices = [ "pc" "laptop" "portable" "pinephone" "pixel" ];
+        devices = [ "pc" "laptop" "portable" "pinephone" "pixel" "winpc" ];
         ignorePerms = false;
       };
       "Dotfiles" = {
@@ -64,12 +64,12 @@
       };
       "NixCfg" = {
         path = "/nix/cfg";
-        devices = [ "pc" "portable" "laptop" "pinephone" "pixel" ];
+        devices = [ "pc" "portable" "laptop" "pinephone" "pixel" "winpc" ];
         ignorePerms = false;
       };
       "Projects" = {
         path = "/synced/Projects";
-        devices = [ "pc" "portable" "laptop" "pinephone" ];
+        devices = [ "pc" "portable" "laptop" "pinephone" "winpc" ];
         ignorePerms = false;
       };
       "Archive" = {

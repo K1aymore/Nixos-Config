@@ -29,11 +29,6 @@
     hostName = "laptop";
     hostId = "e86a53d5";  # head -c 8 /etc/machine-id
     #interfaces.wlp2s0.useDHCP = true;
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 22000 22067 ];  # Syncthing transfers & relay
-      allowedUDPPorts = [ 21027 22067 ];  # Syncthing discovery
-    };
   };
 
   #services.xserver.displayManager.startx.enable = true;
@@ -68,12 +63,12 @@
     };
     "Sync" = {
       path = "/synced/Sync";
-      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
+      devices = [ "server" "pc" "portable" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
     };
     "Media" = {
       path = "/synced/Media";
-      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
+      devices = [ "server" "pc" "portable" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
     };
     "Dotfiles" = {
@@ -83,12 +78,12 @@
     };
     "NixCfg" = {
       path = "/nix/cfg";
-      devices = [ "server" "pc" "portable" "pinephone" "pixel" ];
+      devices = [ "server" "pc" "portable" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
     };
     "Projects" = {
       path = "/synced/Projects";
-      devices = [ "server" "pc" "portable" ];
+      devices = [ "server" "pc" "portable" "winpc" ];
       ignorePerms = false;
     };
     /* "Ellida Sync" = {

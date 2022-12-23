@@ -68,12 +68,6 @@ in {
           version = "3.2.3";
           sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
         }
-        {
-          name = "cpptools-extension-pack";
-          publisher = "ms-vscode";
-          version = "1.3.0";
-          sha256 = "ac7493ec26025629ecddfa970be158892e5781c8e68bb416ecce3216b511d385";
-        }
       ];
     })
 

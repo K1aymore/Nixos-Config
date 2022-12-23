@@ -43,10 +43,10 @@
       #libva-utils
       #libvdpau-va-gl
       #vaapiVdpau
-      amdvlk
+      #amdvlk
     ];
     extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
+      #driversi686Linux.amdvlk
     ];
   };
 
@@ -68,8 +68,8 @@
     hostName = "pc";
     hostId = "7c980de5";  # head -c 8 /etc/machine-id
     firewall = {
-      allowedTCPPorts = [ 22000 22067 54903 55054 58819 61456 ];
-      allowedUDPPorts = [ 21027 22067 54903 55054 58819 61456 ];
+      allowedTCPPorts = [ 54903 55054 58819 61456 ];
+      allowedUDPPorts = [ 54903 55054 58819 61456 ];
     };
     extraHosts = ''
       0.0.0.0 youtube.com
@@ -89,12 +89,12 @@
   services.syncthing.folders = {
       "Sync" = {
         path = "/synced/Sync";
-        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
+        devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
         ignorePerms = false;
       };
       "Media" = {
         path = "/synced/Media";
-        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
+        devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
         ignorePerms = false;
       };
       "Dotfiles" = {
@@ -104,12 +104,12 @@
       };
       "NixCfg" = {
         path = "/nix/cfg";
-        devices = [ "server" "laptop" "portable" "pinephone" "pixel" ];
+        devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
         ignorePerms = false;
       };
       "Projects" = {
         path = "/synced/Projects";
-        devices = [ "server" "laptop" "portable" "pinephone" ];
+        devices = [ "server" "laptop" "portable" "pinephone" "winpc" ];
         ignorePerms = false;
       };
       "Archive" = {
