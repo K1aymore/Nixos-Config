@@ -3,7 +3,6 @@
 
 let
   impermanence = builtins.fetchTarball "https://github.com/nix-community/impermanence/archive/master.tar.gz";
-  sys = /nix/persist/system;
 in
 {
 
@@ -29,7 +28,7 @@ in
     ];
   };
 
-  environment.persistence."/nix/cfg/persist/${config.networking.hostName}" = {
+  environment.persistence."/synced/Nix/cfg/persist/${config.networking.hostName}" = {
     directories = [
       "/etc/nixos"
     ];

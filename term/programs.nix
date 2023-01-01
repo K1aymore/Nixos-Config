@@ -31,9 +31,9 @@
       vimdiffAlias = true;
 
       # coc.enable = true;
-      # nerdtree ultisnips vimproc slimv vim-surround vim-airline haskell-vim vim-parinfer
-      plugins = with pkgs.vimPlugins; [ tagbar indentLine #YouCompleteMe
-        vim-nix elvish-vim ];
+      # nerdtree ultisnips vimproc slimv vim-surround vim-airline haskell-vim vim-parinfer elvish-vim
+      plugins = with pkgs.vimPlugins; [ tagbar indentLine YouCompleteMe
+        vim-nix ];
 
       extraConfig = ''
         syntax on

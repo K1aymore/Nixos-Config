@@ -11,7 +11,7 @@ in {
     nrbu = "sudo nixos-rebuild boot --upgrade";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
-    conf = "cd /nix/cfg";
+    conf = "cd /synced/Nix/cfg";
     lisp = "cd /synced/Projects/Programming/Lisp";
 
     yd = "bash /synced/Sync/Linux/BashScripts/yd";

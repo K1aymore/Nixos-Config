@@ -22,7 +22,7 @@ in {
     #jdk8
     clang
     gcc
-    ghc
+    ghc # Haskell compiler
     sbcl  # Lisp compiler
     nasm  # assembly
     gnumake
@@ -30,6 +30,7 @@ in {
 
     cargo
     rustc
+    wasm-pack # Rust WebAssembly
 
     # eclipses.eclipse-java
     jetbrains.idea-community

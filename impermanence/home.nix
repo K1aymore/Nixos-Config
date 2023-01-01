@@ -45,7 +45,7 @@ in
     };
 
 
-    home.persistence."/nix/persist/home" = {
+    home.persistence."/synced/Nix/persist/home" = {
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
@@ -106,7 +106,7 @@ in
     };
 
 
-    home.persistence."/nix/dotfiles" = {
+    home.persistence."/synced/Nix/dotfiles" = {
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
@@ -184,7 +184,7 @@ in
     };
 
 
-    home.persistence."/nix/dotfiles/Plasma" = {
+    home.persistence."/synced/Nix/dotfiles/Plasma" = {
       removePrefixDirectory = false;
       allowOther = true;
       directories = [
@@ -274,7 +274,7 @@ in
     };
 
 
-    home.stateVersion = "21.11";
+    home.stateVersion = "22.11";
   };
 
 
