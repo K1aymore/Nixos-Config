@@ -130,7 +130,7 @@ in {
     blender
     python39Packages.pyzmq
     libresprite
-    krita
+    #krita
     inkscape
     libsForQt5.kdenlive
     movit

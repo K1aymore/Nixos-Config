@@ -33,10 +33,9 @@ in {
     wasm-pack # Rust WebAssembly
 
     # eclipses.eclipse-java
-    jetbrains.idea-community
-    #vscodium-fhs
+    #jetbrains.idea-community
     vscode-fhs
-    codeblocks
+    #codeblocks
     arduino
 
     qtcreator
@@ -47,22 +46,16 @@ in {
     glibc_multi
 
 
-    (vscode-with-extensions.override {
+    /*(vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         ms-vscode.cpptools
-        ms-python.python
-        ms-python.vscode-pylance
+        #ms-python.python
+        #ms-python.vscode-pylance
         #matklad.rust-analyzer
         #bbenoist.nix
         #ms-azuretools.vscode-docker
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        /* {
-          name = "remote-containers";
-          publisher = "ms-vscode-remote";
-          version = "0.262.0";
-          sha256 = "2fb45173822221f1528a2063fb4b7fcb45ce55af74d4f8dc1623af65efe15a93";
-        } */
         {
           name = "mayukaithemevsc";
           publisher = "GulajavaMinistudio";
@@ -70,7 +63,7 @@ in {
           sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
         }
       ];
-    })
+    })*/
 
   ];
 
@@ -82,10 +75,10 @@ in {
     };
   };
 
-  virtualisation.docker = {
+  /*virtualisation.docker = {
     enable = true;
     rootless.enable = true;
-  };
+  };*/
   users.users.klaymore.extraGroups = [ "docker" ];
 
 }

@@ -58,6 +58,9 @@ in
         "Blender/.config/blender"
         "DaVinci/.local/share/DaVinciResolve"
 
+        "VSCode/.vscode"
+        "VSCode/.config/Code"
+
         "Element/.config/Element"
         "Element/.pki"
         "Session/.config/Session"
@@ -111,7 +114,6 @@ in
       allowOther = true;
       directories = [
         "OpenTabletDriver/.config/OpenTabletDriver"
-        "Sway/.config/sway"
 
         "Tealdeer/.cache/tealdeer"
         "AWSCLI/.aws"
@@ -120,7 +122,10 @@ in
         #"Git/.config/git"
 
         /* "Chromium/.cache/chromium"
-        "Chromium/.config/chromium" */
+        "Chromium/.config/chromium"*/
+
+        "VSCodium/.vscode-oss"
+        "VSCodium/.config/VSCodium"
 
         "Keepassxc/.cache/keepassxc"
         "Keepassxc/.config/keepassxc"
@@ -149,10 +154,6 @@ in
         "JetBrains/.local/share/JetBrains"
         "QtCreator/.cache/QtProject"
         "QtCreator/.config/QtProject"
-        "VSCodium/.vscode-oss"
-        "VSCodium/.config/VSCodium"
-        "VSCode/.vscode"
-        "VSCode/.config/Code"
         "Discord/.config/discord"
         "Chromium/.cache/chromium"
         "Chromium/.config/chromium"
