@@ -39,6 +39,7 @@ in {
     lshw
     libxcrypt
     lm_sensors
+    acpi
 
     gvfs
     libcdio  # cd stuff for kde
@@ -48,6 +49,7 @@ in {
     gst_all_1.gst-plugins-good
     gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly */
+    pamixer
 
     breakpad
     fwupd
@@ -76,7 +78,7 @@ in {
     curl
     htop
     man
-    tldr
+    tealdeer
     /* git */   # home manager
     nixos-option
     awscli2

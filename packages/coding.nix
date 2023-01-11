@@ -75,10 +75,10 @@ in {
     };
   };
 
-  /*virtualisation.docker = {
+  virtualisation.docker = {
     enable = true;
     rootless.enable = true;
-  };*/
+  };
   users.users.klaymore.extraGroups = [ "docker" ];
 
 }

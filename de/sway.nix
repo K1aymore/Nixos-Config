@@ -12,8 +12,9 @@
     enable = true;
     config = {
       input."*" = {
-        xkb_layout = "us";
-        xkb_variant = "colemak";
+        xkb_layout = "us,us";
+        xkb_variant = "colemak,";
+        xkb_options = "grp:win_space_toggle";
         tap = "enabled";
         natural_scroll = "enabled";
       };
@@ -34,22 +35,31 @@
       #menu = "wofi";
 
       gaps = {
-        inner = 7;
+        inner = 8;
+        smartGaps = true;
+        smartBorders = "on";
       };
-      window.border = 2;
+      window.border = 0;
 
     };
     extraConfig = "
       bindsym XF86MonBrightnessDown exec light -U 10
       bindsym XF86MonBrightnessUp exec light -A 10
 
-      bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +1%'
-      bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -1%'
-      bindsym XF86AudioMute exec 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+      bindsym XF86AudioRaiseVolume exec 'pamixer -i 5'
+      bindsym XF86AudioLowerVolume exec 'pamixer -d 5'
+      bindsym XF86AudioMute exec 'pamixer -t'
 
     ";
   };
 
   programs.light.enable = true;
+
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 
 }

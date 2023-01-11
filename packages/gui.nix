@@ -32,6 +32,7 @@ in {
     vulkan-tools
     xorg.xdpyinfo
     kgpg
+    glib
 
     wl-clipboard
     swaylock
@@ -41,6 +42,7 @@ in {
     alacritty # Alacritty is the default terminal in Sway config
     dmenu # Dmenu is the default in Sway config but i recommend wofi since its wayland native
     wofi
+    xdg-utils
 
     dolphin
     filelight
@@ -53,6 +55,7 @@ in {
     xkbd
     #latte-dock
     remmina
+    xfce.thunar
 
     pavucontrol
     qjackctl

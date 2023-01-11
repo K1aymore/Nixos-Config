@@ -26,24 +26,37 @@
 
     neovim = {
       enable = true;
+      defaultEditor = true;
       vimAlias = true;
       viAlias = true;
       vimdiffAlias = true;
 
       # coc.enable = true;
-      # nerdtree ultisnips vimproc slimv vim-surround vim-airline haskell-vim vim-parinfer elvish-vim
-      plugins = with pkgs.vimPlugins; [ tagbar indentLine YouCompleteMe
-        vim-nix ];
+      #nvim-treesitter.withAllGrammars
+      # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
+      plugins = with pkgs.vimPlugins; [
+        YouCompleteMe indentLine rainbow
+	      vim-fugitive ale nvim-autopairs
+	      vim-nix
+      ];
 
       extraConfig = ''
         syntax on
         set number
         set relativenumber
+        
+        let g:deoplete#enable_at_startup = 1
 
-        set expandtab
+        "set expandtab  "spaces instead of tabs
         set tabstop=2
         set shiftwidth=2
         set softtabstop=2
+        set colorcolumn=80
+        filetype plugin indent on
+        "set list lcs=tab:\·\ 
+
+        set mouse=a
+        set mousehide
 
         set splitright
         set splitbelow
@@ -53,7 +66,12 @@
 
         let g:paredit_electric_return=0
         let g:paredit_disable_ftindent=1
+
       '';
+
+      extraPackages = with pkgs; [
+        jdt-language-server
+      ];
     };
 
     zoxide = {

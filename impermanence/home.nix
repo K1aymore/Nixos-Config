@@ -54,6 +54,7 @@ in
         "Pipewire/.local/state/wireplumber"
         "Pipewire/.config/pulse"
         "Elvish/.local/state/elvish"
+        "Zoxide/.local/share/zoxide"
 
         "Blender/.config/blender"
         "DaVinci/.local/share/DaVinciResolve"

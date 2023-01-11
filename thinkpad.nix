@@ -23,7 +23,7 @@
   ];
 
 
-  #services.getty.autologinUser = "klaymore";
+  services.getty.autologinUser = "klaymore";
 
   networking = {
     hostName = "thinkpad";
@@ -54,6 +54,7 @@
 
   services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
 
+  services.flatpak.enable = true;
 
   services.syncthing.folders = {
 #     "Archive" = {

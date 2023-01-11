@@ -32,6 +32,8 @@ in {
     nwk = "bash /synced/Sync/Linux/BashScripts/nwk";
     dnxhdify = "bash /synced/Sync/Linux/BashScripts/dnxhdify";
 
+    steam = "flatpak run com.valvesoftware.Steam";
+
 
     brup = "brightnessctl set 5+%";
     brdown = "brightnessctl set 5-%";
