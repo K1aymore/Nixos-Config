@@ -18,8 +18,6 @@ in {
     git
     gh
 
-    jdk
-    #jdk8
     clang
     gcc
     ghc # Haskell compiler

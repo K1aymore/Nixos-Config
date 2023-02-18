@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
-      /nix/cfg/laptop.nix
+      /synced/Nix/cfg/laptop.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

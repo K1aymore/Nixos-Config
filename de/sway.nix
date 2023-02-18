@@ -17,6 +17,7 @@
         xkb_options = "grp:win_space_toggle";
         tap = "enabled";
         natural_scroll = "enabled";
+        dwt = "disabled";
       };
 
       #modifier = "Mod2";

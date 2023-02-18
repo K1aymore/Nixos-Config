@@ -43,6 +43,7 @@ in {
     dmenu # Dmenu is the default in Sway config but i recommend wofi since its wayland native
     wofi
     xdg-utils
+    grim
 
     dolphin
     filelight
@@ -77,6 +78,7 @@ in {
     libsForQt5.kleopatra
     pinentry
     pinentry-qt
+    libsForQt5.kdialog
 
     kate
     atom
@@ -110,8 +112,8 @@ in {
     libsForQt5.akonadi-calendar
     plasma5Packages.kdeconnect-kde
 
-    google-chrome
-    chromium
+    #google-chrome
+    #chromium
     firefox-wayland
     /* librewolf */
 #     firefox-devedition-bin
@@ -130,19 +132,20 @@ in {
     #thunderbird
 
     godot
-    blender
+    #blender
     python39Packages.pyzmq
     libresprite
     #krita
     inkscape
     libsForQt5.kdenlive
-    movit
-    log4cxx
+    #movit
+    #log4cxx
     lmms
-    reaper
-    ardour
-    milkytracker
-    hivelytracker
+    #reaper
+    #ardour
+    #milkytracker
+    #hivelytracker
+	  furnace
     josm
 
     gsettings-desktop-schemas

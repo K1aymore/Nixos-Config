@@ -17,15 +17,15 @@ in {
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
     #lutris
-    playonlinux
+    #playonlinux
     #grapejuice
-    protonup
-    protontricks
-    openal
+    #protonup
+    #protontricks
+    #openal
     heroic
     legendary-gl
 
-    minecraft
+    #minecraft
     #itch
     #multimc
     #polymc
@@ -36,15 +36,15 @@ in {
     #simutrans
     #openrct2
     #zeroad
-    opendungeons
+    #opendungeons
     #crawl
-    opendune
-    galaxis
-    xlife
-    eternity
-    freedroidrpg
+    #opendune
+    #galaxis
+    #xlife
+    #eternity
+    #freedroidrpg
     #osu-lazer
-    arx-libertatis
+    #arx-libertatis
   ];
 
   services.flatpak.enable = true;

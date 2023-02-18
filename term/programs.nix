@@ -35,7 +35,8 @@
       #nvim-treesitter.withAllGrammars
       # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
       plugins = with pkgs.vimPlugins; [
-        YouCompleteMe indentLine rainbow
+        indentLine rainbow #YouCompleteMe 
+        #minimap-vim
 	      vim-fugitive ale nvim-autopairs
 	      vim-nix
       ];
@@ -45,13 +46,13 @@
         set number
         set relativenumber
         
-        let g:deoplete#enable_at_startup = 1
+        let g:rainbow_active = 1
 
         "set expandtab  "spaces instead of tabs
         set tabstop=2
         set shiftwidth=2
         set softtabstop=2
-        set colorcolumn=80
+        "set colorcolumn=80
         filetype plugin indent on
         "set list lcs=tab:\·\ 
 
@@ -70,7 +71,8 @@
       '';
 
       extraPackages = with pkgs; [
-        jdt-language-server
+        #jdt-language-server
+        #code-minimap
       ];
     };
 

@@ -9,7 +9,7 @@ in
   imports = [ "${impermanence}/nixos.nix" ];
 
 
-  environment.persistence."/nix/persist/system" = {
+  environment.persistence."/synced/Nix/persist/system" = {
     directories = [
       "/etc/NetworkManager"
       "/etc/wpa_supplicant.conf"

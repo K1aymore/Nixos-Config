@@ -32,6 +32,7 @@
   fileSystems."/synced" =
     { device = "/dev/disk/by-uuid/42a94f20-5e45-40ca-bc35-07685bd3eb75";
       fsType = "ext4";
+      neededForBoot = true;
     };
 
   boot.initrd.luks.devices."luks-93bf8f5e-7fff-450c-96c6-1034fa503be2".device = "/dev/disk/by-uuid/93bf8f5e-7fff-450c-96c6-1034fa503be2";

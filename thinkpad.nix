@@ -31,7 +31,7 @@
     #interfaces.wlp2s0.useDHCP = true;
   };
 
-  #services.xserver.displayManager.startx.enable = true;
+  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
 
   services.power-profiles-daemon.enable = false;
   services.tlp = {

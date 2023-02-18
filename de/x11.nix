@@ -22,6 +22,7 @@
       touchpad = {
         # accelProfile = "flat";
         naturalScrolling = true;
+        disableWhileTyping = false;
       };
     };
 

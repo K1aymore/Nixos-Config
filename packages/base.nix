@@ -135,14 +135,14 @@ in {
     pmbootstrap
 
 
-    mullvad-vpn
+    #mullvad-vpn
     /* yggdrasil */
   ];
 
 
-  networking.firewall.checkReversePath = "loose";
-  networking.wireguard.enable = true;
-  services.mullvad-vpn.enable = true;
+  #networking.firewall.checkReversePath = "loose";
+  #networking.wireguard.enable = true;
+  #services.mullvad-vpn.enable = true;
 
 
 }

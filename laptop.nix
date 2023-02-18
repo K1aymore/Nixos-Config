@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   imports = [
     ./base.nix
     ./locale/colemak.nix
@@ -9,7 +8,7 @@
     ./system/pipewire.nix
     ./de/plasma.nix
     ./de/sway.nix
-
+ 
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
@@ -22,17 +21,16 @@
     #./home/home.nix
   ];
 
-
   #services.getty.autologinUser = "klaymore";
-
+  
   networking = {
     hostName = "laptop";
-    hostId = "e86a53d5";  # head -c 8 /etc/machine-id
+    hostId = "e86a53d5"; # head -c 8 /etc/machine-id
     #interfaces.wlp2s0.useDHCP = true;
   };
 
   #services.xserver.displayManager.startx.enable = true;
-
+  
   services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
@@ -72,12 +70,12 @@
       ignorePerms = false;
     };
     "Dotfiles" = {
-      path = "/nix/dotfiles";
+      path = "/synced/Nix/dotfiles";
       devices = [ "server" "pc" "portable" ];
       ignorePerms = false;
     };
     "NixCfg" = {
-      path = "/nix/cfg";
+      path = "/synced/Nix/cfg";
       devices = [ "server" "pc" "portable" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
     };
