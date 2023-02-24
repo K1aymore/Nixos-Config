@@ -13,6 +13,7 @@ in {
     };
   };
 
+  # For discord wayland pipewire screensharing
   nixpkgs.config.ungoogled-chromium.commandLineArgs = "
     --ozone-platform=auto
     --disable-features=UseChromeOSDirectVideoDecoder
@@ -39,8 +40,8 @@ in {
     swayidle
     wob
     #mako # notification daemon, annoying on plasma
-    alacritty # Alacritty is the default terminal in Sway config
-    dmenu # Dmenu is the default in Sway config but i recommend wofi since its wayland native
+    alacritty
+    dmenu
     wofi
     xdg-utils
     grim
@@ -116,7 +117,7 @@ in {
     #chromium
     firefox-wayland
     /* librewolf */
-#     firefox-devedition-bin
+    #firefox-devedition-bin
     discord
     element-desktop
     qbittorrent
@@ -132,10 +133,10 @@ in {
     #thunderbird
 
     godot
-    #blender
+    blender
     python39Packages.pyzmq
     libresprite
-    #krita
+    krita
     inkscape
     libsForQt5.kdenlive
     #movit
@@ -143,8 +144,6 @@ in {
     lmms
     #reaper
     #ardour
-    #milkytracker
-    #hivelytracker
 	  furnace
     josm
 

@@ -92,7 +92,6 @@ in {
     xclip
     /* neovim */    # home manager
     universal-ctags
-    vim
     emacs
     fd
     ranger
@@ -135,14 +134,14 @@ in {
     pmbootstrap
 
 
-    #mullvad-vpn
+    mullvad-vpn
     /* yggdrasil */
   ];
 
 
-  #networking.firewall.checkReversePath = "loose";
-  #networking.wireguard.enable = true;
-  #services.mullvad-vpn.enable = true;
+  networking.firewall.checkReversePath = "loose";
+  networking.wireguard.enable = true;
+  services.mullvad-vpn.enable = true;
 
 
 }

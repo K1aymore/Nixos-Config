@@ -15,9 +15,6 @@ in {
 
 
   environment.systemPackages = with pkgs; [
-    git
-    gh
-
     clang
     gcc
     ghc # Haskell compiler
@@ -36,14 +33,19 @@ in {
     #codeblocks
     arduino
 
-    qtcreator
+    /* qtcreator */
     /* libsForQt5.full */
     cmake
     gdb
 
     glibc_multi
 
+    neovide
+    neovim-qt
+    gnvim
+    
 
+    # VSCodium declarative extentions
     /*(vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [

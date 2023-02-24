@@ -45,6 +45,8 @@ in {
     #freedroidrpg
     #osu-lazer
     #arx-libertatis
+
+    parsec-bin
   ];
 
   services.flatpak.enable = true;

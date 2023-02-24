@@ -71,9 +71,6 @@
       allowedTCPPorts = [ 54903 55054 58819 61456 ];
       allowedUDPPorts = [ 54903 55054 58819 61456 ];
     };
-    extraHosts = ''
-      0.0.0.0 youtube.com
-    '';
   };
 
 
@@ -87,55 +84,55 @@
   services.syncthing.relay.enable = true;
   services.syncthing.relay.port = 61456;
   services.syncthing.folders = {
-      "Sync" = {
-        path = "/synced/Sync";
-        devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
-        ignorePerms = false;
-      };
-      "Media" = {
-        path = "/synced/Media";
-        devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
-        ignorePerms = false;
-      };
-      "Dotfiles" = {
-        path = "/nix/dotfiles";
-        devices = [ "server" "laptop" "portable" ];
-        ignorePerms = false;
-      };
-      "NixCfg" = {
-        path = "/nix/cfg";
-        devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
-        ignorePerms = false;
-      };
-      "Projects" = {
-        path = "/synced/Projects";
-        devices = [ "server" "laptop" "portable" "pinephone" "winpc" ];
-        ignorePerms = false;
-      };
-      "Archive" = {
-        path = "/synced/Archive";
-        devices = [ "server" "laptop" ];
-        ignorePerms = false;
-      };
-      /* "Huge Archive" = {
-        path = "/synced/HugeArchive";
-        devices = [ "server" ];
-        ignorePerms = false;
-      }; */
-      "Ellida Sync" = {
-        path = "/synced/EllidaSync";
-        devices = [ "server" "portable" "cDesk" ];
-        ignorePerms = false;
-      };
-      "Ellida Projects" = {
-        path = "/synced/EllidaProjects";
-        devices = [ "server" "laptop" "portable" "cDesk" ];
-        ignorePerms = true;
-      };
-      "MasterKitty" = {
-        path = "/synced/Stuff/masterkitty";
-        devices = [ "masterkitty" ];
-      };
+    "Sync" = {
+      path = "/synced/Sync";
+      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
+      ignorePerms = false;
+    };
+    "Media" = {
+      path = "/synced/Media";
+      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
+      ignorePerms = false;
+    };
+    "Dotfiles" = {
+      path = "/nix/dotfiles";
+      devices = [ "server" "laptop" "portable" ];
+      ignorePerms = false;
+    };
+    "NixCfg" = {
+      path = "/nix/cfg";
+      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
+      ignorePerms = false;
+    };
+    "Projects" = {
+      path = "/synced/Projects";
+      devices = [ "server" "laptop" "portable" "pinephone" "winpc" ];
+      ignorePerms = false;
+    };
+    "Archive" = {
+      path = "/synced/Archive";
+      devices = [ "server" "laptop" ];
+      ignorePerms = false;
+    };
+    /* "Huge Archive" = {
+      path = "/synced/HugeArchive";
+      devices = [ "server" ];
+      ignorePerms = false;
+    }; */
+    "Ellida Sync" = {
+      path = "/synced/EllidaSync";
+      devices = [ "server" "portable" "cDesk" ];
+      ignorePerms = false;
+    };
+    "Ellida Projects" = {
+      path = "/synced/EllidaProjects";
+      devices = [ "server" "laptop" "portable" "cDesk" ];
+      ignorePerms = true;
+    };
+    "MasterKitty" = {
+      path = "/synced/Stuff/masterkitty";
+      devices = [ "masterkitty" ];
+    };
   };
 
 
