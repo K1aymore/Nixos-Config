@@ -50,32 +50,32 @@
   services.syncthing.folders = {
     "Sync" = {
       path = "/synced/Sync";
-      devices = [ "pc" "portable" "laptop" "pinephone" "pixel" "winpc" ];
+      devices = [ "pc" "portable" "laptop" "acer" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
     };
     "Media" = {
       path = "/synced/Media";
-      devices = [ "pc" "laptop" "portable" "pinephone" "pixel" "winpc" ];
+      devices = [ "pc" "laptop" "acer" "portable" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
     };
     "Dotfiles" = {
       path = "/nix/dotfiles";
-      devices = [ "pc" "portable" "laptop" ];
+      devices = [ "pc" "portable" "laptop" "acer" ];
       ignorePerms = false;
     };
     "NixCfg" = {
       path = "/nix/cfg";
-      devices = [ "pc" "portable" "laptop" "pinephone" "pixel" "winpc" ];
+      devices = [ "pc" "portable" "laptop" "acer" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
     };
     "Projects" = {
       path = "/synced/Projects";
-      devices = [ "pc" "portable" "laptop" "pinephone" "winpc" ];
+      devices = [ "pc" "portable" "laptop" "acer" "pinephone" "winpc" ];
       ignorePerms = false;
     };
     "Archive" = {
       path = "/synced/Archive";
-      devices = [ "pc" "laptop" "portable" ];
+      devices = [ "pc" "acer" "portable" ];
       ignorePerms = false;
     };
     /*"Huge Archive" = {
@@ -85,12 +85,12 @@
     };*/
     "Ellida Sync" = {
       path = "/synced/Ellida Sync";
-      devices = [ "pc" "portable" "cDesk" ];
+      devices = [ "pc" "cDesk" ];
       ignorePerms = false;
     };
     "Ellida Projects" = {
       path = "/synced/Ellida Projects";
-      devices = [ "pc" "portable" "laptop" "cDesk" ];
+      devices = [ "pc" "portable" "laptop" "acer" "cDesk" ];
       ignorePerms = true;
     };
   };
