@@ -101,6 +101,8 @@ in {
     audacity
     tenacity
 
+    pspp
+
     syncplay
     python39Packages.certifi
     python39Packages.twisted

@@ -7,9 +7,9 @@
     eula = true;
     declarative = true;
     openFirewall = true;
-    /* package = pkgs.minecraftServers.fabric; */
+    package = pkgs.minecraftServers.vanilla-1-17;
 
-    dataDir = "/nix/persist/server/Minecraft";
+    dataDir = "/synced/Nix/persist/server/Minecraft";
     jvmOpts = "-Xmx8192M -Xms8192M";
 
 
@@ -21,12 +21,12 @@
 
 
     serverProperties = {
-      white-list = true;
+      white-list = false;
       difficulty = 2;
       gamemode = 0;
-      max-players = 10;
+      max-players = 25;
       allow-flight = true;
-      motd = "Klaymore's Minecraft server!";
+      motd = "Water World";
     };
 
   };

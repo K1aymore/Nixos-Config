@@ -81,7 +81,7 @@ in {
     tealdeer
     /* git */   # home manager
     nixos-option
-    awscli2
+    #awscli2
     httrack
     elinks
     links2

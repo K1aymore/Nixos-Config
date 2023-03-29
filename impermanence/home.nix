@@ -61,6 +61,7 @@ in
 
         "VSCode/.vscode"
         "VSCode/.config/Code"
+        "Discord/.config/discord"
 
         "Element/.config/Element"
         "Element/.pki"
@@ -125,9 +126,6 @@ in
         /* "Chromium/.cache/chromium"
         "Chromium/.config/chromium"*/
 
-        "VSCodium/.vscode-oss"
-        "VSCodium/.config/VSCodium"
-
         "Keepassxc/.cache/keepassxc"
         "Keepassxc/.config/keepassxc"
         "GPG/.gnupg"
@@ -155,7 +153,6 @@ in
         "JetBrains/.local/share/JetBrains"
         "QtCreator/.cache/QtProject"
         "QtCreator/.config/QtProject"
-        "Discord/.config/discord"
         "Chromium/.cache/chromium"
         "Chromium/.config/chromium"
 
@@ -163,6 +160,7 @@ in
 
         "Emacs/.emacs.d"
         "Emacs/.doom.d"
+        "Elinks/.elinks"
 
         "Clementine/.config/Clementine"
         "Strawberry/.config/strawberry"

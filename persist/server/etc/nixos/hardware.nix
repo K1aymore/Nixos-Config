@@ -34,6 +34,7 @@
   fileSystems."/synced" = {
     device = "/dev/disk/by-uuid/f7b4de5e-00b6-4b2a-b2e2-9ae1fd3df093";
     fsType = "ext4";
+    neededForBoot = true;
   };
 
   /* fileSystems."/synced/HugeArchive" = {

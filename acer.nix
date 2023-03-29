@@ -32,9 +32,9 @@
 
   #boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
 
-  services.power-profiles-daemon.enable = false;
+  services.power-profiles-daemon.enable = true;
   services.tlp = {
-    enable = true;
+    enable = false;
       settings = {
         #START_CHARGE_THRESH_BAT1 = 0;  # dummy value
         #STOP_CHARGE_THRESH_BAT1 = 65; # charge to 65%

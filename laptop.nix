@@ -8,7 +8,7 @@
     ./system/pipewire.nix
     ./de/plasma.nix
     ./de/sway.nix
- 
+
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
@@ -22,7 +22,7 @@
   ];
 
   #services.getty.autologinUser = "klaymore";
-  
+
   networking = {
     hostName = "laptop";
     hostId = "e86a53d5"; # head -c 8 /etc/machine-id
@@ -30,7 +30,7 @@
   };
 
   #services.xserver.displayManager.startx.enable = true;
-  
+
   services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;

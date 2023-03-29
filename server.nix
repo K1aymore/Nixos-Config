@@ -9,15 +9,15 @@
       ./locale/colemak.nix
       ./locale/losAngeles.nix
       ./system/pipewire.nix
-
       #./packages/gui.nix
+      #./de/sway.nix
 
-      ./server/ssh.nix
+      #./server/ssh.nix
       #./server/nfs.nix
 
       ./server/nginx.nix
       ./server/synapse.nix
-      ./server/gitea.nix
+      #./server/gitea.nix
       #./server/minecraft.nix
       # ./server/restyaboard.nix
       # ./server/radicale.nix
@@ -37,7 +37,7 @@
     domain = "klaymore.me";
   };
 
-
+  programs.java.enable = true;	
 
   /* services.cron = {
     enable = true;
@@ -59,12 +59,12 @@
       ignorePerms = false;
     };
     "Dotfiles" = {
-      path = "/nix/dotfiles";
+      path = "/synced/Nix/dotfiles";
       devices = [ "pc" "portable" "laptop" "acer" ];
       ignorePerms = false;
     };
     "NixCfg" = {
-      path = "/nix/cfg";
+      path = "/synced/Nix/cfg";
       devices = [ "pc" "portable" "laptop" "acer" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
     };

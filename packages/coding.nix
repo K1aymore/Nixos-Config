@@ -31,7 +31,7 @@ in {
     #jetbrains.idea-community
     vscode-fhs
     #codeblocks
-    arduino
+    #arduino
 
     /* qtcreator */
     /* libsForQt5.full */
@@ -43,17 +43,20 @@ in {
     neovide
     neovim-qt
     gnvim
-    
+
+    lapce
 
     # VSCodium declarative extentions
-    /*(vscode-with-extensions.override {
+    /* (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
-        ms-vscode.cpptools
+        redhat.java
+        vscjava.vscode-java-debug
+        matklad.rust-analyzer
+        bbenoist.nix
+        #ms-vscode.cpptools
         #ms-python.python
         #ms-python.vscode-pylance
-        #matklad.rust-analyzer
-        #bbenoist.nix
         #ms-azuretools.vscode-docker
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
@@ -63,7 +66,7 @@ in {
           sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
         }
       ];
-    })*/
+    }) */
 
   ];
 
