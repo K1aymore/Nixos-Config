@@ -12,27 +12,27 @@
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
-    ./packages/video-editing.nix
+    #./packages/video-editing.nix
     /* ./packages/blender-2-9.nix */
 
-    ./system/opentablet.nix
+    #./system/opentablet.nix
 
-    ./system/ipfs.nix
-    ./pc/syncplay.nix
-    ./system/zfs.nix
+    #./system/ipfs.nix
+    #./pc/syncplay.nix
+    #./system/zfs.nix
 
     ./impermanence/system.nix
     ./impermanence/home.nix
   ];
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  #boot.initrd.kernelModules = [ "amdgpu" ];
+  #services.xserver.videoDrivers = [ "amdgpu" ];
 
   #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   #boot.zfs.enableUnstable = true;
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 
-  hardware.opengl = {
+  /* hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
@@ -48,14 +48,14 @@
     extraPackages32 = with pkgs; [
       #driversi686Linux.amdvlk
     ];
-  };
+  }; */
 
   /* environment.variables.AMD_VULKAN_ICD = "RADV"; */
 
-  hardware.steam-hardware.enable = true;
+  # hardware.steam-hardware.enable = true;
   #hardware.pulseaudio.support32Bit = true;
 
-  services.gvfs.enable = true;
+  #services.gvfs.enable = true;
 
   /* environment.systemPackages = with pkgs; [
     linuxKernel.packages.linux_5_15.amdgpu-pro
@@ -81,8 +81,8 @@
   users.users.boinc.extraGroups = [ "video" ]; */
 
 
-  services.syncthing.relay.enable = true;
-  services.syncthing.relay.port = 61456;
+  #services.syncthing.relay.enable = true;
+  #services.syncthing.relay.port = 61456;
   services.syncthing.folders = {
     "Sync" = {
       path = "/synced/Sync";

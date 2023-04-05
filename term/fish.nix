@@ -31,6 +31,7 @@ in {
     };
   };
 
+  programs.fish.enable = true;
 
   home-manager.users.klaymore.programs.fish = {
     enable = true;

@@ -115,11 +115,11 @@
   # To generate a hash to put in initialHashedPassword
   # you can do this:
   # $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd
-  users.users.root.initialHashedPassword = "$6$Ts7LPml3ldgPr8$lSpGAQt8UWMCSg4/NAmkh7BWE5NIbhWiINGHCk0vdSeUTpge6qXHYMvtBGMMTf1DGO.JmuKraPwgJIy3WeeKP1";
+  users.users.root.initialHashedPassword = "$6$ZKUuN3EirBtn6029$xe9DTh1bfkg6CheJsBtQzGJURFh8Wr9hla.5gX2ouNfqZ5kUhP/Xy0TCNuidUG.Ld9mfoY8.Hc0QHm634BU9q0";
 
   users.users.klaymore = {
     isNormalUser = true;
-    initialHashedPassword = "$6$8TWC64JUVZ$uXCFLG0XECGYrdpC38rHoPLeujvCtQzykwHYh78VKy.oH9bfDyME1lXyhcK7DN877czSGPg0DgbuFNotq3XXj1";
+    initialHashedPassword = "$6$ZKUuN3EirBtn6029$xe9DTh1bfkg6CheJsBtQzGJURFh8Wr9hla.5gX2ouNfqZ5kUhP/Xy0TCNuidUG.Ld9mfoY8.Hc0QHm634BU9q0";
     extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
   };
 

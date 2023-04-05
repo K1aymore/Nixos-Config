@@ -10,7 +10,7 @@ in {
     nrb = "sudo nixos-rebuild boot";
     nrbu = "sudo nixos-rebuild boot --upgrade";
 
-    cd = "z";
+    #cd = "z";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
     conf = "cd /synced/Nix/cfg";
