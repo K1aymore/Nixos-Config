@@ -9,14 +9,15 @@
       ./locale/colemak.nix
       ./locale/losAngeles.nix
       ./system/pipewire.nix
-      #./packages/gui.nix
-      #./de/sway.nix
+      ./de/plasma.nix
+
+      ./packages/gui.nix
 
       #./server/ssh.nix
       #./server/nfs.nix
 
       ./server/nginx.nix
-      ./server/synapse.nix
+      #./server/synapse.nix
       #./server/gitea.nix
       #./server/minecraft.nix
       # ./server/restyaboard.nix
@@ -37,7 +38,7 @@
     domain = "klaymore.me";
   };
 
-  programs.java.enable = true;	
+  programs.java.enable = true;
 
   /* services.cron = {
     enable = true;

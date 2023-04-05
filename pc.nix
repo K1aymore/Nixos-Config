@@ -50,7 +50,7 @@
     ];
   };
 
-  environment.variables.AMD_VULKAN_ICD = "RADV";
+  /* environment.variables.AMD_VULKAN_ICD = "RADV"; */
 
   # hardware.steam-hardware.enable = true;
   #hardware.pulseaudio.support32Bit = true;
@@ -88,37 +88,31 @@
       path = "/synced/Sync";
       devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
-      type = "receiveonly";
     };
     "Media" = {
       path = "/synced/Media";
       devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
-      type = "receiveonly";
     };
     "Dotfiles" = {
       path = "/synced/Nix/dotfiles";
       devices = [ "server" "laptop" "portable" ];
       ignorePerms = false;
-      type = "receiveonly";
     };
     "NixCfg" = {
       path = "/synced/Nix/cfg";
       devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
       ignorePerms = false;
-      type = "receiveonly";
     };
     "Projects" = {
       path = "/synced/Projects";
       devices = [ "server" "laptop" "portable" "pinephone" "winpc" ];
       ignorePerms = false;
-      type = "receiveonly";
     };
     "Archive" = {
       path = "/synced/Archive";
       devices = [ "server" "laptop" ];
       ignorePerms = false;
-      type = "receiveonly";
     };
     /* "Huge Archive" = {
       path = "/synced/HugeArchive";
@@ -129,13 +123,11 @@
       path = "/synced/EllidaSync";
       devices = [ "server" "portable" "cDesk" ];
       ignorePerms = false;
-      type = "receiveonly";
     };
     "Ellida Projects" = {
       path = "/synced/EllidaProjects";
       devices = [ "server" "laptop" "portable" "cDesk" ];
       ignorePerms = true;
-      type = "receiveonly";
     };
   };
 

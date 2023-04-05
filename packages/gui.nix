@@ -134,7 +134,7 @@ in {
     #libsForQt5.kmail
     #thunderbird
 
-    godot
+    unstable.godot_4
     blender
     python39Packages.pyzmq
     libresprite
