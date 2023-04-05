@@ -51,7 +51,7 @@
   };
 
   security.polkit.enable = true;
-  
+
   networking = {
     networkmanager.enable = true;
     enableIPv6 = true;
@@ -135,7 +135,7 @@
     overrideFolders = true;
     devices = {
       "server" = { id = "NKDY5RS-AQHE4RN-FEA37A3-ZP4ZWYJ-ODIWZ3V-75LNZ4E-2H57JKJ-LCQ2SA6"; };
-      "pc" = { id = "DVE2QBI-74SE2H7-T5Y6MAY-JMYH7BD-TRILYYI-3QLJO72-LT3BMCR-CMMNFQB"; };
+      "pc" = { id = "YN2VCWJ-KOISEL2-4IJKGK4-3AVQSBJ-ZWPNLPS-AUBCY5Q-MYWTZWU-6LIU2AL"; };
       "laptop" = { id = "NIOZEVB-77F44UB-NTNFBCT-CRGPRRZ-YT73MD6-TFZ77XH-PFDTJWR-JHU7QQE"; };
       "acer" = { id = "EDKZG5I-43A6ULK-GVGYZYG-74DZIZF-BDR7MKI-EAT6SJG-QQA5IAG-TZUWOAL"; };
       "portable" = { id = "XE2345I-O43URZS-PSHU7ND-27FP3MQ-OZDHQBP-GVQ6MX6-74TSRBX-2VOMGQY"; };

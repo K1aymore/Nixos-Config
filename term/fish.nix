@@ -6,8 +6,6 @@ in {
 
   users.users.klaymore.shell = pkgs.fish;
 
-  programs.fish.enable = true;
-
   home-manager.users.klaymore.programs.starship = {
     enable = true;
     enableBashIntegration = true;

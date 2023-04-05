@@ -53,7 +53,6 @@
     device = "stuff/main";
     fsType = "zfs";
     options = [ "zfsutil" ];
-    neededForBoot = true;
   }; */
 
   /* fileSystems."/synced/HugeArchive" = {
@@ -68,7 +67,6 @@
   fileSystems."/synced/HugeArchive" = {
     device = "/dev/disk/by-uuid/dbad8e8f-a1af-4f78-a078-f4bd75e41434";
     fsType = "ext4";
-    neededForBoot = true;
   }; */
 
   # Games
