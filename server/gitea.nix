@@ -15,8 +15,8 @@
 
     virtualHosts = {
 
-#       # Reverse proxy for Matrix client-server and server-server communication
-#       "gitea.klaymore.me" = {
+       # Reverse proxy for Matrix client-server and server-server communication
+       "klaymore.me" = {
 #         enableACME = true;
 #         addSSL = true;
 #         forceSSL = true;
@@ -29,10 +29,10 @@
 # #         '';
 
 #         # forward all Matrix API calls to the synapse Matrix homeserver
-# #          locations."/_matrix" = {
-# #            proxyPass = "http://[::1]:8008"; # without a trailing /
-# #          };
-#       };
+          locations."/gitea" = {
+            proxyPass = "http://[::1]:3000"; # without a trailing /
+          };
+       };
     };
   };
 
@@ -41,10 +41,16 @@
   services.gitea = {
     enable = true;
 
-    stateDir = "/synced/Nix/persist/server/gitea/state";
-    repositioryRoot = "/synced/Nix/persist/server/gitea/repository";
-    database.path = "/synced/Nix/persist/server/gitea/database";
+    stateDir = "/zfs1/gitea/state";
+    repositoryRoot = "/zfs1/gitea/repository";
 
+    database.passwordFile = "/zfs1/gitea/password";
+
+    settings = {
+      service = {
+        DISABLE_REGISTRATION = false;
+      };
+    };
   };
 
 

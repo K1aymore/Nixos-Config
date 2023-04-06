@@ -23,6 +23,8 @@ in {
   '';
 
 
+  security.acme.certs.extraDomainNames = [ "matrix.klaymore.me" ];
+
   services.nginx = {
     enable = true;
     #recommendedTlsSettings = true;

@@ -28,7 +28,6 @@
   #boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   #boot.zfs.enableUnstable = true;
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 

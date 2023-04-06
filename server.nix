@@ -16,9 +16,11 @@
       #./server/ssh.nix
       #./server/nfs.nix
 
+      ./system/zfs.nix
+
       ./server/nginx.nix
       #./server/synapse.nix
-      #./server/gitea.nix
+      ./server/gitea.nix
       #./server/minecraft.nix
       # ./server/restyaboard.nix
       # ./server/radicale.nix

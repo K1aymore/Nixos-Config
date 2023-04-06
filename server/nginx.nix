@@ -15,7 +15,6 @@ in {
     certs = {
       "klaymore.me" = {
         webroot = pkgs.lib.mkForce datadir;
-        extraDomainNames = [ "matrix.klaymore.me" ];
         email = "klaymorer@protonmail.com";
       };
     };

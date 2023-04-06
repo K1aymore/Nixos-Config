@@ -47,6 +47,7 @@
     fsType = "ext4";
   };
 
+  boot.zfs.extraPools = [ "zfs1" ];
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/dbbe870f-c951-4465-8ef0-0e4517afd415"; }

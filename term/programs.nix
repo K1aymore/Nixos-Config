@@ -26,20 +26,20 @@
 
     neovim = {
       enable = true;
-      #defaultEditor = true;
-      #vimAlias = true;
-      #iAlias = true;
+      defaultEditor = true;
+      vimAlias = true;
+      viAlias = true;
       #vimdiffAlias = true;
 
       # coc.enable = true;
       #nvim-treesitter.withAllGrammars
       # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
-     /* plugins = with pkgs.vimPlugins; [
+      plugins = with pkgs.vimPlugins; [
         indentLine rainbow #YouCompleteMe
         #minimap-vim
-	      vim-fugitive #ale nvim-autopairs
+        vim-fugitive #ale nvim-autopairs
         neoformat
-	      vim-nix
+        vim-nix
         rust-vim
 
         #catppuccin-nvim # broken
@@ -80,7 +80,7 @@
 
         colorscheme ayu-mirage
       '';
-      */
+    
     };
 
     zoxide = {
