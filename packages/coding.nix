@@ -24,7 +24,7 @@ in {
     avalonia-ilspy  # .NET exe decompiler
 
     cargo
-    rustc
+    #rustc
     wasm-pack # Rust WebAssembly
 
     # eclipses.eclipse-java

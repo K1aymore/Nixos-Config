@@ -56,6 +56,8 @@ in {
   # sudo flatpak install flathub com.valvesoftware.Steam
   # flatpak run com.valvesoftware.Steam
 
+  hardware.steam-hardware.enable = true;
+
   #flatpak install flathub net.brinkervii.grapejuice
   #flatpak run net.brinkervii.grapejuice
 

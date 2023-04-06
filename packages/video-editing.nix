@@ -17,7 +17,7 @@ in {
     davinci-resolve
     #cinelerra
     #olive-editor
-    shotcut
+    #shotcut
     #flowblade
   ];
 

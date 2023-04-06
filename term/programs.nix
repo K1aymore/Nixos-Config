@@ -29,7 +29,7 @@
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;
-      #vimdiffAlias = true;
+      vimdiffAlias = true;
 
       # coc.enable = true;
       #nvim-treesitter.withAllGrammars
@@ -80,7 +80,7 @@
 
         colorscheme ayu-mirage
       '';
-    
+
     };
 
     zoxide = {

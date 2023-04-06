@@ -4,7 +4,7 @@
 
   networking.firewall.allowedTCPPorts = [ 3000 ];
 
-  services.nginx = {
+  /* services.nginx = {
     enable = true;
     # only recommendedProxySettings and recommendedGzipSettings are strictly required,
     # but the rest make sense as well
@@ -34,7 +34,7 @@
           };
        };
     };
-  };
+  }; */
 
 
 
@@ -48,7 +48,7 @@
 
     settings = {
       service = {
-        DISABLE_REGISTRATION = false;
+        DISABLE_REGISTRATION = true;
       };
     };
   };

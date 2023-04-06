@@ -12,8 +12,7 @@
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
-    #./packages/video-editing.nix
-    /* ./packages/blender-2-9.nix */
+    ./packages/video-editing.nix
 
     #./system/opentablet.nix
 
@@ -29,17 +28,17 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   #boot.zfs.enableUnstable = true;
-  #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      #rocm-opencl-icd
-      #rocm-opencl-runtime
-      #libva
-      #libva-utils
+      rocm-opencl-icd
+      rocm-opencl-runtime
+      libva
+      libva-utils
       #libvdpau-va-gl
       #vaapiVdpau
       #amdvlk
@@ -51,7 +50,6 @@
 
   /* environment.variables.AMD_VULKAN_ICD = "RADV"; */
 
-  # hardware.steam-hardware.enable = true;
   #hardware.pulseaudio.support32Bit = true;
 
   services.gvfs.enable = true;
