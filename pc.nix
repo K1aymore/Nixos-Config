@@ -28,7 +28,7 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   #boot.zfs.enableUnstable = true;
-  boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
+  #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 
   hardware.opengl = {
     enable = true;
@@ -65,8 +65,8 @@
     hostName = "pc";
     hostId = "7c980de5";  # head -c 8 /etc/machine-id
     firewall = {
-      allowedTCPPorts = [ 54903 55054 58819 61456 ];
-      allowedUDPPorts = [ 54903 55054 58819 61456 ];
+      allowedTCPPorts = [ 56338 57701 59271 ];
+      allowedUDPPorts = config.networking.firewall.allowedTCPPorts;
     };
   };
 

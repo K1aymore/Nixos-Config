@@ -23,6 +23,10 @@ in {
     --enable-hardware-overlays
   ";
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-11.5.0"
+  ];
+
   environment.systemPackages = with pkgs; [
     gtk3
     swt
@@ -121,7 +125,7 @@ in {
     /* librewolf */
     #firefox-devedition-bin
     discord
-    element-desktop
+    #element-desktop
     qbittorrent
     #transmission-qt
     #deluge

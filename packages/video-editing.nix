@@ -14,7 +14,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    davinci-resolve
+    #davinci-resolve
     #cinelerra
     #olive-editor
     #shotcut

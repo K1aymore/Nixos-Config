@@ -26,7 +26,7 @@ in {
     legendary-gl
 
     #minecraft
-    #itch
+    itch
     #multimc
     #polymc
     prismlauncher
