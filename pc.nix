@@ -16,7 +16,7 @@
 
     #./system/opentablet.nix
 
-    #./system/ipfs.nix
+    ./system/ipfs.nix
     #./pc/syncplay.nix
     ./system/zfs.nix
 
@@ -83,32 +83,32 @@
   services.syncthing.folders = {
     "Sync" = {
       path = "/synced/Sync";
-      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
+      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" "acer" ];
       ignorePerms = false;
     };
     "Media" = {
       path = "/synced/Media";
-      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
+      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" "acer" ];
       ignorePerms = false;
     };
     "Dotfiles" = {
       path = "/synced/Nix/dotfiles";
-      devices = [ "server" "laptop" "portable" ];
+      devices = [ "server" "laptop" "portable" "acer" ];
       ignorePerms = false;
     };
     "NixCfg" = {
       path = "/synced/Nix/cfg";
-      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" ];
+      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" "acer" ];
       ignorePerms = false;
     };
     "Projects" = {
       path = "/synced/Projects";
-      devices = [ "server" "laptop" "portable" "pinephone" "winpc" ];
+      devices = [ "server" "laptop" "portable" "pinephone" "winpc" "acer" ];
       ignorePerms = false;
     };
     "Archive" = {
       path = "/synced/Archive";
-      devices = [ "server" "laptop" ];
+      devices = [ "server" "acer" ];
       ignorePerms = false;
     };
     /* "Huge Archive" = {
@@ -123,7 +123,7 @@
     };
     "Ellida Projects" = {
       path = "/synced/EllidaProjects";
-      devices = [ "server" "laptop" "portable" "cDesk" ];
+      devices = [ "server" "laptop" "portable" "cDesk" "acer" ];
       ignorePerms = true;
     };
   };

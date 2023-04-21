@@ -63,11 +63,11 @@
 
 
   # HugeArchive
-  /* boot.initrd.luks.devices."luks-1200dbe8-1413-479c-8a4f-e8be0b8a21e3".device = "/dev/disk/by-uuid/1200dbe8-1413-479c-8a4f-e8be0b8a21e3";
+  boot.initrd.luks.devices."luks-1200dbe8-1413-479c-8a4f-e8be0b8a21e3".device = "/dev/disk/by-uuid/1200dbe8-1413-479c-8a4f-e8be0b8a21e3";
   fileSystems."/synced/HugeArchive" = {
     device = "/dev/disk/by-uuid/dbad8e8f-a1af-4f78-a078-f4bd75e41434";
     fsType = "ext4";
-  }; */
+  };
 
   # Games
   /* fileSystems."/nix/persist/home/Flatpak/.var/app/com.valvesoftware.Steam" = {

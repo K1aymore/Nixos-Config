@@ -58,6 +58,7 @@ in
 
         "Blender/.config/blender"
         "DaVinci/.local/share/DaVinciResolve"
+        "NixifiedAI/invokeai"
 
         "VSCode/.vscode"
         "VSCode/.config/Code"
