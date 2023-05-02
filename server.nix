@@ -14,7 +14,7 @@
       ./packages/gui.nix
 
       #./server/ssh.nix
-      #./server/nfs.nix
+      ./server/nfs.nix
 
       ./system/zfs.nix
 

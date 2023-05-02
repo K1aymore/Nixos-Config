@@ -24,7 +24,7 @@ in {
   ";
 
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-11.5.0"
+    #"electron-11.5.0"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -119,28 +119,22 @@ in {
     libsForQt5.akonadi-calendar
     plasma5Packages.kdeconnect-kde
 
-    #google-chrome
     #chromium
     firefox-wayland
+    microsoft-edge
     /* librewolf */
-    #firefox-devedition-bin
     discord
     #element-desktop
     qbittorrent
-    #transmission-qt
-    #deluge
-    #flood
     #onionshare-gui
     #tor-browser-bundle-bin
     #session-desktop-appimage
     #zoom-us
     #lbry
-    #libsForQt5.kmail
-    #thunderbird
 
     unstable.godot_4
     blender
-    python39Packages.pyzmq
+    #python39Packages.pyzmq
     libresprite
     krita
     inkscape

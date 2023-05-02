@@ -12,8 +12,7 @@
     extraNfsdConfig = '''';
 
     exports = ''
-      /synced                     172.16.0.102(rw,fsid=0,insecure,no_subtree_check,no_root_squash)
-      /synced/HugeArchive         172.16.0.102(rw,nohide,insecure,no_subtree_check,no_root_squash)
+      /zfs1/hugeArchive         172.16.0.102(rw,nohide,no_subtree_check,no_root_squash)
     '';
   };
 

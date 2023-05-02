@@ -19,7 +19,7 @@ in {
     gcc
     ghc # Haskell compiler
     sbcl  # Lisp compiler
-    nasm  # assembly
+    nasm  # assembly compiler
     gnumake
     avalonia-ilspy  # .NET exe decompiler
 
@@ -44,10 +44,10 @@ in {
     neovim-qt
     gnvim
 
-    lapce
+    unstable.lapce
 
     # VSCodium declarative extentions
-    /* (vscode-with-extensions.override {
+    (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         redhat.java
@@ -65,8 +65,14 @@ in {
           version = "3.2.3";
           sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
         }
+        {
+          name = "remote-containers";
+          publisher = "ms-vscode-remote";
+          version = "0.291.0";
+          sha256 = "cabda0c4af2a58defa12c868b82be60109a82ed04efdca23d0829747d5fa0411";
+        }
       ];
-    }) */
+    })
 
   ];
 
@@ -74,7 +80,7 @@ in {
   programs = {
     java = {
       enable = true;
-      package = pkgs.jdk;
+      package = pkgs.jdk8;
     };
   };
 

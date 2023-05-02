@@ -75,6 +75,12 @@
     fsType = "ext4";
   }; */
 
+  fileSystems."/nfs/hugeArchive" = {
+    device = "172.16.0.115:/hugeArchive";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" ];
+  };
+
   swapDevices = [
     { device = "/dev/disk/by-uuid/46249488-631c-498e-b600-77d3ba10cbe1"; }
   ];

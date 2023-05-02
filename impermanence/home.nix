@@ -79,6 +79,7 @@ in
 
 
         "Minecraft/.minecraft"
+        "Prism/.local/share/PrismLauncher"
         "Polymc/.local/share/polymc"
         "MultiMC/.local/share/multimc"
         "Gradle/.gradle"
@@ -104,6 +105,8 @@ in
 
         "Exodus/.config/Exodus"
         #"Pmbootstrap/.local/var/pmbootstrap"
+
+        "Python/.cache/pip"
       ];
       files = [
         "Bash/.bash_history"

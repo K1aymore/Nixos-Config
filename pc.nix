@@ -39,8 +39,8 @@
       rocm-opencl-runtime
       libva
       libva-utils
-      #libvdpau-va-gl
-      #vaapiVdpau
+      libvdpau-va-gl
+      vaapiVdpau
       #amdvlk
     ];
     extraPackages32 = with pkgs; [

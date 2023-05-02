@@ -26,10 +26,12 @@ in {
     legendary-gl
 
     #minecraft
-    itch
+    #itch
     #multimc
     #polymc
     prismlauncher
+    jdk17
+    jdk8
 
     wesnoth
     openttd
