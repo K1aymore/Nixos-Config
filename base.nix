@@ -9,7 +9,7 @@
     ./term/programs.nix
     ./term/aliases.nix
     ./term/fish.nix
-    ./term/espanso.nix
+    #./term/espanso.nix
 
   ];
 

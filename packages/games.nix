@@ -63,6 +63,9 @@ in {
   #flatpak install flathub net.brinkervii.grapejuice
   #flatpak run net.brinkervii.grapejuice
 
+  programs.gamemode = {
+    enable = true;
+  };
 
   /* programs = {
     steam.enable = true;

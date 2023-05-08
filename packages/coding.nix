@@ -23,14 +23,14 @@ in {
     gnumake
     avalonia-ilspy  # .NET exe decompiler
 
-    cargo
-    #rustc
+    rustup
     wasm-pack # Rust WebAssembly
 
-    # eclipses.eclipse-java
+    jdk17
+    jdk8
+
     #jetbrains.idea-community
     vscode-fhs
-    #codeblocks
     #arduino
 
     /* qtcreator */
@@ -40,9 +40,9 @@ in {
 
     glibc_multi
 
-    neovide
-    neovim-qt
-    gnvim
+    #neovide
+    #neovim-qt
+    #gnvim
 
     unstable.lapce
 
@@ -80,7 +80,7 @@ in {
   programs = {
     java = {
       enable = true;
-      package = pkgs.jdk8;
+      package = pkgs.jdk;
     };
   };
 

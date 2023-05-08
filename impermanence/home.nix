@@ -62,6 +62,10 @@ in
 
         "VSCode/.vscode"
         "VSCode/.config/Code"
+
+        "Godot/.local/share/godot"
+        "Godot/.cache/godot"
+
         "Discord/.config/discord"
 
         "Element/.config/Element"
@@ -107,10 +111,14 @@ in
         #"Pmbootstrap/.local/var/pmbootstrap"
 
         "Python/.cache/pip"
+
+        "Baloo/.local/share/baloo"
       ];
       files = [
         "Bash/.bash_history"
         "Polymc/.config/PolyMCrc"
+        "Baloo/.config/baloofileinformationrc"
+        "Baloo/.config/baloofilerc"
       ];
     };
 
@@ -149,8 +157,6 @@ in
         "OBS/.config/obs-studio"
 
         "Atom/.atom"
-        "Godot/.local/share/godot"
-        "Godot/.cache/godot"
         "Godot/.config/godot"
         "JetBrains/.cache/JetBrains"
         "JetBrains/.config/JetBrains"
@@ -201,7 +207,6 @@ in
         ".config/xsettingsd"
         ".kde"
 
-        ".local/share/baloo"
         ".local/share/dolphin"
         ".local/share/kactivitymanagerd"
         ".local/share/kate"
@@ -216,8 +221,6 @@ in
       ];
       files = [
         ".config/akregatorrc"
-        ".config/baloofileinformationrc"
-        ".config/baloofilerc"
         ".config/bluedevilglobalrc"
         ".config/device_automounter_kcmrc"
         ".config/dolphinrc"
