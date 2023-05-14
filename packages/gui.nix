@@ -96,6 +96,7 @@ in {
     #puddletag
     kid3
     tageditor
+    picard
     vlc
     mpv
     #haruna
@@ -104,6 +105,9 @@ in {
     mediainfo-gui
     audacity
     tenacity
+    sfxr
+    sfxr-qt
+    handbrake
 
     pspp
 

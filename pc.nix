@@ -16,8 +16,8 @@
 
     #./system/opentablet.nix
 
-    ./system/ipfs.nix
-    #./pc/syncplay.nix
+    #./system/ipfs.nix
+    ./pc/syncplay.nix
     ./system/zfs.nix
 
     ./impermanence/system.nix

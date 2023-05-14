@@ -23,7 +23,9 @@ in {
     gnumake
     avalonia-ilspy  # .NET exe decompiler
 
-    rustup
+    cargo
+    rustc
+    rustfmt
     wasm-pack # Rust WebAssembly
 
     jdk17

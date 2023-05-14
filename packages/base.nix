@@ -132,6 +132,7 @@ in {
     oneko
     openttd
     pmbootstrap
+    tty-clock
 
 
     mullvad-vpn

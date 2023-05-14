@@ -33,6 +33,7 @@ in {
     bashscr = "cd /synced/Sync/Linux/BashScripts";
     nwk = "bash /synced/Sync/Linux/BashScripts/nwk";
     dnxhdify = "bash /synced/Sync/Linux/BashScripts/dnxhdify";
+    capEachWord = "bash /synced/Sync/Linux/BashScripts/capEachWord";
 
     steam = "flatpak run com.valvesoftware.Steam";
 
