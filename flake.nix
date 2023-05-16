@@ -28,7 +28,7 @@
       specialArgs = attrs;
       modules = [
         ./pc.nix
-        ./persist/pc/etc/nixos/configuration.nix
+        ./hardware/pc/configuration.nix
       ];
     };
 

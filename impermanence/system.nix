@@ -17,7 +17,6 @@
       "/etc/mullvad-vpn"
       "/tmp"
 
-      "/root/.local/share/DaVinciResolve"
     ];
 
     files = [
@@ -26,10 +25,10 @@
     ];
   };
 
-  environment.persistence."/synced/Nix/cfg/persist/${config.networking.hostName}" = {
+  /*environment.persistence."/synced/Nix/cfg/persist/${config.networking.hostName}" = {
     directories = [
       "/etc/nixos"
     ];
-  };
+  }; */
 
 }
