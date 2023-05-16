@@ -80,6 +80,8 @@
         let g:paredit_electric_return=0
         let g:paredit_disable_ftindent=1
 
+        require'lspconfig'.nil_ls.setup{}
+
         colorscheme ayu-mirage
       '';
 

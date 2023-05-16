@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 
 {
+
+  imports = [ home-manager.nixosModule ];
 
   environment.systemPackages = with pkgs; [
     clang
@@ -10,6 +12,7 @@
     nasm  # assembly compiler
     gnumake
     avalonia-ilspy  # .NET exe decompiler
+    nil  # Nix LSP
 
     cargo
     rustc
@@ -36,35 +39,45 @@
 
     lapce
 
-    # VSCodium declarative extentions
-    (vscode-with-extensions.override {
-      vscode = vscodium;
-      vscodeExtensions = with vscode-extensions; [
-        redhat.java
-        vscjava.vscode-java-debug
-        matklad.rust-analyzer
-        bbenoist.nix
-        #ms-vscode.cpptools
-        #ms-python.python
-        #ms-python.vscode-pylance
-        #ms-azuretools.vscode-docker
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "mayukaithemevsc";
-          publisher = "GulajavaMinistudio";
-          version = "3.2.3";
-          sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
-        }
-        {
-          name = "remote-containers";
-          publisher = "ms-vscode-remote";
-          version = "0.291.0";
-          sha256 = "cabda0c4af2a58defa12c868b82be60109a82ed04efdca23d0829747d5fa0411";
-        }
-      ];
-    })
 
   ];
+
+
+  home-manager.users.klaymore.programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      redhat.java
+      vscjava.vscode-java-debug
+      matklad.rust-analyzer
+      jnoortheen.nix-ide
+      #ms-vscode.cpptools
+      #ms-python.python
+      #ms-python.vscode-pylance
+      #ms-azuretools.vscode-docker
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "mayukaithemevsc";
+        publisher = "GulajavaMinistudio";
+        version = "3.2.3";
+        sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
+      }
+      {
+        name = "remote-containers";
+        publisher = "ms-vscode-remote";
+        version = "0.291.0";
+        sha256 = "cabda0c4af2a58defa12c868b82be60109a82ed04efdca23d0829747d5fa0411";
+      }
+    ];
+
+    userSettings = {
+      "workbench.colorTheme" = "Mayukai Semantic Mirage";
+      "workbench.iconTheme" = "ayu";
+
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nil";
+    };
+  };
 
 
   programs = {

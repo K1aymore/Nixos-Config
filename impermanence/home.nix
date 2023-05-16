@@ -52,6 +52,7 @@
 
         "Blender/.config/blender"
         "DaVinci/.local/share/DaVinciResolve"
+        "DaVinci/Documents/BlackmagicDesign"
         "NixifiedAI/invokeai"
 
         "VSCode/.vscode"

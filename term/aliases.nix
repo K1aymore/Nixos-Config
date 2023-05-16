@@ -56,22 +56,19 @@ in {
     makeModule = "make -C $(nix-build -E '(import <nixpkgs> {}).linux.dev' --no-out-link)/lib/modules/*/build M=$(pwd) modules";
 
 
-    rm = "rm -i";
+    #rm = "rm -i";
 
     eleventy = "npx @11ty/eleventy";
     qtShell = "nix-shell -p libsForQt5.full -p qtcreator --run qtcreator";
+    davinciResolve = "NIXPKGS_ALLOW_INSECURE=1 NIXPKGS_ALLOW_UNFREE=1 nix-shell -p davinci-resolve --impure --run davinci-resolve";
 
     webFullMirror = "wget --mirror --convert-links --adjust-extension --page-requisites";
     webMirror = "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent";
     rcloneS3 = "rclone sync --fast-list --checksum --progress";
 
 
-#   nbrc = "$EDITOR ~/.bashrc && source ~/.bashrc"
-
 
     sshServerLan = "ssh 172.16.0.115 -p 56789";
-
-    syncplayFraggie = "syncplay-server --port 59876 --salt 42069 --password Fraggie";
 
 
     ipfsbafysimple = "ipfs add --cid-version 1";
