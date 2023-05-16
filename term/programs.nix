@@ -1,6 +1,8 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, home-manager, ... }:
 
 {
+
+  imports = [ home-manager.nixosModule ];
 
   home-manager.users.klaymore.programs = {
     home-manager.enable = true;

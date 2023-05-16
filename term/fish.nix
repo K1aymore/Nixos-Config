@@ -1,8 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, home-manager, ... }:
 
 let
   scripts = "/synced/Sync/Linux/BashScripts";
 in {
+
+  imports = [ home-manager.nixosModule ];
 
   users.users.klaymore.shell = pkgs.fish;
 

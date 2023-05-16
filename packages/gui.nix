@@ -1,17 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  unstableTarball = fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
-in {
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = pkgs: with pkgs; {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
+{
 
   # For discord wayland pipewire screensharing
   nixpkgs.config.ungoogled-chromium.commandLineArgs = "
@@ -136,7 +125,7 @@ in {
     #zoom-us
     #lbry
 
-    unstable.godot_4
+    godot_4
     blender
     #python39Packages.pyzmq
     libresprite
@@ -146,6 +135,7 @@ in {
     #movit
     #log4cxx
     lmms
+    musescore
     #reaper
     #ardour
 	  furnace

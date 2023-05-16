@@ -1,18 +1,12 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, home-manager, impermanence, ... }:
 
 
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  impermanence = builtins.fetchTarball "https://github.com/nix-community/impermanence/archive/master.tar.gz";
-
-in
 {
 
   imports = [
-    (import "${home-manager}/nixos")
-    "${impermanence}/nixos.nix"
+    home-manager.nixosModule
+    #impermanence.nixosModules.home-manager.impermanence
   ];
-
 
   programs.fuse.userAllowOther = true;
 
@@ -178,6 +172,9 @@ in
         "Strawberry/.local/share/strawberry"
         "VLC/.local/share/vlc"
         "VLC/.config/vlc"
+
+        "Musescore/.local/share/Musescore"
+        "Musescore/.config/Musescore"
 
         "Syncplay/.config/Syncplay"
       ];

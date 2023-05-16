@@ -13,6 +13,7 @@
     ./packages/games.nix
     ./packages/coding.nix
     ./packages/video-editing.nix
+    #./packages/VMs.nix
 
     #./system/opentablet.nix
 
@@ -25,7 +26,7 @@
   ];
 
   #boot.initrd.kernelModules = [ "amdgpu" ];
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  #services.xserver.videoDrivers = [ "amdgpu" ];
 
   #boot.zfs.enableUnstable = true;
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
@@ -48,7 +49,7 @@
     ];
   };
 
-  /* environment.variables.AMD_VULKAN_ICD = "RADV"; */
+  environment.variables.AMD_VULKAN_ICD = "RADV";
 
   #hardware.pulseaudio.support32Bit = true;
 

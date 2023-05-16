@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
-      ../../synced/Nix/cfg/acer.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

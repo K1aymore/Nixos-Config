@@ -1,9 +1,10 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, home-manager, ... }:
 
 let
   scripts = "/synced/Sync/Linux/BashScripts";
 in {
 
+  imports = [ home-manager.nixosModule ];
 
   home-manager.users.klaymore.services.espanso = {
     enable = true;
@@ -31,69 +32,69 @@ in {
       }];
     }
 
-    { 
+    {
       trigger = "]par";
       replace = "(";
     }
-    { 
+    {
       trigger = "]cpar";
       replace = ")";
     }
 
-    { 
+    {
       trigger = "]one";
       replace = "1";
     }
-    { 
+    {
       trigger = "]two";
       replace = "2";
     }
-    { 
+    {
       trigger = "]three";
       replace = "3";
     }
-    { 
+    {
       trigger = "]four";
       replace = "4";
     }
-    { 
+    {
       trigger = "]five";
       replace = "5";
     }
-    { 
+    {
       trigger = "]six";
       replace = "6";
     }
-    { 
+    {
       trigger = "]seven";
       replace = "7";
     }
-    { 
+    {
       trigger = "]eight";
       replace = "8";
     }
-    { 
+    {
       trigger = "]nine";
       replace = "9";
     }
-    { 
+    {
       trigger = "]zero";
       replace = "0";
     }
 
-    { 
+    {
       trigger = "]at";
       replace = "@";
     }
-    { 
+    {
       trigger = "]dollar";
       replace = "$";
     }
-    { 
+    {
       trigger = "]ast";
       replace = "*";
     }
-    { 
+    {
       trigger = "]hash";
       replace = "#";
     }

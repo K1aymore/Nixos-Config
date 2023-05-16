@@ -1,13 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, home-manager, impermanence, ... }:
 
 
-let
-  impermanence = builtins.fetchTarball "https://github.com/nix-community/impermanence/archive/master.tar.gz";
-in
 {
-
-  imports = [ "${impermanence}/nixos.nix" ];
-
+  imports = [
+    home-manager.nixosModule
+    impermanence.nixosModule
+  ];
 
   environment.persistence."/synced/Nix/persist/system" = {
     directories = [
