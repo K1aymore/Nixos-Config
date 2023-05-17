@@ -8,12 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
+    impermanence.url = "github:nix-community/impermanence";
+
+    nixvim.url = "github:pta2002/nixvim";
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence }@attrs: {
+
+  outputs = { self, nixpkgs, home-manager, impermanence, nixvim }@attrs: {
 
     nixosConfigurations.acer = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

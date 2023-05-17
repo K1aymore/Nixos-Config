@@ -1,8 +1,11 @@
-{ config, pkgs, lib, home-manager, ... }:
+{ config, pkgs, lib, home-manager, nixvim, ... }:
 
 {
 
-  imports = [ home-manager.nixosModule ];
+  imports = [
+    home-manager.nixosModule
+    nixvim.nixosModules.nixvim
+  ];
 
   home-manager.users.klaymore.programs = {
     home-manager.enable = true;
@@ -92,5 +95,41 @@
     };
 
   };
+
+
+
+  programs.nixvim = {
+    enable = false;
+
+    options = {
+      number = true;         # Show line numbers
+      relativenumber = true; # Show relative line numbers
+
+      shiftwidth = 2;        # Tab width should be 2
+    };
+
+
+    extraPlugins = with pkgs.vimPlugins; [
+      indentLine
+
+      neovim-ayu
+    ];
+
+    plugins = {
+      treesitter = {
+        enable = true;
+        indent = true;
+      };
+      treesitter-rainbow.enable = true;
+      fugitive.enable = true;
+
+      rust-tools.enable = true;
+      lsp.servers.rust-analyzer.enable = true;
+    };
+
+    colorscheme = "neovim-ayu";
+
+  };
+
 
 }
