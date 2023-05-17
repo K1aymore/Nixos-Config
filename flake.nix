@@ -1,5 +1,5 @@
 {
-  
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -15,24 +15,37 @@
 
 
   outputs = { self, nixpkgs, home-manager, impermanence, nixvim }@attrs: {
+    nixosConfigurations = {
+      
+      acer = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./acer.nix
+          ./persist/acer/etc/nixos/configuration.nix
+        ];
+      };
 
-    nixosConfigurations.acer = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [
-        ./acer.nix
-        ./persist/acer/etc/nixos/configuration.nix
-      ];
+      pc = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./pc.nix
+          ./hardware/pc/configuration.nix
+        ];
+      };
+
+      server = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [
+          ./server.nix
+          ./persist/server/etc/nixos/configuration.nix
+        ];
+      };
+
     };
-
-    nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [
-        ./pc.nix
-        ./hardware/pc/configuration.nix
-      ];
-    };
-
   };
+
+
 }

@@ -12,7 +12,9 @@
     nasm  # assembly compiler
     gnumake
     avalonia-ilspy  # .NET exe decompiler
+
     nil  # Nix LSP
+    nixpkgs-fmt
 
     cargo
     rustc
@@ -76,6 +78,7 @@
 
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nil";
+      "nix.formatterPath" = "nixpkgs-fmt";
       "nix.serverSettings" = {
         "nil" = {
           "formatting" = { "command" = ["nixpkgs-fmt"]; };
