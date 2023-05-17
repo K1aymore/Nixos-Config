@@ -22,7 +22,7 @@
         specialArgs = attrs;
         modules = [
           ./acer.nix
-          ./persist/acer/etc/nixos/configuration.nix
+          ./hardware/acer/configuration.nix
         ];
       };
 
