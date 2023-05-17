@@ -1,4 +1,4 @@
-{ config, pkgs, lib, home-manager, ... }:
+{ config, pkgs, home-manager, ... }:
 
 let
   scripts = "/synced/Sync/Linux/BashScripts";

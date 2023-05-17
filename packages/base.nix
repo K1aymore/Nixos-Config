@@ -1,8 +1,30 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
   nixpkgs.config.allowUnfree = true;
+
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    #mplus-outline-fonts
+    dina-font
+    proggyfonts
+
+    #font-awesome
+    font-awesome_4
+    terminus_font
+
+    comic-mono
+    monocraft
+    scientifica
+    fira-code
+  ];
+
 
   environment.systemPackages = with pkgs; [
     coreutils

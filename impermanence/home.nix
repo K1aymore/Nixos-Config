@@ -1,4 +1,4 @@
-{ config, pkgs, lib, home-manager, impermanence, ... }:
+{ home-manager, impermanence, ... }:
 
 
 {
