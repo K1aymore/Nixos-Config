@@ -138,7 +138,7 @@
     musescore
     #reaper
     #ardour
-	  furnace
+    furnace
     josm
 
     gsettings-desktop-schemas

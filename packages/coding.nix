@@ -7,12 +7,12 @@
     clang
     gcc
     ghc # Haskell compiler
-    sbcl  # Lisp compiler
-    nasm  # assembly compiler
+    sbcl # Lisp compiler
+    nasm # assembly compiler
     gnumake
-    avalonia-ilspy  # .NET exe decompiler
+    avalonia-ilspy # .NET exe decompiler
 
-    nil  # Nix LSP
+    nil # Nix LSP
     nixpkgs-fmt
 
     cargo
@@ -47,6 +47,11 @@
   home-manager.users.klaymore.programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+
+    enableExtensionUpdateCheck = false;
+    enableUpdateCheck = false;
+    mutableExtensionsDir = false;
+
     extensions = with pkgs.vscode-extensions; [
       redhat.java
       vscjava.vscode-java-debug
@@ -80,7 +85,7 @@
       "nix.formatterPath" = "nixpkgs-fmt";
       "nix.serverSettings" = {
         "nil" = {
-          "formatting" = { "command" = ["nixpkgs-fmt"]; };
+          "formatting" = { "command" = [ "nixpkgs-fmt" ]; };
         };
       };
 

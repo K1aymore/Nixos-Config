@@ -10,19 +10,6 @@
 
   programs.fuse.userAllowOther = true;
 
-  /* environment.persistence."/nix/persist/home/qBittorrent" = {
-    directories = [
-      "/home/klaymore/.local/share/qBittorrent"
-      "/home/klaymore/.config/qBittorrent"
-      "/home/klaymore/.cache/qBittorrent"
-    ];
-
-    files = [
-#      "/etc/machine-id"
-#       "/etc/nix/id_rsa"
-    ];
-  }; */
-
 
   home-manager.users.klaymore = {
     home.homeDirectory = "/home/klaymore";
@@ -267,8 +254,8 @@
         ".config/startkderc"
         ".config/systemsettingsrc"
         ".config/touchpadxlibinputrc"
-#         ".config/Trolltech.conf"
-#         ".config/user-dirs.dirs"
+        #         ".config/Trolltech.conf"
+        #         ".config/user-dirs.dirs"
         ".config/user-dirs.locale"
 
         ".local/share/krunnerstaterc"
