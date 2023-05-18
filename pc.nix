@@ -21,6 +21,19 @@
     ./pc/syncplay.nix
     ./system/zfs.nix
 
+
+    ./system/syncthing.nix
+
+    ./syncthing/sync.nix
+    ./syncthing/media.nix
+    ./syncthing/archive.nix
+    ./syncthing/dotfiles.nix
+    ./syncthing/ellidaProjects.nix
+    ./syncthing/ellidaSync.nix
+    ./syncthing/nixcfg.nix
+    ./syncthing/projects.nix
+
+
     ./impermanence/system.nix
     ./impermanence/home.nix
   ];
@@ -82,51 +95,11 @@
   services.syncthing.relay.enable = true;
   services.syncthing.relay.port = 61456;
   services.syncthing.folders = {
-    "Sync" = {
-      path = "/synced/Sync";
-      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" "acer" ];
-      ignorePerms = false;
-    };
-    "Media" = {
-      path = "/synced/Media";
-      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" "acer" ];
-      ignorePerms = false;
-    };
-    "Dotfiles" = {
-      path = "/synced/Nix/dotfiles";
-      devices = [ "server" "laptop" "portable" "acer" ];
-      ignorePerms = false;
-    };
-    "NixCfg" = {
-      path = "/synced/Nix/cfg";
-      devices = [ "server" "laptop" "portable" "pinephone" "pixel" "winpc" "acer" ];
-      ignorePerms = false;
-    };
-    "Projects" = {
-      path = "/synced/Projects";
-      devices = [ "server" "laptop" "portable" "pinephone" "winpc" "acer" ];
-      ignorePerms = false;
-    };
-    "Archive" = {
-      path = "/synced/Archive";
-      devices = [ "server" "acer" ];
-      ignorePerms = false;
-    };
     /* "Huge Archive" = {
       path = "/synced/HugeArchive";
       devices = [ "server" ];
       ignorePerms = false;
     }; */
-    "Ellida Sync" = {
-      path = "/synced/EllidaSync";
-      devices = [ "server" "portable" "cDesk" ];
-      ignorePerms = false;
-    };
-    "Ellida Projects" = {
-      path = "/synced/EllidaProjects";
-      devices = [ "server" "laptop" "portable" "cDesk" "acer" ];
-      ignorePerms = true;
-    };
   };
 
 
