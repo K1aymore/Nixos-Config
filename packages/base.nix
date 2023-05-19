@@ -108,19 +108,25 @@
     emacs
     fd
     ranger
-    bat
     sc-im
     ttyper
     pwgen
     moc
-    /* ncmpcpp */ # HM
     mpc-cli
-    /* starship */ # HM
     fzf
-    /* zoxide */  # HM
     tmux
-    zellij
     comma
+
+
+    # Rust programs
+    zellij
+    exa
+    bat
+    gitui
+    ripgrep
+    du-dust
+    bacon
+    speedtest-rs
 
     ffmpeg
     yt-dlp
