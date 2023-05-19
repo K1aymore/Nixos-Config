@@ -30,7 +30,7 @@
 
 
     neovim = {
-      enable = true;
+      enable = false;
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;
@@ -100,7 +100,7 @@
 
 
   programs.nixvim = {
-    enable = false;
+    enable = true;
 
     options = {
       number = true;         # Show line numbers
@@ -124,6 +124,11 @@
       };
       treesitter-rainbow.enable = true;
       fugitive.enable = true;
+
+      neo-tree = {
+        enable = true;
+        closeIfLastWindow = true;
+      };
 
       rust-tools.enable = true;
       lsp.servers.rust-analyzer.enable = true;

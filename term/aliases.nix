@@ -6,9 +6,7 @@ in {
 
   environment.shellAliases = {
     nrs = "sudo nixos-rebuild switch --flake /synced/Nix/cfg";
-    nrsu = "sudo nixos-rebuild switch --upgrade --flake /synced/Nix/cfg";
     nrb = "sudo nixos-rebuild boot --flake /synced/Nix/cfg";
-    nrbu = "sudo nixos-rebuild boot --upgrade --flake /synced/Nix/cfg";
 
     #cd = "z";
 

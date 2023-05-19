@@ -53,7 +53,7 @@
   services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
 
 
-  services.syncthing.folders = {
+  services.syncthing.settings.folders = {
     # "Archive" = {
     #   path = "/synced/Archive";
     #   devices = [ "server" "pc" "portable" ];

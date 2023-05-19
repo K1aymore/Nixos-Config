@@ -50,7 +50,7 @@
   }; */
 
 
-  services.syncthing.folders = {
+  services.syncthing.settings.folders = {
     "Sync" = {
       path = "/synced/Sync";
       devices = [ "pc" "portable" "laptop" "acer" "pinephone" "pixel" "winpc" ];
