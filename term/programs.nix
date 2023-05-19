@@ -46,6 +46,7 @@
         neoformat
         vim-nix
         rust-vim
+        leap-nvim
 
         #catppuccin-nvim # broken
         neovim-ayu
@@ -111,6 +112,7 @@
 
     extraPlugins = with pkgs.vimPlugins; [
       indentLine
+      leap-nvim
 
       neovim-ayu
     ];
@@ -125,6 +127,7 @@
 
       rust-tools.enable = true;
       lsp.servers.rust-analyzer.enable = true;
+      lsp.servers.nil_ls.enable = true;
     };
 
     colorscheme = "neovim-ayu";

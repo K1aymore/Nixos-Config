@@ -26,6 +26,8 @@ in {
     gsl = "git shortlog";
     gl = "git log";
 
+    vi = "nvim";
+
     jcr = "/synced/Sync/Linux/BashScripts/jcr";
     gcr = "/synced/Sync/Linux/BashScripts/gcr";
     j = "java";
