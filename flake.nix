@@ -3,6 +3,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixpkgs-vscodium.url = "github:NixOS/nixpkgs?rev=963006aab35e3e8ebbf6052b6bf4ea712fdd3c28";
+
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.11";
 
     home-manager = {
@@ -16,10 +18,17 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, impermanence, nixvim }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-vscodium, home-manager, impermanence, nixvim }@attrs:
     let
       overlay-stable = final: prev: {
         stable = import nixpkgs-stable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
+
+      overlay-vscodium = final: prev: {
+        unstableVSCodium = import nixpkgs-vscodium {
           system = "x86_64-linux";
           config.allowUnfree = true;
         };
@@ -31,7 +40,7 @@
         modules = [
           ./${hostname}.nix
           ./hardware/${hostname}/configuration.nix
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable overlay-vscodium ]; })
         ];
       };
 
