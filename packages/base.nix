@@ -2,7 +2,9 @@
 
 {
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   fonts.fonts = with pkgs; [
     noto-fonts

@@ -3,6 +3,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.11";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,38 +16,36 @@
   };
 
 
-  outputs = { self, nixpkgs, home-manager, impermanence, nixvim }@attrs: {
-    nixosConfigurations = {
-      
-      acer = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, impermanence, nixvim }@attrs:
+    let
+      overlay-stable = final: prev: {
+        stable = import nixpkgs-stable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
+
+      sharedConfig = hostname: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
-          ./acer.nix
-          ./hardware/acer/configuration.nix
+          ./${hostname}.nix
+          ./hardware/${hostname}/configuration.nix
+          ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-stable ]; })
         ];
       };
 
-      pc = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = attrs;
-        modules = [
-          ./pc.nix
-          ./hardware/pc/configuration.nix
-        ];
-      };
+    in
+    {
+      nixosConfigurations = {
 
-      server = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = attrs;
-        modules = [
-          ./server.nix
-          ./persist/server/etc/nixos/configuration.nix
-        ];
-      };
+        acer = sharedConfig "acer";
 
+        pc = sharedConfig "pc";
+
+        server = sharedConfig "server";
+
+      };
     };
-  };
-
 
 }

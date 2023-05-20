@@ -1,7 +1,9 @@
 { pkgs, home-manager, ... }:
 
 {
-  imports = [ home-manager.nixosModule ];
+  imports = [
+    home-manager.nixosModule
+  ];
 
   environment.systemPackages = with pkgs; [
     clang
@@ -46,7 +48,7 @@
 
   home-manager.users.klaymore.programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.stable.vscodium;
 
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
