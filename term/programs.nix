@@ -13,7 +13,7 @@
 
     git = {
       enable = true;
-      userName  = "K1aymore";
+      userName = "K1aymore";
       userEmail = "klaymorer@protonmail.com";
       signing = {
         key = "BAE085A5C70F19F7";
@@ -25,6 +25,35 @@
       ];
       extraConfig = {
         init.defaultbranch = "main";
+
+        core.pager = "delta";
+        interactive.diffFilter = "delta --color-only";
+        delta = {
+          navigate = true;    # use n and N to move between diff sections
+          light = false ;     # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+        };
+        merge.conflictstyle = "diff3";
+        diff.colorMoved = "default";
+
+      };
+    };
+
+    helix = {
+      enable = true;
+
+      settings = {
+        theme = "catppuccin_mocha";
+        editor = {
+          line-number = "relative";
+          lsp.display-messages = true;
+
+          cursor-shape.insert = "bar";
+
+          indent-guides.render = true;
+        };
+        keys.normal = {
+          C-s = ":w";
+        };
       };
     };
 
@@ -40,7 +69,8 @@
       #nvim-treesitter.withAllGrammars
       # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
       plugins = with pkgs.vimPlugins; [
-        indentLine rainbow #YouCompleteMe
+        indentLine
+        rainbow #YouCompleteMe
         #minimap-vim
         vim-fugitive #ale nvim-autopairs
         neoformat
@@ -103,10 +133,10 @@
     enable = true;
 
     options = {
-      number = true;         # Show line numbers
+      number = true; # Show line numbers
       relativenumber = true; # Show relative line numbers
 
-      shiftwidth = 2;        # Tab width should be 2
+      shiftwidth = 2; # Tab width should be 2
     };
 
 

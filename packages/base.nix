@@ -118,6 +118,8 @@
     fzf
     tmux
     comma
+    lesspass-cli
+    croc
 
 
     # Rust programs
@@ -129,6 +131,7 @@
     du-dust
     bacon
     speedtest-rs
+    delta
 
     ffmpeg
     yt-dlp

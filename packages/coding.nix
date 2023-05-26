@@ -13,6 +13,7 @@
     nasm # assembly compiler
     gnumake
     avalonia-ilspy # .NET exe decompiler
+    lldb
 
     nil # Nix LSP
     nixpkgs-fmt
@@ -21,9 +22,11 @@
     rustc
     rustfmt
     wasm-pack # Rust WebAssembly
+    rust-analyzer
 
     jdk17
     jdk8
+    jdt-language-server
 
     #jetbrains.idea-community
     vscode-fhs

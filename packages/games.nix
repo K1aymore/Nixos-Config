@@ -4,8 +4,8 @@
 
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
-    #lutris
-    #playonlinux
+    lutris
+    playonlinux
     #grapejuice
     #protonup
     #protontricks
@@ -15,8 +15,6 @@
 
     #minecraft
     #itch
-    #multimc
-    #polymc
     prismlauncher
     jdk17
     jdk8

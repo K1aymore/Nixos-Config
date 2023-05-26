@@ -8,14 +8,16 @@ in {
     nrs = "sudo nixos-rebuild switch --flake /synced/Nix/cfg";
     nrb = "sudo nixos-rebuild boot --flake /synced/Nix/cfg";
 
-    #cd = "z";
+    #cd = "z"; # Breaks z lol
+    ls = "exa";
+    cat = "bat";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
     conf = "cd /synced/Nix/cfg";
     lisp = "cd /synced/Projects/Programming/Lisp";
 
     yd = "bash /synced/Sync/Linux/BashScripts/yd";
-    r128all = "find . -exec r128gain {} \\;";
+    r128all = "find . -not -path './git/*' -not -path '*.mood' -not -path '*.jpg' -not -path '*.png' -exec r128gain {} \\;";
 
     ga = "git add";
     gc = "git commit";

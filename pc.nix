@@ -13,7 +13,7 @@
     ./packages/games.nix
     ./packages/coding.nix
     ./packages/video-editing.nix
-    #./packages/VMs.nix
+    ./packages/VMs.nix
     ./packages/deep3D-depends.nix
 
     #./system/opentablet.nix
@@ -56,6 +56,7 @@
       libva-utils
       libvdpau-va-gl
       vaapiVdpau
+      vdpauinfo
       #amdvlk
     ];
     extraPackages32 = with pkgs; [
