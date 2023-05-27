@@ -51,7 +51,7 @@
 
   home-manager.users.klaymore.programs.vscode = {
     enable = true;
-    package = pkgs.unstableVSCodium.vscodium;
+    package = pkgs.vscodium;
 
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;

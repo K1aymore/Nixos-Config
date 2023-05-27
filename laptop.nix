@@ -16,6 +16,16 @@
     #./system/opentablet.nix
     #./system/touchegg.nix
 
+    ./system/syncthing.nix
+
+    ./syncthing/sync.nix
+    ./syncthing/media.nix
+    ./syncthing/dotfiles.nix
+    ./syncthing/ellidaProjects.nix
+    ./syncthing/nixcfg.nix
+    ./syncthing/projects.nix
+
+
     ./impermanence/system.nix
     ./impermanence/home.nix
     #./home/home.nix
@@ -51,52 +61,6 @@
 
 
   services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
-
-
-  services.syncthing.settings.folders = {
-    # "Archive" = {
-    #   path = "/synced/Archive";
-    #   devices = [ "server" "pc" "portable" ];
-    #   ignorePerms = false;
-    # };
-    "Sync" = {
-      path = "/synced/Sync";
-      devices = [ "server" "pc" "acer" "portable" "pinephone" "pixel" "winpc" ];
-      ignorePerms = false;
-    };
-    "Media" = {
-      path = "/synced/Media";
-      devices = [ "server" "pc" "acer" "portable" "pinephone" "pixel" "winpc" ];
-      ignorePerms = false;
-    };
-    "Dotfiles" = {
-      path = "/synced/Nix/dotfiles";
-      devices = [ "server" "pc" "acer" "portable" ];
-      ignorePerms = false;
-    };
-    "NixCfg" = {
-      path = "/synced/Nix/cfg";
-      devices = [ "server" "pc" "acer" "portable" "pinephone" "pixel" "winpc" ];
-      ignorePerms = false;
-    };
-    "Projects" = {
-      path = "/synced/Projects";
-      devices = [ "server" "pc" "acer" "portable" "winpc" ];
-      ignorePerms = false;
-    };
-    /* "Ellida Sync" = {
-      path = "/synced/Ellida Sync";
-      devices = [ "server" "pc" "portable" "cDesk" ];
-      ignorePerms = false;
-    }; */
-    "Ellida Projects" = {
-      path = "/synced/Ellida Projects";
-      devices = [ "server" "acer" "pc" "portable" "cDesk" ];
-      ignorePerms = true;
-    };
-  };
-
-
 
 
 }

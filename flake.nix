@@ -50,6 +50,8 @@
 
         acer = sharedConfig "acer";
 
+        laptop = sharedConfig "laptop";
+
         pc = sharedConfig "pc";
 
         server = sharedConfig "server";

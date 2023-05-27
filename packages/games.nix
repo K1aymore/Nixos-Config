@@ -6,6 +6,7 @@
     wineWowPackages.waylandFull
     lutris
     playonlinux
+    bottles
     #grapejuice
     #protonup
     #protontricks

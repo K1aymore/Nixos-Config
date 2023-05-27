@@ -81,6 +81,7 @@
         "Heroic/.config/heroic"
         "Games/Games"
         "Games/My Games"
+        "Bottles/.local/share/bottles"
 
         "Flatpak/.local/share/flatpak"
         "Flatpak/.var"

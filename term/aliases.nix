@@ -11,6 +11,7 @@ in {
     #cd = "z"; # Breaks z lol
     ls = "exa";
     cat = "bat";
+    fd = "fd --hidden";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
     conf = "cd /synced/Nix/cfg";
