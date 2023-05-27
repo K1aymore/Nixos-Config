@@ -5,6 +5,16 @@
     home-manager.nixosModule
   ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      vscodium = prev.vscodium.overrideAttrs (o: {
+        postInstall = (o.postInstall or "") + ''
+          cp -f ${./icons/vscodium-paulo22s.png} $out/share/pixmaps/code.png
+        '';
+      });
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     clang
     gcc
