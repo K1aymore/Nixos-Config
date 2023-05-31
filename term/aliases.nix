@@ -10,7 +10,7 @@ in {
 
     #cd = "z"; # Breaks z lol
     ls = "exa";
-    cat = "bat";
+    #cat = "bat";
     fd = "fd --hidden";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
@@ -45,7 +45,7 @@ in {
     brdown = "brightnessctl set 5-%";
 
     netstat = "vnstat -i enp30s0";
-    bat = "cat /sys/class/power_supply/BAT1/capacity";
+    battery = "cat /sys/class/power_supply/BAT1/capacity";
     batlvl = "cat /sys/class/power_supply/BAT1/capacity";
     ramCheck = "sudo lshw -short -C memory";
 

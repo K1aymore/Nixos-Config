@@ -14,6 +14,8 @@
     heroic
     legendary-gl
 
+    mangohud
+
     #minecraft
     #itch
     prismlauncher
@@ -54,7 +56,7 @@
     enable = true;
   };
 
-  /* programs = {
+  /*programs = {
     steam.enable = true;
   }; */
 
