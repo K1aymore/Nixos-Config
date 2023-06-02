@@ -3,7 +3,6 @@
 {
 
   imports = [
-    ./base.nix
     ./locale/qwerty.nix
     ./locale/losAngeles.nix
     ./system/pipewire.nix

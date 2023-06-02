@@ -25,10 +25,10 @@
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.registry.nixpkgs.flake = nixpkgs;  # pin nixpkgs version
+  nix.registry.nixpkgs.flake = nixpkgs; # pin nixpkgs version
 
   environment.variables = {
-     GPG_TTY = "$(tty)";
+    GPG_TTY = "$(tty)";
   };
 
   security.polkit.enable = true;
@@ -40,23 +40,27 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        22000 22067  # syncthing transfers & relay
-        3978 3979  # OpenTTD
+        22000
+        22067 # syncthing transfers & relay
+        3978
+        3979 # OpenTTD
         1714
       ];
       allowedUDPPorts = [
-        21027 22067  # syncthing discovery
-        3978 3979   # OpenTTD
+        21027
+        22067 # syncthing discovery
+        3978
+        3979 # OpenTTD
       ];
       allowedTCPPortRanges = [
         {
-          from = 1714;  # KDE Connect
+          from = 1714; # KDE Connect
           to = 1764;
         }
       ];
       allowedUDPPortRanges = [
         {
-          from = 1714;  # KDE Connect
+          from = 1714; # KDE Connect
           to = 1764;
         }
       ];
@@ -79,11 +83,12 @@
 
   services.fstrim.enable = true; # for ssd trimming
 
-  boot.kernel.sysctl = { # for Syncthing watches
+  boot.kernel.sysctl = {
+    # for Syncthing watches
     # Note that inotify watches consume 1kB on 64-bit machines.
-    "fs.inotify.max_user_watches"   = 1048576;   # default:  8192
-    "fs.inotify.max_user_instances" =    1024;   # default:   128
-    "fs.inotify.max_queued_events"  =   32768;   # default: 16384
+    "fs.inotify.max_user_watches" = 1048576; # default:  8192
+    "fs.inotify.max_user_instances" = 1024; # default:   128
+    "fs.inotify.max_queued_events" = 32768; # default: 16384
   };
 
 

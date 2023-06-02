@@ -96,7 +96,7 @@
     tenacity
     sfxr
     sfxr-qt
-    handbrake
+    #handbrake
 
     pspp
 
