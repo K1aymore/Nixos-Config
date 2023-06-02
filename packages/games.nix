@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, home-manager, ... }:
 
 {
+
+  imports = [
+    home-manager.nixosModule
+  ];
 
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
@@ -56,9 +60,24 @@
     enable = true;
   };
 
+  home-manager.users.klaymore.programs.mangohud = {
+    enable = true;
+    enableSessionWide = true;
+    settings = {
+      fps_limit = 117;
+      gamemode = 1;
+      vulkan_driver = 1;
+      wine = 1;
+    };
+  };
+
+  environment.sessionVariables = {
+    MANGOHUD = "1";
+  };
+
   /*programs = {
     steam.enable = true;
-  }; */
+  };*/
 
 
 }
