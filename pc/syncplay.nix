@@ -4,13 +4,13 @@
 {
 
   networking.firewall = {
-    allowedTCPPorts = [ 60007 ];
-    allowedUDPPorts = [ 60007 ];
+    allowedTCPPorts = [ 57701 ];
+    allowedUDPPorts = [ 57701 ];
   };
 
   services.syncplay = {
     enable = true;
-    port = 60007;
+    port = 57701;
   };
 
 }

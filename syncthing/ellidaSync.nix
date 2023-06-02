@@ -1,5 +1,5 @@
 {
-  services.syncthing.settings.folders."Ellida Sync" = {
+  services.syncthing.folders."Ellida Sync" = {
     path = "/synced/EllidaSync";
     devices = [ "server" "portable" "cDesk" ];
     ignorePerms = false;

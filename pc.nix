@@ -96,7 +96,7 @@
 
   services.syncthing.relay.enable = true;
   services.syncthing.relay.port = 61456;
-  services.syncthing.settings.folders = {
+  services.syncthing.folders = {
     /* "Huge Archive" = {
       path = "/synced/HugeArchive";
       devices = [ "server" ];

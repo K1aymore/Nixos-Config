@@ -1,5 +1,5 @@
 {
-  services.syncthing.settings.folders."Archive" = {
+  services.syncthing.folders."Archive" = {
     path = "/synced/Archive";
     devices = [ "server" "pc" "portable" "acer" ];
     ignorePerms = false;
