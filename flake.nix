@@ -38,7 +38,6 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
-          ./base.nix
           ./${hostname}.nix
           ./hardware/${hostname}/configuration.nix
           ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-stable overlay-vscodium ]; })

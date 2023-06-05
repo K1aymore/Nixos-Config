@@ -3,6 +3,7 @@
 {
 
   imports = [
+    ./base.nix
     ./locale/qwerty.nix
     ./locale/losAngeles.nix
     ./system/pipewire.nix
@@ -78,7 +79,7 @@
 
   networking = {
     hostName = "pc";
-    hostId = "7c980de5";  # head -c 8 /etc/machine-id
+    hostId = "7c980de5"; # head -c 8 /etc/machine-id
     firewall = {
       allowedTCPPorts = [ 56338 57701 59271 ];
       allowedUDPPorts = config.networking.firewall.allowedTCPPorts;
@@ -89,7 +90,7 @@
   /* services.boinc = {
     enable = true;
     dataDir = "/nix/persist/appdata/BOINC";
-  };
+    };
   users.users.boinc.extraGroups = [ "video" ]; */
 
 

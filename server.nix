@@ -3,34 +3,33 @@
 
 {
 
-  imports =
-    [
-      ./base.nix
-      ./locale/colemak.nix
-      ./locale/losAngeles.nix
-      ./system/pipewire.nix
-      ./de/plasma.nix
+  imports = [
+    ./base.nix
+    ./locale/colemak.nix
+    ./locale/losAngeles.nix
+    ./system/pipewire.nix
+    ./de/plasma.nix
 
-      ./packages/gui.nix
+    ./packages/gui.nix
 
-      #./server/ssh.nix
-      ./server/nfs.nix
+    #./server/ssh.nix
+    ./server/nfs.nix
 
-      ./system/zfs.nix
+    ./system/zfs.nix
 
-      ./server/nginx.nix
-      #./server/synapse.nix
-      ./server/gitea.nix
-      #./server/minecraft.nix
-      # ./server/restyaboard.nix
-      # ./server/radicale.nix
+    ./server/nginx.nix
+    #./server/synapse.nix
+    ./server/gitea.nix
+    #./server/minecraft.nix
+    # ./server/restyaboard.nix
+    # ./server/radicale.nix
 
 
-      # ./system/opentablet.nix
+    # ./system/opentablet.nix
 
-      ./impermanence/system.nix
-      ./impermanence/home.nix
-    ];
+    ./impermanence/system.nix
+    ./impermanence/home.nix
+  ];
 
 
 

@@ -140,6 +140,7 @@
     #ardour
     furnace
     josm
+    love
 
     gsettings-desktop-schemas
     gsettings-qt
