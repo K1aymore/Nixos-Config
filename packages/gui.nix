@@ -114,10 +114,11 @@
 
     #chromium
     firefox-wayland
-    microsoft-edge
+    #microsoft-edge
     /* librewolf */
+    ungoogled-chromium # for Discord
     discord
-    #element-desktop
+    element-desktop
     qbittorrent
     #onionshare-gui
     #tor-browser-bundle-bin
