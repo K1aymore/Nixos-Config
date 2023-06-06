@@ -1,4 +1,3 @@
-
 { pkgs, lib, config, ... }:
 
 
@@ -6,10 +5,12 @@ let
   fqdn =
     let
       join = hostName: domain: hostName + lib.optionalString (domain != null) ".${domain}";
-    in join config.networking.hostName config.networking.domain;
+    in
+    join config.networking.hostName config.networking.domain;
   config.networking.domain = "klaymore.me";
   url = "matrix.klaymore.me";
-in {
+in
+{
 
   networking.firewall.allowedTCPPorts = [ 80 443 8008 ];
 
@@ -22,8 +23,8 @@ in {
       LC_CTYPE = "C";
   '';
 
+  #security.acme.certs."klaymore.me".extraDomainNames = [ "matrix.klaymore.me" ];
 
-  security.acme.certs.extraDomainNames = [ "matrix.klaymore.me" ];
 
   services.nginx = {
     enable = true;
@@ -34,12 +35,13 @@ in {
 
     virtualHosts = {
       "klaymore.me" = {
-        locations."= /.well-known/matrix/server".extraConfig =        # needed for reverse proxy
+        locations."= /.well-known/matrix/server".extraConfig = # needed for reverse proxy
           let
             # use 443 instead of the default 8448 port to unite
             # the client-server and server-server port for simplicity
             server = { "m.server" = "matrix.klaymore.me:443"; };
-          in ''
+          in
+          ''
             add_header Content-Type application/json;
             return 200 '${builtins.toJSON server}';
           '';
@@ -47,14 +49,28 @@ in {
 
       # Reverse proxy for Matrix client-server and server-server communication
       "matrix.klaymore.me" = {
-        enableACME = true;
         addSSL = true;
+        enableACME = true;
         root = "/synced/Projects/Websites/matrix.klaymore.me";
         # forward all Matrix API calls to the synapse Matrix homeserver
-        locations."/_matrix" = {
-          proxyPass = "http://[::1]:8008"; # without a trailing /
+        locations = {
+          "/" = {
+            index = "index.html";
+            root = "/synced/Projects/Websites/matrix.klaymore.me";
+          };
+
+          "^~ /.well-known/acme-challenge" = {
+            root = "/synced/Projects/Websites/matrix.klaymore.me";
+            extraConfig = ''
+              allow all;
+            '';
+          };
+          "/_matrix" = {
+            proxyPass = "http://[::1]:8008"; # without a trailing /
+          };
         };
       };
+      
     };
   };
 
@@ -72,11 +88,11 @@ in {
   };
 
   /*
-  security.acme.certs."matrix.klaymore.me" = {
+    security.acme.certs."matrix.klaymore.me" = {
     /* insert here the right configuration to obtain a certificate
     postRun = "systemctl restart coturn.service";
     group = "turnserver";
-  };
+    };
   */
 
   services.matrix-synapse = {
@@ -85,9 +101,8 @@ in {
     dataDir = "/nix/persist/server/synapse";
     # registration_shared_secret = "W72lPZDYLLc7vHL6z6uMm8lhrXZ6nz82skZo76bS0bd6fOPKB4fe9VJ8tPKQCqN3";
 
-
     settings = {
-      turn_uris = ["turn:matrix.klaymore.me:3478?transport=udp" "turn:matrix.klaymore.me:3478?transport=tcp"];
+      turn_uris = [ "turn:matrix.klaymore.me:3478?transport=udp" "turn:matrix.klaymore.me:3478?transport=tcp" ];
       turn_shared_secret = "will be world readable for local users";
       turn_user_lifetime = "1h";
 
@@ -100,10 +115,10 @@ in {
         type = "http";
         tls = false;
         x_forwarded = true;
-        resources = [ {
+        resources = [{
           names = [ "client" "federation" ];
           compress = false;
-        } ];
+        }];
       }];
 
     };
