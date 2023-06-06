@@ -4,9 +4,11 @@ let
   app = "php";
   domain = "klaymore.me";
   datadir = "/synced/Projects/Websites/klaymore.me/_site";
-in {
+in
+{
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedUDPPorts = [ 80 443 ];
 
 
   security.acme = {
@@ -23,11 +25,11 @@ in {
 
   services.nginx = {
     enable = true;
-    resolver.addresses = [ "8.8.8.8" "8.8.4.4" ];
+    #resolver.addresses = [ "8.8.8.8" "8.8.4.4" ];
 
-    virtualHosts.${domain} = {
-      enableACME = true;
+    virtualHosts."klaymore.me" = {
       addSSL = true;
+      enableACME = true;
       root = datadir;
 
       locations = {
@@ -36,12 +38,19 @@ in {
           root = datadir;
         };
 
-        "~ .php$" = {     # ~ .php$
-#           index = "index.php";
+        "^~ /.well-known/acme-challenge" = {
           extraConfig = ''
-#             fastcgi_split_path_info ^(.+\.php)(/.+)$;
-#             include ${pkgs.nginx}/conf/fastcgi_params;
-#             include ${pkgs.nginx}/conf/fastcgi.conf;
+            allow all;
+          '';
+        };
+
+        "~ .php$" = {
+          # ~ .php$
+          #           index = "index.php";
+          extraConfig = ''
+            # fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            # include ${pkgs.nginx}/conf/fastcgi_params;
+            # include ${pkgs.nginx}/conf/fastcgi.conf;
             fastcgi_pass unix:${config.services.phpfpm.pools.${app}.socket};
             fastcgi_index index.html;
           '';
@@ -50,7 +59,7 @@ in {
     };
 
     virtualHosts."shorecraft.club" = {
-      root="/synced/Projects/Websites/shorecraft.club";
+      root = "/synced/Projects/Websites/shorecraft.club";
       locations."/" = {
         return = "301 https://klaymore.me";
       };
@@ -61,10 +70,10 @@ in {
 
 
   # phpfpm fails to start for me
-#   services.phpfpm.settings = {
-#     "user" = app;
-#     "group" = app;
-#   };
+  #   services.phpfpm.settings = {
+  #     "user" = app;
+  #     "group" = app;
+  #   };
 
   services.phpfpm.pools.${app} = {
     user = "klaymore";
@@ -89,7 +98,7 @@ in {
     isSystemUser = true;
     createHome = false;
     home = datadir;
-    group  = app;
+    group = app;
   };
   users.groups.${app} = {
     gid = 997;

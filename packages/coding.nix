@@ -5,15 +5,7 @@
     home-manager.nixosModule
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      vscodium = prev.vscodium.overrideAttrs (o: {
-        postInstall = (o.postInstall or "") + ''
-          cp -f ${./icons/vscodium-paulo22s.png} $out/share/pixmaps/code.png
-        '';
-      });
-    })
-  ];
+
 
   environment.systemPackages = with pkgs; [
     clang
@@ -25,8 +17,6 @@
     avalonia-ilspy # .NET exe decompiler
     lldb
 
-    nil # Nix LSP
-    nixpkgs-fmt
 
     cargo
     rustc
@@ -57,56 +47,6 @@
 
 
   ];
-
-
-  home-manager.users.klaymore.programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-
-    enableExtensionUpdateCheck = false;
-    enableUpdateCheck = false;
-    mutableExtensionsDir = false;
-
-    extensions = with pkgs.vscode-extensions; [
-      redhat.java
-      vscjava.vscode-java-debug
-      matklad.rust-analyzer
-      jnoortheen.nix-ide
-      #ms-vscode.cpptools
-      #ms-python.python
-      #ms-python.vscode-pylance
-      #ms-azuretools.vscode-docker
-    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "mayukaithemevsc";
-        publisher = "GulajavaMinistudio";
-        version = "3.2.3";
-        sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
-      }
-      {
-        name = "remote-containers";
-        publisher = "ms-vscode-remote";
-        version = "0.291.0";
-        sha256 = "cabda0c4af2a58defa12c868b82be60109a82ed04efdca23d0829747d5fa0411";
-      }
-    ];
-
-    userSettings = {
-      "workbench.colorTheme" = "Mayukai Semantic Mirage";
-      "workbench.iconTheme" = "ayu";
-
-      "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nil";
-      "nix.formatterPath" = "nixpkgs-fmt";
-      "nix.serverSettings" = {
-        "nil" = {
-          "formatting" = { "command" = [ "nixpkgs-fmt" ]; };
-        };
-      };
-
-      "git.enableCommitSigning" = true;
-    };
-  };
 
 
 
