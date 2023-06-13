@@ -13,8 +13,8 @@
     ./packages/games.nix
     ./packages/coding.nix
     ./packages/video-editing.nix
-    ./packages/VMs.nix
-    ./packages/deep3D-depends.nix
+    #./packages/VMs.nix
+    #./packages/deep3D-depends.nix
 
     #./system/opentablet.nix
 
