@@ -202,6 +202,12 @@
         version = "0.291.0";
         sha256 = "cabda0c4af2a58defa12c868b82be60109a82ed04efdca23d0829747d5fa0411";
       }
+      {
+        name = "nunjucks-template";
+        publisher = "eseom";
+        version = "0.5.1";
+        sha256 = "CkHPyLZMtyLmqEzRMBqjxHV51R3AYrt8RJ5JQN1egWI=";
+      }
     ];
 
     userSettings = {

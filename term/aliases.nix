@@ -15,7 +15,6 @@ in {
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
     conf = "cd /synced/Nix/cfg";
-    lisp = "cd /synced/Projects/Programming/Lisp";
 
     yd = "bash /synced/Sync/Linux/BashScripts/yd";
     r128all = "find . -not -path './git/*' -not -path '*.mood' -not -path '*.jpg' -not -path '*.png' -exec r128gain {} \\;";
@@ -39,7 +38,7 @@ in {
     capEachWord = "bash /synced/Sync/Linux/BashScripts/capEachWord";
 
     steam = "flatpak run com.valvesoftware.Steam";
-
+    blades = "~/.cargo/bin/blades";
 
     brup = "brightnessctl set 5+%";
     brdown = "brightnessctl set 5-%";

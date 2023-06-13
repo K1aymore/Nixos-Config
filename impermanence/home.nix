@@ -89,6 +89,7 @@
         "Steam/.local/share/Steam"
         "Itch.io/.itch"
         "Itch.io/.config/itch"
+        "Cargo/.cargo"
 
         "Exodus/.config/Exodus"
         #"Pmbootstrap/.local/var/pmbootstrap"
