@@ -15,6 +15,7 @@
 
   environment.systemPackages = with pkgs; [
     sweet
+    libsForQt5.yakuake
   ];
 
 }

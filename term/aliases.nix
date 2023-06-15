@@ -27,6 +27,10 @@ in {
     gl = "git log";
 
     vi = "nvim";
+    steam = "flatpak run com.valvesoftware.Steam";
+    blades = "~/.cargo/bin/blades";
+    ncfg = "codium /synced/Nix/cfg";
+    notes = "codium /synced/Sync/Notes";
 
     jcr = "/synced/Sync/Linux/BashScripts/jcr";
     gcr = "/synced/Sync/Linux/BashScripts/gcr";
@@ -36,9 +40,6 @@ in {
     nwk = "bash /synced/Sync/Linux/BashScripts/nwk";
     dnxhdify = "bash /synced/Sync/Linux/BashScripts/dnxhdify";
     capEachWord = "bash /synced/Sync/Linux/BashScripts/capEachWord";
-
-    steam = "flatpak run com.valvesoftware.Steam";
-    blades = "~/.cargo/bin/blades";
 
     brup = "brightnessctl set 5+%";
     brdown = "brightnessctl set 5-%";

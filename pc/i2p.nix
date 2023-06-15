@@ -1,11 +1,11 @@
-{ pkgs, lib, config, ... }:
+{ ... }:
 
 
 {
 
   networking.firewall = {
-    allowedTCPPorts = [ 57213 ];
-    allowedUDPPorts = [ 57213 ];
+    allowedTCPPorts = [ 56338 ];
+    allowedUDPPorts = [ 56338 ];
   };
 
   # uses port 7657 for console

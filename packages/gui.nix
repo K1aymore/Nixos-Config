@@ -28,6 +28,9 @@
     kgpg
     glib
 
+    libva-utils
+    vdpauinfo
+
     wl-clipboard
     swaylock
     swayidle
@@ -115,7 +118,7 @@
     #chromium
     firefox-wayland
     #microsoft-edge
-    /* librewolf */
+    librewolf
     ungoogled-chromium # for Discord
     discord
     element-desktop

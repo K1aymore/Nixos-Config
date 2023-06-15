@@ -20,6 +20,7 @@
 
     #./system/ipfs.nix
     ./pc/syncplay.nix
+    ./pc/i2p.nix
     ./system/zfs.nix
 
 
@@ -54,8 +55,8 @@
       rocm-opencl-runtime
       libva
       libva-utils
-      libvdpau-va-gl
-      vaapiVdpau
+      #libvdpau-va-gl
+      #vaapiVdpau
       vdpauinfo
       #amdvlk
     ];
@@ -81,7 +82,7 @@
     hostName = "pc";
     hostId = "7c980de5"; # head -c 8 /etc/machine-id
     firewall = {
-      allowedTCPPorts = [ 56338 57701 59271 ];
+      allowedTCPPorts = [ 56338 57701 ];
       allowedUDPPorts = config.networking.firewall.allowedTCPPorts;
     };
   };
