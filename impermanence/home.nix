@@ -55,6 +55,7 @@
         "Session/.config/Session"
 
         "Firefox/.mozilla"
+        "Librewolf/.librewolf"
         "SSH/.ssh"
         "Mullvad/.config/Mullvad VPN"
         "qBittorrent/.local/share/qBittorrent"
