@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, ... }:
+{ pkgs, nixpkgs, config, ... }:
 
 
 {
@@ -46,24 +46,14 @@
         3979 # OpenTTD
         1714
       ];
-      allowedUDPPorts = [
-        21027
-        22067 # syncthing discovery
-        3978
-        3979 # OpenTTD
-      ];
       allowedTCPPortRanges = [
         {
           from = 1714; # KDE Connect
           to = 1764;
         }
       ];
-      allowedUDPPortRanges = [
-        {
-          from = 1714; # KDE Connect
-          to = 1764;
-        }
-      ];
+      allowedUDPPorts = config.networking.firewall.allowedTCPPorts;
+      allowedUDPPortRanges = config.networking.firewall.allowedTCPPortRanges;
     };
 
     extraHosts = ''
@@ -78,6 +68,8 @@
   hardware.bluetooth.enable = true;
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.brlaser ];
+
+  services.gpm.enable = true;
 
   boot.initrd.network.enable = true;
 

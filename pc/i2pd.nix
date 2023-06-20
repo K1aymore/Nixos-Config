@@ -1,17 +1,16 @@
-{ ... }:
+{ lib, ... }:
 
 
 {
 
   networking.firewall = {
-    allowedTCPPorts = [ 56338 7070 ];
-    allowedUDPPorts = [ 56338 7070 ];
+    allowedTCPPorts = [ (lib.strings.toIntBase10 (builtins.readFile "/synced/Nix/cfg/_secrets/i2pport")) 7070 ];
   };
 
   # uses port 7070 for console
   services.i2pd = {
     enable = true;
-    port = 56338;
+    port = (lib.strings.toIntBase10 (builtins.readFile "/synced/Nix/cfg/_secrets/i2pport"));
     enableIPv6 = true;
     nat = false;
     #ntcp = false;

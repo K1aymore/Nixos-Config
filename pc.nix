@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, nixpkgs, system, ... }:
 
 {
 
@@ -77,13 +77,28 @@
 
 
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      qbittorrent = prev.qbittorrent.overrideAttrs (old: {
+        version = "4.6.0alpha1";
+        src = prev.fetchFromGitHub {
+          owner = "qbittorrent";
+          repo = "qbittorrent";
+          rev = "fbe93f0c4797e1af288b88048372da76c84d331a";
+          hash = "sha256-JBo7MiCg+KCPGyL6k1mjTFXjagtTLH8IRHimwyrSf5g=";
+        };
+      });
+    })
+  ];
+
+
+
 
   networking = {
     hostName = "pc";
     hostId = "7c980de5"; # head -c 8 /etc/machine-id
     firewall = {
-      allowedTCPPorts = [ 56338 57701 ];
-      allowedUDPPorts = config.networking.firewall.allowedTCPPorts;
+      allowedTCPPorts = [ 57701 ];
     };
   };
 
