@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixpkgs, system, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -19,8 +19,8 @@
     #./system/opentablet.nix
 
     #./system/ipfs.nix
-    ./pc/syncplay.nix
-    ./pc/i2p.nix
+    #./pc/syncplay.nix
+    #./pc/i2p.nix
     ./system/zfs.nix
 
 
@@ -80,12 +80,12 @@
   nixpkgs.overlays = [
     (final: prev: {
       qbittorrent = prev.qbittorrent.overrideAttrs (old: {
-        version = "4.6.0alpha1";
+        version = "4.6.0beta1";
         src = prev.fetchFromGitHub {
           owner = "qbittorrent";
           repo = "qbittorrent";
-          rev = "fbe93f0c4797e1af288b88048372da76c84d331a";
-          hash = "sha256-JBo7MiCg+KCPGyL6k1mjTFXjagtTLH8IRHimwyrSf5g=";
+          rev = "2bbfd317cef6f5d9d81fa2af55ca9b77612acef4";
+          hash = "sha256-Li9OCx2PQUedotiKUNIem22M8W6IQ6Uqg9zuNLakG0s=";
         };
       });
     })

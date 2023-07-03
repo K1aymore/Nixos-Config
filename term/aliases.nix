@@ -17,7 +17,7 @@ in {
     conf = "cd /synced/Nix/cfg";
 
     yd = "bash /synced/Sync/Linux/BashScripts/yd";
-    r128all = "find . -not -path './git/*' -not -path '*.mood' -not -path '*.jpg' -not -path '*.png' -exec r128gain {} \\;";
+    r128all = "r128gain -r ./";
 
     ga = "git add";
     gc = "git commit";
