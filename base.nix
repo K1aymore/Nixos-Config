@@ -69,6 +69,8 @@
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.brlaser ];
 
+  programs.adb.enable = true;
+
   services.gpm.enable = true;
 
   boot.initrd.network.enable = true;
@@ -98,7 +100,7 @@
   users.users.klaymore = {
     isNormalUser = true;
     initialHashedPassword = "$6$ZKUuN3EirBtn6029$xe9DTh1bfkg6CheJsBtQzGJURFh8Wr9hla.5gX2ouNfqZ5kUhP/Xy0TCNuidUG.Ld9mfoY8.Hc0QHm634BU9q0";
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "adbusers" ];
   };
 
 

@@ -24,6 +24,8 @@
     wasm-pack # Rust WebAssembly
     rust-analyzer
 
+    android-studio
+    jdk11
     jdk17
     jdk8
     jdt-language-server

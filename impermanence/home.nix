@@ -64,6 +64,8 @@
         "BiglyBT/.biglybt"
         "Flood/.local/share/flood"
 
+        "Android/.android"
+		"Android/Android"
 
         "Minecraft/.minecraft"
         "Prism/.local/share/PrismLauncher"

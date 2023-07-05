@@ -5,7 +5,8 @@
 
     nixpkgs-vscodium.url = "github:NixOS/nixpkgs?rev=963006aab35e3e8ebbf6052b6bf4ea712fdd3c28";
 
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -18,8 +19,15 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-vscodium, home-manager, impermanence, nixvim }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, nixpkgs-vscodium, home-manager, impermanence, nixvim }@attrs:
     let
+      overlay-unstable = final: prev: {
+        unstable = import nixpkgs-stable {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
+
       overlay-stable = final: prev: {
         stable = import nixpkgs-stable {
           system = "x86_64-linux";
@@ -40,7 +48,7 @@
         modules = [
           ./${hostname}.nix
           ./hardware/${hostname}/configuration.nix
-          ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-stable overlay-vscodium ]; })
+          ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-unstable overlay-stable overlay-vscodium ]; })
         ];
       };
 

@@ -128,7 +128,7 @@
     #zoom-us
     #lbry
 
-    godot_4
+    unstable.godot_4
     stable.blender
     #python39Packages.pyzmq
     libresprite
