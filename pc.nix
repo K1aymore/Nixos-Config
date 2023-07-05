@@ -77,7 +77,7 @@
 
 
 
-  nixpkgs.overlays = [
+  /*nixpkgs.overlays = [
     (final: prev: {
       qbittorrent = prev.qbittorrent.overrideAttrs (old: {
         version = "4.6.0beta1";
@@ -89,7 +89,7 @@
         };
       });
     })
-  ];
+  ];*/
 
 
 
@@ -110,8 +110,8 @@
   users.users.boinc.extraGroups = [ "video" ]; */
 
 
-  services.syncthing.relay.enable = true;
-  services.syncthing.relay.port = 61456;
+  #services.syncthing.relay.enable = true;
+  #services.syncthing.relay.port = 61456;
   services.syncthing.folders = {
     /* "Huge Archive" = {
       path = "/synced/HugeArchive";

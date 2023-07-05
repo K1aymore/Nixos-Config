@@ -129,7 +129,7 @@
     #lbry
 
     godot_4
-    blender
+    stable.blender
     #python39Packages.pyzmq
     libresprite
     krita
@@ -144,6 +144,7 @@
     furnace
     josm
     love
+    zola
 
     gsettings-desktop-schemas
     gsettings-qt
