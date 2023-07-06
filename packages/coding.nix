@@ -25,6 +25,7 @@
     rust-analyzer
 
     android-studio
+    apksigner
     jdk11
     jdk17
     jdk8

@@ -13,6 +13,9 @@
     ./packages/games.nix
     ./packages/coding.nix
     ./packages/video-editing.nix
+
+
+    ./packages/zerotier.nix
     #./packages/VMs.nix
     #./packages/deep3D-depends.nix
 
