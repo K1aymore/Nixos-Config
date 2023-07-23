@@ -17,6 +17,7 @@
       "/etc/mullvad-vpn"
       "/tmp"
 
+      "/root/.cache/nix"
     ];
 
     files = [

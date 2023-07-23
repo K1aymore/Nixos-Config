@@ -16,10 +16,16 @@
     impermanence.url = "github:nix-community/impermanence";
 
     nixvim.url = "github:pta2002/nixvim";
+
+    mesa-git = {
+      url = "git+https://gitlab.freedesktop.org/mesa/mesa";
+      flake = false;
+    };
+
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, nixpkgs-vscodium, home-manager, impermanence, nixvim }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, nixpkgs-vscodium, home-manager, impermanence, nixvim, mesa-git }@attrs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-stable {

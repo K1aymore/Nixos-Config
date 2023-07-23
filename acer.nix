@@ -12,8 +12,7 @@
     ./packages/games.nix
     ./packages/coding.nix
 
-    ./packages/zerotier.nix
-
+    #./packages/zerotier.nix
     #./system/opentablet.nix
     #./system/touchegg.nix
 

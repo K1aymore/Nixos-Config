@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, nixpkgs, mesa-git, ... }:
 
 {
 
@@ -15,7 +15,7 @@
     ./packages/video-editing.nix
 
 
-    ./packages/zerotier.nix
+    #./packages/zerotier.nix
     #./packages/VMs.nix
     #./packages/deep3D-depends.nix
 
@@ -80,19 +80,88 @@
 
 
 
-  /*nixpkgs.overlays = [
+  nixpkgs.overlays = with import nixpkgs { system = "x86_64-linux"; }; [
     (final: prev: {
-      qbittorrent = prev.qbittorrent.overrideAttrs (old: {
-        version = "4.6.0beta1";
-        src = prev.fetchFromGitHub {
-          owner = "qbittorrent";
-          repo = "qbittorrent";
-          rev = "2bbfd317cef6f5d9d81fa2af55ca9b77612acef4";
-          hash = "sha256-Li9OCx2PQUedotiKUNIem22M8W6IQ6Uqg9zuNLakG0s=";
-        };
+      mesa = prev.mesa.overrideAttrs (old: {
+        version = "git";
+        src = mesa-git;
+        mesonFlags = [
+          "--sysconfdir=/etc"
+          "--datadir=${placeholder "drivers"}/share" # Vendor files
+
+          # Don't build in debug mode
+          # https://gitlab.freedesktop.org/mesa/mesa/blob/master/docs/meson.html#L327
+          "-Db_ndebug=true"
+
+          "-Ddisk-cache-key=${placeholder "drivers"}"
+          "-Ddri-search-path=${libglvnd.driverLink}/lib/dri"
+
+          "-Dplatforms=${lib.concatStringsSep "," ([ "x11" ] ++ lib.optionals stdenv.isLinux [ "wayland" ])}"
+          "-Dgallium-drivers=${lib.concatStringsSep "," (if stdenv.isLinux then
+            [
+              "d3d12" # WSL emulated GPU (aka Dozen)
+              "nouveau" # Nvidia
+              "radeonsi" # new AMD (GCN+)
+              "r300" # very old AMD
+              "r600" # less old AMD
+              "swrast" # software renderer (aka LLVMPipe)
+              "svga" # VMWare virtualized GPU
+              "virgl" # QEMU virtualized GPU (aka VirGL)
+              "zink" # generic OpenGL over Vulkan, experimental
+            ] ++ lib.optionals (stdenv.isAarch64 || stdenv.isAarch32) [
+              "etnaviv" # Vivante GPU designs (mostly NXP/Marvell SoCs)
+              "freedreno" # Qualcomm Adreno (all Qualcomm SoCs)
+              "lima" # ARM Mali 4xx
+              "panfrost" # ARM Mali Midgard and up (T/G series)
+              "vc4" # Broadcom VC4 (Raspberry Pi 0-3)
+            ] ++ lib.optionals stdenv.isAarch64 [
+              "tegra" # Nvidia Tegra SoCs
+              "v3d" # Broadcom VC5 (Raspberry Pi 4)
+            ] ++ lib.optionals stdenv.hostPlatform.isx86 [
+              "iris" # new Intel, could work on non-x86 with PCIe cards, but doesn't build as of 22.3.4
+              "crocus" # Intel legacy, x86 only
+              "i915" # Intel extra legacy, x86 only
+            ]
+          else [ "auto" ])}"
+          "-Dvulkan-drivers=auto,amd"
+
+          "-Ddri-drivers-path=${placeholder "drivers"}/lib/dri"
+          "-Dvdpau-libs-path=${placeholder "drivers"}/lib/vdpau"
+          "-Domx-libs-path=${placeholder "drivers"}/lib/bellagio"
+          "-Dva-libs-path=${placeholder "drivers"}/lib/dri"
+          "-Dd3d-drivers-path=${placeholder "drivers"}/lib/d3d"
+
+          "-Dgallium-nine=${lib.boolToString stdenv.isLinux}" # Direct3D in Wine
+          "-Dosmesa=${lib.boolToString stdenv.isLinux}" # used by wine
+          "-Dmicrosoft-clc=disabled" # Only relevant on Windows (OpenCL 1.2 API on top of D3D12)
+
+          # To enable non-mesa gbm backends to be found (e.g. Nvidia)
+          "-Dgbm-backends-path=${libglvnd.driverLink}/lib/gbm:${placeholder "out"}/lib/gbm"
+
+          # meson auto_features enables these features, but we do not want them
+          "-Dandroid-libbacktrace=disabled"
+
+        ] ++ lib.optionals stdenv.isLinux [
+          "-Dglvnd=true"
+
+          # Enable RT for Intel hardware
+          "-Dintel-clc=enabled"
+        ] ++ lib.optionals (stdenv.isLinux && stdenv.isx86_64) [
+          # Clover, old OpenCL frontend
+          "-Dgallium-opencl=icd"
+          "-Dopencl-spirv=true"
+
+          # Rusticl, new OpenCL frontend
+          "-Dgallium-rusticl=true"
+          "-Drust_std=2021"
+          "-Dclang-libdir=${prev.mesa.llvmPackages.clang-unwrapped.lib}/lib"
+        ] ++ lib.optionals (!lib.meta.availableOn stdenv.hostPlatform valgrind-light && !valgrind-light.meta.broken) [
+          "-Dvalgrind=disabled"
+        ] ++ lib.optional true
+          "-Dvideo-codecs=h264dec,h264enc,h265dec,h265enc,vc1dec";
       });
     })
-  ];*/
+  ];
 
 
 
@@ -115,13 +184,13 @@
 
   #services.syncthing.relay.enable = true;
   #services.syncthing.relay.port = 61456;
-  services.syncthing.folders = {
-    /* "Huge Archive" = {
+  #services.syncthing.folders = {
+  /* "Huge Archive" = {
       path = "/synced/HugeArchive";
       devices = [ "server" ];
       ignorePerms = false;
     }; */
-  };
+  #};
 
 
 

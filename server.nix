@@ -40,6 +40,9 @@
     domain = "klaymore.me";
   };
 
+  networking.firewall.allowedTCPPorts = [ 25565 ];
+networking.firewall.allowedUDPPorts = [ 25565 ];
+
   programs.java.enable = true;
 
   /* services.cron = {

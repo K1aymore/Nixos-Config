@@ -10,7 +10,7 @@
     group = "users";
     overrideDevices = true;
     overrideFolders = true;
-    devices = {
+    settings.devices = {
       "server" = { id = "NKDY5RS-AQHE4RN-FEA37A3-ZP4ZWYJ-ODIWZ3V-75LNZ4E-2H57JKJ-LCQ2SA6"; };
       "pc" = { id = "YN2VCWJ-KOISEL2-4IJKGK4-3AVQSBJ-ZWPNLPS-AUBCY5Q-MYWTZWU-6LIU2AL"; };
       "laptop" = { id = "NIOZEVB-77F44UB-NTNFBCT-CRGPRRZ-YT73MD6-TFZ77XH-PFDTJWR-JHU7QQE"; };

@@ -65,7 +65,7 @@
         "Flood/.local/share/flood"
 
         "Android/.android"
-		"Android/Android"
+        "Android/Android"
 
         "Minecraft/.minecraft"
         "Prism/.local/share/PrismLauncher"
@@ -100,6 +100,8 @@
         "Python/.cache/pip"
 
         "Baloo/.local/share/baloo"
+
+        "Nix/.cache/nix"
       ];
       files = [
         "Bash/.bash_history"
