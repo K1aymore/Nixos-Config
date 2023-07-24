@@ -26,8 +26,8 @@
     jdk17
     jdk8
 
-    wesnoth
-    openttd
+    #wesnoth
+    #openttd
     #simutrans
     #openrct2
     #zeroad

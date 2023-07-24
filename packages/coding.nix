@@ -24,15 +24,15 @@
     wasm-pack # Rust WebAssembly
     rust-analyzer
 
-    android-studio
-    apksigner
+    #android-studio
+    #apksigner
     jdk11
     jdk17
     jdk8
     jdt-language-server
 
     #jetbrains.idea-community
-    vscode-fhs
+    #vscode-fhs
     #arduino
 
     /* qtcreator */
@@ -46,7 +46,7 @@
     #neovim-qt
     #gnvim
 
-    lapce
+    #lapce
 
 
   ];

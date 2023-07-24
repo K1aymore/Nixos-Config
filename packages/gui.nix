@@ -48,12 +48,12 @@
     ark
     libsForQt5.kio
     spectacle
-    flameshot
-    onboard
-    xkbd
+    #flameshot
+    #onboard
+    #xkbd
     #latte-dock
-    remmina
-    xfce.thunar
+    #remmina
+    #xfce.thunar
     akregator
 
     pavucontrol
@@ -94,10 +94,10 @@
     mpv
     #haruna
     #mpc-qt
-    smplayer
+    #smplayer
     mediainfo-gui
     audacity
-    tenacity
+    #tenacity
     sfxr
     sfxr-qt
     #handbrake
@@ -117,8 +117,8 @@
 
     firefox-wayland
     #microsoft-edge
-    librewolf
-    ungoogled-chromium # for Discord
+    #librewolf
+    #ungoogled-chromium # for Discord
     discord
     element-desktop
     qbittorrent
@@ -133,17 +133,17 @@
     #python39Packages.pyzmq
     libresprite
     krita
-    inkscape
-    libsForQt5.kdenlive
+    #inkscape
+    #libsForQt5.kdenlive
     #movit
     #log4cxx
     lmms
     musescore
     #reaper
     ardour
-    furnace
+    #furnace
     josm
-    love
+    #love
     zola
 
     gsettings-desktop-schemas
