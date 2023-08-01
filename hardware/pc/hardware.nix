@@ -70,10 +70,10 @@
   };*/
 
   # Games
-  /*fileSystems."/home/klaymore/.var/app/com.valvesoftware.Steam" = {
-    device = "/dev/disk/by-uuid/bc87f7e2-7cc3-42ad-9b0b-68d40820dd0e";
+  fileSystems."/home/klaymore/.var/app/com.valvesoftware.Steam" = {
+    device = "/dev/disk/by-uuid/0c8bb6fb-2568-46cf-b5ee-5452b727d4fc";
     fsType = "ext4";
-  };*/
+  };
 
   fileSystems."/nfs/hugeArchive" = {
     device = "172.16.0.115:/hugeArchive";

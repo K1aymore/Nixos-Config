@@ -80,7 +80,7 @@
 
 
 
-  nixpkgs.overlays = with import nixpkgs { system = "x86_64-linux"; }; [
+  /*nixpkgs.overlays = with import nixpkgs { system = "x86_64-linux"; }; [
     (final: prev: {
       mesa = (prev.mesa.override {
         vulkanDrivers =
@@ -111,7 +111,7 @@
         src = mesa-git;
       });
     })
-  ];
+  ];*/
 
 
 

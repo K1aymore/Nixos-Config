@@ -154,6 +154,7 @@
         "QtCreator/.config/QtProject"
         "Chromium/.cache/chromium"
         "Chromium/.config/chromium"
+        "Lagrange/.config/lagrange"
 
         "Ardour/.config/ardour6"
 

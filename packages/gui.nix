@@ -118,7 +118,7 @@
     firefox-wayland
     #microsoft-edge
     #librewolf
-    #ungoogled-chromium # for Discord
+    ungoogled-chromium # for Discord
     discord
     element-desktop
     qbittorrent
@@ -127,14 +127,16 @@
     #session-desktop-appimage
     #zoom-us
     #lbry
+    lagrange
+    kristall
 
     unstable.godot_4
     stable.blender
     #python39Packages.pyzmq
     libresprite
     krita
-    #inkscape
-    #libsForQt5.kdenlive
+    inkscape
+    libsForQt5.kdenlive
     #movit
     #log4cxx
     lmms

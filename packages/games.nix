@@ -64,16 +64,16 @@
     enable = true;
     enableSessionWide = true;
     settings = {
-      fps_limit = 117;
-      gamemode = 1;
-      vulkan_driver = 1;
-      wine = 1;
+      #fps_limit = 117;
+      gamemode = true;
+      vulkan_driver = true;
+      wine = true;
     };
   };
 
-  environment.sessionVariables = {
-    MANGOHUD = "1";
-  };
+  # environment.sessionVariables = {
+  #   MANGOHUD = "1";
+  # };
 
   /*programs = {
     steam.enable = true;
