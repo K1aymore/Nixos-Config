@@ -27,7 +27,7 @@ in {
     gl = "git log";
 
     vi = "nvim";
-    steam = "flatpak run com.valvesoftware.Steam";
+    steamflat = "flatpak run com.valvesoftware.Steam";
     blades = "~/.cargo/bin/blades";
     ncfg = "codium /synced/Nix/cfg";
     notes = "codium /synced/Sync/Notes";

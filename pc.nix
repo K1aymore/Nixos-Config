@@ -19,12 +19,13 @@
     #./packages/VMs.nix
     #./packages/deep3D-depends.nix
 
-    #./system/opentablet.nix
+    ./system/opentablet.nix
 
     #./system/ipfs.nix
     #./pc/syncplay.nix
     #./pc/i2p.nix
     ./system/zfs.nix
+    #./system/waydroid.nix
 
 
     ./system/syncthing.nix

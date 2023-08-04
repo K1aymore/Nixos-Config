@@ -54,6 +54,7 @@
         "Element/.pki"
         "Session/.config/Session"
 
+        "Edge/.config/microsoft-edge"
         "Firefox/.mozilla"
         "Librewolf/.librewolf"
         "SSH/.ssh"

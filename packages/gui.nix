@@ -116,7 +116,7 @@
     plasma5Packages.kdeconnect-kde
 
     firefox-wayland
-    #microsoft-edge
+    microsoft-edge
     #librewolf
     ungoogled-chromium # for Discord
     discord

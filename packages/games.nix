@@ -19,6 +19,7 @@
     legendary-gl
 
     mangohud
+    gamescope
 
     #minecraft
     #itch
@@ -50,6 +51,8 @@
   # sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   # sudo flatpak install flathub com.valvesoftware.Steam
   # flatpak run com.valvesoftware.Steam
+  # sudo flatpak override --env=MANGOHUD=1 com.valvesoftware.Steam
+
 
   hardware.steam-hardware.enable = true;
 

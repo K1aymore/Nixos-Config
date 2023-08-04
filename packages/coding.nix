@@ -32,7 +32,7 @@
     jdt-language-server
 
     #jetbrains.idea-community
-    #vscode-fhs
+    vscode-fhs
     #arduino
 
     /* qtcreator */
