@@ -13,7 +13,7 @@
   ";
 
   nixpkgs.config.permittedInsecurePackages = [
-    #"electron-11.5.0"
+    "libtiff-4.0.3-opentoonz"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -128,13 +128,14 @@
     #zoom-us
     #lbry
     lagrange
-    kristall
 
     unstable.godot_4
     stable.blender
     #python39Packages.pyzmq
     libresprite
+    pixelorama
     krita
+    opentoonz
     inkscape
     libsForQt5.kdenlive
     #movit
