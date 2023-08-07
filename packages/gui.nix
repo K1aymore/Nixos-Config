@@ -135,7 +135,7 @@
     libresprite
     pixelorama
     krita
-    opentoonz
+    #opentoonz
     inkscape
     libsForQt5.kdenlive
     #movit
