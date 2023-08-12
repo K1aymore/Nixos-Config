@@ -80,43 +80,6 @@
   ]; */
 
 
-
-  /*nixpkgs.overlays = with import nixpkgs { system = "x86_64-linux"; }; [
-    (final: prev: {
-      mesa = (prev.mesa.override {
-        vulkanDrivers =
-          if stdenv.isLinux then
-            [
-              "amd" # AMD (aka RADV)
-              "microsoft-experimental" # WSL virtualized GPU (aka DZN/Dozen)
-              "swrast" # software renderer (aka Lavapipe)
-            ]
-            ++ lib.optionals (stdenv.hostPlatform.isAarch -> lib.versionAtLeast stdenv.hostPlatform.parsed.cpu.version "6") [
-              # QEMU virtualized GPU (aka VirGL)
-              # Requires ATOMIC_INT_LOCK_FREE == 2.
-              "virtio"
-            ]
-            ++ lib.optionals stdenv.isAarch64 [
-              "broadcom" # Broadcom VC5 (Raspberry Pi 4, aka V3D)
-              "freedreno" # Qualcomm Adreno (all Qualcomm SoCs)
-              "imagination-experimental" # PowerVR Rogue (currently N/A)
-              "panfrost" # ARM Mali Midgard and up (T/G series)
-            ]
-            ++ lib.optionals stdenv.hostPlatform.isx86 [
-              "intel" # Intel (aka ANV), could work on non-x86 with PCIe cards, but doesn't build
-              "intel_hasvk" # Intel Haswell/Broadwell, "legacy" Vulkan driver (https://www.phoronix.com/news/Intel-HasVK-Drop-Dead-Code)
-            ]
-          else [ "auto" ];
-      }).overrideAttrs (old: {
-        version = "git";
-        src = mesa-git;
-      });
-    })
-  ];*/
-
-
-
-
   networking = {
     hostName = "pc";
     hostId = "7c980de5"; # head -c 8 /etc/machine-id

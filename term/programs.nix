@@ -1,10 +1,9 @@
-{ pkgs, home-manager, nixvim, ... }:
+{ pkgs, home-manager, ... }:
 
 {
 
   imports = [
     home-manager.nixosModule
-    nixvim.nixosModules.nixvim
   ];
 
   home-manager.users.klaymore.programs = {
@@ -59,7 +58,7 @@
 
 
     neovim = {
-      enable = false;
+      enable = true;
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;
@@ -124,48 +123,6 @@
     zoxide = {
       enable = true;
     };
-
-  };
-
-
-
-  programs.nixvim = {
-    enable = true;
-
-    options = {
-      number = true; # Show line numbers
-      relativenumber = true; # Show relative line numbers
-
-      shiftwidth = 2; # Tab width should be 2
-    };
-
-
-    extraPlugins = with pkgs.vimPlugins; [
-      indentLine
-      leap-nvim
-
-      neovim-ayu
-    ];
-
-    plugins = {
-      treesitter = {
-        enable = true;
-        indent = true;
-      };
-      treesitter-rainbow.enable = true;
-      fugitive.enable = true;
-
-      neo-tree = {
-        enable = true;
-        closeIfLastWindow = true;
-      };
-
-      rust-tools.enable = true;
-      lsp.servers.rust-analyzer.enable = true;
-      lsp.servers.nil_ls.enable = true;
-    };
-
-    colorscheme = "neovim-ayu";
 
   };
 
