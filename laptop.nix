@@ -13,7 +13,7 @@
     ./packages/games.nix
     ./packages/coding.nix
 
-    #./system/opentablet.nix
+    ./system/opentablet.nix
     #./system/touchegg.nix
 
     ./system/syncthing.nix

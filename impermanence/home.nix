@@ -170,6 +170,7 @@
         "VLC/.local/share/vlc"
         "VLC/.config/vlc"
 
+        "Pixelorama/.local/share/pixelorama"
         "Musescore/.local/share/Musescore"
         "Musescore/.config/Musescore"
 
