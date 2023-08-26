@@ -12,6 +12,7 @@
 
     git = {
       enable = true;
+      lfs.enable = true;
       userName = "K1aymore";
       userEmail = "klaymorer@protonmail.com";
       signing = {

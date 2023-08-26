@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, pipewire-screenaudio, ... }:
 
 {
 
@@ -115,10 +115,11 @@
     libsForQt5.akonadi-calendar
     plasma5Packages.kdeconnect-kde
 
-    firefox-wayland
+    (firefox-wayland.override { extraNativeMessagingHosts = [ pipewire-screenaudio.packages.${pkgs.system}.default ]; })
+    pipewire-screenaudio.packages.${pkgs.system}.default
     microsoft-edge
     #librewolf
-    ungoogled-chromium # for Discord
+    #ungoogled-chromium # for Discord
     discord
     element-desktop
     qbittorrent
@@ -167,15 +168,15 @@
   ];
 
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      vscodium = prev.vscodium.overrideAttrs (o: {
-        postInstall = (o.postInstall or "") + ''
-          cp -f ${./icons/vscodium-paulo22s.png} $out/share/pixmaps/code.png
-        '';
-      });
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     vscodium = prev.vscodium.overrideAttrs (o: {
+  #       postInstall = (o.postInstall or "") + ''
+  #         cp -f ${./icons/vscodium-paulo22s.png} $out/share/pixmaps/code.png
+  #       '';
+  #     });
+  #   })
+  # ];
 
 
   home-manager.users.klaymore.programs = {
@@ -202,18 +203,6 @@
           publisher = "GulajavaMinistudio";
           version = "3.2.3";
           sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
-        }
-        {
-          name = "remote-containers";
-          publisher = "ms-vscode-remote";
-          version = "0.291.0";
-          sha256 = "cabda0c4af2a58defa12c868b82be60109a82ed04efdca23d0829747d5fa0411";
-        }
-        {
-          name = "nunjucks-template";
-          publisher = "eseom";
-          version = "0.5.1";
-          sha256 = "CkHPyLZMtyLmqEzRMBqjxHV51R3AYrt8RJ5JQN1egWI=";
         }
       ];
 

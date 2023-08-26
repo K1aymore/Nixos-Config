@@ -3,8 +3,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nixpkgs-vscodium.url = "github:NixOS/nixpkgs?rev=963006aab35e3e8ebbf6052b6bf4ea712fdd3c28";
-
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
 
@@ -16,10 +14,12 @@
     impermanence.url = "github:nix-community/impermanence";
 
 
+    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
+
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, nixpkgs-vscodium, home-manager, impermanence, }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence, pipewire-screenaudio }@attrs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-stable {
@@ -35,12 +35,6 @@
         };
       };
 
-      overlay-vscodium = final: prev: {
-        unstableVSCodium = import nixpkgs-vscodium {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-      };
 
       sharedConfig = hostname: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -48,7 +42,7 @@
         modules = [
           ./${hostname}.nix
           ./hardware/${hostname}/configuration.nix
-          ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-unstable overlay-stable overlay-vscodium ]; })
+          ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-unstable overlay-stable ]; })
         ];
       };
 
