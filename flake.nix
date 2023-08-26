@@ -22,7 +22,7 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence, pipewire-screenaudio }@attrs:
     let
       overlay-unstable = final: prev: {
-        unstable = import nixpkgs-stable {
+        unstable = import nixpkgs-unstable {
           system = "x86_64-linux";
           config.allowUnfree = true;
         };
