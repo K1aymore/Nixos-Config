@@ -51,6 +51,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-parsec": {
+      "locked": {
+        "lastModified": 1691654369,
+        "narHash": "sha256-gSILTEx1jRaJjwZxRlnu3ZwMn1FVNk80qlwiCX8kmpo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ce5e4a6ef2e59d89a971bc434ca8ca222b9c7f5e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ce5e4a6ef2e59d89a971bc434ca8ca222b9c7f5e",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1692794066,
@@ -122,9 +138,28 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-parsec": "nixpkgs-parsec",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "pipewire-screenaudio": "pipewire-screenaudio"
+        "pipewire-screenaudio": "pipewire-screenaudio",
+        "rustdesk-nightly": "rustdesk-nightly"
+      }
+    },
+    "rustdesk-nightly": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1692668588,
+        "narHash": "sha256-fgdhPBrC8HuuEKorzG9hY4K3KVwB8hENtE3RM5agGWk=",
+        "owner": "rustdesk",
+        "repo": "rustdesk",
+        "rev": "9383d4c97ca079c64e01ca83762b77f776a186cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rustdesk",
+        "ref": "1.2.2",
+        "repo": "rustdesk",
+        "type": "github"
       }
     }
   },

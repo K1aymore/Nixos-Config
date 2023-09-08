@@ -162,6 +162,7 @@
     /* linuxKernel.packages.linux_5_16.v4l2loopback */
 
 
+    lapce
     nil # Nix LSP
     nixpkgs-fmt
 

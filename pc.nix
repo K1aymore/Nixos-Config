@@ -13,6 +13,7 @@
     ./packages/games.nix
     ./packages/coding.nix
     ./packages/video-editing.nix
+    ./packages/rustdesk.nix
 
 
     #./packages/zerotier.nix

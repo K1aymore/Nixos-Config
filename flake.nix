@@ -3,6 +3,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixpkgs-parsec.url = "github:NixOS/nixpkgs?rev=ce5e4a6ef2e59d89a971bc434ca8ca222b9c7f5e";
+
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
 
@@ -16,10 +18,15 @@
 
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
 
+    rustdesk-nightly = {
+      url = "github:rustdesk/rustdesk/1.2.2";
+      flake = false;
+    };
+
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence, pipewire-screenaudio }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, nixpkgs-parsec, home-manager, impermanence, pipewire-screenaudio, rustdesk-nightly }@attrs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -35,6 +42,13 @@
         };
       };
 
+      overlay-parsec = final: prev: {
+        pkgs-parsec = import nixpkgs-parsec {
+          system = "x86_64-linux";
+          config.allowUnfree = true;
+        };
+      };
+
 
       sharedConfig = hostname: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -42,7 +56,7 @@
         modules = [
           ./${hostname}.nix
           ./hardware/${hostname}/configuration.nix
-          ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-unstable overlay-stable ]; })
+          ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-unstable overlay-stable overlay-parsec ]; })
         ];
       };
 

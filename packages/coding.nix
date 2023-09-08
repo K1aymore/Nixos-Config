@@ -46,9 +46,6 @@
     #neovim-qt
     #gnvim
 
-    #lapce
-
-
   ];
 
 

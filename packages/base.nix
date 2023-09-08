@@ -7,6 +7,7 @@
   };
 
   fonts.packages = with pkgs; [
+    #nerdfonts
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -102,6 +103,8 @@
     links2
     w3m
     openssl
+    iperf
+    iperf3d
 
     micro
     xclip

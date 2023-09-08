@@ -42,7 +42,7 @@
     #osu-lazer
     #arx-libertatis
 
-    parsec-bin
+    pkgs-parsec.parsec-bin
   ];
 
   services.flatpak.enable = true;
