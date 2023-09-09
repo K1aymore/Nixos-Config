@@ -194,6 +194,9 @@
         vscjava.vscode-java-debug
         matklad.rust-analyzer
         jnoortheen.nix-ide
+
+        catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc-icons
         #ms-vscode.cpptools
         #ms-python.python
         #ms-python.vscode-pylance
@@ -208,9 +211,9 @@
       ];
 
       userSettings = {
-        "workbench.colorTheme" = "Mayukai Semantic Mirage";
-        "workbench.iconTheme" = "ayu";
-
+        "workbench.iconTheme" = "catppuccin-macchiato";
+        "workbench.colorTheme" = "Catppuccin Macchiato";
+        
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";
         "nix.formatterPath" = "nixpkgs-fmt";

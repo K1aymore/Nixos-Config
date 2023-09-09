@@ -40,12 +40,14 @@
 
     helix = {
       enable = true;
+      defaultEditor = true;
 
       settings = {
-        theme = "catppuccin_mocha";
+        theme = "catppuccin_macchiato";
         editor = {
           line-number = "relative";
           lsp.display-messages = true;
+          color-modes = true;
 
           cursor-shape.insert = "bar";
 
@@ -60,7 +62,7 @@
 
     neovim = {
       enable = true;
-      defaultEditor = true;
+      defaultEditor = false;
       vimAlias = true;
       viAlias = true;
       vimdiffAlias = true;
