@@ -1,4 +1,4 @@
-{ pkgs, lib, nixpkgs, mesa-git, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -13,8 +13,6 @@
     ./packages/games.nix
     ./packages/coding.nix
     ./packages/video-editing.nix
-    ./packages/rustdesk.nix
-
 
     #./packages/zerotier.nix
     #./packages/VMs.nix
@@ -26,6 +24,7 @@
     #./pc/syncplay.nix
     #./pc/i2p.nix
     ./system/zfs.nix
+    ./system/espanso.nix
     #./system/waydroid.nix
 
 
@@ -45,12 +44,12 @@
     ./impermanence/home.nix
   ];
 
-  #boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   #boot.zfs.enableUnstable = true;
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
-
+  
   hardware.opengl = {
     enable = true;
     driSupport = true;

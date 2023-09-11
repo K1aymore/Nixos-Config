@@ -1,16 +1,14 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, ... }:
 
 let
   scripts = "/synced/Sync/Linux/BashScripts";
 in
 {
 
-  imports = [ home-manager.nixosModule ];
-
   home-manager.users.klaymore.services.espanso = {
     enable = true;
     package = pkgs.espanso-wayland;
-    settings.matches = [
+    matches = { default = [
       {
         # Simple text replacement
         trigger = "]espanso";
@@ -119,6 +117,8 @@ in
         replace = "#";
       }
     ];
+    
+    };
   };
 
 

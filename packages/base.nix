@@ -12,11 +12,13 @@
     noto-fonts-cjk
     noto-fonts-emoji
     liberation_ttf
+    
+    fira
+    fira-mono
     fira-code
     fira-code-symbols
-    #mplus-outline-fonts
-    dina-font
-    proggyfonts
+    hack-font
+    scientifica
 
     #font-awesome
     font-awesome_4
@@ -24,8 +26,6 @@
 
     comic-mono
     monocraft
-    scientifica
-    fira-code
   ];
 
 
@@ -127,7 +127,7 @@
 
     # Rust programs
     zellij
-    exa
+    eza
     bat
     gitui
     ripgrep
