@@ -124,25 +124,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "pipewire-screenaudio": "pipewire-screenaudio",
-        "rustdesk-nightly": "rustdesk-nightly"
-      }
-    },
-    "rustdesk-nightly": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1692668588,
-        "narHash": "sha256-fgdhPBrC8HuuEKorzG9hY4K3KVwB8hENtE3RM5agGWk=",
-        "owner": "rustdesk",
-        "repo": "rustdesk",
-        "rev": "9383d4c97ca079c64e01ca83762b77f776a186cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rustdesk",
-        "ref": "1.2.2",
-        "repo": "rustdesk",
-        "type": "github"
+        "pipewire-screenaudio": "pipewire-screenaudio"
       }
     }
   },

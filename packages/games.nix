@@ -51,8 +51,10 @@
   # sudo flatpak install flathub com.valvesoftware.Steam
   # flatpak run com.valvesoftware.Steam
   # sudo flatpak override --env=MANGOHUD=1 com.valvesoftware.Steam
+  #
+  # FLATPAK_GL_DRIVERS=mesa-git flatpak run com.valvesoftware.Steam
 
-
+  
   hardware.steam-hardware.enable = true;
 
   #flatpak install flathub net.brinkervii.grapejuice

@@ -1,4 +1,4 @@
-{ pkgs, config, pipewire-screenaudio, ... }:
+{ pkgs, config, ... }:
 
 {
 
@@ -115,8 +115,7 @@
     libsForQt5.akonadi-calendar
     plasma5Packages.kdeconnect-kde
 
-    (firefox-wayland.override { extraNativeMessagingHosts = [ pipewire-screenaudio.packages.${pkgs.system}.default ]; })
-    pipewire-screenaudio.packages.${pkgs.system}.default
+    firefox-wayland
     microsoft-edge
     #librewolf
     #ungoogled-chromium # for Discord
@@ -149,6 +148,7 @@
     josm
     #love
     zola
+    logisim-evolution
 
     gsettings-desktop-schemas
     gsettings-qt

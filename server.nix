@@ -25,6 +25,7 @@
     # ./server/restyaboard.nix
     # ./server/radicale.nix
 
+    ./system/syncthing.nix
 
     # ./system/opentablet.nix
 
@@ -53,7 +54,7 @@ networking.firewall.allowedUDPPorts = [ 25565 ];
   }; */
 
 
-  services.syncthing.folders = {
+  services.syncthing.settings.folders = {
     "Sync" = {
       path = "/synced/Sync";
       devices = [ "pc" "portable" "laptop" "acer" "pinephone" "pixel" "winpc" ];
