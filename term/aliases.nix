@@ -9,7 +9,7 @@ in {
     nrb = "sudo nixos-rebuild boot --flake /synced/Nix/cfg";
 
     #cd = "z"; # Breaks z lol
-    ls = "exa";
+    ls = "eza";
     #cat = "bat";
     fd = "fd --hidden";
 

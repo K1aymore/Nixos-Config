@@ -38,6 +38,8 @@
     hostName = "acer";
     hostId = "57d90d30"; # head -c 8 /etc/machine-id
     #interfaces.wlp2s0.useDHCP = true;
+
+    firewall.allowedTCPPorts = [ 5201 ];
   };
 
   #boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];

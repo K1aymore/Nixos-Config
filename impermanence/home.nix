@@ -89,7 +89,8 @@
         "Bottles/.local/share/bottles"
 
         "Flatpak/.local/share/flatpak"
-        "Flatpak/.var"
+        #"Flatpak/.var"
+        #"Parsec/.var/app/com.parsecgaming.parsec"
         "Steam/.steam"
         "Steam/.local/share/Steam"
         "Itch.io/.itch"

@@ -130,7 +130,7 @@
     lagrange
 
     unstable.godot_4
-    stable.blender
+    blender-hip
     #python39Packages.pyzmq
     libresprite
     pixelorama

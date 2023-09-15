@@ -95,7 +95,7 @@
     htop
     man
     tealdeer
-    /* git */   # home manager
+    git   # home manager
     nixos-option
     #awscli2
     httrack
