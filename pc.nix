@@ -47,7 +47,6 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  #boot.zfs.enableUnstable = true;
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
   
   hardware.opengl = {

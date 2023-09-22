@@ -13,13 +13,13 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "mode=755" "size=500M" ]; # "size=500M"
+    options = [ "mode=755" ]; # "size=500M"
   };
 
   fileSystems."/home/klaymore" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "mode=777" "size=2G" ]; # "size=500M"
+    options = [ "mode=777" ]; # "size=2G"
   };
 
 
@@ -49,11 +49,11 @@
 
 
   # Stuff
-  /*fileSystems."/synced/Stuff" = {
+  fileSystems."/synced/Stuff" = {
     device = "stuff/main";
     fsType = "zfs";
     options = [ "zfsutil" ];
-  };*/
+  };
 
   /* fileSystems."/synced/HugeArchive" = {
     device = "serverlan:/HugeArchive";

@@ -15,9 +15,9 @@
       "/var/log"
 
       "/etc/mullvad-vpn"
-      "/tmp"
+      #"/tmp"
 
-      "/root/.cache/nix"
+      #"/root/.cache/nix"
     ];
 
     files = [
