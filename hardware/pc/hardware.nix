@@ -49,11 +49,10 @@
 
 
   # Stuff
-  fileSystems."/synced/Stuff" = {
+  /*fileSystems."/mainStuff" = {
     device = "stuff/main";
     fsType = "zfs";
-    options = [ "zfsutil" ];
-  };
+  };*/
 
   /* fileSystems."/synced/HugeArchive" = {
     device = "serverlan:/HugeArchive";

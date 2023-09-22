@@ -47,6 +47,8 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  boot.zfs.extraPools = [ "stuff" ];
+  
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
   
   hardware.opengl = {
