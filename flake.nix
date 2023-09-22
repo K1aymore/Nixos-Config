@@ -13,13 +13,10 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-
-    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
-
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence, pipewire-screenaudio }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence }@attrs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
