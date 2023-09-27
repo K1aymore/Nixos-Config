@@ -27,7 +27,6 @@
     xorg.xdpyinfo
     kgpg
     glib
-    steam-run
 
     libva-utils
     vdpauinfo
@@ -129,6 +128,9 @@
     #zoom-us
     #lbry
     lagrange
+
+    steam-run
+    gamescope
 
     unstable.godot_4
     blender-hip
@@ -246,6 +248,11 @@
   programs = {
     partition-manager.enable = true;
   };
+
+
+  services.flatpak.enable = true;
+  xdg.portal.enable = true;
+
 
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
