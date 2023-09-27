@@ -75,10 +75,29 @@
     enable = true;
     enableSessionWide = true;
     settings = {
-      #fps_limit = 117;
-      gamemode = true;
+      fps_limit = [ 117 0 ];
+      show_fps_limit = true;
+      
+      arch = true;
       vulkan_driver = true;
       wine = true;
+      gamemode = true;
+      vkbasalt = true;
+      resolution = true;
+      
+      gpu_temp = true;
+      #gpu_fan = true;
+      gpu_core_clock = true;
+      gpu_mem_clock = true;
+      #gpu_voltage = true;
+      
+      cpu_temp = true;
+      
+      ram = true;
+      vram = true;
+      io_read = true;
+      io_write = true;
+      
     };
   };
 
@@ -86,9 +105,9 @@
   #   MANGOHUD = "1";
   # };
 
-  /*programs = {
+  programs = {
     steam.enable = true;
-  };*/
+  };
 
 
 }

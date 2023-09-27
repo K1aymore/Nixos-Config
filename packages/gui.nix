@@ -27,6 +27,7 @@
     xorg.xdpyinfo
     kgpg
     glib
+    steam-run
 
     libva-utils
     vdpauinfo

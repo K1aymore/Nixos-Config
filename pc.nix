@@ -87,6 +87,10 @@
     firewall = {
       allowedTCPPorts = [ 57701 ];
     };
+    hosts = {
+      "127.0.0.1" = [ "youtube.com" "youtu.be" "www.youtube.com" ];
+    };
+    
   };
 
 
