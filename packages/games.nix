@@ -101,9 +101,9 @@
   #   MANGOHUD = "1";
   # };
 
-  programs = {
+  /*programs = {
     steam.enable = true;
-  };
+  };*/
 
 
 }

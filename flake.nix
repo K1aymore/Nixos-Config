@@ -13,10 +13,11 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    nix-std.url = "github:chessai/nix-std";
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence, nix-std }@attrs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {

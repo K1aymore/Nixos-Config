@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, nixpkgs, nix-std, ... }:
 
 {
 
@@ -13,7 +13,7 @@
   ";
 
   nixpkgs.config.permittedInsecurePackages = [
-    "libtiff-4.0.3-opentoonz"
+    #"libtiff-4.0.3-opentoonz"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -116,9 +116,9 @@
     plasma5Packages.kdeconnect-kde
 
     firefox-wayland
-    microsoft-edge
+    #microsoft-edge
     #librewolf
-    #ungoogled-chromium # for Discord
+    ungoogled-chromium # for Discord
     discord
     element-desktop
     qbittorrent
@@ -128,6 +128,7 @@
     #zoom-us
     #lbry
     lagrange
+    filezilla
 
     steam-run
     gamescope
@@ -181,6 +182,35 @@
   #     });
   #   })
   # ];
+
+  home-manager.users.klaymore.home.file = {
+    ".config/lapce-nightly/settings.toml".text = nix-std.lib.serde.toTOML {
+      core = {
+        color-theme = "Lapce Dark";
+        icon-theme = "Material Icons";
+      };
+      editor = {
+        font-size = 13;
+        font-family = "Fira Code";
+        line-height = 1.5;
+        autosave-interval = 100;
+        format-on-autosave = false;
+        hover-delay = 150;
+        show-tab = true;
+        highlight-scope-lines = false;
+        atomic-soft-tabs = true;
+      };
+      ui = {
+        font-size = 14;
+        font-family = "";
+      };
+      
+      lapce-nix.lsp-path = "/run/current-system/sw/bin/nil";
+      lapce-rust.serverPath = "/run/current-system/sw/bin/rust-analyzer";
+      lapce-cpp-clangd."volt.serverPath" = "/run/current-system/sw/bin/clangd";
+      
+    };
+  };
 
 
   home-manager.users.klaymore.programs = {

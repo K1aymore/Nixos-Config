@@ -9,6 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     clang
+    clang-tools
     gcc
     ghc # Haskell compiler
     sbcl # Lisp compiler
