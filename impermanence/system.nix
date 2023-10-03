@@ -1,10 +1,7 @@
-{ impermanence, ... }:
+{ ... }:
 
 
 {
-  imports = [
-    impermanence.nixosModule
-  ];
 
   environment.persistence."/synced/Nix/persist/system" = {
     directories = [

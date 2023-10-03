@@ -43,8 +43,11 @@
         modules = [
           ./${hostname}.nix
           ./hardware/${hostname}/configuration.nix
-          ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-unstable overlay-stable ]; })
+          { nixpkgs.overlays = [ overlay-unstable overlay-stable ]; }
+          
           home-manager.nixosModules.home-manager
+          impermanence.nixosModule
+          { home-manager.users.klaymore.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
           flake-programs-sqlite.nixosModules.programs-sqlite
         ];
       };

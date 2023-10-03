@@ -1,4 +1,4 @@
-{ impermanence, ... }:
+{ ... }:
 
 
 {
@@ -9,8 +9,6 @@
 
   home-manager.users.klaymore = {
     home.homeDirectory = "/home/klaymore";
-
-    imports = [ "${impermanence}/home-manager.nix" ];
 
     programs.home-manager.enable = true;
 
