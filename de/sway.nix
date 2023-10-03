@@ -5,6 +5,7 @@
   imports = [
     ./wayland.nix
     ./x11.nix
+    ./pipewire.nix
   ];
 
 

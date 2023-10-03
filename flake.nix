@@ -41,8 +41,9 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
+          ./base
           ./${hostname}.nix
-          ./hardware/${hostname}/configuration.nix
+          ./hardware/${hostname}.nix
           { nixpkgs.overlays = [ overlay-unstable overlay-stable ]; }
           
           home-manager.nixosModules.home-manager

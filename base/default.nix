@@ -4,11 +4,11 @@
 {
 
   imports = [
-    ./packages/base.nix
+    ./packages.nix
 
-    ./term/programs.nix
-    ./term/aliases.nix
-    ./term/fish.nix
+    ./programs.nix
+    ./aliases.nix
+    ./fish.nix
 
   ];
 

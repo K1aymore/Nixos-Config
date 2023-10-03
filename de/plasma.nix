@@ -5,6 +5,7 @@
   imports = [
     ./x11.nix
     ./wayland.nix
+    ./pipewire.nix
   ];
 
   services.xserver = {

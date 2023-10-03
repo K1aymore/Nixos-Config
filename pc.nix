@@ -3,10 +3,9 @@
 {
 
   imports = [
-    ./base.nix
     ./locale/qwerty.nix
     ./locale/losAngeles.nix
-    ./system/pipewire.nix
+    
     ./de/plasma.nix
 
     ./packages/gui.nix
@@ -18,17 +17,17 @@
     #./packages/VMs.nix
     #./packages/deep3D-depends.nix
 
-    ./system/opentablet.nix
+    ./services/system/opentablet.nix
 
     #./system/ipfs.nix
     #./pc/syncplay.nix
     #./pc/i2p.nix
-    ./system/zfs.nix
-    ./system/espanso.nix
+    ./services/system/zfs.nix
+    ./services/system/espanso.nix
     #./system/waydroid.nix
 
 
-    ./system/syncthing.nix
+    ./syncthing
 
     ./syncthing/sync.nix
     ./syncthing/media.nix
@@ -40,9 +39,27 @@
     ./syncthing/projects.nix
 
 
-    ./impermanence/system.nix
-    ./impermanence/home.nix
+    ./impermanence
   ];
+
+
+
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "22.11"; # Did you read the comment?
+
+
+
+
 
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
