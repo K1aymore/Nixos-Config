@@ -90,6 +90,8 @@
     libnfs
     parted
 
+    networkmanager-openvpn
+    openvpn
     wget
     curl
     htop
@@ -120,7 +122,6 @@
     mpc-cli
     fzf
     tmux
-    comma
     lesspass-cli
     croc
 

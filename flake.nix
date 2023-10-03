@@ -14,10 +14,13 @@
     impermanence.url = "github:nix-community/impermanence";
 
     nix-std.url = "github:chessai/nix-std";
+    
+    flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
+    flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence, nix-std }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence, nix-std, flake-programs-sqlite }@attrs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -41,6 +44,8 @@
           ./${hostname}.nix
           ./hardware/${hostname}/configuration.nix
           ({ config, lib, pkgs, system, ... }: { nixpkgs.overlays = [ overlay-unstable overlay-stable ]; })
+          home-manager.nixosModules.home-manager
+          flake-programs-sqlite.nixosModules.programs-sqlite
         ];
       };
 

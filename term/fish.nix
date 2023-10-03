@@ -1,12 +1,17 @@
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, ... }:
 
 let
   scripts = "/synced/Sync/Linux/BashScripts";
 in {
 
-  imports = [ home-manager.nixosModule ];
 
   users.users.klaymore.shell = pkgs.fish;
+  
+  
+  programs.fish = {
+    enable = true;
+  };
+  
 
   home-manager.users.klaymore.programs.starship = {
     enable = true;
@@ -27,11 +32,10 @@ in {
         success_symbol = "❯(bold green)";
         error_symbol = "❯(bold red)";
       }; */
-      command_timeout = 1000;
+      #command_timeout = 1000;
     };
   };
 
-  programs.fish.enable = true;
 
   home-manager.users.klaymore.programs.fish = {
     enable = true;

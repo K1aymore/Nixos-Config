@@ -1,8 +1,6 @@
-{ config, pkgs, home-manager, ... }:
+{ config, ... }:
 
 {
-
-  imports = [ home-manager.nixosModule ];
 
   #users.users.klaymore.shell = pkgs.fish;
 

@@ -1,12 +1,8 @@
-{ home-manager, impermanence, ... }:
+{ impermanence, ... }:
 
 
 {
 
-  imports = [
-    home-manager.nixosModule
-    #impermanence.nixosModules.home-manager.impermanence
-  ];
 
   programs.fuse.userAllowOther = true;
 

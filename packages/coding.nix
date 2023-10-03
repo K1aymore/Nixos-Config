@@ -1,11 +1,6 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, ... }:
 
 {
-  imports = [
-    home-manager.nixosModule
-  ];
-
-
 
   environment.systemPackages = with pkgs; [
     clang
@@ -27,8 +22,8 @@
 
     #android-studio
     #apksigner
-    jdk11
     jdk17
+    jdk11
     jdk8
     jdt-language-server
 

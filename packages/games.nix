@@ -1,10 +1,7 @@
-{ pkgs, home-manager, ... }:
+{ pkgs, ...}:
 
 {
 
-  imports = [
-    home-manager.nixosModule
-  ];
 
   environment.systemPackages = with pkgs; [
     wineWowPackages.waylandFull
@@ -24,6 +21,7 @@
     #itch
     prismlauncher
     jdk17
+    jdk11
     jdk8
 
     #wesnoth
