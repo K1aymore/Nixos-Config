@@ -11,7 +11,17 @@ in {
   programs.fish = {
     enable = true;
   };
-  
+
+
+  home-manager.users.klaymore.programs.fish = {
+    enable = true;
+    shellAliases = config.environment.shellAliases;
+    interactiveShellInit = "set -gx GPG_TTY (tty)";
+    functions = {
+      run = "nix run nixpkgs#$argv";
+    };
+  };
+
 
   home-manager.users.klaymore.programs.starship = {
     enable = true;
@@ -37,11 +47,5 @@ in {
   };
 
 
-  home-manager.users.klaymore.programs.fish = {
-    enable = true;
-    shellAliases = config.environment.shellAliases;
-    interactiveShellInit =
-      "set -gx GPG_TTY (tty)";
-  };
 
 }

@@ -2,11 +2,15 @@
 
 let
   scripts = "/synced/Sync/Linux/BashScripts";
+  configPath = "/synced/Nix/cfg";
 in {
 
   environment.shellAliases = {
-    nrs = "sudo nixos-rebuild switch --flake /synced/Nix/cfg";
-    nrb = "sudo nixos-rebuild boot --flake /synced/Nix/cfg";
+    nrs = "sudo nixos-rebuild switch --flake ${configPath}";
+    nrb = "sudo nixos-rebuild boot --flake ${configPath}";
+    rebuildBoot = "sudo nixos-rebuild boot --flake ${configPath}";
+    rebuildSwitch = "sudo nixos-rebuild switch --flake ${configPath}";
+    update = "cd ${configPath} && git add . && git commit -m \"before update\" && nix flake update ";
 
     #cd = "z"; # Breaks z lol
     ls = "eza";
@@ -14,7 +18,7 @@ in {
     fd = "fd --hidden";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
-    conf = "cd /synced/Nix/cfg";
+    conf = "cd ${configPath}";
 
     yd = "bash /synced/Sync/Linux/BashScripts/yd";
     r128all = "r128gain -r ./";
@@ -29,7 +33,7 @@ in {
     vi = "nvim";
     steamflat = "flatpak run com.valvesoftware.Steam";
     blades = "~/.cargo/bin/blades";
-    ncfg = "codium /synced/Nix/cfg";
+    ncfg = "codium ${configPath}";
     notes = "codium /synced/Sync/Notes";
 
     jcr = "/synced/Sync/Linux/BashScripts/jcr";

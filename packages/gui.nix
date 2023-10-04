@@ -245,7 +245,9 @@
 
       userSettings = {
         "workbench.iconTheme" = "catppuccin-macchiato";
-        "workbench.colorTheme" = "Catppuccin Macchiato";
+        "workbench.colorTheme" = "Mayukai Semantic Mirage";
+        
+        "editor.fontFamily" = "'Fira Code', 'Droid Sans Mono', 'monospace', monospace";
         
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";
