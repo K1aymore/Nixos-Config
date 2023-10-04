@@ -10,7 +10,7 @@ in {
     nrb = "sudo nixos-rebuild boot --flake ${configPath}";
     rebuildBoot = "sudo nixos-rebuild boot --flake ${configPath}";
     rebuildSwitch = "sudo nixos-rebuild switch --flake ${configPath}";
-    update = "cd ${configPath} && git add . && git commit -m \"before update\" && nix flake update ";
+    update = "cd ${configPath} && git add . && git commit -m \"before update\" && nix flake update && rebuildBoot";
 
     #cd = "z"; # Breaks z lol
     ls = "eza";

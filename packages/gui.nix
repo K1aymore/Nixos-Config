@@ -104,8 +104,8 @@
     k3b
 
     syncplay
-    python39Packages.certifi
-    python39Packages.twisted
+    #python39Packages.certifi
+    #python39Packages.twisted
 
     keepassxc
 

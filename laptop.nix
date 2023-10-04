@@ -3,10 +3,9 @@
 {
 
   imports = [
-    ./base.nix
     ./locale/colemak.nix
     ./locale/losAngeles.nix
-    ./system/pipewire.nix
+    
     ./de/plasma.nix
     ./de/sway.nix
 
@@ -18,7 +17,7 @@
     #./system/opentablet.nix
     #./system/touchegg.nix
 
-    ./system/syncthing.nix
+    ./syncthing
 
     ./syncthing/sync.nix
     ./syncthing/media.nix
@@ -29,8 +28,7 @@
     ./syncthing/projects.nix
 
 
-    ./impermanence/system.nix
-    ./impermanence/home.nix
+    ./impermanence
   ];
 
 
