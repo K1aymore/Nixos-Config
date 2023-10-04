@@ -18,7 +18,7 @@ in {
     shellAliases = config.environment.shellAliases;
     interactiveShellInit = "set -gx GPG_TTY (tty)";
     functions = {
-      run = "nix run nixpkgs#$argv";
+      run = "NIXPKGS_ALLOW_UNFREE=1 nix run nixpkgs#$argv --impure";
     };
   };
 
