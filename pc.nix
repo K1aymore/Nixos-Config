@@ -24,7 +24,7 @@
     #./pc/i2p.nix
     ./services/system/zfs.nix
     ./services/system/espanso.nix
-    #./system/waydroid.nix
+    ./services/system/waydroid.nix
 
 
     ./syncthing

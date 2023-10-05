@@ -11,14 +11,16 @@ in {
     rebuildBoot = "sudo nixos-rebuild boot --flake ${configPath}";
     rebuildSwitch = "sudo nixos-rebuild switch --flake ${configPath}";
     update = "cd ${configPath} && git add . && git commit -m \"before update\" && nix flake update && rebuildBoot";
-
+    restart = "reboot";
+    
+    conf = "cd ${configPath}";
+    
     #cd = "z"; # Breaks z lol
     ls = "eza";
     #cat = "bat";
     fd = "fd --hidden";
 
     nbrc = "micro /nix/cfg/bash/aliases.nix";
-    conf = "cd ${configPath}";
 
     yd = "bash /synced/Sync/Linux/BashScripts/yd";
     r128all = "r128gain -r ./";
