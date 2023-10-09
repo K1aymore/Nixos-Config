@@ -68,6 +68,9 @@
         "Polymc/.local/share/polymc"
         "MultiMC/.local/share/multimc"
         "Gradle/.gradle"
+        
+        "JamesDSP/.config/jamesdsp/"
+        "JamesDSP/.cache/jamesdsp/"
 
         "Wine/.wine"
         "Grapejuice/.local/var/log/grapejuice"
@@ -83,7 +86,7 @@
         "Bottles/.local/share/bottles"
 
         "Flatpak/.local/share/flatpak"
-        #"Flatpak/.var"
+        "Flatpak/.var"
         #"Parsec/.var/app/com.parsecgaming.parsec"
         "Steam/.steam"
         "Steam/.local/share/Steam"

@@ -86,6 +86,7 @@
     digikam
     clementine
     strawberry
+    jamesdsp
     #puddletag
     kid3
     tageditor
@@ -103,7 +104,7 @@
     #handbrake
     k3b
 
-    syncplay
+    stable.syncplay
     #python39Packages.certifi
     #python39Packages.twisted
 
