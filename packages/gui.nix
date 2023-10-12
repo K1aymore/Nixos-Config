@@ -1,4 +1,4 @@
-{ pkgs, config, nixpkgs, nix-std, ... }:
+{ pkgs, config, nix-std, ... }:
 
 {
 
@@ -187,11 +187,11 @@
   home-manager.users.klaymore.home.file = {
     ".config/lapce-nightly/settings.toml".text = nix-std.lib.serde.toTOML {
       core = {
-        color-theme = "Lapce Dark";
+        color-theme = "Ayu Dark";
         icon-theme = "Material Icons";
       };
       editor = {
-        font-size = 13;
+        font-size = 14;
         font-family = "Fira Code";
         line-height = 1.5;
         autosave-interval = 100;
@@ -260,6 +260,8 @@
         };
 
         "git.enableCommitSigning" = true;
+        "files.autoSave" = "afterDelay";
+        "files.autoSaveDelay" = 100;
       };
     };
 

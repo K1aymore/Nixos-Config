@@ -11,6 +11,7 @@
       "/var/log"
 
       "/etc/mullvad-vpn"
+      "/etc/openvpn"
       #"/tmp"
 
       #"/root/.cache/nix"

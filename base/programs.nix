@@ -40,7 +40,7 @@
       defaultEditor = true;
 
       settings = {
-        theme = "catppuccin_macchiato";
+        theme = "ayu_dark";
         editor = {
           line-number = "relative";
           lsp.display-messages = true;

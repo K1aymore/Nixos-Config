@@ -13,14 +13,18 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    nix-std.url = "github:chessai/nix-std";
     
     flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
     flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
+    
+    stylix.url = "github:danth/stylix";
+    
+    nix-std.url = "github:chessai/nix-std";
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence, nix-std, flake-programs-sqlite }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
+              flake-programs-sqlite, stylix, nix-std }@attrs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -49,7 +53,9 @@
           home-manager.nixosModules.home-manager
           impermanence.nixosModule
           { home-manager.users.klaymore.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
+          
           flake-programs-sqlite.nixosModules.programs-sqlite
+          #stylix.nixosModules.stylix
         ];
       };
 
@@ -57,7 +63,7 @@
     {
       nixosConfigurations = {
 
-        acer = sharedConfig "acer";
+        oldlaptop = sharedConfig "oldlaptop";
 
         laptop = sharedConfig "laptop";
 
