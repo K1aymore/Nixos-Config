@@ -54,6 +54,12 @@
       allowedUDPPorts = config.networking.firewall.allowedTCPPorts;
       allowedUDPPortRanges = config.networking.firewall.allowedTCPPortRanges;
     };
+    
+    nameservers = [ "1.1.1.1" "1.0.0.1" "2606:4700:4700::1111" "2606:4700:4700::1001" ];
+    # If using dhcpcd:
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    # If using NetworkManager:
+    networkmanager.dns = "none";
 
     extraHosts = ''
       172.16.0.115 serverlan

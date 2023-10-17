@@ -21,7 +21,7 @@
 
     ./syncthing/sync.nix
     ./syncthing/media.nix
-    ./syncthing/archive.nix
+    #./syncthing/archive.nix
     ./syncthing/dotfiles.nix
     ./syncthing/ellidaProjects.nix
     ./syncthing/nixcfg.nix

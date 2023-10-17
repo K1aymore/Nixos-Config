@@ -187,7 +187,7 @@
   home-manager.users.klaymore.home.file = {
     ".config/lapce-nightly/settings.toml".text = nix-std.lib.serde.toTOML {
       core = {
-        color-theme = "Ayu Dark";
+        color-theme = "Lapce Dark";
         icon-theme = "Material Icons";
       };
       editor = {

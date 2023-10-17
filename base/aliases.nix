@@ -8,9 +8,9 @@ in {
   environment.shellAliases = {
     nrb = "sudo nixos-rebuild boot --flake ${configPath}";
     nrs = "sudo nixos-rebuild switch --flake ${configPath}";
-    rebuildBoot = "cd ${configPath} && git add . && cd - && nrb";
-    rebuildSwitch = "cd ${configPath} && git add . && cd - && nrs";
-    update = "cd ${configPath} && git add . && git commit -m \"before update\" && nix flake update && rebuildBoot && cd -";
+    rebuildBoot = "cd ${configPath} && git add .; cd - && nrb";
+    rebuildSwitch = "cd ${configPath} && git add .; cd - && nrs";
+    update = "cd ${configPath} && git add . && git commit -m \"before update\" && nix flake update && rebuildBoot; cd -";
     restart = "reboot";
     
     conf = "cd ${configPath}";

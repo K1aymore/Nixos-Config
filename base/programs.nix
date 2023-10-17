@@ -40,7 +40,7 @@
       defaultEditor = true;
 
       settings = {
-        theme = "ayu_dark";
+        theme = "catppuccin_mocha";
         editor = {
           line-number = "relative";
           lsp.display-messages = true;
@@ -113,7 +113,7 @@
         let g:paredit_electric_return=0
         let g:paredit_disable_ftindent=1
 
-        require'lspconfig'.nil_ls.setup{}
+        "require'lspconfig'.nil_ls.setup{}
 
         colorscheme ayu-mirage
       '';
