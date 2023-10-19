@@ -7,10 +7,18 @@
   };
 
   fonts.packages = with pkgs; [
-    #nerdfonts
+    nerdfonts
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
+    noto-fonts-color-emoji
+    noto-fonts-monochrome-emoji
+    noto-fonts-emoji-blob-bin
+    unicode-emoji
+    twitter-color-emoji
+    emojione
+    #whatsapp-emoji-font
+    twemoji-color-font
     liberation_ttf
     
     fira

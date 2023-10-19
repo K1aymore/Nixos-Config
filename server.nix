@@ -4,28 +4,26 @@
 {
 
   imports = [
-    ./base.nix
     ./locale/colemak.nix
     ./locale/losAngeles.nix
-    ./system/pipewire.nix
     ./de/plasma.nix
 
     ./packages/gui.nix
 
     #./server/ssh.nix
-    ./server/nfs.nix
+    ./services/server/nfs.nix
 
-    ./system/zfs.nix
+    ./services/system/zfs.nix
 
-    ./server/nginx.nix
-    ./server/synapse.nix
-    ./server/gitea.nix
+    ./services/server/nginx.nix
+    ./services/server/synapse.nix
+    ./services/server/gitea.nix
     #./server/tt-rss.nix
     #./server/minecraft.nix
     # ./server/restyaboard.nix
     # ./server/radicale.nix
 
-    ./system/syncthing.nix
+    ./syncthing
 
     # ./system/opentablet.nix
 

@@ -79,7 +79,6 @@
     libsForQt5.kdialog
 
     kate
-    atom
     libreoffice
     okular
     gwenview

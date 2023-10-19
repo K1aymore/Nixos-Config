@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
 
@@ -42,21 +42,6 @@
 
     ./impermanence
   ];
-
-
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
 
 
   hardware.uinput.enable = true;
@@ -129,8 +114,75 @@
     }; */
   #};
 
+  
+  nixpkgs.overlays = [
+    (final: prev: {
+      strawberry = prev.strawberry.overrideAttrs (o: {
+        buildInputs = with pkgs; with xorg; with gst_all_1; with libsForQt5.qt5; [
+          libebur128
+          alsa-lib
+          boost
+          chromaprint
+          fftw
+          gnutls
+          libcdio
+          libidn2
+          libmtp
+          libpthreadstubs
+          libtasn1
+          libXdmcp
+          pcre
+          protobuf
+          sqlite
+          taglib
+          qtbase
+          qtx11extras
+          
+          libgpod
+          libpulseaudio
+          libselinux
+          libsepol
+          p11-kit
+          
+          glib-networking
+          gstreamer
+          gst-libav
+          gst-plugins-base
+          gst-plugins-good
+          gst-plugins-bad
+          gst-plugins-ugly
+          
+          libvlc
+        ];
+      
+        nativeBuildInputs = with pkgs; with libsForQt5.qt5; [
+          cmake
+          ninja
+          pkg-config
+          qttools
+          wrapQtAppsHook
+          
+          util-linux
+        ];
+        
+        
+      });
+    })
+  ];
 
 
 
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "22.11"; # Did you read the comment?
 
 }
