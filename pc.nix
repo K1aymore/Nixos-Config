@@ -59,8 +59,8 @@
     driSupport = true;
     driSupport32Bit = true;
     extraPackages = with pkgs; [
-      rocm-opencl-icd
-      rocm-opencl-runtime
+      rocmPackages.clr.icd
+      rocmPackages.clr
       libva
       libva-utils
       #libvdpau-va-gl
@@ -115,7 +115,7 @@
   #};
 
   
-  nixpkgs.overlays = [
+  /*nixpkgs.overlays = [
     (final: prev: {
       strawberry = prev.strawberry.overrideAttrs (o: {
         buildInputs = with pkgs; with xorg; with gst_all_1; with libsForQt5.qt5; [
@@ -168,7 +168,7 @@
         
       });
     })
-  ];
+  ];*/
 
 
 

@@ -12,6 +12,7 @@
     gnumake
     avalonia-ilspy # .NET exe decompiler
     lldb
+    valgrind
 
 
     cargo

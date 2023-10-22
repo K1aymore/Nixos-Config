@@ -4,10 +4,11 @@
 
   nixpkgs.config = {
     allowUnfree = true;
+    joypixels.acceptLicense = true;
   };
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    #nerdfonts
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -17,6 +18,8 @@
     unicode-emoji
     twitter-color-emoji
     emojione
+    openmoji-color
+    joypixels
     #whatsapp-emoji-font
     twemoji-color-font
     liberation_ttf

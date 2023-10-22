@@ -46,10 +46,10 @@
   # flatpak run com.valvesoftware.Steam
   # flatpak override --user --env=MANGOHUD=1 com.valvesoftware.Steam
   # flatpak override --user --env=ENABLE_VKBASALT=1 com.valvesoftware.Steam
-  # flatpak override --user --env=MANGOHUD_CONFIG=fps_limit=135+0,arch,ram,vram,vkbasalt,vulkan_driver,io_read,io_write,gpu_core_clock,gpu_mem_clock,gpu_fan,gpu_voltage,cpu_temp,gpu_temp com.valvesoftware.Steam
+  # flatpak override --user --env=MANGOHUD_CONFIG=fps_limit=135+114+0,arch,ram,vram,vkbasalt,gamemode,vulkan_driver,io_read,io_write,gpu_core_clock,gpu_mem_clock,gpu_fan,gpu_voltage,cpu_temp,gpu_temp com.valvesoftware.Steam
   
   # MANGOHUD=1
-  # ENABLE_VKBASALT=1
+  # ENABLE_VKBASALT=1 
   # 
   # FLATPAK_GL_DRIVERS=mesa-git flatpak run com.valvesoftware.Steam
 

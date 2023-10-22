@@ -120,6 +120,7 @@
     #librewolf
     ungoogled-chromium # for Discord
     discord
+    xwaylandvideobridge
     element-desktop
     qbittorrent
     #onionshare-gui
@@ -186,7 +187,7 @@
   home-manager.users.klaymore.home.file = {
     ".config/lapce-nightly/settings.toml".text = nix-std.lib.serde.toTOML {
       core = {
-        color-theme = "Lapce Dark";
+        color-theme = "Catppuccin Mocha";
         icon-theme = "Material Icons";
       };
       editor = {
