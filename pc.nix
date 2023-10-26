@@ -97,6 +97,11 @@
   };
 
 
+  /*programs = {
+    steam.enable = true;
+  };*/
+
+
   /* services.boinc = {
     enable = true;
     dataDir = "/nix/persist/appdata/BOINC";

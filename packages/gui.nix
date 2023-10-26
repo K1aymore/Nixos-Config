@@ -13,7 +13,8 @@
   ";
 
   nixpkgs.config.permittedInsecurePackages = [
-    #"libtiff-4.0.3-opentoonz"
+    "libtiff-4.0.3-opentoonz"
+    "libxls-1.6.2"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -187,11 +188,11 @@
   home-manager.users.klaymore.home.file = {
     ".config/lapce-nightly/settings.toml".text = nix-std.lib.serde.toTOML {
       core = {
-        color-theme = "Catppuccin Mocha";
+        color-theme = "Lapce Dark";
         icon-theme = "Material Icons";
       };
       editor = {
-        font-size = 14;
+        font-size = 13;
         font-family = "Fira Code";
         line-height = 1.5;
         autosave-interval = 100;
