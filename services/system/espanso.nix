@@ -5,6 +5,8 @@ let
 in
 {
 
+  #services.espanso.enable = true;
+  
   home-manager.users.klaymore.services.espanso = {
     enable = true;
     package = pkgs.espanso-wayland;

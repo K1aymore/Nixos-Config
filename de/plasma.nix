@@ -19,4 +19,6 @@
     libsForQt5.yakuake
   ];
 
+  programs.dconf.enable = true;
+
 }

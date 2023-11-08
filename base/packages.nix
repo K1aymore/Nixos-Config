@@ -172,6 +172,9 @@
     openttd
     pmbootstrap
     tty-clock
+    
+    hspell
+    hunspell
 
 
     mullvad-vpn

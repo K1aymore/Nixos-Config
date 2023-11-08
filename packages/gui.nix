@@ -175,24 +175,30 @@
   ];
 
 
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     vscodium = prev.vscodium.overrideAttrs (o: {
-  #       postInstall = (o.postInstall or "") + ''
-  #         cp -f ${./icons/vscodium-paulo22s.png} $out/share/pixmaps/code.png
-  #       '';
-  #     });
-  #   })
-  # ];
+  /*nixpkgs.overlays = [
+    (final: prev: {
+      strawberry = prev.strawberry.overrideAttrs (o: {
+        version = "1.0.21";
 
-  home-manager.users.klaymore.home.file = {
+        src = pkgs.fetchFromGitHub {
+          owner = "jonaski";
+          repo = "strawberry";
+          rev = "1.0.21";
+          hash = "sha256-McwnYHaw0LYDeHLDQzfqRIYMV2FoiMdHyOL/EE8/esU=";
+        };
+      });
+      
+    })
+  ];*/
+
+  /*home-manager.users.klaymore.home.file = {
     ".config/lapce-nightly/settings.toml".text = nix-std.lib.serde.toTOML {
       core = {
         color-theme = "Lapce Dark";
         icon-theme = "Material Icons";
       };
       editor = {
-        font-size = 13;
+        font-size = 14;
         font-family = "Fira Code";
         line-height = 1.5;
         autosave-interval = 100;
@@ -212,7 +218,7 @@
       lapce-cpp-clangd."volt.serverPath" = "/run/current-system/sw/bin/clangd";
       
     };
-  };
+  };*/
 
 
   home-manager.users.klaymore.programs = {
@@ -232,7 +238,8 @@
 
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
-        #ms-vscode.cpptools
+        roman.ayu-next
+        ms-vscode.cpptools
         #ms-python.python
         #ms-python.vscode-pylance
         #ms-azuretools.vscode-docker
@@ -247,7 +254,7 @@
 
       userSettings = {
         "workbench.iconTheme" = "catppuccin-macchiato";
-        "workbench.colorTheme" = "Mayukai Semantic Mirage";
+        "workbench.colorTheme" = "Ayu Next";
         
         "editor.fontFamily" = "'Fira Code', 'Droid Sans Mono', 'monospace', monospace";
         
