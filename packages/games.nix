@@ -12,10 +12,12 @@
     #protonup
     #protontricks
     #openal
-    heroic
+    #heroic
     legendary-gl
 
     mangohud
+    
+    piper
 
     #minecraft
     #itch
@@ -55,6 +57,8 @@
 
   
   hardware.steam-hardware.enable = true;
+  services.ratbagd.enable = true;
+  
 
   #flatpak install flathub net.brinkervii.grapejuice
   #flatpak run net.brinkervii.grapejuice

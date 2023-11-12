@@ -116,6 +116,7 @@
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
+        "Wallpapers/.local/share/wallpapers"
         "OpenTabletDriver/.config/OpenTabletDriver"
 
         "Tealdeer/.cache/tealdeer"
