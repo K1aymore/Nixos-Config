@@ -29,6 +29,7 @@
     fira-code
     fira-code-symbols
     hack-font
+    iosevka
     scientifica
 
     #font-awesome
@@ -86,6 +87,7 @@
 
     pdftk
     imagemagick
+    bc
 
     brightnessctl
 
@@ -118,6 +120,7 @@
     openssl
     iperf
     iperf3d
+    ventoy
 
     micro
     xclip

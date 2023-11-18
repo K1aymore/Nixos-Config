@@ -70,7 +70,7 @@
   programs.gamescope.enable = true;
 
   home-manager.users.klaymore.programs.mangohud = {
-    enable = true;
+    enable = false;
     enableSessionWide = true;
     settings = {
       fps_limit = [ 117 0 ];

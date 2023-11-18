@@ -81,7 +81,10 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/46249488-631c-498e-b600-77d3ba10cbe1"; }
+    { 
+      device = "/dev/disk/by-uuid/46249488-631c-498e-b600-77d3ba10cbe1";
+      priority = 2;
+    }
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance"; # powersave

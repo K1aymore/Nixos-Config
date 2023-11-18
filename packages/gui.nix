@@ -280,8 +280,33 @@
         (setq standard-indent 4)
       '';
     };
+    
+    mpv.enable = true;
+    mpv.config = {
+      hwdec = "auto-safe";
+      
+      fullscreen = true;
+      fs-screen = 0;
+      screen = 0;
+      window-maximized = "yes";
+      keep-open = "yes";
+      
+      profile = "gpu-hq";
+      ytdl-format = "bestvideo+bestaudio";
+      scale = "ewa_lanczossharp";
+      cscale = "ewa_lanczossharp";
+      
+      interpolation = true;
+      video-sync = "display-resample-vdrop";
+      tscale = "oversample";
+    };
+    
   };
+  
 
+  
+  
+  
   services.emacs = {
     enable = true;
     package = config.home-manager.users.klaymore.programs.emacs.package;

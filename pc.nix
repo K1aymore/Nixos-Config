@@ -26,6 +26,7 @@
     ./services/system/zfs.nix
     ./services/system/espanso.nix
     ./services/system/waydroid.nix
+    ./services/system/zram.nix
 
 
     ./syncthing
@@ -79,9 +80,6 @@
 
   services.gvfs.enable = true;
 
-  /* environment.systemPackages = with pkgs; [
-    linuxKernel.packages.linux_5_15.amdgpu-pro
-  ]; */
 
 
   networking = {
@@ -97,11 +95,6 @@
   };
 
 
-  /*programs = {
-    steam.enable = true;
-  };*/
-
-
   /* services.boinc = {
     enable = true;
     dataDir = "/nix/persist/appdata/BOINC";
@@ -109,80 +102,17 @@
   users.users.boinc.extraGroups = [ "video" ]; */
 
 
-  #services.syncthing.relay.enable = true;
-  #services.syncthing.relay.port = 61456;
-  #services.syncthing.folders = {
-  /* "Huge Archive" = {
-      path = "/synced/HugeArchive";
-      devices = [ "server" ];
-      ignorePerms = false;
-    }; */
-  #};
 
   # Star Citizen
-  #networking.extraHosts = [ "127.0.0.1 modules-cdn.eac-prod.on.epicgames.com" ];
+  networking.extraHosts = "127.0.0.1 modules-cdn.eac-prod.on.epicgames.com";
   boot.kernel.sysctl = {
     "vm.max_map_count" = 16777216;
     "fs.file-max" = 524288;
   };
   
   
-  /*nixpkgs.overlays = [
-    (final: prev: {
-      strawberry = prev.strawberry.overrideAttrs (o: {
-        buildInputs = with pkgs; with xorg; with gst_all_1; with libsForQt5.qt5; [
-          libebur128
-          alsa-lib
-          boost
-          chromaprint
-          fftw
-          gnutls
-          libcdio
-          libidn2
-          libmtp
-          libpthreadstubs
-          libtasn1
-          libXdmcp
-          pcre
-          protobuf
-          sqlite
-          taglib
-          qtbase
-          qtx11extras
-          
-          libgpod
-          libpulseaudio
-          libselinux
-          libsepol
-          p11-kit
-          
-          glib-networking
-          gstreamer
-          gst-libav
-          gst-plugins-base
-          gst-plugins-good
-          gst-plugins-bad
-          gst-plugins-ugly
-          
-          libvlc
-        ];
-      
-        nativeBuildInputs = with pkgs; with libsForQt5.qt5; [
-          cmake
-          ninja
-          pkg-config
-          qttools
-          wrapQtAppsHook
-          
-          util-linux
-        ];
-        
-        
-      });
-    })
-  ];*/
-
-
+  
+  
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
