@@ -52,6 +52,8 @@
         "Edge/.config/microsoft-edge"
         "Firefox/.mozilla"
         "Librewolf/.librewolf"
+        "Chromium/.cache/chromium"
+        "Chromium/.config/chromium"
         "SSH/.ssh"
         "Mullvad/.config/Mullvad VPN"
         "qBittorrent/.local/share/qBittorrent"
@@ -153,8 +155,6 @@
         "JetBrains/.local/share/JetBrains"
         "QtCreator/.cache/QtProject"
         "QtCreator/.config/QtProject"
-        "Chromium/.cache/chromium"
-        "Chromium/.config/chromium"
         "Lagrange/.config/lagrange"
 
         "Ardour/.config/ardour6"

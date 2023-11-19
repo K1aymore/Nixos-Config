@@ -18,6 +18,7 @@
     ./services/server/nginx.nix
     ./services/server/synapse.nix
     ./services/server/gitea.nix
+    ./services/server/syncplay.nix
     #./server/tt-rss.nix
     #./server/minecraft.nix
     # ./server/restyaboard.nix
