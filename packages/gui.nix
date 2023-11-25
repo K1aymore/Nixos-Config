@@ -281,7 +281,7 @@
       '';
     };
     
-    
+
     mpv.enable = true;
     mpv.config = {
       hwdec = "auto-safe";
@@ -290,12 +290,13 @@
       fs-screen = 0;
       screen = 0;
       window-maximized = "yes";
-      keep-open = "yes";
+      keep-open = "no";
       
       profile = "gpu-hq";
       ytdl-format = "bestvideo+bestaudio";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
+      deband = true;
       
       interpolation = true;
       video-sync = "display-resample-vdrop";
@@ -317,7 +318,7 @@
   };
   
   home-manager.users.klaymore.home.file.".config/mpv" = {
-enable = false;
+    enable = false;
     recursive = true;
     source = ./-mpvShaders;
   };

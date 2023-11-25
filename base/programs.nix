@@ -22,6 +22,7 @@
       ];
       extraConfig = {
         init.defaultbranch = "main";
+        push.autoSetupRemote = true;
 
         core.pager = "delta";
         interactive.diffFilter = "delta --color-only";

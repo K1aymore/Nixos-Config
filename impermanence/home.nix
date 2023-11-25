@@ -38,6 +38,7 @@
 
         "VSCode/.vscode"
         "VSCode/.config/Code"
+        "Lapce/.config/lapce-nightly"
         "Lapce/.local/share/lapce-nightly"
 
         "Godot/.local/share/godot"
@@ -159,7 +160,6 @@
 
         "Ardour/.config/ardour6"
 
-        "Lapce/.config/lapce-nightly"
         "Emacs/.emacs.d"
         "Emacs/.doom.d"
         "Elinks/.elinks"
