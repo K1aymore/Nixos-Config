@@ -41,7 +41,7 @@
       defaultEditor = true;
 
       settings = {
-        theme = "catppuccin_mocha";
+        theme = "ayu_mirage";
         editor = {
           line-number = "relative";
           lsp.display-messages = true;
@@ -65,7 +65,7 @@
       viAlias = true;
       vimdiffAlias = true;
 
-      # coc.enable = true;
+      coc.enable = true;
       #nvim-treesitter.withAllGrammars
       # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
       plugins = with pkgs.vimPlugins; [
@@ -75,8 +75,9 @@
         vim-fugitive #ale nvim-autopairs
         neoformat
         vim-nix
-        rust-vim
+        #rust-vim
         leap-nvim
+        coc-rust-analyzer
 
         #catppuccin-nvim # broken
         neovim-ayu
@@ -123,6 +124,14 @@
 
     zoxide = {
       enable = true;
+    };
+
+    zellij = {
+      enable = true;
+      enableFishIntegration = false;  # opens by default
+      settings = {
+        #theme = "catppuccin-mocha";
+      };
     };
 
   };

@@ -29,6 +29,7 @@
 
 
     ./impermanence
+    ./impermanence/steam.nix
   ];  
   
   #services.getty.autologinUser = "klaymore";

@@ -15,11 +15,17 @@
     valgrind
 
 
+    #rustup
     cargo
     rustc
     rustfmt
     wasm-pack # Rust WebAssembly
     rust-analyzer
+    pkg-config
+    xorg.libX11
+    libxkbcommon
+    alsa-lib
+
 
     #android-studio
     #apksigner

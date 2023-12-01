@@ -69,7 +69,7 @@
   };*/
 
   # Games
-  fileSystems."/home/klaymore/.var/app/com.valvesoftware.Steam" = {
+  fileSystems."/home/klaymore/.var/app" = {
     device = "/dev/disk/by-uuid/0c8bb6fb-2568-46cf-b5ee-5452b727d4fc";
     fsType = "ext4";
   };

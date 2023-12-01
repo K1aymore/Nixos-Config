@@ -20,6 +20,12 @@
     wireplumber.enable = true;
 
   };
+  
+  environment.etc."/pipewire/pipewire.conf.d/pipewire.conf".text = ''
+    default.clock.quantum = 2048 #1024
+    default.clock.min-quantum = 1024 #32
+    default.clock.max-quantum = 4096 #2048 
+  '';
 
 
 

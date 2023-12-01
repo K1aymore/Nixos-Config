@@ -141,7 +141,6 @@
 
 
     # Rust programs
-    zellij
     eza
     bat
     gitui

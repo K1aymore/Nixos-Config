@@ -89,13 +89,13 @@
         "Bottles/.local/share/bottles"
 
         "Flatpak/.local/share/flatpak"
-        "Flatpak/.var"
-        #"Parsec/.var/app/com.parsecgaming.parsec"
+        #"Flatpak/.var/app"
         "Steam/.steam"
         "Steam/.local/share/Steam"
         "Itch.io/.itch"
         "Itch.io/.config/itch"
         "Cargo/.cargo"
+        "Rustup/.rustup"
 
         "Exodus/.config/Exodus"
         #"Pmbootstrap/.local/var/pmbootstrap"
