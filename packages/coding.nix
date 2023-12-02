@@ -15,9 +15,9 @@
     valgrind
 
 
-    #rustup
-    cargo
-    rustc
+    rustup
+    #cargo
+    #rustc
     rustfmt
     wasm-pack # Rust WebAssembly
     rust-analyzer
