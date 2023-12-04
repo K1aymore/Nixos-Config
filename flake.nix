@@ -13,18 +13,21 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    nix-std.url = "github:chessai/nix-std";
     
     flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
     flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
     
-    stylix.url = "github:danth/stylix";
     
-    nix-std.url = "github:chessai/nix-std";
+    stylix.url = "github:danth/stylix";
+
+    kde2nix.url = "github:nix-community/kde2nix";
+    
   };
 
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              flake-programs-sqlite, stylix, nix-std }@attrs:
+              nix-std, flake-programs-sqlite, stylix, kde2nix }@attrs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -56,6 +59,7 @@
           
           flake-programs-sqlite.nixosModules.programs-sqlite
           #stylix.nixosModules.stylix
+          kde2nix.nixosModules.plasma6
         ];
       };
 
