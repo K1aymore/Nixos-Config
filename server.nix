@@ -11,9 +11,11 @@
     ./packages/gui.nix
 
     #./server/ssh.nix
-    ./services/server/nfs.nix
+    #./services/server/nfs.nix
 
     ./services/system/zfs.nix
+
+    ./services/system/zram.nix
 
     ./services/server/nginx.nix
     ./services/server/synapse.nix

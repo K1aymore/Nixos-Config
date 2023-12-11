@@ -29,29 +29,15 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
               nix-std, flake-programs-sqlite, stylix, kde2nix }@attrs:
     let
-      overlay-unstable = final: prev: {
-        unstable = import nixpkgs-unstable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-      };
-
-      overlay-stable = final: prev: {
-        stable = import nixpkgs-stable {
-          system = "x86_64-linux";
-          config.allowUnfree = true;
-        };
-      };
-
-
-      sharedConfig = hostname: nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      
+      sharedConfig = hostname: nsystem: nixpkgs.lib.nixosSystem {
+        system = nsystem;
         specialArgs = attrs;
         modules = [
           ./base
           ./${hostname}.nix
           ./hardware/${hostname}.nix
-          { nixpkgs.overlays = [ overlay-unstable overlay-stable ]; }
+          
           
           home-manager.nixosModules.home-manager
           impermanence.nixosModule
@@ -60,6 +46,25 @@
           flake-programs-sqlite.nixosModules.programs-sqlite
           #stylix.nixosModules.stylix
           kde2nix.nixosModules.plasma6
+          
+          
+          { nixpkgs.overlays = [
+            (final: prev: {
+              unstable = import nixpkgs-unstable {
+                system = nsystem;
+                config.allowUnfree = true;
+              };
+            })
+            
+            (final: prev: {
+              stable = import nixpkgs-stable {
+                system = nsystem;
+                config.allowUnfree = true;
+              };
+            })
+          ];}
+          
+          
         ];
       };
 
@@ -67,13 +72,15 @@
     {
       nixosConfigurations = {
 
-        oldlaptop = sharedConfig "oldlaptop";
+        oldlaptop = sharedConfig "oldlaptop" "x86_64-linux";
 
-        laptop = sharedConfig "laptop";
+        laptop = sharedConfig "laptop" "x86_64-linux";
 
-        pc = sharedConfig "pc";
+        pc = sharedConfig "pc" "x86_64-linux";
 
-        server = sharedConfig "server";
+        server = sharedConfig "server" "x86_64-linux";
+        
+        pimusic = sharedConfig "pimusic" "aarch64-linux";
 
       };
     };

@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, config,... }:
 
 
 {
@@ -190,7 +190,7 @@
     };
 
 
-    home.persistence."/synced/Nix/dotfiles/Plasma" = {
+    home.persistence."/synced/Nix/dotfiles/Plasma" = lib.mkIf config.services.xserver.desktopManager.plasma5.enable {
       removePrefixDirectory = false;
       allowOther = true;
       directories = [
