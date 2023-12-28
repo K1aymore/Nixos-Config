@@ -1,0 +1,16 @@
+{ ... }:
+
+
+{
+  
+  
+  
+  
+  hardware.openrazer = {
+    enable = true;
+    
+  };
+  
+  
+}
+
