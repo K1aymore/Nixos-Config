@@ -13,16 +13,19 @@
     ./packages/coding.nix
     ./packages/video-editing.nix
     ./packages/mpd.nix
+    
+    ./packages/steam.nix
 
     #./packages/zerotier.nix
     #./packages/VMs.nix
     #./packages/deep3D-depends.nix
+    
+    ./services/pc/openrazer.nix
 
     ./services/system/opentablet.nix
 
-    #./system/ipfs.nix
-    #./pc/syncplay.nix
-    #./pc/i2p.nix
+    ./services/system/ipfs.nix
+    
     ./services/system/zfs.nix
     ./services/system/espanso.nix
     ./services/system/waydroid.nix
@@ -107,11 +110,11 @@
 
 
   # Star Citizen
-  networking.extraHosts = "127.0.0.1 modules-cdn.eac-prod.on.epicgames.com";
+  /*networking.extraHosts = "127.0.0.1 modules-cdn.eac-prod.on.epicgames.com";
   boot.kernel.sysctl = {
     "vm.max_map_count" = 16777216;
     "fs.file-max" = 524288;
-  };
+  };*/
   
   
   

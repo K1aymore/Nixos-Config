@@ -72,7 +72,6 @@
         "MultiMC/.local/share/multimc"
         "Gradle/.gradle"
         
-        "JamesDSP/.config/jamesdsp/"
         "JamesDSP/.cache/jamesdsp/"
 
         "Wine/.wine"
@@ -96,6 +95,7 @@
         "Itch.io/.config/itch"
         "Cargo/.cargo"
         "Rustup/.rustup"
+        "DwarfFortress/.local/share/df_linux"
 
         "Exodus/.config/Exodus"
         #"Pmbootstrap/.local/var/pmbootstrap"
@@ -111,6 +111,10 @@
         "Polymc/.config/PolyMCrc"
         "Baloo/.config/baloofileinformationrc"
         "Baloo/.config/baloofilerc"
+        
+        "JamesDSP/.config/jamesdsp/audio.conf"
+        "JamesDSP/.config/jamesdsp/application.conf"
+        "JamesDSP/.config/jamesdsp/graphiceq.conf"
       ];
     };
 
@@ -143,6 +147,13 @@
 
         "JOSM/.config/JOSM"
         "JOSM/.local/share/JOSM"
+        
+        "JamesDSP/.config/jamesdsp/irs"
+        "JamesDSP/.config/jamesdsp/irs_favorites"
+        "JamesDSP/.config/jamesdsp/liveprog"
+        "JamesDSP/.config/jamesdsp/presets"
+        "JamesDSP/.config/jamesdsp/vdc"
+        
 
         "Libreoffice/.config/libreoffice"
         "DigiKam/.local/share/digikam"

@@ -12,8 +12,8 @@
     #protonup
     #protontricks
     #openal
-    #heroic
-    legendary-gl
+    heroic
+    #legendary-gl
 
     mangohud
     
@@ -70,10 +70,10 @@
   programs.gamescope.enable = true;
 
   home-manager.users.klaymore.programs.mangohud = {
-    enable = false;
-    enableSessionWide = true;
+    enable = true;
+    enableSessionWide = false;
     settings = {
-      fps_limit = [ 117 0 ];
+      fps_limit = [ 135 115 0 ];
       show_fps_limit = true;
       
       arch = true;

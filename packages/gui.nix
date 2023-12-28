@@ -107,6 +107,7 @@
     stable.syncplay
     #python39Packages.certifi
     #python39Packages.twisted
+    localsend
 
     keepassxc
 
