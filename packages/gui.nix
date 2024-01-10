@@ -93,6 +93,7 @@
     picard
     vlc
     mpv
+    makemkv
     #haruna
     #mpc-qt
     #smplayer
@@ -249,7 +250,7 @@
       cscale = "ewa_lanczossharp";
       deband = true;
       
-      interpolation = true;
+      interpolation = false;
       video-sync = "display-resample-vdrop";
       tscale = "oversample";
     };

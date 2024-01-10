@@ -90,6 +90,7 @@
     bc
 
     brightnessctl
+    playerctl
 
     cryptsetup
     ntfs3g

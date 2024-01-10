@@ -7,6 +7,7 @@
     ./locale/losAngeles.nix
     
     ./de/plasma.nix
+    ./de/wayfire.nix
 
     ./packages/gui.nix
     ./packages/games.nix
@@ -14,7 +15,7 @@
     ./packages/video-editing.nix
     ./packages/mpd.nix
     
-    ./packages/steam.nix
+    #./packages/steam.nix
 
     #./packages/zerotier.nix
     #./packages/VMs.nix
