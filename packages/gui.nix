@@ -133,6 +133,7 @@
     #lbry
     lagrange
     filezilla
+    ff2mpv
 
     steam-run
     gamescope

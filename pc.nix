@@ -6,14 +6,14 @@
     ./locale/qwerty.nix
     ./locale/losAngeles.nix
     
-    ./de/plasma.nix
+    ./de/plasma6.nix
     ./de/wayfire.nix
 
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
-    ./packages/video-editing.nix
-    ./packages/mpd.nix
+    #./packages/video-editing.nix
+    #./packages/mpd.nix
     
     #./packages/steam.nix
 
