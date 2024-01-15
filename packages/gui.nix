@@ -141,7 +141,7 @@
     unstable.godot_4
     blender-hip
     #python39Packages.pyzmq
-    libresprite
+    #libresprite
     pixelorama
     krita
     #opentoonz
@@ -180,13 +180,13 @@
 
   /*nixpkgs.overlays = [
     (final: prev: {
-      strawberry = prev.strawberry.overrideAttrs (o: {
-        version = "1.0.21";
+      lapce = prev.lapce.overrideAttrs (o: {
+        version = "nightly";
 
         src = pkgs.fetchFromGitHub {
-          owner = "jonaski";
-          repo = "strawberry";
-          rev = "1.0.21";
+          owner = "lapce";
+          repo = "lapce";
+          rev = "nightly";
           hash = "sha256-McwnYHaw0LYDeHLDQzfqRIYMV2FoiMdHyOL/EE8/esU=";
         };
       });

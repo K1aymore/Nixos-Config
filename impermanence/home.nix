@@ -168,6 +168,8 @@
         "QtCreator/.cache/QtProject"
         "QtCreator/.config/QtProject"
         "Lagrange/.config/lagrange"
+        "Lapce/.config/lapce-stable"
+        "Lapce/.local/share/lapce-stable"
 
         "Ardour/.config/ardour6"
 

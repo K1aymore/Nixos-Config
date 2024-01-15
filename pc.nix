@@ -47,6 +47,15 @@
 
     ./impermanence
   ];
+  
+  specialisation = {
+    plasma6.configuration = {
+      system.nixos.tags = [ "Plasma6" ];
+      imports = [ ./de/plasma6.nix ];
+      services.xserver.desktopManager.plasma5.enable = false;
+      
+    };
+  };
 
 
   hardware.uinput.enable = true;

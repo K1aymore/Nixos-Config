@@ -24,7 +24,13 @@
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.registry.nixpkgs.flake = nixpkgs; # pin nixpkgs version
+  nix.registry = {
+    nixpkgs.flake = nixpkgs; # pin nixpkgs version
+    nixpkgs.to = {
+      type = "path";
+      path = pkgs.path;
+    };
+  };
 
   environment.variables = {
     GPG_TTY = "$(tty)";
