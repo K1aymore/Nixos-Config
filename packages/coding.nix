@@ -37,6 +37,7 @@
 
     #jetbrains.idea-community
     vscode-fhs
+    docker
     #arduino
 
     /* qtcreator */

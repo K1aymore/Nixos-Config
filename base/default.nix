@@ -34,6 +34,7 @@
 
   environment.variables = {
     GPG_TTY = "$(tty)";
+    GTK_USE_PORTAL = "1";
   };
 
   security.polkit.enable = true;

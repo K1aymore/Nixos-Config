@@ -69,10 +69,10 @@
   };*/
 
   # Games
-  fileSystems."/home/klaymore/.var/app" = {
+  /*fileSystems."/home/klaymore/.var/app" = {
     device = "/dev/disk/by-uuid/0c8bb6fb-2568-46cf-b5ee-5452b727d4fc";
     fsType = "ext4";
-  };
+  };*/
 
   fileSystems."/nfs/hugeArchive" = {
     device = "172.16.0.115:/hugeArchive";

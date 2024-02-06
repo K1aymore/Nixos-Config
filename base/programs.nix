@@ -117,6 +117,8 @@
 
         "require'lspconfig'.nil_ls.setup{}
 
+        inoremap <silent><expr> <Right> coc#pum#visible() ? coc#pum#confirm() : "\<Right>"
+
         colorscheme ayu-mirage
       '';
 

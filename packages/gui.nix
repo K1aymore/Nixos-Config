@@ -78,6 +78,7 @@
     pinentry
     pinentry-qt
     libsForQt5.kdialog
+    razergenie
 
     kate
     libreoffice
@@ -126,6 +127,7 @@
     xwaylandvideobridge
     element-desktop
     qbittorrent
+    protonvpn-gui
     #onionshare-gui
     #tor-browser-bundle-bin
     #session-desktop-appimage

@@ -6,7 +6,7 @@
     ./locale/qwerty.nix
     ./locale/losAngeles.nix
     
-    ./de/plasma6.nix
+    ./de/plasma.nix
     ./de/wayfire.nix
 
     ./packages/gui.nix
@@ -25,7 +25,7 @@
 
     ./services/system/opentablet.nix
 
-    ./services/system/ipfs.nix
+    #./services/system/ipfs.nix
     
     ./services/system/zfs.nix
     ./services/system/espanso.nix
@@ -46,6 +46,7 @@
 
 
     ./impermanence
+    ./impermanence/steam.nix
   ];
   
   specialisation = {
@@ -53,7 +54,7 @@
       system.nixos.tags = [ "Plasma6" ];
       imports = [ ./de/plasma6.nix ];
       services.xserver.desktopManager.plasma5.enable = false;
-      
+     
     };
   };
 

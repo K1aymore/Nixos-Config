@@ -1,4 +1,4 @@
-{ pkgs, mkDefault, ... }:
+{ pkgs, lib, ... }:
 
 {
 
@@ -11,7 +11,7 @@
   services.xserver = {
       displayManager.sddm.enable = true;
       displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
-      desktopManager.plasma5.enable = mkDefault true;
+      desktopManager.plasma5.enable = lib.mkDefault true;
   };
 
   environment.systemPackages = with pkgs; [

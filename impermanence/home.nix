@@ -73,6 +73,7 @@
         "Gradle/.gradle"
         
         "JamesDSP/.cache/jamesdsp/"
+        "RazerGenie/.local/share/razergenie"
 
         "Wine/.wine"
         "Grapejuice/.local/var/log/grapejuice"
