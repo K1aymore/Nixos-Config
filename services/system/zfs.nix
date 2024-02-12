@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 
@@ -9,6 +9,6 @@
   services.zfs.autoScrub.enable = true;
   boot.kernelParams = [ "nohibernate" ]; # can cause ZFS corruption
   
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
 
 }

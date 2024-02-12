@@ -204,7 +204,8 @@
     };
 
 
-    home.persistence."/synced/Nix/dotfiles/Plasma" = lib.mkIf config.services.xserver.desktopManager.plasma5.enable {
+    #lib.mkIf config.services.xserver.desktopManager.plasma5.enable
+    home.persistence."/synced/Nix/dotfiles/Plasma" = {
       removePrefixDirectory = false;
       allowOther = true;
       directories = [

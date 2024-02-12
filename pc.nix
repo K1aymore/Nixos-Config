@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, VK_hdr_layer, ... }:
 
 {
 
@@ -6,7 +6,7 @@
     ./locale/qwerty.nix
     ./locale/losAngeles.nix
     
-    ./de/plasma.nix
+    ./de/plasma6.nix
     ./de/wayfire.nix
 
     ./packages/gui.nix
@@ -49,20 +49,15 @@
     ./impermanence/steam.nix
   ];
   
-  specialisation = {
-    plasma6.configuration = {
-      system.nixos.tags = [ "Plasma6" ];
-      imports = [ ./de/plasma6.nix ];
-      services.xserver.desktopManager.plasma5.enable = false;
-     
-    };
-  };
+
+  chaotic.hdr.enable = true;
+  chaotic.hdr.specialisation.enable = false;
+
 
 
   hardware.uinput.enable = true;
   # https://rbf.dev/blog/2020/05/custom-nixos-build-for-raspberry-pis/#building-on-nixos-using-nixos-generators
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  
 
 
   boot.initrd.kernelModules = [ "amdgpu" ];

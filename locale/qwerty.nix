@@ -6,7 +6,7 @@
   # Select internationalisation properties.
   #console.keyMap = "us";
 
-  services.xserver.xkbVariant = "";
+  services.xserver.xkb.variant = "";
 
   environment.variables = {
     XKB_DEFAULT_VARIANT = "";

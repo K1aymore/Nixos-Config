@@ -25,7 +25,14 @@
     ];
     
   };
+
+  environment.systemPackages = [
+    (pkgs.callPackage ./VK_hdr_layer.nix {})
+  ];
   
+  environment.variables = {
+    ENABLE_HDR_WSI = "1";
+  };
 
   programs.dconf.enable = true;
 

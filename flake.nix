@@ -22,12 +22,14 @@
     stylix.url = "github:danth/stylix";
 
     kde2nix.url = "github:nix-community/kde2nix";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     
+    VK_hdr_layer.url = "/synced/other/VK_hdr_layer";
   };
 
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              nix-std, flake-programs-sqlite, stylix, kde2nix }@attrs:
+              nix-std, flake-programs-sqlite, stylix, kde2nix, chaotic, VK_hdr_layer }@attrs:
     let
       
       sharedConfig = hostname: nsystem: nixpkgs.lib.nixosSystem {
@@ -48,6 +50,7 @@
           flake-programs-sqlite.nixosModules.programs-sqlite
           #stylix.nixosModules.stylix
           kde2nix.nixosModules.plasma6
+          chaotic.nixosModules.default
           
           
           { nixpkgs.overlays = [

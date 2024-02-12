@@ -239,16 +239,22 @@
 
     mpv.enable = true;
     mpv.config = {
-      hwdec = "auto-safe";
-      
       fullscreen = true;
-      fs-screen = 0;
-      screen = 0;
+      fs-screen = 1;
+      screen = 1;
       window-maximized = "yes";
       keep-open = "no";
-      
+      alang = "eng,en,enUS,en-US";
+
+      vo = "gpu-next";
+      gpu-api = "vulkan";
+      gpu-context = "waylandvk";
+      target-colorspace-hint = true;
+
       profile = "gpu-hq";
-      ytdl-format = "bestvideo+bestaudio";
+      hwdec = "auto-safe";
+
+      ytdl-format = "bv*[height<=2160]+ba/b[height<=2160]";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
       deband = true;
@@ -256,6 +262,18 @@
       interpolation = false;
       video-sync = "display-resample-vdrop";
       tscale = "oversample";
+    };
+    mpv.profiles = {
+      SDR_HDR_EFFECT = {
+        profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
+        profile-restore = "copy";
+        target-trc = "pq";
+        target-prim ="bt.2020";
+        # Higher value = stronger effect
+        target-peak = 800;
+        tone-mapping = "bt.2446a";
+        inverse-tone-mapping = true;
+      };
     };
     mpv.bindings = {
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
@@ -268,6 +286,8 @@
       "CTRL+7" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
       "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/FSR.glsl}\"; show-text \"FSR\"";
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
+      "CTRL+WHEEL_UP" = "add target-peak 25";
+      "CTRL+WHEEL_DOWN" = "add target-peak -25";
     };
     
   };

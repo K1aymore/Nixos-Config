@@ -7,7 +7,7 @@
     enable = true;
     displayManager.lightdm.enable = false;
     # Configure keymap in X11
-    layout = "us";
+    xkb.layout = "us";
     # xkbOptions = "eurosign:e";
 
     libinput = {
