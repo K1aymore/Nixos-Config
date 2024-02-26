@@ -128,6 +128,7 @@
     element-desktop
     qbittorrent
     protonvpn-gui
+    networkmanagerapplet
     #onionshare-gui
     #tor-browser-bundle-bin
     #session-desktop-appimage
@@ -240,8 +241,8 @@
     mpv.enable = true;
     mpv.config = {
       fullscreen = true;
-      fs-screen = 1;
-      screen = 1;
+      fs-screen = 0;
+      screen = 0;
       window-maximized = "yes";
       keep-open = "no";
       alang = "eng,en,enUS,en-US";
@@ -259,8 +260,8 @@
       cscale = "ewa_lanczossharp";
       deband = true;
       
-      interpolation = false;
-      video-sync = "display-resample-vdrop";
+      interpolation = true;
+      video-sync = "display-resample";
       tscale = "oversample";
     };
     mpv.profiles = {

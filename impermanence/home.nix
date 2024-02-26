@@ -213,6 +213,8 @@
         ".config/gtk-4.0"
         ".config/KDE"
         ".config/kde.org"
+        ".config/kdeconnect"
+        ".config/kdedefaults"
         ".config/plasma-workspace"
         ".config/session"
         ".config/xsettingsd"
@@ -227,6 +229,7 @@
         ".local/share/kwalletd"
         ".local/share/kxmlgui5"
         ".local/share/plasma"
+        ".local/share/plasmashell"
         ".local/share/RecentDocuments"
         ".local/share/sddm"
       ];
