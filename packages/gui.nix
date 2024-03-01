@@ -47,7 +47,7 @@
     filelight
     gparted
     ark
-    libsForQt5.kio
+    kdePackages.kio
     spectacle
     #flameshot
     #onboard
@@ -66,18 +66,18 @@
     alsa-utils
     alsa-plugins
     hushboard
-    libsForQt5.xdg-desktop-portal-kde
+    kdePackages.xdg-desktop-portal-kde
 
     #jamesdsp
     carla
     gnome.gnome-bluetooth
     gnome.gnome-control-center
     mono
-    libsForQt5.breeze-qt5
-    libsForQt5.kleopatra
+    kdePackages.breeze
+    kdePackages.kleopatra
     pinentry
     pinentry-qt
-    libsForQt5.kdialog
+    kdePackages.kdialog
     razergenie
 
     kate
@@ -113,10 +113,10 @@
 
     keepassxc
 
-    libsForQt5.kalk
-    libsForQt5.kcalc
+    kdePackages.kalk
+    kdePackages.kcalc
     speedcrunch
-    libsForQt5.akonadi-calendar
+    kdePackages.akonadi-calendar
     plasma5Packages.kdeconnect-kde
 
     firefox-wayland
@@ -149,11 +149,10 @@
     krita
     #opentoonz
     inkscape
-    libsForQt5.kdenlive
+    kdePackages.kdenlive
     #movit
     #log4cxx
     lmms
-    musescore
     #reaper
     ardour
     #furnace

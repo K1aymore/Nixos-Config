@@ -7,6 +7,7 @@
     ./locale/losAngeles.nix
     
     ./de/plasma6.nix
+    ./de/cosmic.nix
     ./de/wayfire.nix
 
     ./packages/gui.nix
@@ -45,8 +46,8 @@
     ./syncthing/projects.nix
 
 
-    ./impermanence
-    ./impermanence/steam.nix
+    ./impermanence/system.nix
+    #./impermanence/steam.nix
   ];
   
 

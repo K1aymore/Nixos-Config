@@ -17,9 +17,9 @@
   };
 
   fileSystems."/home/klaymore" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "mode=777" ]; # "size=2G"
+    device = "/dev/disk/by-uuid/bd091aa1-d529-4801-a095-64a96379fbcb";
+    fsType = "ext4";
+    #options = [ "mode=777" ]; # "size=2G"
   };
 
 

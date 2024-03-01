@@ -45,6 +45,7 @@
         "Godot/.cache/godot"
 
         "Discord/.config/discord"
+        "BetterDiscord/.config/BetterDiscord"
 
         "Element/.config/Element"
         "Element/.pki"
@@ -295,7 +296,6 @@
     };
 
 
-    home.stateVersion = "22.11";
   };
 
 

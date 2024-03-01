@@ -68,7 +68,7 @@ in {
     #rm = "rm -i";
 
     eleventy = "npx @11ty/eleventy";
-    qtShell = "nix-shell -p libsForQt5.full -p qtcreator --run qtcreator";
+    qtShell = "nix-shell -p kdePackages.full -p qtcreator --run qtcreator";
     davinciResolve = "NIXPKGS_ALLOW_INSECURE=1 NIXPKGS_ALLOW_UNFREE=1 nix-shell -p davinci-resolve --impure --run davinci-resolve";
 
     webFullMirror = "wget --mirror --convert-links --adjust-extension --page-requisites";
