@@ -139,7 +139,6 @@
     ff2mpv
 
     steam-run
-    gamescope
 
     unstable.godot_4
     blender-hip
@@ -259,8 +258,8 @@
       cscale = "ewa_lanczossharp";
       deband = true;
       
-      interpolation = true;
-      video-sync = "display-resample";
+      interpolation = false;
+      video-sync = "display-resample-vdrop";
       tscale = "oversample";
     };
     mpv.profiles = {
@@ -270,7 +269,7 @@
         target-trc = "pq";
         target-prim ="bt.2020";
         # Higher value = stronger effect
-        target-peak = 800;
+        target-peak = 700;
         tone-mapping = "bt.2446a";
         inverse-tone-mapping = true;
       };

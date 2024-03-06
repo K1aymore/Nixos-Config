@@ -22,6 +22,11 @@
     ENABLE_HDR_WSI = "1";
   };
 
+  programs.gamescope = {
+    #package = pkgs.gamescope-wsi;
+  };
+
+
   programs.dconf.enable = true;
 
 }

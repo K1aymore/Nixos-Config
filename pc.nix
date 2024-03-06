@@ -8,6 +8,7 @@
     
     ./de/plasma6.nix
     ./de/cosmic.nix
+    ./de/niri.nix
     ./de/wayfire.nix
 
     ./packages/gui.nix
@@ -16,7 +17,7 @@
     #./packages/video-editing.nix
     #./packages/mpd.nix
     
-    #./packages/steam.nix
+    ./packages/steam.nix
 
     #./packages/zerotier.nix
     #./packages/VMs.nix

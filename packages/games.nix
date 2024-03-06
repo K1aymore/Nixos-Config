@@ -67,7 +67,9 @@
     enable = true;
   };
 
-  programs.gamescope.enable = true;
+  programs.gamescope = {
+    enable = true;
+  };
 
   home-manager.users.klaymore.programs.mangohud = {
     enable = true;
