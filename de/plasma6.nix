@@ -23,8 +23,15 @@
   };
 
   programs.gamescope = {
-    #package = pkgs.gamescope-wsi;
+    # fails to build
+    package = pkgs.gamescope-wsi;
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      gamescope-wsi = prev.gamescope-wsi.override { enableExecutable = true; };
+    })
+  ];
 
 
   programs.dconf.enable = true;

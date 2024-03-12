@@ -269,19 +269,14 @@
         target-trc = "pq";
         target-prim ="bt.2020";
         # Higher value = stronger effect
-        target-peak = 700;
+        target-peak = 550;
         tone-mapping = "bt.2446a";
         inverse-tone-mapping = true;
       };
     };
     mpv.bindings = {
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
-      "CTRL+1" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/Anime4K/Anime4K_Clamp_Highlights.glsl}:${./-mpvShaders/Anime4K/Anime4K_Restore_CNN_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x2.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x4.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_M.glsl}\"; show-text \"Anime4K: Mode A (HQ)\"";
-      "CTRL+2" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/Anime4K/Anime4K_Clamp_Highlights.glsl}:${./-mpvShaders/Anime4K/Anime4K_Restore_CNN_Soft_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x2.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x4.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_M.glsl}\"; show-text \"Anime4K: Mode B (HQ)\"";
-      "CTRL+3" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/Anime4K/Anime4K_Clamp_Highlights.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_Denoise_CNN_x2_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x2.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x4.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_M.glsl}\"; show-text \"Anime4K: Mode C (HQ)\"";
-      "CTRL+4" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/Anime4K/Anime4K_Clamp_Highlights.glsl}:${./-mpvShaders/Anime4K/Anime4K_Restore_CNN_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_Restore_CNN_M.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x2.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x4.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_M.glsl}\"; show-text \"Anime4K: Mode A+A (HQ)\"";
-      "CTRL+5" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/Anime4K/Anime4K_Clamp_Highlights.glsl}:${./-mpvShaders/Anime4K/Anime4K_Restore_CNN_Soft_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x2.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x4.glsl}:${./-mpvShaders/Anime4K/Anime4K_Restore_CNN_Soft_M.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_M.glsl}\"; show-text \"Anime4K: Mode B+B (HQ)\"";
-      "CTRL+6" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/Anime4K/Anime4K_Clamp_Highlights.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_Denoise_CNN_x2_VL.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x2.glsl}:${./-mpvShaders/Anime4K/Anime4K_AutoDownscalePre_x4.glsl}:${./-mpvShaders/Anime4K/Anime4K_Restore_CNN_M.glsl}:${./-mpvShaders/Anime4K/Anime4K_Upscale_CNN_x2_M.glsl}\"; show-text \"Anime4K: Mode C+A (HQ)\"";
+      "CTRL+1" = "apply-profile \"SDR_HDR_EFFECT\"";
       "CTRL+7" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
       "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/FSR.glsl}\"; show-text \"FSR\"";
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";

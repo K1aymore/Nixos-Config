@@ -9,7 +9,7 @@
     playonlinux
     bottles
     #grapejuice
-    #protonup
+    protonup-qt
     #protontricks
     #openal
     heroic
