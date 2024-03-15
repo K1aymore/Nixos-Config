@@ -56,13 +56,13 @@
   #chaotic.hdr.specialisation.enable = false;
 
   
-  specialisation.plasma5.configuration = {
+  /*specialisation.plasma5.configuration = {
     system.nixos.tags = [ "plasma5" ];
-    services.xserver = {
+    services = {
       desktopManager.plasma6.enable = false;
-      desktopManager.plasma5.enable = true;      
+      xserver.desktopManager.plasma5.enable = true;      
     };
-  };
+  };*/
 
 
   hardware.uinput.enable = true;

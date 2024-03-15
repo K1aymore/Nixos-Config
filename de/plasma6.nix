@@ -11,8 +11,9 @@
   services.xserver = {
       displayManager.sddm.enable = true;
       displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
-      desktopManager.plasma6.enable = lib.mkDefault true;
   };
+
+  services.desktopManager.plasma6.enable = lib.mkDefault true;
 
   environment.systemPackages = [
     (pkgs.callPackage ./VK_hdr_layer.nix {})
@@ -23,7 +24,6 @@
   };
 
   programs.gamescope = {
-    # fails to build
     package = pkgs.gamescope-wsi;
   };
 
