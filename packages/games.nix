@@ -69,6 +69,7 @@
 
   programs.gamescope = {
     enable = true;
+    #capSysNice = true;
   };
 
   home-manager.users.klaymore.programs.mangohud = {

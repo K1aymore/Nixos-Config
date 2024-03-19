@@ -34,6 +34,7 @@ in {
 
     vi = "nvim";
     steamflat = "flatpak run com.valvesoftware.Steam";
+    steamhdr = "ENABLE_HDR_WSI=1 gamescope -f -h 2160 -F fsr --force-grab-cursor --adaptive-sync --hdr-enabled --hdr-debug-force-output --hdr-itm-enable --hdr-itm-sdr-nits 500 --steam -- env ENABLE_GAMESCOPE_WSI=1 DXVK_HDR=1 DISABLE_HDR_WSI=1 MANGOHUD=1 steam";
     blades = "~/.cargo/bin/blades";
     ncfg = "codium ${configPath}";
     notes = "codium /synced/Sync/Notes";

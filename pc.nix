@@ -52,8 +52,8 @@
   ];
   
 
-  #chaotic.hdr.enable = true;
-  #chaotic.hdr.specialisation.enable = false;
+  chaotic.hdr.enable = true;
+  chaotic.hdr.specialisation.enable = false;
 
   
   /*specialisation.plasma5.configuration = {
