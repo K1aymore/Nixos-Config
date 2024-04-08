@@ -104,7 +104,7 @@
         "workbench.iconTheme" = "catppuccin-macchiato";
         "workbench.colorTheme" = "Mayukai Semantic Mirage";
         
-        "editor.fontFamily" = "'Fira Code', 'Droid Sans Mono', 'monospace', monospace";
+        "editor.fontFamily" = "Fira Code";
         
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nil";

@@ -25,6 +25,23 @@
 
   programs.gamescope = {
     package = pkgs.gamescope-wsi;
+    /*env = {
+      ENABLE_GAMESCOPE_WSI = "1";
+      DXVK_HDR = "1";
+      DISABLE_HDR_WSI = "1";
+      MANGOHUD = "1";
+    };
+    args = [
+      "-f"
+      "-F fsr"
+      "-h 2160"
+      "--force-grab-cursor"
+      "--adaptive-sync"
+      "--hdr-enabled"
+      "--hdr-debug-force-output"
+      "--hdr-itm-enable"
+      "--steam"
+    ];*/
   };
 
   nixpkgs.overlays = [

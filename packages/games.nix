@@ -76,7 +76,7 @@
     enable = true;
     enableSessionWide = false;
     settings = {
-      fps_limit = [ 150 0 ];
+      fps_limit = [ 150 60 0 ];
       show_fps_limit = true;
       
       arch = true;
