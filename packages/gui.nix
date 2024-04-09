@@ -245,10 +245,6 @@
       keep-open = "no";
       alang = "eng,en,enUS,en-US";
 
-      vo = "gpu-next";
-      gpu-api = "vulkan";
-      gpu-context = "waylandvk";
-      target-colorspace-hint = true;
 
       profile = "gpu-hq";
       hwdec = "auto-safe";
@@ -262,18 +258,7 @@
       video-sync = "display-resample-vdrop";
       tscale = "oversample";
     };
-    mpv.profiles = {
-      SDR_HDR_EFFECT = {
-        profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
-        profile-restore = "copy";
-        target-trc = "pq";
-        target-prim ="bt.2020";
-        # Higher value = stronger effect
-        target-peak = 550;
-        tone-mapping = "bt.2446a";
-        inverse-tone-mapping = true;
-      };
-    };
+    
     mpv.bindings = {
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
       "CTRL+1" = "apply-profile \"SDR_HDR_EFFECT\"";

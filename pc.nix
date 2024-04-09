@@ -7,6 +7,7 @@
     ./locale/losAngeles.nix
     
     ./de/plasma6.nix
+    ./de/hdr.nix
     ./de/cosmic.nix
     ./de/niri.nix
     ./de/wayfire.nix
@@ -50,10 +51,6 @@
     ./impermanence/system.nix
     #./impermanence/steam.nix
   ];
-  
-
-  chaotic.hdr.enable = true;
-  chaotic.hdr.specialisation.enable = false;
 
   
   /*specialisation.plasma5.configuration = {
