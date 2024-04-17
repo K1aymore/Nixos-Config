@@ -20,7 +20,8 @@
 
   environment.systemPackages = with pkgs; [
     wayland-utils
-  
+  	xwayland
+  	xwaylandvideobridge
   ];
 
 

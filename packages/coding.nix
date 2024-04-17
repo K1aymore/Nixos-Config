@@ -40,6 +40,8 @@
     docker
     #arduino
 
+    sqlite
+
     /* qtcreator */
     /* libsForQt5.full */
     cmake

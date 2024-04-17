@@ -8,9 +8,13 @@
     
     ./de/plasma6.nix
     ./de/hdr.nix
-    ./de/cosmic.nix
+    #./de/cosmic.nix
     ./de/niri.nix
     ./de/wayfire.nix
+    #./de/sway.nix
+	  ./de/xfce.nix
+	  ./de/hyprland.nix
+	  #./de/gnome.nix
 
     ./packages/gui.nix
     ./packages/games.nix
@@ -93,7 +97,7 @@
     ];
   };
 
-  environment.variables.AMD_VULKAN_ICD = "RADV";
+  #environment.variables.AMD_VULKAN_ICD = "RADV";
 
   #hardware.pulseaudio.support32Bit = true;
 
@@ -123,11 +127,11 @@
 
 
   # Star Citizen
-  /*networking.extraHosts = "127.0.0.1 modules-cdn.eac-prod.on.epicgames.com";
+  #networking.extraHosts = "127.0.0.1 modules-cdn.eac-prod.on.epicgames.com";
   boot.kernel.sysctl = {
     "vm.max_map_count" = 16777216;
     "fs.file-max" = 524288;
-  };*/
+  };
   
   
   

@@ -22,11 +22,16 @@
     stylix.url = "github:danth/stylix";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              nix-std, flake-programs-sqlite, stylix, chaotic }@attrs:
+              nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic }@attrs:
     let
       
       sharedConfig = hostname: nsystem: nixpkgs.lib.nixosSystem {
@@ -47,6 +52,7 @@
           flake-programs-sqlite.nixosModules.programs-sqlite
           #stylix.nixosModules.stylix
           chaotic.nixosModules.default
+          nixos-cosmic.nixosModules.default
           
           
           { nixpkgs.overlays = [
