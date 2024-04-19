@@ -6,6 +6,7 @@
     clang
     clang-tools
     gcc
+    gcc11
     ghc # Haskell compiler
     sbcl # Lisp compiler
     nasm # assembly compiler

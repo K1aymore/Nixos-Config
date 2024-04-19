@@ -8,12 +8,12 @@
     ./pipewire.nix
   ];
 
-  services.xserver = {
+  services = {
       displayManager.sddm.enable = true;
       displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
+      desktopManager.plasma6.enable = lib.mkDefault true;
   };
 
-  services.desktopManager.plasma6.enable = lib.mkDefault true;
 
   programs.dconf.enable = true;
 
