@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, systemSettings, ... }:
 
 {
 
@@ -6,6 +6,8 @@
     ./x11.nix
     ./wayland.nix
     ./pipewire.nix
+  ] ++ lib.optionals systemSettings.hdr [
+    ./hdr.nix
   ];
 
   services = {

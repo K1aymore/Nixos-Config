@@ -33,9 +33,21 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
               nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic }@attrs:
   let
-    sharedConfig = hostname: nsystem: nixpkgs.lib.nixosSystem {
-      system = nsystem;
-      specialArgs = attrs;
+
+    sharedConfig = hostname: inSettings@{ ... }:
+    let
+      # sets the default settings, which will be overwritten by any custom parameters
+      systemSettings = {
+        architecture = "x86_64-linux";
+        hdr = false;
+      } // inSettings;
+    in
+    nixpkgs.lib.nixosSystem {
+      system = systemSettings.architecture;
+      specialArgs = attrs // {
+        inherit systemSettings;
+      };
+
       modules = [
         ./base
         ./${hostname}.nix
@@ -52,19 +64,18 @@
         #stylix.nixosModules.stylix
         chaotic.nixosModules.default
         nixos-cosmic.nixosModules.default
-        
-        
+
         { nixpkgs.overlays = [
           (final: prev: {
             unstable = import nixpkgs-unstable {
-              system = nsystem;
+              system = systemSettings.architecture;
               config.allowUnfree = true;
             };
           })
           
           (final: prev: {
             stable = import nixpkgs-stable {
-              system = nsystem;
+              system = systemSettings.architecture;
               config.allowUnfree = true;
             };
           })
@@ -78,15 +89,19 @@
   {
     nixosConfigurations = {
 
-      oldlaptop = sharedConfig "oldlaptop" "x86_64-linux";
+      oldlaptop = sharedConfig "oldlaptop" {};
 
-      laptop = sharedConfig "laptop" "x86_64-linux";
+      laptop = sharedConfig "laptop" {};
 
-      pc = sharedConfig "pc" "x86_64-linux";
+      pc = sharedConfig "pc" {
+        hdr = true;
+      };
 
-      server = sharedConfig "server" "x86_64-linux";
+      server = sharedConfig "server" {};
       
-      pimusic = sharedConfig "pimusic" "aarch64-linux";
+      pimusic = sharedConfig "pimusic" {
+        architecture = "aarch64-linux";
+      };
 
     };
   };

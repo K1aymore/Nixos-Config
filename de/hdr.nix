@@ -46,26 +46,4 @@
     })
   ];
 
-
-  home-manager.users.klaymore.programs = {
-    mpv.config = {
-      vo = "gpu-next";
-      gpu-api = "vulkan";
-      gpu-context = "waylandvk";
-      target-colorspace-hint = true;
-    };
-    mpv.profiles = {
-      SDR_HDR_EFFECT = {
-        profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
-        profile-restore = "copy";
-        target-trc = "pq";
-        target-prim ="bt.2020";
-        # Higher value = stronger effect
-        target-peak = 550;
-        tone-mapping = "bt.2446a";
-        inverse-tone-mapping = true;
-      };
-    };
-  };
-
 }
