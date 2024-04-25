@@ -127,7 +127,7 @@
     xclip
     /* neovim */    # home manager
     universal-ctags
-    emacs
+    #emacs
     fd
     ranger
     sc-im

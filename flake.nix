@@ -32,64 +32,63 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
               nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic }@attrs:
-    let
-      
-      sharedConfig = hostname: nsystem: nixpkgs.lib.nixosSystem {
-        system = nsystem;
-        specialArgs = attrs;
-        modules = [
-          ./base
-          ./${hostname}.nix
-          ./hardware/${hostname}.nix
-          
-          { networking.hostName = hostname; }
-          
-          
-          home-manager.nixosModules.home-manager
-          impermanence.nixosModule
-          { home-manager.users.klaymore.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
-          
-          flake-programs-sqlite.nixosModules.programs-sqlite
-          #stylix.nixosModules.stylix
-          chaotic.nixosModules.default
-          nixos-cosmic.nixosModules.default
-          
-          
-          { nixpkgs.overlays = [
-            (final: prev: {
-              unstable = import nixpkgs-unstable {
-                system = nsystem;
-                config.allowUnfree = true;
-              };
-            })
-            
-            (final: prev: {
-              stable = import nixpkgs-stable {
-                system = nsystem;
-                config.allowUnfree = true;
-              };
-            })
-          ];}
-          
-          
-        ];
-      };
-
-    in
-    {
-      nixosConfigurations = {
-
-        oldlaptop = sharedConfig "oldlaptop" "x86_64-linux";
-
-        laptop = sharedConfig "laptop" "x86_64-linux";
-
-        pc = sharedConfig "pc" "x86_64-linux";
-
-        server = sharedConfig "server" "x86_64-linux";
+  let
+    sharedConfig = hostname: nsystem: nixpkgs.lib.nixosSystem {
+      system = nsystem;
+      specialArgs = attrs;
+      modules = [
+        ./base
+        ./${hostname}.nix
+        ./hardware/${hostname}.nix
         
-        pimusic = sharedConfig "pimusic" "aarch64-linux";
-
-      };
+        { networking.hostName = hostname; }
+        
+        
+        home-manager.nixosModules.home-manager
+        impermanence.nixosModule
+        { home-manager.users.klaymore.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
+        
+        flake-programs-sqlite.nixosModules.programs-sqlite
+        #stylix.nixosModules.stylix
+        chaotic.nixosModules.default
+        nixos-cosmic.nixosModules.default
+        
+        
+        { nixpkgs.overlays = [
+          (final: prev: {
+            unstable = import nixpkgs-unstable {
+              system = nsystem;
+              config.allowUnfree = true;
+            };
+          })
+          
+          (final: prev: {
+            stable = import nixpkgs-stable {
+              system = nsystem;
+              config.allowUnfree = true;
+            };
+          })
+        ];}
+        
+        
+      ];
     };
+
+  in
+  {
+    nixosConfigurations = {
+
+      oldlaptop = sharedConfig "oldlaptop" "x86_64-linux";
+
+      laptop = sharedConfig "laptop" "x86_64-linux";
+
+      pc = sharedConfig "pc" "x86_64-linux";
+
+      server = sharedConfig "server" "x86_64-linux";
+      
+      pimusic = sharedConfig "pimusic" "aarch64-linux";
+
+    };
+  };
 
 }

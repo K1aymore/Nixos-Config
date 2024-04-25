@@ -228,7 +228,7 @@
   home-manager.users.klaymore.programs = {
 
     emacs = {
-      enable = true;
+      enable = false;
       package = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ emacsPackages.slime ]));
       extraConfig = ''
         (setq standard-indent 4)
@@ -282,7 +282,7 @@
   
   
   services.emacs = {
-    enable = true;
+    enable = false;
     package = config.home-manager.users.klaymore.programs.emacs.package;
   };
 

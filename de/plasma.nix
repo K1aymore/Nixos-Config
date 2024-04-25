@@ -9,9 +9,9 @@
   ];
 
   services = {
-      displayManager.sddm.enable = true;
-      displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
-      desktopManager.plasma5.enable = lib.mkDefault true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
+    xserver.desktopManager.plasma5.enable = lib.mkDefault true;
   };
 
   environment.systemPackages = with pkgs; [
