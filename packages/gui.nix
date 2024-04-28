@@ -257,24 +257,24 @@
       interpolation = false;
       video-sync = "display-resample-vdrop";
       tscale = "oversample";
-    # } // lib.mkIf config.machineSpecific.hdr {
-    #   vo = "gpu-next";
-    #   gpu-api = "vulkan";
-    #   gpu-context = "waylandvk";
-    #   target-colorspace-hint = true;
+    } // lib.mkIf systemSettings.hdr {
+      vo = "gpu-next";
+      gpu-api = "vulkan";
+      gpu-context = "waylandvk";
+      target-colorspace-hint = true;
     };
-    # mpv.profiles = lib.mkIf config.machineSpecific.hdr {
-    #   SDR_HDR_EFFECT = {
-    #     profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
-    #     profile-restore = "copy";
-    #     target-trc = "pq";
-    #     target-prim ="bt.2020";
-    #     # Higher value = stronger effect
-    #     target-peak = 550;
-    #     tone-mapping = "bt.2446a";
-    #     inverse-tone-mapping = true;
-    #   };
-    # };
+    mpv.profiles = lib.mkIf systemSettings.hdr {
+      SDR_HDR_EFFECT = {
+        profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
+        profile-restore = "copy";
+        target-trc = "pq";
+        target-prim ="bt.2020";
+        # Higher value = stronger effect
+        target-peak = 550;
+        tone-mapping = "bt.2446a";
+        inverse-tone-mapping = true;
+      };
+    };
     
     mpv.bindings = {
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";

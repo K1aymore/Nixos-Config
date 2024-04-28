@@ -1,7 +1,7 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
@@ -44,9 +44,7 @@
     in
     nixpkgs.lib.nixosSystem {
       system = systemSettings.architecture;
-      specialArgs = attrs // {
-        inherit systemSettings;
-      };
+      specialArgs = attrs // { inherit systemSettings; };
 
       modules = [
         ./base

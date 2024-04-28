@@ -6,8 +6,13 @@ let
 in {
 
   environment.shellAliases = {
-    nrb = "sudo nixos-rebuild boot --flake ${configPath}";
-    nrs = "sudo nixos-rebuild switch --flake ${configPath}";
+    #nrb = "sudo nixos-rebuild boot --flake ${configPath}";
+    #nrs = "sudo nixos-rebuild switch --flake ${configPath}";
+    nrb = "nh os boot";
+    nrs = "nh os switch";
+    nrbu = "nh os boot -u";
+    nrsu = "nh os switch -u";
+
     rebuildBoot = "cd ${configPath} && git add .; cd - && nrb";
     rebuildSwitch = "cd ${configPath} && git add .; cd - && nrs";
     update = "cd ${configPath} && git add . && git commit -m \"before update\" && nix flake update && rebuildBoot; cd -";

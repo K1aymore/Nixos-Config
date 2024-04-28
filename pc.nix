@@ -12,7 +12,7 @@
     ./de/niri.nix
     ./de/wayfire.nix
     #./de/sway.nix
-	  ./de/xfce.nix
+	  #./de/xfce.nix
 	  ./de/hyprland.nix
 	  #./de/gnome.nix
 

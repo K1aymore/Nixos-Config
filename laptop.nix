@@ -1,4 +1,4 @@
-{ lib, systemSettings, ... }:
+{ lib, ... }:
 
 {
 
@@ -30,8 +30,6 @@
 
     ./impermanence
     ./impermanence/steam.nix
-  ] ++ lib.optionals systemSettings.hdr [
-    ./locale/sweden.nix
   ];
   
   #services.getty.autologinUser = "klaymore";

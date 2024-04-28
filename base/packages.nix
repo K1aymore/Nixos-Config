@@ -150,6 +150,7 @@
     bacon
     speedtest-rs
     delta
+    nh
 
     ffmpeg
     yt-dlp
