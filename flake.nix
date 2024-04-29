@@ -1,7 +1,7 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
@@ -40,6 +40,7 @@
       systemSettings = {
         architecture = "x86_64-linux";
         hdr = false;
+        username = "klaymore";
       } // inSettings;
     in
     nixpkgs.lib.nixosSystem {
@@ -56,7 +57,7 @@
         
         home-manager.nixosModules.home-manager
         impermanence.nixosModule
-        { home-manager.users.klaymore.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
+        { home-manager.users.${systemSettings.username}.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
         
         flake-programs-sqlite.nixosModules.programs-sqlite
         #stylix.nixosModules.stylix

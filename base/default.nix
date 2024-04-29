@@ -35,7 +35,6 @@
   environment.variables = {
     GPG_TTY = "$(tty)";
     GTK_USE_PORTAL = "1";
-    FLAKE = "/synced/Nix/cfg";
   };
 
   security.polkit.enable = true;

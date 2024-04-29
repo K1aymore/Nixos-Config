@@ -4,14 +4,23 @@ let
   scripts = "/synced/Sync/Linux/BashScripts";
   configPath = "/synced/Nix/cfg";
 in {
+  environment.variables = {
+    GPG_TTY = "$(tty)";
+    GTK_USE_PORTAL = "1";
+    FLAKE = configPath;
+  };
 
   environment.shellAliases = {
-    #nrb = "sudo nixos-rebuild boot --flake ${configPath}";
-    #nrs = "sudo nixos-rebuild switch --flake ${configPath}";
-    nrb = "nh os boot";
-    nrs = "nh os switch";
-    nrbu = "nh os boot -u";
-    nrsu = "nh os switch -u";
+    nrb = "sudo nixos-rebuild boot --flake ${configPath}";
+    nrs = "sudo nixos-rebuild switch --flake ${configPath}";
+    nhb = "nh os boot";
+    nhs = "nh os switch";
+    nhba = "nh os boot -a";
+    nhsa = "nh os switch -a";
+    nhbu = "nh os boot -u";
+    nhsu = "nh os switch -u";
+    nhbua = "nh os boot -ua";
+    nhsua = "nh os switch -ua";
 
     rebuildBoot = "cd ${configPath} && git add .; cd - && nrb";
     rebuildSwitch = "cd ${configPath} && git add .; cd - && nrs";
