@@ -14,12 +14,12 @@ in {
     nrb = "sudo nixos-rebuild boot --flake ${configPath}";
     nrs = "sudo nixos-rebuild switch --flake ${configPath}";
     nhb = "nh os boot";
-    nhs = "nh os switch";
-    nhba = "nh os boot -a";
-    nhsa = "nh os switch -a";
     nhbu = "nh os boot -u";
-    nhsu = "nh os switch -u";
+    nhba = "nh os boot -a";
     nhbua = "nh os boot -ua";
+    nhs = "nh os switch";
+    nhsu = "nh os switch -u";
+    nhsa = "nh os switch -a";
     nhsua = "nh os switch -ua";
 
     rebuildBoot = "cd ${configPath} && git add .; cd - && nrb";

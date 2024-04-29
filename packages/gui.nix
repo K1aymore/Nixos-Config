@@ -38,6 +38,7 @@
     wob
     #mako # notification daemon, annoying on plasma
     alacritty
+    kitty
     dmenu
     wofi
     xdg-utils
