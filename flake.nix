@@ -40,8 +40,8 @@
       systemSettings = {
         architecture = "x86_64-linux";
         hdr = false;
-        username = "klaymore";
       } // inSettings;
+      
     in
     nixpkgs.lib.nixosSystem {
       system = systemSettings.architecture;
@@ -57,7 +57,7 @@
         
         home-manager.nixosModules.home-manager
         impermanence.nixosModule
-        { home-manager.users.${systemSettings.username}.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
+        { home-manager.users.klaymore.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
         
         flake-programs-sqlite.nixosModules.programs-sqlite
         #stylix.nixosModules.stylix

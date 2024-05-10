@@ -36,6 +36,8 @@
     jdk8
     jdt-language-server
 
+    php
+
     #jetbrains.idea-community
     vscode-fhs
     docker
@@ -100,6 +102,24 @@
           publisher = "GulajavaMinistudio";
           version = "3.2.3";
           sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
+        }
+        {
+          name = "vscode-scheme";
+          publisher = "sjhuangx";
+          version = "0.4.0";
+          sha256 = "sha256-BN+C64YQ2hUw5QMiKvC7PHz3II5lEVVy0Shtt6t3ch8=";
+        }
+        {
+          name = "vscode-power-mode";
+          publisher = "hoovercj";
+          version = "3.0.2";
+          sha256 = "sha256-ZE+Dlq0mwyzr4nWL9v+JG00Gllj2dYwL2r9jUPQ8umQ=";
+        }
+        {
+          name = "subway-surfers";
+          publisher = "jirkavrba";
+          version = "2.0.0";
+          sha256 = "sha256-gZ4dlt6T3pZgxz/voeENVVMJEJ/k99mszDXwEQzl04I=";
         }
       ];
 

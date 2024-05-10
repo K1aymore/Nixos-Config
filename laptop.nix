@@ -7,7 +7,7 @@
     ./locale/losAngeles.nix
     
     ./de/plasma.nix
-    ./de/sway.nix
+    ./de/hyprland.nix
 
     ./packages/gui.nix
     #./packages/games.nix

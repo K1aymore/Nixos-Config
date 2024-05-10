@@ -89,6 +89,7 @@
     clementine
     strawberry
     jamesdsp
+    clematis
     #puddletag
     kid3
     tageditor
@@ -226,19 +227,22 @@
   };*/
 
 
-  home-manager.users.klaymore.programs = {
+  home-manager.users.klaymore.programs.emacs = {
+    enable = false;
+    package = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ emacsPackages.slime ]));
+    extraConfig = ''
+      (setq standard-indent 4)
+    '';
+  };
 
-    emacs = {
-      enable = false;
-      package = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ emacsPackages.slime ]));
-      extraConfig = ''
-        (setq standard-indent 4)
-      '';
-    };
-    
 
-    mpv.enable = true;
-    mpv.config = {
+  home-manager.users.klaymore.programs.mpv =
+    let
+      sdrTargetPeak = 550;
+    in
+    {
+    enable = true;
+    config = {
       fullscreen = true;
       fs-screen = 0;
       screen = 0;
@@ -250,12 +254,13 @@
       profile = "gpu-hq";
       hwdec = "auto-safe";
 
+      # best quality, except for 8K which is dumb
       ytdl-format = "bv*[height<=2160]+ba/b[height<=2160]";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
       deband = true;
-      
-      interpolation = false;
+
+      interpolation = true;
       video-sync = "display-resample-vdrop";
       tscale = "oversample";
     } // lib.mkIf systemSettings.hdr {
@@ -264,41 +269,50 @@
       gpu-context = "waylandvk";
       target-colorspace-hint = true;
     };
-    mpv.profiles = lib.mkIf systemSettings.hdr {
+    profiles = lib.mkIf systemSettings.hdr {
+      # converts SDR into HDR
       SDR_HDR_EFFECT = {
-        profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
+        profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
         target-trc = "pq";
-        target-prim ="bt.2020";
-        # Higher value = stronger effect
-        target-peak = 550;
+        target-prim = "bt.2020";
         tone-mapping = "bt.2446a";
         inverse-tone-mapping = true;
+
+        # Higher value = stronger effect
+        target-peak = sdrTargetPeak;
+        saturation = 30;
       };
     };
-    
-    mpv.bindings = {
-      "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
-      "CTRL+1" = "apply-profile \"SDR_HDR_EFFECT\"";
+    bindings = {
+      "CTRL+1" = "set target-peak ${builtins.toString sdrTargetPeak}";
       "CTRL+7" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
       "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/FSR.glsl}\"; show-text \"FSR\"";
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
+      "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
       "CTRL+WHEEL_UP" = "add target-peak 25";
       "CTRL+WHEEL_DOWN" = "add target-peak -25";
+
+      "a" = "vf toggle hflip";
     };
-    
   };
-  
+
+  # Used to be for copying shaders to config path, now instead use /nix/store path
   home-manager.users.klaymore.home.file.".config/mpv" = {
     enable = false;
     recursive = true;
     source = ./-mpvShaders;
   };
 
-  
-  
-  
-  
+  home-manager.users.klaymore.home.file.".config/Clematis/config.json".text = builtins.toJSON {
+    presence = {
+      details = "{title}";
+      state = "{artist}";
+    };
+  };
+
+
+
   services.emacs = {
     enable = false;
     package = config.home-manager.users.klaymore.programs.emacs.package;
