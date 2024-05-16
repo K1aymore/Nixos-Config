@@ -141,9 +141,19 @@
         "git.enableCommitSigning" = true;
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 100;
+
+        "powermode.enabled" = false; # stupid
+        "powermode.combo.location" = "off";
+        "powermode.combo.counterEnabled" = "hide";
+        "powermode.shake.enabled" = false;
+        "powermode.explosions.frequency" = 1;
+        "powermode.combo.timerEnable" = "hide";
       };
     };
 
   };
+
+
+  home-manager.users.klaymore.home.file.".sqliterc".text = ".mode column";
 
 }

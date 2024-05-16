@@ -227,13 +227,13 @@
   };*/
 
 
-  home-manager.users.klaymore.programs.emacs = {
-    enable = false;
-    package = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ emacsPackages.slime ]));
-    extraConfig = ''
-      (setq standard-indent 4)
-    '';
-  };
+  # home-manager.users.klaymore.programs.emacs = {
+  #   enable = true;
+  #   package = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ emacsPackages.slime ]));
+  #   extraConfig = ''
+  #     (setq standard-indent 4)
+  #   '';
+  # };
 
 
   home-manager.users.klaymore.programs.mpv =
@@ -255,13 +255,14 @@
       hwdec = "auto-safe";
 
       # best quality, except for 8K which is dumb
-      ytdl-format = "bv*[height<=2160]+ba/b[height<=2160]";
+      ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
+      dscale = "mitchell";
       deband = true;
 
-      interpolation = true;
       video-sync = "display-resample-vdrop";
+      interpolation = true;
       tscale = "oversample";
     } // lib.mkIf systemSettings.hdr {
       vo = "gpu-next";
@@ -269,9 +270,9 @@
       gpu-context = "waylandvk";
       target-colorspace-hint = true;
     };
-    profiles = lib.mkIf systemSettings.hdr {
+    profiles = {
       # converts SDR into HDR
-      SDR_HDR_EFFECT = {
+      SDR_HDR_EFFECT = lib.mkIf systemSettings.hdr {
         profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
         target-trc = "pq";
@@ -281,7 +282,7 @@
 
         # Higher value = stronger effect
         target-peak = sdrTargetPeak;
-        saturation = 30;
+        saturation = 10;
       };
     };
     bindings = {
@@ -298,11 +299,11 @@
   };
 
   # Used to be for copying shaders to config path, now instead use /nix/store path
-  home-manager.users.klaymore.home.file.".config/mpv" = {
-    enable = false;
-    recursive = true;
-    source = ./-mpvShaders;
-  };
+  # home-manager.users.klaymore.home.file.".config/mpv" = {
+  #   enable = true;
+  #   recursive = true;
+  #   source = ./-mpvShaders;
+  # };
 
   home-manager.users.klaymore.home.file.".config/Clematis/config.json".text = builtins.toJSON {
     presence = {

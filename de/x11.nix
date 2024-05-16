@@ -10,7 +10,9 @@
     xkb.layout = "us";
     # xkbOptions = "eurosign:e";
 
-    libinput = {
+  };
+
+  services.libinput = {
       enable = true;
 
       # disabling mouse acceleration
@@ -25,8 +27,6 @@
         disableWhileTyping = false;
       };
     };
-
-  };
 
 
 }

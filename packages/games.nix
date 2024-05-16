@@ -4,7 +4,7 @@
 
 
   environment.systemPackages = with pkgs; [
-    wineWowPackages.waylandFull
+    wineWowPackages.full
     lutris
     playonlinux
     bottles

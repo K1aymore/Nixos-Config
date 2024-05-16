@@ -28,7 +28,7 @@
     #./packages/VMs.nix
     #./packages/deep3D-depends.nix
     
-    ./services/pc/openrazer.nix
+    #./services/pc/openrazer.nix
 
     ./services/system/opentablet.nix
 

@@ -1,7 +1,7 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=5672bc9dbf9d88246ddab5ac454e82318d094bb8";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
@@ -33,7 +33,6 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
               nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic }@attrs:
   let
-
     sharedConfig = hostname: inSettings@{ ... }:
     let
       # sets the default settings, which will be overwritten by any custom parameters
