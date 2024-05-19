@@ -32,7 +32,7 @@
 
     ./services/system/opentablet.nix
 
-    #./services/system/ipfs.nix
+    ./services/system/ipfs.nix
     
     ./services/system/zfs.nix
     ./services/system/espanso.nix
@@ -64,6 +64,27 @@
       xserver.desktopManager.plasma5.enable = true;      
     };
   };*/
+
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      godot_4 = prev.godot_4.overrideAttrs (o: {
+        version = "git";
+
+        src = pkgs.fetchFromGitHub {
+          owner = "godotengine";
+          repo = "godot";
+          rev = "";
+          hash = "sha256-doAPfm8fEexQUIMVTKNfJ/7xH1d/iBPKP4ZZQlDYd4Q=";
+        };
+      });
+      
+    })
+  ];
+
+  environment.systemPackages = with pkgs; [
+    godot_4
+  ];
 
 
   hardware.uinput.enable = true;

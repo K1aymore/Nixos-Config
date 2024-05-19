@@ -282,7 +282,7 @@
 
         # Higher value = stronger effect
         target-peak = sdrTargetPeak;
-        saturation = 10;
+        saturation = 5;
       };
     };
     bindings = {
