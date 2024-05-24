@@ -14,7 +14,7 @@
       userEmail = "klaymorer@protonmail.com";
       signing = {
         key = "BAE085A5C70F19F7";
-        signByDefault = true;
+        signByDefault = false; # not needed
       };
       ignores = [
         "*.swp"
@@ -35,6 +35,12 @@
 
       };
     };
+
+    keychain = {
+      enable = true;
+    };
+
+
 
     helix = {
       enable = true;

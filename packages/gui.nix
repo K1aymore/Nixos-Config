@@ -282,15 +282,17 @@
 
         # Higher value = stronger effect
         target-peak = sdrTargetPeak;
-        saturation = 5;
       };
     };
     bindings = {
       "CTRL+1" = "set target-peak ${builtins.toString sdrTargetPeak}";
+      "CTRL+2" = "set target-peak 175";
+
       "CTRL+7" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
       "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/FSR.glsl}\"; show-text \"FSR\"";
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
+
       "CTRL+WHEEL_UP" = "add target-peak 25";
       "CTRL+WHEEL_DOWN" = "add target-peak -25";
 
