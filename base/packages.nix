@@ -181,7 +181,7 @@
     hunspell
 
 
-    mullvad-vpn
+    pkgs-mullvad.mullvad-vpn
     /* yggdrasil */
   ];
 

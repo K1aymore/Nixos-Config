@@ -6,6 +6,8 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
 
+    nixpkgs-mullvad.url = "github:NixOS/nixpkgs?rev=2057814051972fa1453ddfb0d98badbea9b83c06";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +33,7 @@
 
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic }@attrs:
+              nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, nixpkgs-mullvad, ... }@attrs:
   let
     sharedConfig = hostname: inSettings@{ ... }:
     let
@@ -73,6 +75,13 @@
           
           (final: prev: {
             stable = import nixpkgs-stable {
+              system = systemSettings.architecture;
+              config.allowUnfree = true;
+            };
+          })
+
+          (final: prev: {
+            pkgs-mullvad = import nixpkgs-mullvad {
               system = systemSettings.architecture;
               config.allowUnfree = true;
             };
