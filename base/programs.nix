@@ -36,15 +36,15 @@
       };
     };
 
-    keychain = {
-      enable = true;
-    };
+    # keychain = {
+    #   enable = true;
+    # };
 
 
 
     helix = {
       enable = true;
-      defaultEditor = true;
+      defaultEditor = false;
 
       settings = {
         theme = "ayu_mirage";

@@ -122,6 +122,7 @@
     iperf
     iperf3d
     ventoy
+    radeontop
 
     micro
     xclip

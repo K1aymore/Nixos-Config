@@ -4,7 +4,7 @@
 {
 
   networking.firewall = {
-    allowedTCPPorts = [ (lib.strings.toIntBase10 (builtins.readFile "/synced/Nix/cfg/_secrets/i2pport")) ];
+    #allowedTCPPorts = [ (lib.strings.toIntBase10 (builtins.readFile "/synced/Nix/cfg/_secrets/i2pport")) ];
   };
 
   # uses port 7657 for console

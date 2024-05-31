@@ -236,11 +236,7 @@
   # };
 
 
-  home-manager.users.klaymore.programs.mpv =
-    let
-      sdrTargetPeak = 550;
-    in
-    {
+  home-manager.users.klaymore.programs.mpv = {
     enable = true;
     config = {
       fullscreen = true;
@@ -281,12 +277,12 @@
         inverse-tone-mapping = true;
 
         # Higher value = stronger effect
-        target-peak = sdrTargetPeak;
+        target-peak = 200;
       };
     };
     bindings = {
-      "CTRL+1" = "set target-peak ${builtins.toString sdrTargetPeak}";
-      "CTRL+2" = "set target-peak 175";
+      "CTRL+1" = "set target-peak 550";
+      "CTRL+2" = "set target-peak 200";
 
       "CTRL+7" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
       "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/FSR.glsl}\"; show-text \"FSR\"";

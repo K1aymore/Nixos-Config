@@ -28,11 +28,11 @@
     #./packages/VMs.nix
     #./packages/deep3D-depends.nix
     
-    #./services/pc/openrazer.nix
 
     ./services/system/opentablet.nix
 
     ./services/system/ipfs.nix
+    ./services/pc/i2p.nix
     
     ./services/system/zfs.nix
     ./services/system/espanso.nix
@@ -130,7 +130,7 @@
     hostName = "pc";
     hostId = "7c980de5"; # head -c 8 /etc/machine-id
     firewall = {
-      allowedTCPPorts = [ 57701 ];
+      allowedTCPPorts = [ ];
     };
     hosts = {
       #"127.0.0.1" = [ "youtube.com" "youtu.be" "www.youtube.com" ];

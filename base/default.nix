@@ -35,6 +35,7 @@
   environment.variables = {
     GPG_TTY = "$(tty)";
     GTK_USE_PORTAL = "1";
+    #EDITOR = "micro";
   };
 
   security.polkit.enable = true;
@@ -46,11 +47,10 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        22000
-        22067 # syncthing transfers & relay
-        3978
-        3979 # OpenTTD
-        1714
+        22000 # syncthing transfers & relay
+        22067
+        3978 # OpenTTD
+        3979
       ];
       allowedTCPPortRanges = [
         {
