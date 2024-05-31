@@ -36,9 +36,9 @@
       };
     };
 
-    # keychain = {
-    #   enable = true;
-    # };
+    keychain = {
+      enable = true;
+    };
 
 
 
