@@ -244,11 +244,13 @@
       screen = 0;
       window-maximized = "yes";
       keep-open = "no";
+
       alang = "eng,en,enUS,en-US";
+      af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
 
 
       profile = "gpu-hq";
-      hwdec = "auto-safe";
+      hwdec = "vaapi";
 
       # best quality, except for 8K which is dumb
       ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
@@ -265,6 +267,7 @@
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
       target-colorspace-hint = true;
+      target-prim = "bt.2020";
     };
     profiles = {
       # converts SDR into HDR
@@ -277,12 +280,17 @@
         inverse-tone-mapping = true;
 
         # Higher value = stronger effect
-        target-peak = 200;
+        target-peak = 550;
       };
     };
     bindings = {
+      "CTRL+`" = "set target-peak auto";
       "CTRL+1" = "set target-peak 550";
       "CTRL+2" = "set target-peak 200";
+      "CTRL+3" = "cycle inverse-tone-mapping";
+
+      "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
+      "CTRL+b" = "af toggle earwax";
 
       "CTRL+7" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
       "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/FSR.glsl}\"; show-text \"FSR\"";
@@ -293,6 +301,7 @@
       "CTRL+WHEEL_DOWN" = "add target-peak -25";
 
       "a" = "vf toggle hflip";
+      "b" = "cycle deband";
     };
   };
 

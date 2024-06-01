@@ -10,7 +10,7 @@ in
   home-manager.users.klaymore.services.espanso = {
     enable = true;
     package = pkgs.espanso-wayland;
-    matches = { default = { matches = [
+    matches.default.matches = [
       {
         # Simple text replacement
         trigger = "]espanso";
@@ -43,13 +43,16 @@ in
         trigger = "peopel";
         replace = "people";
       }
-
       {
         trigger = "jsut";
         replace = "just";
       }
+      {
+        trigger = "Jsut";
+        replace = "Just";
+      }
 
-    ];};};
+    ];
     
     
   };
