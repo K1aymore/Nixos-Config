@@ -35,7 +35,7 @@
   environment.variables = {
     GPG_TTY = "$(tty)";
     GTK_USE_PORTAL = "1";
-    #EDITOR = "micro";
+    EDITOR = "micro";
   };
 
   security.polkit.enable = true;

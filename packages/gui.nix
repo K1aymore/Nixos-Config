@@ -277,7 +277,7 @@
         target-trc = "pq";
         target-prim = "bt.2020";
         tone-mapping = "bt.2446a";
-        inverse-tone-mapping = true;
+        inverse-tone-mapping = false;
 
         # Higher value = stronger effect
         target-peak = 550;
@@ -302,6 +302,8 @@
 
       "a" = "vf toggle hflip";
       "b" = "cycle deband";
+
+      "HOME" = "seek 0 absolute";
     };
   };
 

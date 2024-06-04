@@ -148,10 +148,15 @@
     gitui
     ripgrep
     du-dust
+    duf
     bacon
     speedtest-rs
     delta
     nh
+    bottom
+    gping
+    lazygit
+    lsd
 
     ffmpeg
     yt-dlp
