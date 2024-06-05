@@ -14,7 +14,7 @@
   fileSystems."/" = {
     device = "tmpfs";
     fsType = "tmpfs";
-    options = [ "size=500M" "mode=755" ];
+    options = [ "mode=755" ];
   };
 
   fileSystems."/home/klaymore" = {

@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, config, ... }:
+{ pkgs, nixpkgs, config, catppuccin, ... }:
 
 
 {
@@ -9,6 +9,7 @@
     ./programs.nix
     ./aliases.nix
     ./fish.nix
+    ./catppuccin.nix
 
   ];
 

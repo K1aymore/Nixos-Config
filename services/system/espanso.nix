@@ -37,6 +37,17 @@ in
         }];
       }
       
+
+      {
+        trigger = "]em";
+        replace = "—";
+      }
+      {
+        trigger = "]en";
+        replace = "–";
+      }
+
+      
       
       
       {

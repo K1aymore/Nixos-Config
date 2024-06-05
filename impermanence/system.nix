@@ -12,7 +12,7 @@
 
       "/etc/mullvad-vpn"
       "/etc/openvpn"
-      "/tmp"
+      #"/tmp"
 
       #"/root/.cache/nix"
     ];

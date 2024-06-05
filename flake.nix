@@ -15,6 +15,8 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    catppuccin.url = "github:catppuccin/nix";
+
     nix-std.url = "github:chessai/nix-std";
     
     flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
@@ -33,7 +35,7 @@
 
 
   outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, nixpkgs-mullvad, ... }@attrs:
+              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, nixpkgs-mullvad, ... }@attrs:
   let
     sharedConfig = hostname: inSettings@{ ... }:
     let
@@ -58,8 +60,15 @@
         
         home-manager.nixosModules.home-manager
         impermanence.nixosModule
-        { home-manager.users.klaymore.imports = [ impermanence.nixosModules.home-manager.impermanence ]; }
+
+        { home-manager.users.klaymore.imports = [
+          impermanence.nixosModules.home-manager.impermanence
+          catppuccin.homeManagerModules.catppuccin
+        ]; }
         
+        catppuccin.nixosModules.catppuccin
+
+
         flake-programs-sqlite.nixosModules.programs-sqlite
         #stylix.nixosModules.stylix
         chaotic.nixosModules.default

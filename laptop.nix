@@ -19,6 +19,8 @@
 
     ./services/system/mysql.nix
 
+    ./services/system/zram.nix
+
 
     ./syncthing
 

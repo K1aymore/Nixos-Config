@@ -13,13 +13,13 @@
   fileSystems."/" =
     { device = "none";
       fsType = "tmpfs";
-      options = [ "size=1G" "mode=755" ];
+      options = [ "mode=755" ];
     };
 
   fileSystems."/home/klaymore" =
     { device = "none";
       fsType = "tmpfs";
-      options = [ "size=1G" "mode=777" ];
+      options = [ "mode=777" ];
     };
 
   fileSystems."/nix" =
