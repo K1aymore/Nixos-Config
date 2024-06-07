@@ -35,7 +35,6 @@
     ./services/pc/i2p.nix
     
     ./services/system/zfs.nix
-    ./services/system/espanso.nix
     ./services/system/waydroid.nix
     ./services/system/zram.nix
 
@@ -112,7 +111,7 @@
       #vaapiVdpau
       vdpauinfo
 
-      # AMDVLK seems to break MPV?
+      # AMDVLK seems to break MPV
       #amdvlk
     ];
     extraPackages32 = with pkgs; [

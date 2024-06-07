@@ -34,7 +34,9 @@ in {
     #cat = "bat";
     fd = "fd --hidden";
 
-    nbrc = "micro /nix/cfg/bash/aliases.nix";
+
+    showAllPackages = "nix path-info /run/current-system -r";
+
 
     yd = "bash /synced/Sync/Linux/BashScripts/yd";
     r128all = "r128gain -r ./";
