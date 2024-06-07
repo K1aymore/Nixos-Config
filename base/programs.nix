@@ -27,8 +27,8 @@
         core.pager = "delta";
         interactive.diffFilter = "delta --color-only";
         delta = {
-          navigate = true;    # use n and N to move between diff sections
-          light = false ;     # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+          navigate = true; # use n and N to move between diff sections
+          light = false; # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
         };
         merge.conflictstyle = "diff3";
         diff.colorMoved = "default";
@@ -136,13 +136,35 @@
 
     zellij = {
       enable = true;
-      enableFishIntegration = false;  # opens by default
+      enableFishIntegration = false; # opens by default
       settings = {
         #theme = "catppuccin-mocha";
       };
     };
 
+
+    hyfetch = {
+      enable = true;
+      settings = {
+        preset = "transgender";
+        mode = "rgb";
+        light_dark = "dark";
+        lightness = 0.65;
+        color_align = {
+          mode = "custom";
+          custom_colors = {
+            "1" = 1;
+            "2" = 0;
+          };
+        };
+        backend = "neofetch";
+      };
+    };
+
+
+
   };
+
 
 
 }

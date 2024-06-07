@@ -138,7 +138,7 @@
           };
         };
 
-        "git.enableCommitSigning" = true;
+        "git.enableCommitSigning" = false;
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 100;
 

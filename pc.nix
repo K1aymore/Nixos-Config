@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, lib, ... }:
 
 {
 
@@ -19,7 +19,7 @@
     ./packages/gui.nix
     ./packages/games.nix
     ./packages/coding.nix
-    #./packages/video-editing.nix
+    ./packages/video-editing.nix
     #./packages/mpd.nix
     
     ./packages/steam.nix
@@ -97,7 +97,7 @@
 
   boot.zfs.extraPools = [ "stuff" ];
   
-  #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
   
   hardware.opengl = {
     enable = true;
@@ -111,6 +111,8 @@
       #libvdpau-va-gl
       #vaapiVdpau
       vdpauinfo
+
+      # AMDVLK seems to break MPV?
       #amdvlk
     ];
     extraPackages32 = with pkgs; [

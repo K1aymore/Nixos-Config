@@ -145,13 +145,13 @@
     unstable.godot_4
     blender-hip
     #python39Packages.pyzmq
-    #libresprite
+    libresprite
     pixelorama
     krita
     #opentoonz
     inkscape
     kdePackages.kdenlive
-    #movit
+    movit
     #log4cxx
     lmms
     #reaper
@@ -242,6 +242,7 @@
       fullscreen = true;
       fs-screen = 0;
       screen = 0;
+      autofit = "100%";
       window-maximized = "yes";
       keep-open = "no";
 
@@ -284,9 +285,8 @@
       };
     };
     bindings = {
-      "CTRL+`" = "set target-peak auto";
       "CTRL+1" = "set target-peak 550";
-      "CTRL+2" = "set target-peak 200";
+      "CTRL+2" = "set target-peak auto";
       "CTRL+3" = "cycle inverse-tone-mapping";
 
       "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
