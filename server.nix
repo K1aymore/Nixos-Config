@@ -21,7 +21,7 @@
     ./services/server/synapse.nix
     ./services/server/gitea.nix
     #./services/server/syncplay.nix
-    #./server/tt-rss.nix
+    ./services/server/tt-rss.nix
     #./server/minecraft.nix
     # ./server/restyaboard.nix
     # ./server/radicale.nix

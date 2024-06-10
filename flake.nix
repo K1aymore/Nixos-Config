@@ -43,6 +43,7 @@
       systemSettings = {
         architecture = "x86_64-linux";
         hdr = false;
+        scaling = "1";
       } // inSettings;
       
     in
@@ -111,6 +112,7 @@
 
       pc = sharedConfig "pc" {
         hdr = true;
+        scaling = "1.75";
       };
 
       server = sharedConfig "server" {};

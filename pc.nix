@@ -67,23 +67,24 @@
 
   # nixpkgs.overlays = [
   #   (final: prev: {
-  #     godot_4 = prev.godot_4.overrideAttrs (o: {
+  #     godot_git = prev.godot_4.overrideAttrs (o: {
   #       version = "git";
 
   #       src = pkgs.fetchFromGitHub {
   #         owner = "godotengine";
   #         repo = "godot";
-  #         rev = "";
-  #         hash = "sha256-doAPfm8fEexQUIMVTKNfJ/7xH1d/iBPKP4ZZQlDYd4Q=";
+  #         rev = "1ce6df7087113a61491567f3ac55561d5688e2a8";
+  #         hash = "sha256-sEpJHds0Tzzwbc8MmRKxt4Qf73BEAIqlh5c7K2X7IQw=";
   #       };
   #     });
       
   #   })
   # ];
 
-  # environment.systemPackages = with pkgs; [
-  #   godot_4
-  # ];
+  environment.systemPackages = with pkgs; [
+    # godot_git
+    opentoonz
+  ];
 
 
   hardware.uinput.enable = true;

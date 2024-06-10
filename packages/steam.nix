@@ -1,4 +1,4 @@
-{ ... }:
+{ systemSettings, ... }:
 
 {
 
@@ -26,6 +26,14 @@
   };
 
 
+  home-manager.users.klaymore.xdg.desktopEntries.steam = {
+    name = "Steam";
+    comment = "Application for managing and playing games on Steam (scaled)";
+    exec = "steam -forcedesktopscaling ${systemSettings.scaling} %U";
+    terminal = false;
+    categories = [ "Application" ];
+    mimeType = [ ];
+  };
 
 
 }

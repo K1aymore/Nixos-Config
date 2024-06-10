@@ -55,6 +55,12 @@ in
             fastcgi_index index.html;
           '';
         };
+
+        "/tt-rss" = {
+          index = "index.html";
+          root = "/var/lib/tt-rss";
+        };
+
       };
     };
 
