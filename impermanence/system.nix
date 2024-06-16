@@ -4,6 +4,7 @@
 {
 
   environment.persistence."/synced/Nix/persist/system" = {
+    hideMounts = true;
     directories = [
       "/etc/NetworkManager"
       "/etc/wpa_supplicant.conf"

@@ -84,10 +84,13 @@
       mutableExtensionsDir = false;
 
       extensions = with pkgs.vscode-extensions; [
+        jnoortheen.nix-ide
+
         redhat.java
         vscjava.vscode-java-debug
+
         matklad.rust-analyzer
-        jnoortheen.nix-ide
+        bungcip.better-toml
 
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
@@ -100,7 +103,7 @@
         {
           name = "mayukaithemevsc";
           publisher = "GulajavaMinistudio";
-          version = "3.2.3";
+          version = "3.2.4";
           sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
         }
         {
@@ -110,16 +113,10 @@
           sha256 = "sha256-BN+C64YQ2hUw5QMiKvC7PHz3II5lEVVy0Shtt6t3ch8=";
         }
         {
-          name = "vscode-power-mode";
-          publisher = "hoovercj";
-          version = "3.0.2";
-          sha256 = "sha256-ZE+Dlq0mwyzr4nWL9v+JG00Gllj2dYwL2r9jUPQ8umQ=";
-        }
-        {
-          name = "subway-surfers";
-          publisher = "jirkavrba";
-          version = "2.0.0";
-          sha256 = "sha256-gZ4dlt6T3pZgxz/voeENVVMJEJ/k99mszDXwEQzl04I=";
+          name = "vscode-sqlite";
+          publisher = "alexcvzz";
+          version = "0.14.1";
+          sha256 = "sha256-jOQkRgBkUwJupD+cRo/KRahFRs82X3K49DySw6GlU8U=";
         }
       ];
 

@@ -87,13 +87,15 @@
     brlaser
     canon-cups-ufr2
   ];
-  services.avahi.enable = true;
-  services.avahi.openFirewall = true;
-  services.avahi.publish.enable = true;
-  services.avahi.publish.addresses = true;
-  services.avahi.nssmdns4 = false;
-  system.nssModules = with pkgs.lib; optional (!config.services.avahi.nssmdns) pkgs.nssmdns;
-  system.nssDatabases.hosts = with pkgs.lib; optionals (!config.services.avahi.nssmdns) (mkMerge [
+  services.avahi = {
+    enable = true;
+    openFirewall = true;
+    publish.enable = true;
+    publish.addresses = true;
+    nssmdns4 = true;
+  };
+  system.nssModules = with pkgs.lib; optional (!config.services.avahi.nssmdns4) pkgs.nssmdns;
+  system.nssDatabases.hosts = with pkgs.lib; optionals (!config.services.avahi.nssmdns4) (mkMerge [
     (mkOrder 900 [ "mdns4_minimal [NOTFOUND=return]" ]) # must be before resolve
     (mkOrder 1501 [ "mdns4" ]) # 1501 to ensure it's after dns
   ]);

@@ -31,8 +31,8 @@
 
     ./services/system/opentablet.nix
 
-    ./services/system/ipfs.nix
-    ./services/pc/i2p.nix
+    #./services/system/ipfs.nix
+    #./services/pc/i2p.nix
     
     ./services/system/zfs.nix
     ./services/system/waydroid.nix

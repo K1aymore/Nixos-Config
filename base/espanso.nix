@@ -62,6 +62,10 @@ in
         trigger = "Jsut";
         replace = "Just";
       }
+      {
+        trigger = "thay";
+        replace = "that";
+      }
 
     ];
     
