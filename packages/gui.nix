@@ -124,7 +124,7 @@
     firefox-wayland
     #microsoft-edge
     #librewolf
-    ungoogled-chromium # for Discord
+    #ungoogled-chromium
     discord
     xwaylandvideobridge
     element-desktop

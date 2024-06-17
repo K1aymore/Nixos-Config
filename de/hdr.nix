@@ -7,8 +7,8 @@
   ];
 
 
-  chaotic.hdr.enable = true;
-  chaotic.hdr.specialisation.enable = false;
+  #chaotic.hdr.enable = true;
+  #chaotic.hdr.specialisation.enable = false;
 
   environment.systemPackages = [
     (pkgs.callPackage ./VK_hdr_layer.nix {})

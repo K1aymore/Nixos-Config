@@ -89,7 +89,7 @@
         redhat.java
         vscjava.vscode-java-debug
 
-        matklad.rust-analyzer
+        rust-lang.rust-analyzer
         bungcip.better-toml
 
         catppuccin.catppuccin-vsc
@@ -104,7 +104,7 @@
           name = "mayukaithemevsc";
           publisher = "GulajavaMinistudio";
           version = "3.2.4";
-          sha256 = "a0f3c30a3d16e06c31766fbe2c746d80683b6211638b00b0753983a84fbb9dad";
+          sha256 = "sha256-V2hAxIVu2YWonwcIG+9n300b88jzPOnKYUFt1okSX4w=";
         }
         {
           name = "vscode-scheme";
@@ -121,7 +121,7 @@
       ];
 
       userSettings = {
-        "workbench.iconTheme" = "catppuccin-macchiato";
+        "workbench.iconTheme" = "catppuccin-mocha";
         "workbench.colorTheme" = "Mayukai Semantic Mirage";
         
         "editor.fontFamily" = "Fira Code";

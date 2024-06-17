@@ -13,7 +13,7 @@
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
-    options = [ "mode=755" ]; # "size=500M"
+    options = [ "size=25G" "mode=755" ]; # "size=500M"
   };
 
   fileSystems."/home/klaymore" = {

@@ -82,7 +82,7 @@
   # ];
 
   environment.systemPackages = with pkgs; [
-    # godot_git
+    #godot_git
     opentoonz
   ];
 
