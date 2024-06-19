@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
 
@@ -10,8 +10,14 @@
   #chaotic.hdr.enable = true;
   #chaotic.hdr.specialisation.enable = false;
 
-  environment.systemPackages = [
+  chaotic.hdr.wsiPackage = pkgs.gamescope-wsi_git;
+
+  programs.steam.gamescopeSession.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    # Needed for MPV
     (pkgs.callPackage ./VK_hdr_layer.nix {})
+    gamescope-wsi_git
   ];
   
   environment.variables = {
@@ -20,29 +26,19 @@
 
 
   programs.gamescope = {
-    package = pkgs.gamescope-wsi;
-    /*env = {
-      ENABLE_GAMESCOPE_WSI = "1";
+    enable = true;
+    package = pkgs.gamescope-wsi_git;
+    args = [ "--hdr-enabled" ];
+    env = {
+      #ENABLE_HDR_WSI = "0";
       DXVK_HDR = "1";
-      DISABLE_HDR_WSI = "1";
-      MANGOHUD = "1";
-    };*/
-    /*args = [
-      "-f"
-      "-F fsr"
-      "-h 2160"
-      "--force-grab-cursor"
-      "--adaptive-sync"
-      "--hdr-enabled"
-      "--hdr-debug-force-output"
-      "--hdr-itm-enable"
-      "--steam"
-    ];*/
+      ENABLE_GAMESCOPE_WSI = "1";
+    };
   };
 
   nixpkgs.overlays = [
     (final: prev: {
-      gamescope-wsi = prev.gamescope-wsi.override { enableExecutable = true; };
+      gamescope-wsi_git = prev.gamescope-wsi_git.override { enableExecutable = true; };
     })
   ];
 

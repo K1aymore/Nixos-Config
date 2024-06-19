@@ -283,7 +283,7 @@
         # Higher value = stronger effect
         target-peak = 550;
       };
-    };
+    };  
     bindings = {
       "CTRL+1" = "set target-peak 550";
       "CTRL+2" = "set target-peak auto";

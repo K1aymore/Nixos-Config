@@ -13,7 +13,7 @@
     ./de/wayfire.nix
     #./de/sway.nix
 	  #./de/xfce.nix
-	  ./de/hyprland.nix
+	  #./de/hyprland.nix
 	  #./de/gnome.nix
 
     ./packages/gui.nix
@@ -98,6 +98,29 @@
   boot.zfs.extraPools = [ "stuff" ];
   
   boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
+
+
+
+  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_8;
+
+  nixpkgs.config.packageOverrides = pkgs: pkgs.lib.recursiveUpdate pkgs {
+    linuxKernel.kernels.linux_6_8 = pkgs.linuxKernel.kernels.linux_6_8.override {
+      # ignoreConfigErrors = false;
+      # autoModules = true;
+      # kernelPreferBuiltin = true;
+      extraStructuredConfig = with lib.kernel; {
+        AMD_PRIVATE_COLOR = yes;
+      };
+      # extraMakeFlags = [
+      #   "-DAMD_PRIVATE_COLOR"
+      # ];
+    };
+    # linuxKernel.kernels.linux_6_8 = pkgs.linuxKernel.kernels.linux_6_8.overrideDerivation (old: {
+    #   NIX_CFLAGS_COMPILE = [ "-DAMD_PRIVATE_COLOR" ];
+    # });
+  };
+
+
   
   hardware.opengl = {
     enable = true;
