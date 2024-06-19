@@ -30,7 +30,7 @@
     package = pkgs.gamescope-wsi_git;
     args = [ "--hdr-enabled" ];
     env = {
-      #ENABLE_HDR_WSI = "0";
+      ENABLE_HDR_WSI = "0";
       DXVK_HDR = "1";
       ENABLE_GAMESCOPE_WSI = "1";
     };
