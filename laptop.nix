@@ -7,7 +7,7 @@
     ./locale/losAngeles.nix
     
     ./de/plasma.nix
-    ./de/hyprland.nix
+    #./de/hyprland.nix
 
     ./packages/gui.nix
     #./packages/games.nix
@@ -17,7 +17,7 @@
     #./system/opentablet.nix
     #./system/touchegg.nix
 
-    ./services/system/mysql.nix
+    #./services/system/mysql.nix
 
     ./services/system/zram.nix
 
