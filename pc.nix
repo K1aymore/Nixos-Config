@@ -9,8 +9,8 @@
     ./de/plasma6.nix
     ./de/hdr.nix
     #./de/cosmic.nix
-    ./de/niri.nix
-    ./de/wayfire.nix
+    #./de/niri.nix
+    #./de/wayfire.nix
     #./de/sway.nix
 	  #./de/xfce.nix
 	  #./de/hyprland.nix
@@ -51,6 +51,7 @@
     ./syncthing/projects.nix
 
 
+    #./impermanence/home.nix
     ./impermanence/system.nix
     #./impermanence/steam.nix
   ];
@@ -145,7 +146,6 @@
 
   #environment.variables.AMD_VULKAN_ICD = "RADV";
 
-  #hardware.pulseaudio.support32Bit = true;
 
   services.gvfs.enable = true;
 

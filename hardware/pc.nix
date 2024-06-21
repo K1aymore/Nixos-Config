@@ -22,6 +22,12 @@
     #options = [ "mode=777" ]; # "size=2G"
   };
 
+  #fileSystems."/home/klaymore" = {
+  #  device = "none";
+  #  fsType = "tmpfs";
+  #  options = [ "mode=777" ]; # "size=500M"
+  #};
+
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/C552-4091";

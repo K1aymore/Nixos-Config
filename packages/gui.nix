@@ -40,7 +40,7 @@
     alacritty
     kitty
     dmenu
-    wofi
+    #wofi
     xdg-utils
     grim
 
@@ -67,7 +67,6 @@
     alsa-utils
     alsa-plugins
     hushboard
-    kdePackages.xdg-desktop-portal-kde
 
     #jamesdsp
     carla
@@ -126,6 +125,7 @@
     #librewolf
     #ungoogled-chromium
     discord
+    vesktop
     xwaylandvideobridge
     element-desktop
     qbittorrent

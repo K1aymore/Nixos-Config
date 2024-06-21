@@ -12,11 +12,25 @@
 
   services = {
     displayManager.sddm.enable = true;
-    displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
-    desktopManager.plasma6.enable = lib.mkDefault true;
+    # displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
+    desktopManager.plasma6.enable = true;
   };
 
 
   programs.dconf.enable = true;
+
+
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      # kdePackages.xdg-desktop-portal-kde
+    ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    kdePackages.kde-gtk-config
+  ];
+
 
 }
