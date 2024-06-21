@@ -13,8 +13,8 @@
   ";
 
   nixpkgs.config.permittedInsecurePackages = [
-    "libtiff-4.0.3-opentoonz"
-    "libxls-1.6.2"
+    # "libtiff-4.0.3-opentoonz"
+    # "libxls-1.6.2"
   ];
 
   environment.systemPackages = with pkgs; [
@@ -285,8 +285,9 @@
       };
     };  
     bindings = {
+      "CTRL+`" = "set target-peak auto";
       "CTRL+1" = "set target-peak 550";
-      "CTRL+2" = "set target-peak auto";
+      "CTRL+2" = "set target-peak 100";
       "CTRL+3" = "cycle inverse-tone-mapping";
 
       "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";

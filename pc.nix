@@ -84,7 +84,7 @@
 
   environment.systemPackages = with pkgs; [
     #godot_git
-    opentoonz
+    #opentoonz
   ];
 
 

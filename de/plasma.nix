@@ -25,7 +25,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
-      libsForQt5.xdg-desktop-portal-kde
+      # libsForQt5.xdg-desktop-portal-kde
     ];
   };
 
