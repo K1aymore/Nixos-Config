@@ -38,6 +38,8 @@
 
         "VSCode/.vscode"
         "VSCode/.config/Code"
+        "VSCodium/.vscode-oss"
+        "VSCodium/.config/VSCodium"
         "Lapce/.config/lapce-nightly"
         "Lapce/.local/share/lapce-nightly"
 
@@ -102,10 +104,12 @@
         "Exodus/.config/Exodus"
         #"Pmbootstrap/.local/var/pmbootstrap"
 
-        "Python/.cache/pip"
+
+        "Cache/.cache"
 
         "Baloo/.local/share/baloo"
 
+        "Python/.cache/pip"
         "Nix/.cache/nix"
       ];
       files = [
@@ -265,6 +269,8 @@
         ".config/ksmserverrc"
         ".config/ksplashrc"
         ".config/ktimezonedrc"
+        ".config/kwalletrc"
+        ".config/kwinoutputconfig.json"
         ".config/kwinrc"
         ".config/kwinrulesrc"
         ".config/kxkbrc"

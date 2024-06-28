@@ -2,6 +2,13 @@
 
 {
 
+
+  # https://github.com/Mic92/nix-ld
+  programs.nix-ld.enable = true;
+  # https://github.com/Mic92/envfs
+  services.envfs.enable = true;
+
+
   environment.systemPackages = with pkgs; [
     clang
     clang-tools

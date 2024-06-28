@@ -125,7 +125,7 @@
   
   hardware.opengl = {
     enable = true;
-    driSupport = true;
+    #driSupport = true; # No more effect
     driSupport32Bit = true;
     extraPackages = with pkgs; [
       rocmPackages.clr.icd

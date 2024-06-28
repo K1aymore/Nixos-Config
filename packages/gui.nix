@@ -86,6 +86,7 @@
     gwenview
     digikam
     clementine
+    # qt-6 version doesn't save playlists well
     strawberry
     jamesdsp
     clematis
