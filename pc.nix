@@ -93,8 +93,9 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  #boot.initrd.kernelModules = [ "amdgpu" ];
+  # https://discourse.nixos.org/t/amd-gpu-optimal-settings/27648/2
+  #services.xserver.videoDrivers = [ "amdgpu" ];
 
   boot.zfs.extraPools = [ "stuff" ];
   
@@ -122,11 +123,29 @@
   # };
 
 
+  boot.kernelParams = [
+    "amdgpu.msi=0"
+    "amdgpu.aspm=0"
+    "amdgpu.runpm=0"
+    "amdgpu.bapm=0"
+    "amdgpu.vm_update_mode=0"
+    "amdgpu.exp_hw_support=1"
+    "amdgpu.sched_jobs=64"
+    "amdgpu.sched_hw_submission=4"
+    "amdgpu.lbpw=0"
+    "amdgpu.mes=1"
+    "amdgpu.mes_kiq=1"
+    "amdgpu.sched_policy=1"
+    "amdgpu.ignore_crat=1"
+    "amdgpu.no_system_mem_limit"
+    "amdgpu.smu_pptable_id=0"
+  ];
+
+
   
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    #driSupport = true; # No more effect
-    driSupport32Bit = true;
+    enable32Bit = true;
     extraPackages = with pkgs; [
       rocmPackages.clr.icd
       rocmPackages.clr
