@@ -2,6 +2,10 @@
 
 {
 
+  environment.variables = {
+    STEAM_FORCE_DESKTOPUI_SCALING = "2";
+  };
+
   nixpkgs.config.packageOverrides = pkgs: {
     steam = pkgs.steam.override {
       extraPkgs = pkgs: with pkgs; [
@@ -23,16 +27,6 @@
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
-
-
-  home-manager.users.klaymore.xdg.desktopEntries.steam = {
-    name = "Steam";
-    comment = "Application for managing and playing games on Steam (scaled)";
-    exec = "steam -forcedesktopscaling ${systemSettings.scaling} %U";
-    terminal = false;
-    categories = [ "Application" ];
-    mimeType = [ ];
   };
 
 
