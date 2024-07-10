@@ -49,7 +49,7 @@ in {
     gl = "git log";
 
     vi = "nvim";
-    steam = "steam -forcedesktopscaling ${systemSettings.scaling} %U";
+    #steam = "steam -forcedesktopscaling ${systemSettings.scaling} %U";
     steamflat = "flatpak run com.valvesoftware.Steam";
     steamhdr = "ENABLE_HDR_WSI=1 gamescope -f -h 2160 -F fsr --force-grab-cursor --adaptive-sync --hdr-enabled --hdr-debug-force-output --hdr-itm-enable --steam -- env ENABLE_GAMESCOPE_WSI=1 DXVK_HDR=1 DISABLE_HDR_WSI=1 MANGOHUD=1 steam";
     blades = "~/.cargo/bin/blades";

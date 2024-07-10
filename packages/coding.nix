@@ -49,6 +49,7 @@
     vscode-fhs
     docker
     #arduino
+    zen-editor
 
     sqlite
 

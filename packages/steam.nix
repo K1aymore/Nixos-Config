@@ -3,7 +3,7 @@
 {
 
   environment.variables = {
-    STEAM_FORCE_DESKTOPUI_SCALING = "2";
+    STEAM_FORCE_DESKTOPUI_SCALING = systemSettings.scaling;
   };
 
   nixpkgs.config.packageOverrides = pkgs: {

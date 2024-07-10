@@ -248,7 +248,7 @@
       keep-open = "no";
 
       alang = "eng,en,enUS,en-US";
-      af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
+      #af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
 
 
       profile = "gpu-hq";
