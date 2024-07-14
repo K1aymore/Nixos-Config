@@ -141,7 +141,7 @@
 
   
   home-manager.users.klaymore = {
-    home.stateVersion = "22.11";
+    home.stateVersion = "24.05";
   };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
