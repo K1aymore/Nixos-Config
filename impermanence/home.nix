@@ -285,6 +285,7 @@
         ".config/PlasmaUserFeedback"
         ".config/plasmawindowed-appletsrc"
         ".config/plasmawindowedrc"
+        ".config/powerdevilrc"
         ".config/powermanagementprofilesrc"
         ".config/spectaclerc"
         ".config/startkderc"
@@ -292,6 +293,7 @@
         ".config/touchpadxlibinputrc"
         #         ".config/Trolltech.conf"
         #         ".config/user-dirs.dirs"
+        ".config/user-dirs.dirs"
         ".config/user-dirs.locale"
 
         ".local/share/krunnerstaterc"
