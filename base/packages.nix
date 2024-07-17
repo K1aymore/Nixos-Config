@@ -192,9 +192,5 @@
   ];
 
 
-  networking.firewall.checkReversePath = "loose";
-  networking.wireguard.enable = true;
-  services.mullvad-vpn.enable = true;
-
 
 }
