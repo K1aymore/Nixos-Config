@@ -82,23 +82,24 @@
 
 
   # Printers
-  services.printing.enable = true;
-  services.printing.drivers = with pkgs; [ 
-    brlaser
-    canon-cups-ufr2
-  ];
+  services.printing = {
+    enable = true;
+    browsing = true;
+    stateless = true;
+    drivers = with pkgs; [ 
+      brlaser
+      canon-cups-ufr2
+      canon-capt
+      gutenprint
+      gutenprintBin
+    ];
+  };
   services.avahi = {
     enable = true;
-    openFirewall = true;
-    publish.enable = true;
-    publish.addresses = true;
     nssmdns4 = true;
+    openFirewall = true;
   };
-  system.nssModules = with pkgs.lib; optional (!config.services.avahi.nssmdns4) pkgs.nssmdns;
-  system.nssDatabases.hosts = with pkgs.lib; optionals (!config.services.avahi.nssmdns4) (mkMerge [
-    (mkOrder 900 [ "mdns4_minimal [NOTFOUND=return]" ]) # must be before resolve
-    (mkOrder 1501 [ "mdns4" ]) # 1501 to ensure it's after dns
-  ]);
+
 
 
 
