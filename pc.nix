@@ -163,6 +163,8 @@
     ];
   };
 
+  programs.corectrl.enable = true;
+
   #environment.variables.AMD_VULKAN_ICD = "RADV";
 
 
@@ -197,10 +199,10 @@
 
   # Star Citizen
   #networking.extraHosts = "127.0.0.1 modules-cdn.eac-prod.on.epicgames.com";
-  boot.kernel.sysctl = {
-    "vm.max_map_count" = 16777216;
-    "fs.file-max" = 524288;
-  };
+  # boot.kernel.sysctl = {
+  #   "vm.max_map_count" = 16777216;
+  #   "fs.file-max" = 524288;
+  # };
   
   
   

@@ -40,7 +40,6 @@
   #services.getty.autologinUser = "klaymore";
 
   networking = {
-    hostName = "laptop";
     hostId = "57d90d30"; # head -c 8 /etc/machine-id
     #interfaces.wlp2s0.useDHCP = true;
 
