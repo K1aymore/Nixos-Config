@@ -17,7 +17,7 @@
     noto-fonts-emoji-blob-bin
     unicode-emoji
     twitter-color-emoji
-    emojione
+    #emojione
     openmoji-color
     joypixels
     #whatsapp-emoji-font

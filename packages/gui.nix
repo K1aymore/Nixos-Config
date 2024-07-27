@@ -307,6 +307,9 @@
 
       "HOME" = "seek 0 absolute";
     };
+    scripts = [
+      pkgs.mpvScripts.autocrop
+    ];
   };
 
   # Used to be for copying shaders to config path, now instead use /nix/store path

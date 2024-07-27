@@ -66,21 +66,47 @@
   };*/
 
 
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     godot_git = prev.godot_4.overrideAttrs (o: {
-  #       version = "git";
+  nixpkgs.overlays = [
+    # (final: prev: {
+    #   godot_git = prev.godot_4.overrideAttrs (o: {
+    #     version = "git";
 
-  #       src = pkgs.fetchFromGitHub {
-  #         owner = "godotengine";
-  #         repo = "godot";
-  #         rev = "1ce6df7087113a61491567f3ac55561d5688e2a8";
-  #         hash = "sha256-sEpJHds0Tzzwbc8MmRKxt4Qf73BEAIqlh5c7K2X7IQw=";
-  #       };
-  #     });
+    #     src = pkgs.fetchFromGitHub {
+    #       owner = "godotengine";
+    #       repo = "godot";
+    #       rev = "1ce6df7087113a61491567f3ac55561d5688e2a8";
+    #       hash = "sha256-sEpJHds0Tzzwbc8MmRKxt4Qf73BEAIqlh5c7K2X7IQw=";
+    #     };
+    #   });
       
-  #   })
-  # ];
+    # })
+
+    (final: prev: rec {
+      python3 = prev.python3.override {
+        packageOverrides = self: super: {
+          wxpython =
+            let
+              waf_2_0_25 = pkgs.fetchurl {
+                url = "https://waf.io/waf-2.0.25";
+                hash = "sha256-IRmc0iDM9gQ0Ez4f0quMjlIXw3mRmcgnIlQ5cNyOONU=";
+              };
+            in
+            super.wxpython.overrideAttrs {
+              disabled = null;
+              postPatch = ''
+                cp ${waf_2_0_25} bin/waf-2.0.25
+                chmod +x bin/waf-2.0.25
+                substituteInPlace build.py \
+                  --replace-fail "wafCurrentVersion = '2.0.24'" "wafCurrentVersion = '2.0.25'" \
+                  --replace-fail "wafMD5 = '698f382cca34a08323670f34830325c4'" "wafMD5 = 'a4b1c34a03d594e5744f9e42f80d969d'" \
+                  --replace-fail "distutils.dep_util" "setuptools.modified"
+              '';
+            };
+        };
+      };
+      python3Packages = python3.pkgs;
+    })
+  ];
 
   environment.systemPackages = with pkgs; [
     #godot_git
