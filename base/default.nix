@@ -33,6 +33,7 @@
       path = pkgs.path;
     };
   };
+  nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
 
   environment.variables = {
     GPG_TTY = "$(tty)";

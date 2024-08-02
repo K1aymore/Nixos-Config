@@ -176,7 +176,8 @@
 
 
     lapce
-    nil # Nix LSP
+    #nil # Nix LSP
+    nixd
     nixpkgs-fmt
 
   ];

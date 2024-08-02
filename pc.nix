@@ -70,7 +70,6 @@
     # (final: prev: {
     #   godot_git = prev.godot_4.overrideAttrs (o: {
     #     version = "git";
-
     #     src = pkgs.fetchFromGitHub {
     #       owner = "godotengine";
     #       repo = "godot";
@@ -78,7 +77,6 @@
     #       hash = "sha256-sEpJHds0Tzzwbc8MmRKxt4Qf73BEAIqlh5c7K2X7IQw=";
     #     };
     #   });
-      
     # })
 
     (final: prev: rec {
@@ -207,7 +205,6 @@
     hosts = {
       #"127.0.0.1" = [ "youtube.com" "youtu.be" "www.youtube.com" ];
     };
-    
   };
 
 

@@ -6,7 +6,7 @@
   environment.systemPackages = with pkgs; [
     wineWowPackages.full
     lutris
-    playonlinux
+    #playonlinux
     bottles
     #grapejuice
     protonup-qt
@@ -17,7 +17,7 @@
 
     mangohud
     
-    piper
+    #piper
 
     #minecraft
     #itch
@@ -59,7 +59,7 @@
 
   
   hardware.steam-hardware.enable = true;
-  services.ratbagd.enable = true;
+  #services.ratbagd.enable = true;
   
 
   #flatpak install flathub net.brinkervii.grapejuice

@@ -131,15 +131,28 @@
       userSettings = {
         "workbench.iconTheme" = "catppuccin-mocha";
         "workbench.colorTheme" = "Mayukai Semantic Mirage";
-        
+
         "editor.fontFamily" = "Fira Code";
-        
+
         "nix.enableLanguageServer" = true;
-        "nix.serverPath" = "nil";
+        "nix.serverPath" = "nixd";
         "nix.formatterPath" = "nixpkgs-fmt";
         "nix.serverSettings" = {
-          "nil" = {
-            "formatting" = { "command" = [ "nixpkgs-fmt" ]; };
+          "nixd" = {
+            "formatting" = {
+              "command" = [ "nixpkgs-fmt" ];
+            };
+            # "options" = {
+            #   # By default, this entry will be read from `import <nixpkgs> { }`.
+            #   # You can write arbitary Nix expressions here, to produce valid "options" declaration result.
+            #   # Tip: for flake-based configuration, utilize `builtins.getFlake`
+            #   "nixos" = {
+            #     "expr" = "(builtins.getFlake \"/synced/Nix/cfg\").nixosConfigurations.<name>.options";
+            #   };
+            #   "home-manager" = {
+            #     "expr" = "(builtins.getFlake \"/synced/Nix/cfg\").homeConfigurations.<name>.options";
+            #   };
+            # };
           };
         };
 
