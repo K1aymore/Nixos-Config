@@ -16,7 +16,17 @@
     pulse.enable = true;
     #jack.enable = true;
 
-    wireplumber.enable = true;
+    wireplumber = {
+      enable = true;
+      # extraConfig = {
+      #   "wireplumber.profiles" = {
+      #     "main" = {
+      #       "monitor.libcamera" = "disabled";
+      #     };
+      #   };
+      # };
+    };
+
 
   };
   

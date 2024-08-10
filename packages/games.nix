@@ -77,7 +77,7 @@
     enable = true;
     enableSessionWide = false;
     settings = {
-      fps_limit = [ 150 60 0 ];
+      fps_limit = [ 0 150 60 ]; # doesn't work with mangoapp
       show_fps_limit = true;
       
       arch = true;

@@ -27,7 +27,7 @@
 
   programs.gamescope = {
     enable = true;
-    capSysNice = false;
+    capSysNice = true;
     package = pkgs.gamescope-wsi_git;
     args = [ "--hdr-enabled" ];
     env = {

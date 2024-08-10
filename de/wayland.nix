@@ -8,6 +8,7 @@
     XDG_CURRENT_DESKTOP = "KDE";
   };
 
+  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [
