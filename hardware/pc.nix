@@ -93,8 +93,7 @@
     }
   ];*/
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance"; # powersave
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
 }

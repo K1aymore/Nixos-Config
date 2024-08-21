@@ -253,7 +253,7 @@
 
 
       profile = "gpu-hq";
-      hwdec = "vaapi";
+      hwdec = "auto-safe";
 
       # best quality, except for 8K which is dumb
       ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
@@ -266,7 +266,7 @@
       interpolation = true;
       tscale = "oversample";
     } // lib.mkIf systemSettings.hdr {
-      vo = "gpu-next";
+      vo = "gpu-next"; # dmabuf-wayland doesn't work with hdr
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
       target-colorspace-hint = true;
@@ -309,7 +309,7 @@
       "HOME" = "seek 0 absolute";
     };
     scripts = [
-      pkgs.mpvScripts.autocrop
+      #pkgs.mpvScripts.autocrop
     ];
   };
 

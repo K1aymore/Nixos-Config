@@ -50,5 +50,6 @@
     [ { device = "/dev/disk/by-uuid/dbbe870f-c951-4465-8ef0-0e4517afd415"; }
     ];
 
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

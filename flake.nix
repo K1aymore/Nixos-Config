@@ -54,7 +54,9 @@
         ./${hostname}.nix
         ./hardware/${hostname}.nix
         
-        { networking.hostName = hostname; }
+        { networking.hostName = hostname;
+          nixpkgs.hostPlatform = systemSettings.architecture; }
+        
         
         
         home-manager.nixosModules.home-manager
