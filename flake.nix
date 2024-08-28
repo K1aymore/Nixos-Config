@@ -16,11 +16,11 @@
     catppuccin.url = "github:catppuccin/nix";
 
     nix-std.url = "github:chessai/nix-std";
-
+    
     flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
     flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
-
-
+    
+    
     stylix.url = "github:danth/stylix";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -43,7 +43,7 @@
         hdr = false;
         scaling = "1";
       } // inSettings;
-
+      
     in
     nixpkgs.lib.nixosSystem {
       system = systemSettings.architecture;
@@ -57,6 +57,7 @@
         { networking.hostName = hostname;
           nixpkgs.hostPlatform = systemSettings.architecture; }
         
+        
         home-manager.nixosModules.home-manager
         impermanence.nixosModule
 
@@ -64,7 +65,7 @@
           impermanence.nixosModules.home-manager.impermanence
           catppuccin.homeManagerModules.catppuccin
         ]; }
-
+        
         catppuccin.nixosModules.catppuccin
 
 
@@ -80,17 +81,17 @@
               config.allowUnfree = true;
             };
           })
-
+          
           (final: prev: {
             stable = import nixpkgs-stable {
               system = systemSettings.architecture;
-#               config.allowUnfree = true;
+              config.allowUnfree = true;
             };
           })
 
         ];}
-
-
+        
+        
       ];
     };
 
@@ -108,7 +109,7 @@
       };
 
       server = sharedConfig "server" {};
-
+      
       pimusic = sharedConfig "pimusic" {
         architecture = "aarch64-linux";
       };
