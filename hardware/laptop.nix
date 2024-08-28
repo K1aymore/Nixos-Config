@@ -11,23 +11,9 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "none";
-      fsType = "tmpfs";
-      options = [ "mode=755" ];
-    };
-
-  fileSystems."/home/klaymore" =
-    { device = "none";
-      fsType = "tmpfs";
-      options = [ "mode=777" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/ad4445c3-dcbd-468e-8f8e-58be9ee33403";
+    { device = "/dev/disk/by-uuid/188a6e36-ed18-4f14-94ab-d64f15ea0299";
       fsType = "ext4";
     };
-
-  boot.initrd.luks.devices."luks-2a5e2984-0036-44d1-abea-83d7dea0b737".device = "/dev/disk/by-uuid/2a5e2984-0036-44d1-abea-83d7dea0b737";
 
   fileSystems."/synced" =
     { device = "/dev/disk/by-uuid/42a94f20-5e45-40ca-bc35-07685bd3eb75";

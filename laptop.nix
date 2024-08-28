@@ -10,8 +10,9 @@
     #./de/hyprland.nix
 
     ./packages/gui.nix
-    #./packages/games.nix
+    ./packages/games.nix
     ./packages/coding.nix
+    ./packages/steam.nix
 
     #./packages/zerotier.nix
     #./system/opentablet.nix
@@ -33,8 +34,8 @@
     ./syncthing/projects.nix
 
 
-    ./impermanence
-    ./impermanence/steam.nix
+    #./impermanence
+#   #./impermanence/steam.nix
   ];
   
   #services.getty.autologinUser = "klaymore";
