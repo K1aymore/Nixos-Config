@@ -270,7 +270,6 @@
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
       target-colorspace-hint = true;
-      target-prim = "bt.2020";
     };
     profiles = {
       # converts SDR into HDR

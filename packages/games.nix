@@ -14,6 +14,7 @@
     #openal
     heroic
     #legendary-gl
+    winetricks
 
     mangohud
     

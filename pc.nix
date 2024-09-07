@@ -56,14 +56,6 @@
     #./impermanence/steam.nix
   ];
 
-  
-  /*specialisation.plasma5.configuration = {
-    system.nixos.tags = [ "plasma5" ];
-    services = {
-      desktopManager.plasma6.enable = false;
-      xserver.desktopManager.plasma5.enable = true;      
-    };
-  };*/
 
 
   nixpkgs.overlays = [
