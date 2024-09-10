@@ -29,7 +29,7 @@
     enable = true;
     capSysNice = true;
     package = pkgs.gamescope-wsi_git;
-    args = [ "--hdr-enabled" ];
+    args = [ ];
     env = {
       ENABLE_HDR_WSI = "0";
       DXVK_HDR = "1";
