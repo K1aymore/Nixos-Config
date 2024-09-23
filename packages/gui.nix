@@ -70,8 +70,8 @@
 
     #jamesdsp
     carla
-    gnome.gnome-bluetooth
-    gnome.gnome-control-center
+    gnome-bluetooth
+    gnome-control-center
     mono
     kdePackages.breeze
     kdePackages.kleopatra

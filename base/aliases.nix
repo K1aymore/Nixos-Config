@@ -51,7 +51,7 @@ in {
     vi = "nvim";
     #steam = "steam -forcedesktopscaling ${systemSettings.scaling} %U";
     steamflat = "flatpak run com.valvesoftware.Steam";
-    steamhdr = "ENABLE_HDR_WSI=0 DXVK_HDR=1 gamescope -f -H 2160 --mangoapp --hdr-enabled --hdr-debug-force-output --hdr-itm-enable -e -- env STEAM_FORCE_DESKTOPUI_SCALING=${systemSettings.scaling} steam";
+    steamhdr = "ENABLE_HDR_WSI=0 DXVK_HDR=1 gamescope -f -H 2160 --mangoapp --force-grab-cursor --hdr-enabled --hdr-debug-force-output --hdr-itm-enable -e -- env STEAM_FORCE_DESKTOPUI_SCALING=${systemSettings.scaling} steam";
     blades = "~/.cargo/bin/blades";
     ncfg = "codium ${configPath}";
     notes = "codium /synced/Sync/Notes";
