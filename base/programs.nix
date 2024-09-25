@@ -2,6 +2,10 @@
 
 {
 
+  programs = {
+    wireshark.enable = true;
+  };
+
 
   home-manager.users.klaymore.programs = {
     home-manager.enable = true;
