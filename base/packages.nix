@@ -123,6 +123,7 @@
     iperf3d
     ventoy
     radeontop
+    inetutils
 
     micro
     xclip
@@ -163,6 +164,8 @@
     r128gain
     mediainfo
     rclone
+    poppler
+    poppler_utils
 
     ldns
     bind
