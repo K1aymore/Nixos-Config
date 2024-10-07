@@ -4,6 +4,7 @@
 
   programs = {
     wireshark.enable = true;
+    nix-ld.enable = true;
   };
 
 

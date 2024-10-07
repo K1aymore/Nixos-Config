@@ -124,6 +124,7 @@
     ventoy
     radeontop
     inetutils
+    moreutils
 
     micro
     xclip
@@ -166,6 +167,7 @@
     rclone
     poppler
     poppler_utils
+    killall
 
     ldns
     bind
