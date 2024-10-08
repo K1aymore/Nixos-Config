@@ -5,8 +5,8 @@
 
 
   catppuccin = {
-    accent = "maroon";
     flavor = "mocha";
+    accent = "maroon";
   };
 
 
@@ -14,8 +14,8 @@
 
   home-manager.users.klaymore = {
     catppuccin = {
-      accent = "maroon";
       flavor = "mocha";
+      accent = "maroon";
     };
 
     gtk.catppuccin.enable = true;
@@ -25,6 +25,9 @@
 
       fish.catppuccin.enable = true;
       starship.catppuccin.enable = true;
+
+      alacritty.catppuccin.enable = true;
+      kitty.catppuccin.enable = true;
     };
 
     qt.style.catppuccin = {

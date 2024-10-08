@@ -33,4 +33,5 @@
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave"; # performance
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  services.fwupd.enable = true;
 }

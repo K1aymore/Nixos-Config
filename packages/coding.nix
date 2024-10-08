@@ -133,6 +133,7 @@
         "workbench.colorTheme" = "Mayukai Semantic Mirage";
 
         "editor.fontFamily" = "Fira Code";
+        "editor.fontLigatures" = true;
 
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
