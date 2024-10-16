@@ -68,6 +68,7 @@
     libxcrypt
     lm_sensors
     acpi
+    beep
 
     gvfs
     libcdio # cd stuff for kde

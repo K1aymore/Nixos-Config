@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixpkgs-staging.url = "github:NixOS/nixpkgs/nixos-unstable-small";  # ?rev=493dfd5c25fefa57fe87d50aaa0341a47c673546
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.05";
 
@@ -32,7 +33,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
+  outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
               catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
   let
     sharedConfig = hostname: inSettings@{ ... }:
@@ -42,58 +43,66 @@
         architecture = "x86_64-linux";
         hdr = false;
         scaling = "1";
+        nixpkgs = "unstable";
       } // inSettings;
+
+      modules = rec {
+        system = systemSettings.architecture;
+        specialArgs = attrs // { inherit systemSettings; };
+
+        modules = [
+          ./base
+          ./${hostname}.nix
+          ./hardware/${hostname}.nix
+          
+          { networking.hostName = hostname;
+            nixpkgs.hostPlatform = systemSettings.architecture; }
+          
+          { nixpkgs.config.pkgs = if systemSettings.nixpkgs == "staging"
+            then import nixpkgs-staging { inherit system; }
+            else import nixpkgs { inherit system; }; }
+          
+          home-manager.nixosModules.home-manager
+          impermanence.nixosModule
+
+          { home-manager.users.klaymore.imports = [
+            impermanence.nixosModules.home-manager.impermanence
+            catppuccin.homeManagerModules.catppuccin
+          ]; }
+          
+          catppuccin.nixosModules.catppuccin
+
+
+          flake-programs-sqlite.nixosModules.programs-sqlite
+          #stylix.nixosModules.stylix
+          chaotic.nixosModules.default
+          nixos-cosmic.nixosModules.default
+
+          { nixpkgs.overlays = [
+            (final: prev: {
+              unstable = import nixpkgs-unstable {
+                system = systemSettings.architecture;
+                config.allowUnfree = true;
+              };
+            })
+            
+            (final: prev: {
+              stable = import nixpkgs-stable {
+                system = systemSettings.architecture;
+                config.allowUnfree = true;
+              };
+            })
+
+          ];}
+          
+          
+        ];
+      };
       
     in
-    nixpkgs.lib.nixosSystem {
-      system = systemSettings.architecture;
-      specialArgs = attrs // { inherit systemSettings; };
-
-      modules = [
-        ./base
-        ./${hostname}.nix
-        ./hardware/${hostname}.nix
-        
-        { networking.hostName = hostname;
-          nixpkgs.hostPlatform = systemSettings.architecture; }
-        
-        
-        home-manager.nixosModules.home-manager
-        impermanence.nixosModule
-
-        { home-manager.users.klaymore.imports = [
-          impermanence.nixosModules.home-manager.impermanence
-          catppuccin.homeManagerModules.catppuccin
-        ]; }
-        
-        catppuccin.nixosModules.catppuccin
-
-
-        flake-programs-sqlite.nixosModules.programs-sqlite
-        #stylix.nixosModules.stylix
-        chaotic.nixosModules.default
-        nixos-cosmic.nixosModules.default
-
-        { nixpkgs.overlays = [
-          (final: prev: {
-            unstable = import nixpkgs-unstable {
-              system = systemSettings.architecture;
-              config.allowUnfree = true;
-            };
-          })
-          
-          (final: prev: {
-            stable = import nixpkgs-stable {
-              system = systemSettings.architecture;
-              config.allowUnfree = true;
-            };
-          })
-
-        ];}
-        
-        
-      ];
-    };
+    if systemSettings.nixpkgs == "staging"
+    then nixpkgs-staging.lib.nixosSystem modules
+    else nixpkgs.lib.nixosSystem modules;
 
   in
   {
@@ -106,6 +115,7 @@
       pc = sharedConfig "pc" {
         hdr = true;
         scaling = "1.75";
+        #nixpkgs = "staging";
       };
 
       server = sharedConfig "server" {};

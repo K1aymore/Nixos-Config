@@ -60,7 +60,7 @@
 
     pavucontrol
     qjackctl
-    helvum
+    #helvum
     easyeffects
     alsa-oss
     alsa-lib
@@ -85,7 +85,7 @@
     okular
     gwenview
     digikam
-    clementine
+    #clementine
     # qt-6 version doesn't save playlists well
     strawberry-qt6
     jamesdsp
@@ -106,7 +106,7 @@
     sfxr
     sfxr-qt
     #handbrake
-    k3b
+    #k3b
 
     stable.syncplay
     #python39Packages.certifi
@@ -144,10 +144,11 @@
 
     steam-run
 
-    unstable.godot_4
+    godot_4
     blender-hip
     #python39Packages.pyzmq
     libresprite
+    aseprite
     pixelorama
     krita
     #opentoonz
@@ -157,7 +158,7 @@
     #log4cxx
     lmms
     #reaper
-    ardour
+    #ardour
     #furnace
     josm
     #love
