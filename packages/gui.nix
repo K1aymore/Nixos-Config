@@ -54,7 +54,7 @@
     #onboard
     #xkbd
     #latte-dock
-    #remmina
+    remmina
     #xfce.thunar
     akregator
 
@@ -255,7 +255,7 @@
 
 
       profile = "gpu-hq";
-      hwdec = "auto-safe";
+      hwdec = "vaapi,vulkan,auto";
 
       # best quality, except for 8K which is dumb
       ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
@@ -271,6 +271,10 @@
       vo = "gpu-next"; # dmabuf-wayland doesn't work with hdr
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
+
+      target-trc = "pq";
+      target-prim = "bt.2020";
+      tone-mapping = "bt.2446a";
       target-colorspace-hint = true;
     };
     profiles = {
@@ -278,13 +282,9 @@
       SDR_HDR_EFFECT = lib.mkIf systemSettings.hdr {
         profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
-        target-trc = "pq";
-        target-prim = "bt.2020";
-        tone-mapping = "bt.2446a";
-        inverse-tone-mapping = false;
 
-        # Higher value = stronger effect
         target-peak = 550;
+        inverse-tone-mapping = false;
       };
     };  
     bindings = {
