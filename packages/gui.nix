@@ -274,7 +274,6 @@
 
       target-trc = "pq";
       target-prim = "bt.2020";
-      tone-mapping = "bt.2446a";
       target-colorspace-hint = true;
     };
     profiles = {
@@ -283,6 +282,7 @@
         profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
 
+        tone-mapping = "bt.2446a";
         target-peak = 550;
         inverse-tone-mapping = false;
       };

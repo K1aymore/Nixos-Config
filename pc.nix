@@ -34,8 +34,8 @@
     # ./services/system/ipfs.nix
     #./services/pc/i2p.nix
     
-    ./services/system/zfs.nix
-    ./services/system/waydroid.nix
+    #./services/system/zfs.nix
+    #./services/system/waydroid.nix
     ./services/system/zram.nix
 
 
@@ -58,45 +58,34 @@
 
 
 
-  nixpkgs.overlays = [
-    # (final: prev: {
-    #   godot_git = prev.godot_4.overrideAttrs (o: {
-    #     version = "git";
-    #     src = pkgs.fetchFromGitHub {
-    #       owner = "godotengine";
-    #       repo = "godot";
-    #       rev = "1ce6df7087113a61491567f3ac55561d5688e2a8";
-    #       hash = "sha256-sEpJHds0Tzzwbc8MmRKxt4Qf73BEAIqlh5c7K2X7IQw=";
-    #     };
-    #   });
-    # })
-
-    (final: prev: rec {
-      python3 = prev.python3.override {
-        packageOverrides = self: super: {
-          wxpython =
-            let
-              waf_2_0_25 = pkgs.fetchurl {
-                url = "https://waf.io/waf-2.0.25";
-                hash = "sha256-IRmc0iDM9gQ0Ez4f0quMjlIXw3mRmcgnIlQ5cNyOONU=";
-              };
-            in
-            super.wxpython.overrideAttrs {
-              disabled = null;
-              postPatch = ''
-                cp ${waf_2_0_25} bin/waf-2.0.25
-                chmod +x bin/waf-2.0.25
-                substituteInPlace build.py \
-                  --replace-fail "wafCurrentVersion = '2.0.24'" "wafCurrentVersion = '2.0.25'" \
-                  --replace-fail "wafMD5 = '698f382cca34a08323670f34830325c4'" "wafMD5 = 'a4b1c34a03d594e5744f9e42f80d969d'" \
-                  --replace-fail "distutils.dep_util" "setuptools.modified"
-              '';
-            };
-        };
-      };
-      python3Packages = python3.pkgs;
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   
+  #   (final: prev: rec {
+  #     python3 = prev.python3.override {
+  #       packageOverrides = self: super: {
+  #         wxpython =
+  #           let
+  #             waf_2_0_25 = pkgs.fetchurl {
+  #               url = "https://waf.io/waf-2.0.25";
+  #               hash = "sha256-IRmc0iDM9gQ0Ez4f0quMjlIXw3mRmcgnIlQ5cNyOONU=";
+  #             };
+  #           in
+  #           super.wxpython.overrideAttrs {
+  #             disabled = null;
+  #             postPatch = ''
+  #               cp ${waf_2_0_25} bin/waf-2.0.25
+  #               chmod +x bin/waf-2.0.25
+  #               substituteInPlace build.py \
+  #                 --replace-fail "wafCurrentVersion = '2.0.24'" "wafCurrentVersion = '2.0.25'" \
+  #                 --replace-fail "wafMD5 = '698f382cca34a08323670f34830325c4'" "wafMD5 = 'a4b1c34a03d594e5744f9e42f80d969d'" \
+  #                 --replace-fail "distutils.dep_util" "setuptools.modified"
+  #             '';
+  #           };
+  #       };
+  #     };
+  #     python3Packages = python3.pkgs;
+  #   })
+  # ];
 
   environment.systemPackages = with pkgs; [
     #godot_git
@@ -109,53 +98,18 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
 
+
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   #boot.initrd.kernelModules = [ "amdgpu" ];
   # https://discourse.nixos.org/t/amd-gpu-optimal-settings/27648/2
   #services.xserver.videoDrivers = [ "amdgpu" ];
 
-  boot.zfs.extraPools = [ "stuff" ];
+  #boot.zfs.extraPools = [ "stuff" ];
   
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 
 
-
-  #boot.kernelPackages = lib.mkForce pkgs.linuxKernel.packages.linux_6_8;
-
-  # nixpkgs.config.packageOverrides = pkgs: pkgs.lib.recursiveUpdate pkgs {
-  #   linuxKernel.kernels.linux_6_8 = pkgs.linuxKernel.kernels.linux_6_8.override {
-  #     # ignoreConfigErrors = false;
-  #     # autoModules = true;
-  #     # kernelPreferBuiltin = true;
-  #     extraStructuredConfig = with lib.kernel; {
-  #       AMD_PRIVATE_COLOR = yes;
-  #     };
-  #     # extraMakeFlags = [
-  #     #   "-DAMD_PRIVATE_COLOR"
-  #     # ];
-  #   };
-  #   # linuxKernel.kernels.linux_6_8 = pkgs.linuxKernel.kernels.linux_6_8.overrideDerivation (old: {
-  #   #   NIX_CFLAGS_COMPILE = [ "-DAMD_PRIVATE_COLOR" ];
-  #   # });
-  # };
-
-
-  # boot.kernelParams = [
-  #   "amdgpu.msi=0"
-  #   "amdgpu.aspm=0"
-  #   "amdgpu.runpm=0"
-  #   "amdgpu.bapm=0"
-  #   "amdgpu.vm_update_mode=0"
-  #   "amdgpu.exp_hw_support=1"
-  #   "amdgpu.sched_jobs=64"
-  #   "amdgpu.sched_hw_submission=4"
-  #   "amdgpu.lbpw=0"
-  #   "amdgpu.mes=1"
-  #   "amdgpu.mes_kiq=1"
-  #   "amdgpu.sched_policy=1"
-  #   "amdgpu.ignore_crat=1"
-  #   "amdgpu.no_system_mem_limit"
-  #   "amdgpu.smu_pptable_id=0"
-  # ];
 
 
   

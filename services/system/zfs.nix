@@ -12,6 +12,6 @@
   boot.zfs.forceImportRoot = false;
   
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
 
 }
