@@ -44,7 +44,6 @@
 
 
 
-  # Synced
   boot.initrd.luks.devices."luks-synced".device = "/dev/disk/by-uuid/a1d87862-3676-4f71-ab9d-2d63734eb5b2";
   fileSystems."/synced" = {
     device = "/dev/disk/by-uuid/578ff020-2da7-497d-af01-f8983e1c2e40";
@@ -53,6 +52,8 @@
     fsType = "ext4";
   };
 
+
+  boot.zfs.extraPools = [ "stuff" ];
 
   # Stuff
   /*fileSystems."/mainStuff" = {
@@ -66,19 +67,6 @@
     options = [ "nfsvers=4.2" ];  # "x-systemd.automount" "noauto"
   }; */
 
-
-  # HugeArchive
-  /*boot.initrd.luks.devices."luks-1200dbe8-1413-479c-8a4f-e8be0b8a21e3".device = "/dev/disk/by-uuid/1200dbe8-1413-479c-8a4f-e8be0b8a21e3";
-    fileSystems."/synced/HugeArchive" = {
-    device = "/dev/disk/by-uuid/dbad8e8f-a1af-4f78-a078-f4bd75e41434";
-    fsType = "ext4";
-  };*/
-
-  # Games
-  /*fileSystems."/home/klaymore/.var/app" = {
-    device = "/dev/disk/by-uuid/0c8bb6fb-2568-46cf-b5ee-5452b727d4fc";
-    fsType = "ext4";
-  };*/
 
   fileSystems."/nfs/hugeArchive" = {
     device = "172.16.0.115:/hugeArchive";

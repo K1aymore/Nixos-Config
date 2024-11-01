@@ -34,7 +34,7 @@
     # ./services/system/ipfs.nix
     #./services/pc/i2p.nix
     
-    #./services/system/zfs.nix
+    ./services/system/zfs.nix
     #./services/system/waydroid.nix
     ./services/system/zram.nix
 
@@ -98,14 +98,14 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
 
+  services.power-profiles-daemon.enable = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  #boot.kernelPackages = pkgs.linuxPackages_zen;
 
   #boot.initrd.kernelModules = [ "amdgpu" ];
   # https://discourse.nixos.org/t/amd-gpu-optimal-settings/27648/2
   #services.xserver.videoDrivers = [ "amdgpu" ];
 
-  #boot.zfs.extraPools = [ "stuff" ];
   
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 
