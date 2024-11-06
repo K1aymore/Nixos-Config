@@ -44,6 +44,7 @@
     jdt-language-server
 
     php
+    deno # for catppuccin userstyles
 
     #jetbrains.idea-community
     vscode-fhs

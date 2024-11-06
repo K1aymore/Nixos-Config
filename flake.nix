@@ -34,7 +34,7 @@
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
+              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, lib, ... }@attrs:
   let
     sharedConfig = hostname: inSettings@{ ... }:
     let
@@ -44,6 +44,7 @@
         hdr = false;
         scaling = "1";
         nixpkgs = "unstable";
+        yggdrasilPeers = [];
       } // inSettings;
 
       modules = rec {
@@ -72,6 +73,11 @@
           
           catppuccin.nixosModules.catppuccin
 
+          {
+            imports = lib.mkIf (systemSettings.yggdrasilPeers != []) [
+              "./services/system/yggdrasil.nix"
+            ];
+          }
 
           flake-programs-sqlite.nixosModules.programs-sqlite
           #stylix.nixosModules.stylix
@@ -85,14 +91,12 @@
                 config.allowUnfree = true;
               };
             })
-            
             (final: prev: {
               stable = import nixpkgs-stable {
                 system = systemSettings.architecture;
                 config.allowUnfree = true;
               };
             })
-
           ];}
           
           
@@ -110,15 +114,23 @@
 
       oldlaptop = sharedConfig "oldlaptop" {};
 
-      laptop = sharedConfig "laptop" {};
+      laptop = sharedConfig "laptop" {
+        yggdrasilPeers = [ "tcp://klaymore.me:13121" ];
+      };
 
       pc = sharedConfig "pc" {
         hdr = true;
         scaling = "1.75";
         #nixpkgs = "staging";
+        yggdrasilPeers = [ "tcp://10.0.0.105:13121" ];
       };
 
-      server = sharedConfig "server" {};
+      server = sharedConfig "server" {
+        yggdrasilPeers = [
+          "tls://44.234.134.124:443"
+          "tcp://longseason.1200bps.xyz:13121"
+        ];
+      };
       
       pimusic = sharedConfig "pimusic" {
         architecture = "aarch64-linux";

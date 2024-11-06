@@ -163,6 +163,7 @@
     josm
     #love
     zola
+    logisim
     logisim-evolution
 
     gsettings-desktop-schemas
