@@ -34,7 +34,7 @@
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, lib, ... }@attrs:
+              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
   let
     sharedConfig = hostname: inSettings@{ ... }:
     let
@@ -56,12 +56,12 @@
           ./${hostname}.nix
           ./hardware/${hostname}.nix
           
-          { networking.hostName = hostname;
-            nixpkgs.hostPlatform = systemSettings.architecture; }
+          { networking.hostName = hostname; }
           
-          { nixpkgs.config.pkgs = if systemSettings.nixpkgs == "staging"
-            then import nixpkgs-staging { inherit system; }
-            else import nixpkgs { inherit system; }; }
+          { nixpkgs.hostPlatform = systemSettings.architecture;
+            nixpkgs.config.pkgs = if systemSettings.nixpkgs == "staging"
+              then import nixpkgs-staging { inherit system; }
+              else import nixpkgs { inherit system; }; }
           
           home-manager.nixosModules.home-manager
           impermanence.nixosModule
@@ -73,16 +73,11 @@
           
           catppuccin.nixosModules.catppuccin
 
-          {
-            imports = lib.mkIf (systemSettings.yggdrasilPeers != []) [
-              "./services/system/yggdrasil.nix"
-            ];
-          }
-
           flake-programs-sqlite.nixosModules.programs-sqlite
           #stylix.nixosModules.stylix
           chaotic.nixosModules.default
           nixos-cosmic.nixosModules.default
+
 
           { nixpkgs.overlays = [
             (final: prev: {
@@ -122,7 +117,10 @@
         hdr = true;
         scaling = "1.75";
         #nixpkgs = "staging";
-        yggdrasilPeers = [ "tcp://10.0.0.105:13121" ];
+        yggdrasilPeers = [
+          "tcp://10.0.0.105:13121"
+          "tls://44.234.134.124:443"
+        ];
       };
 
       server = sharedConfig "server" {

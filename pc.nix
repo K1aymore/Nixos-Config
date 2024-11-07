@@ -37,6 +37,7 @@
     ./services/system/zfs.nix
     #./services/system/waydroid.nix
     ./services/system/zram.nix
+    ./services/system/yggdrasil.nix
 
 
     ./syncthing
@@ -98,7 +99,7 @@
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
 
-  services.power-profiles-daemon.enable = true;
+  #services.power-profiles-daemon.enable = true;
 
   #boot.kernelPackages = pkgs.linuxPackages_zen;
 
@@ -143,7 +144,6 @@
 
 
   networking = {
-    hostName = "pc";
     hostId = "7c980de5"; # head -c 8 /etc/machine-id
     firewall = {
       allowedTCPPorts = [ ];

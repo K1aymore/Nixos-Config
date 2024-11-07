@@ -43,6 +43,7 @@
     #wofi
     xdg-utils
     grim
+    wl-color-picker
 
     dolphin
     filelight
