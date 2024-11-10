@@ -149,7 +149,7 @@
     blender-hip
     #python39Packages.pyzmq
     libresprite
-    aseprite
+    #aseprite
     pixelorama
     krita
     #opentoonz
