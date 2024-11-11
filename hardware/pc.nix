@@ -53,7 +53,7 @@
   };
 
 
-  boot.zfs.extraPools = [ "stuff" ];
+  #boot.zfs.extraPools = [ "stuff" ];
 
   # Stuff
   /*fileSystems."/mainStuff" = {

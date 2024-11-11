@@ -6,12 +6,11 @@
   imports = [
     ./locale/colemak.nix
     ./locale/losAngeles.nix
-    ./de/plasma.nix
+    #./de/plasma.nix
 
-    ./packages/gui.nix
+    #./packages/gui.nix
 
-    #./server/ssh.nix
-    #./services/server/nfs.nix
+    ./services/server/ssh.nix
 
     ./services/system/zfs.nix
 
