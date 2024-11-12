@@ -11,8 +11,8 @@
     enable = true;
     ports = [ 56789 ];
     openFirewall = false;
-    passwordAuthentication = false;
-    forwardX11 = true;
+    settings.PasswordAuthentication = false;
+    settings.X11Forwarding = true;
   };
 
   users.users.klaymore.openssh.authorizedKeys.keys = [

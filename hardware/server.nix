@@ -24,7 +24,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D0AD-6AD9";
+    device = "/dev/disk/by-uuid/F902-8505";
     fsType="vfat";
   };
 
@@ -40,15 +40,15 @@
   }; */
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/a1d47570-1639-4aee-bf8e-106abc6d7047";
+    device = "/dev/disk/by-uuid/a4c05ff8-0f49-42f5-b6fc-4d14f1bd10e3";
     fsType = "ext4";
   };
 
   boot.zfs.extraPools = [ "zfs1" ];
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/dbbe870f-c951-4465-8ef0-0e4517afd415"; }
-    ];
+  # swapDevices =
+  #   [ { device = "/dev/disk/by-uuid/dbbe870f-c951-4465-8ef0-0e4517afd415"; }
+  #   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
