@@ -10,11 +10,13 @@
 
     #./packages/gui.nix
 
-    ./services/server/ssh.nix
 
     ./services/system/zfs.nix
-
     ./services/system/zram.nix
+
+
+    ./services/server/ssh.nix
+    ./services/server/wireguard-forwarding.nix
 
     ./services/server/nginx.nix
     ./services/server/synapse.nix
@@ -25,6 +27,7 @@
     #./server/minecraft.nix
     # ./server/restyaboard.nix
     # ./server/radicale.nix
+
 
     ./syncthing
 
@@ -37,7 +40,6 @@
     ./syncthing/projects.nix
     ./syncthing/sync.nix
 
-    # ./system/opentablet.nix
 
     ./impermanence/system.nix
     ./impermanence/home.nix

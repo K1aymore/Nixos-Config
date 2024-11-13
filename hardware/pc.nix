@@ -53,7 +53,7 @@
   };
 
 
-  #boot.zfs.extraPools = [ "stuff" ];
+  boot.zfs.extraPools = [ "stuff" ];
 
   # Stuff
   /*fileSystems."/mainStuff" = {
@@ -68,8 +68,8 @@
   }; */
 
 
-  fileSystems."/nfs/hugeArchive" = {
-    device = "172.16.0.115:/hugeArchive";
+  fileSystems."/nfs/server" = {
+    device = "10.0.0.125:/zfs2";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" ];
   };

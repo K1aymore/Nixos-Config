@@ -28,11 +28,11 @@
     fsType="vfat";
   };
 
-  fileSystems."/synced" = {
-    device = "/dev/disk/by-uuid/f7b4de5e-00b6-4b2a-b2e2-9ae1fd3df093";
-    fsType = "ext4";
-    neededForBoot = true;
-  };
+  #fileSystems."/synced" = {
+  #  device = "/dev/disk/by-uuid/f7b4de5e-00b6-4b2a-b2e2-9ae1fd3df093";
+  #  fsType = "ext4";
+  #  neededForBoot = true;
+  #};
 
   /* fileSystems."/synced/HugeArchive" = {
     device = "/dev/disk/by-uuid/ee575e80-6b75-4abe-854a-bf31fcf3d2b9";
@@ -44,7 +44,7 @@
     fsType = "ext4";
   };
 
-  boot.zfs.extraPools = [ "zfs1" ];
+  #boot.zfs.extraPools = [ "zfs1" ];
 
   # swapDevices =
   #   [ { device = "/dev/disk/by-uuid/dbbe870f-c951-4465-8ef0-0e4517afd415"; }

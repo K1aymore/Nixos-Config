@@ -7,14 +7,14 @@
 
   services.nfs.server = {
     enable = true;
-    hostName = "172.16.0.109";
+    hostName = "10.0.0.125";
     statdPort = 4000;
     lockdPort = 4001;
     mountdPort = 4002;
     extraNfsdConfig = '''';
 
     exports = ''
-      /zfs1/hugeArchive         172.16.0.109(rw,nohide,no_subtree_check,no_root_squash)
+      /zfs2         10.0.0.125(rw,nohide,no_subtree_check,no_root_squash)
     '';
   };
 
