@@ -72,8 +72,7 @@
     #networkmanager.dns = "none";
 
     extraHosts = ''
-      172.16.0.115 serverlan
-      172.16.0.115:56789 serverlanssh
+      10.0.0.125 serverlan
     '';
   };
 

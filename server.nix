@@ -9,7 +9,7 @@
     
     #./de/plasma6.nix
     
-    ./packages/gui.nix
+    #./packages/gui.nix
 
 
     ./services/system/zfs.nix

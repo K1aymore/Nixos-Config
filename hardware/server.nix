@@ -18,7 +18,7 @@
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sdi"; # or "nodev" for efi only
+  boot.loader.grub.device = "/dev/disk/by-id/ata-CT240BX500SSD1_1911E178602F"; # or "nodev" for efi only
 
 
   fileSystems."/" = {
@@ -30,7 +30,7 @@
   fileSystems."/home/klaymore" = {
     device = "tmpfs";
     fsType = "tmpfs";
-    options = [ "size=1G" "mode=777" ];
+    options = [ "mode=777" ];
   };
 
   fileSystems."/boot" = {
@@ -54,7 +54,7 @@
     fsType = "ext4";
   };
 
-  #boot.zfs.extraPools = [ "zfs1" ];
+  boot.zfs.extraPools = [ "zfs2" ];
 
   # swapDevices =
   #   [ { device = "/dev/disk/by-uuid/dbbe870f-c951-4465-8ef0-0e4517afd415"; }

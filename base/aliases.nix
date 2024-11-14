@@ -95,9 +95,6 @@ in {
 
 
 
-    sshServerLan = "ssh 172.16.0.115 -p 56789";
-
-
     ipfsbafysimple = "ipfs add --cid-version 1";
     ipfslist = "ipfs pin ls | grep recursive";
 

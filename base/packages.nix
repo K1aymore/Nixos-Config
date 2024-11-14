@@ -104,6 +104,7 @@
     nfs-utils
     libnfs
     parted
+    smartmontools
 
     networkmanager-openvpn
     openvpn
