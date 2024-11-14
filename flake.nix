@@ -44,8 +44,8 @@
         hdr = false;
         scaling = "1";
         nixpkgs = "unstable";
-        syncthing = false;
         yggdrasilPeers = [];
+        syncthing = false;
         zfs = false;
         zram = true;
       } // inSettings;
@@ -126,25 +126,25 @@
         hdr = true;
         scaling = "1.75";
         #nixpkgs = "staging";
-        syncthing = true;
         yggdrasilPeers = [
           "tcp://10.0.0.125:6901"
         ];
+        syncthing = true;
         zfs = true;
       };
 
       server = sharedConfig "server" {
-        syncthing = false;
         yggdrasilPeers = [
           "tls://44.234.134.124:443"
           "tcp://longseason.1200bps.xyz:13121"
         ];
+        syncthing = true;
         zfs = true;
       };
 
       laptop = sharedConfig "laptop" {
-        syncthing = true;
         yggdrasilPeers = [ "tcp://klaymore.me:13121" ];
+        syncthing = true;
       };
 
       oldlaptop = sharedConfig "oldlaptop" {};

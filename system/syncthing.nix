@@ -34,7 +34,7 @@ in
         ignorePerms = false;
       };
       Dotfiles = {
-        devices = [ "server" "pc" "laptop"] ;
+        devices = [ "server" "pc" "laptop" ] ;
       };
       EllidaProjects = {
         devices = [ "server" "pc" "laptop" ];
