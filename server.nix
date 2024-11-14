@@ -28,6 +28,7 @@
     #./server/minecraft.nix
     # ./server/restyaboard.nix
     # ./server/radicale.nix
+    ./services/system/yggdrasil.nix
 
 
     #./syncthing

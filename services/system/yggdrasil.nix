@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, lib, pkgs, systemSettings, ... }:
 
 {
@@ -11,6 +7,11 @@
     persistentKeys = true;
     openMulticastPort = true;
     settings = {
+
+      Listen = [
+        "tcp://0.0.0.0:6901"
+      ];
+
       # Yggdrasil will automatically connect and "peer" with other nodes it
       # discovers via link-local multicast announcements. Unless this is the
       # case (it probably isn't) a node needs peers within the existing
