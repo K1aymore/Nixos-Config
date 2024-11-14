@@ -25,7 +25,7 @@
       '';
       family = "inet";
     };
-  };  
+  };
 
   networking.wireguard.enable = true;
   networking.wireguard.interfaces = {
@@ -53,13 +53,13 @@
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
-      privateKeyFile = "path to private key file";
+      privateKeyFile = "/synced/Nix/stuff/wireguard.key";
 
       peers = [
         # List of allowed peers.
         { # Feel free to give a meaning full name
           # Public key of the peer (not a file path).
-          publicKey = "{client public key}";
+          publicKey = "BGtFEKI1cqIc+tVml4OmAdL7lW/Gt748yO1JGio7mgs=";
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
           allowedIPs = [ "10.100.0.2/32" ];
         }
