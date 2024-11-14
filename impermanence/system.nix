@@ -21,7 +21,7 @@
     files = [
 #      "/etc/machine-id"
 #      "/etc/nix/id_rsa"
-      "/var/lib/yggdrasil/keys.json"
+      #"/var/lib/yggdrasil/keys.json"
     ];
   };
 

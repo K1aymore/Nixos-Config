@@ -41,10 +41,10 @@
   services.gitea = {
     enable = true;
 
-    stateDir = "/zfs1/gitea/state";
-    repositoryRoot = "/zfs1/gitea/repository";
+    stateDir = "/zfs2/gitea/state";
+    repositoryRoot = "/zfs2/gitea/repository";
 
-    database.passwordFile = "/zfs1/gitea/password";
+    database.passwordFile = "/zfs2/gitea/password";
 
     settings = {
       service = {

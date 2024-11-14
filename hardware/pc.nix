@@ -69,9 +69,9 @@
 
 
   fileSystems."/nfs/stuff" = {
-    device = "10.0.0.125:/stuff";
+    device = "10.0.0.125:/zfs2/stuff";
     fsType = "nfs";
-    options = [ "x-systemd.automount" "noauto" ];
+    options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };
 
   /*swapDevices = [
