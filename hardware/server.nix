@@ -11,6 +11,16 @@
   boot.extraModulePackages = [ ];
 
 
+  # Use the GRUB 2 boot loader.
+  boot.loader.grub.enable = true;
+  #boot.loader.grub.version = 2;
+  # boot.loader.grub.efiSupport = true;
+  # boot.loader.grub.efiInstallAsRemovable = true;
+  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  # Define on which hard drive you want to install Grub.
+  boot.loader.grub.device = "/dev/sde"; # or "nodev" for efi only
+
+
   fileSystems."/" = {
     device = "tmpfs";
     fsType = "tmpfs";
@@ -24,8 +34,8 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/D0AD-6AD9";
-    fsType="vfat";
+    device = "/dev/disk/by-uuid/c6922e76-ac69-4c53-814e-af31d997e831";
+    fsType="ext4";
   };
 
   #fileSystems."/synced" = {
@@ -40,7 +50,7 @@
   }; */
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/a1d47570-1639-4aee-bf8e-106abc6d7047";
+    device = "/dev/disk/by-uuid/1ba1f601-9259-43e1-a0bc-a80e01fba71c";
     fsType = "ext4";
   };
 
