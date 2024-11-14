@@ -2,7 +2,7 @@
 
 let
   scripts = "/synced/Sync/Linux/BashScripts";
-  configPath = "/synced/Nix/cfg";
+  configPath = "/synced/cfg";
 in {
   environment.variables = {
     GPG_TTY = "$(tty)";
