@@ -7,7 +7,7 @@
     ./locale/colemak.nix
     ./locale/losAngeles.nix
     
-    ./de/plasma.nix
+    #./de/plasma6.nix
     
     ./packages/gui.nix
 
