@@ -23,16 +23,7 @@
     ./system/zram.nix
 
 
-    ./syncthing
-
-    ./syncthing/sync.nix
-    ./syncthing/media.nix
-    #./syncthing/archive.nix
-    ./syncthing/dotfiles.nix
-    ./syncthing/ellidaProjects.nix
-    ./syncthing/nixcfg.nix
-    ./syncthing/projects.nix
-
+    ./system/syncthing.nix
 
     #./impermanence
 #   #./impermanence/steam.nix
