@@ -61,15 +61,23 @@
     fsType = "zfs";
   };*/
 
-  /* fileSystems."/synced/HugeArchive" = {
-    device = "serverlan:/HugeArchive";
-    fsType = "nfs";
-    options = [ "nfsvers=4.2" ];  # "x-systemd.automount" "noauto"
-  }; */
 
 
   fileSystems."/nfs/stuff" = {
-    device = "10.0.0.125:/zfs2/stuff";
+    device = "serverlan:/zfs2/stuff";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
+  };
+
+
+  fileSystems."/nfs/hugeArchive" = {
+    device = "serverlan:/zfs2/hugeArchive";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];  # "x-systemd.automount" "noauto"
+  };
+
+  fileSystems."/nfs/synced" = {
+    device = "serverlan:/synced";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };
