@@ -29,15 +29,15 @@
     #./packages/deep3D-depends.nix
     
 
-    ./services/system/opentablet.nix
+    ./system/opentablet.nix
 
-    # ./services/system/ipfs.nix
-    #./services/pc/i2p.nix
+    # ./system/ipfs.nix
+    #./pc/i2p.nix
     
-    ./services/system/zfs.nix
-    #./services/system/waydroid.nix
-    ./services/system/zram.nix
-    ./services/system/yggdrasil.nix
+    ./system/zfs.nix
+    #./system/waydroid.nix
+    ./system/zram.nix
+    ./system/yggdrasil.nix
 
 
     ./syncthing

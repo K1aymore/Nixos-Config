@@ -12,23 +12,23 @@
     #./packages/gui.nix
 
 
-    ./services/system/zfs.nix
-    ./services/system/zram.nix
+    ./system/zfs.nix
+    ./system/zram.nix
 
 
-    ./services/server/ssh.nix
-    ./services/server/wireguard-forwarding.nix
+    ./server/ssh.nix
+    ./server/wireguard-forwarding.nix
 
-    ./services/server/nginx.nix
-    ./services/server/synapse.nix
-    ./services/server/gitea.nix
-    ./services/server/nfs.nix
-    #./services/server/syncplay.nix
-    ./services/server/tt-rss.nix
+    ./server/nginx.nix
+    ./server/synapse.nix
+    ./server/gitea.nix
+    ./server/nfs.nix
+    #./server/syncplay.nix
+    ./server/tt-rss.nix
     #./server/minecraft.nix
     # ./server/restyaboard.nix
     # ./server/radicale.nix
-    ./services/system/yggdrasil.nix
+    ./system/yggdrasil.nix
 
 
     #./syncthing

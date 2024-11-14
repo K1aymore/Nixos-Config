@@ -18,9 +18,9 @@
     #./system/opentablet.nix
     #./system/touchegg.nix
 
-    #./services/system/mysql.nix
+    #./system/mysql.nix
 
-    ./services/system/zram.nix
+    ./system/zram.nix
 
 
     ./syncthing
