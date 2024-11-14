@@ -20,7 +20,7 @@
     };
 
 
-    home.persistence."/synced/Nix/persist/home" = {
+    home.persistence."/nix/persist/home" = {
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
@@ -210,7 +210,7 @@
 
 
     #lib.mkIf config.services.xserver.desktopManager.plasma5.enable
-    home.persistence."/synced/Nix/dotfiles/Plasma" = {
+    home.persistence."/nix/persist/home/Plasma" = {
       removePrefixDirectory = false;
       allowOther = true;
       directories = [

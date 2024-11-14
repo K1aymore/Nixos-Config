@@ -53,7 +53,7 @@
       # Note: The private key can also be included inline via the privateKey option,
       # but this makes the private key world-readable; thus, using privateKeyFile is
       # recommended.
-      privateKeyFile = "/synced/Nix/stuff/wireguard.key";
+      privateKeyFile = "/nix/persist/wireguard.key";
 
       peers = [
         # List of allowed peers.

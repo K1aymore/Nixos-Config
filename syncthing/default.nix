@@ -5,7 +5,7 @@
   services.syncthing = {
     enable = true;
     dataDir = "/synced";
-    configDir = "/synced/Nix/persist/appdata/syncthing";
+    configDir = "/nix/persist/appdata/syncthing";
     user = "klaymore";
     group = "users";
     overrideDevices = true;

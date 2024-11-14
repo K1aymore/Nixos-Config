@@ -6,9 +6,10 @@
   imports = [
     ./locale/colemak.nix
     ./locale/losAngeles.nix
-    #./de/plasma.nix
-
-    #./packages/gui.nix
+    
+    ./de/plasma.nix
+    
+    ./packages/gui.nix
 
 
     ./services/system/zfs.nix
@@ -29,7 +30,7 @@
     # ./server/radicale.nix
 
 
-    ./syncthing
+    #./syncthing
 
     ./syncthing/archive.nix
     ./syncthing/dotfiles.nix
