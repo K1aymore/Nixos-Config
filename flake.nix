@@ -44,7 +44,10 @@
         hdr = false;
         scaling = "1";
         nixpkgs = "unstable";
+        syncthing = false;
         yggdrasilPeers = [];
+        zfs = false;
+        zram = true;
       } // inSettings;
 
       modules = rec {
@@ -78,6 +81,18 @@
           chaotic.nixosModules.default
           nixos-cosmic.nixosModules.default
 
+          {
+            imports = nixpkgs.lib.mkIf (systemSettings.syncthing) [
+              ./system/syncthing.nix
+            ] ++ nixpkgs.lib.mkIf (systemSettings.yggdrasilPeers != []) [
+              ./system/yggdrasil.nix
+            ] ++ nixpkgs.lib.mkIf (systemSettings.zfs) [
+              ./system/zfs.nix
+            ] ++ nixpkgs.lib.mkIf (systemSettings.zram) [
+              ./system/zram.nix
+            ];
+          }
+
 
           { nixpkgs.overlays = [
             (final: prev: {
@@ -107,29 +122,33 @@
   {
     nixosConfigurations = {
 
-      oldlaptop = sharedConfig "oldlaptop" {};
-
-      laptop = sharedConfig "laptop" {
-        yggdrasilPeers = [ "tcp://klaymore.me:13121" ];
-      };
-
       pc = sharedConfig "pc" {
         hdr = true;
         scaling = "1.75";
         #nixpkgs = "staging";
+        syncthing = true;
         yggdrasilPeers = [
-          "tcp://10.0.0.125:13121"
-          "tls://44.234.134.124:443"
+          "tcp://10.0.0.125:6901"
         ];
+        zfs = true;
       };
 
       server = sharedConfig "server" {
+        syncthing = false;
         yggdrasilPeers = [
           "tls://44.234.134.124:443"
           "tcp://longseason.1200bps.xyz:13121"
         ];
+        zfs = true;
       };
-      
+
+      laptop = sharedConfig "laptop" {
+        syncthing = true;
+        yggdrasilPeers = [ "tcp://klaymore.me:13121" ];
+      };
+
+      oldlaptop = sharedConfig "oldlaptop" {};
+
       pimusic = sharedConfig "pimusic" {
         architecture = "aarch64-linux";
       };

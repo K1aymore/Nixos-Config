@@ -14,19 +14,13 @@
     ./packages/coding.nix
     ./packages/steam.nix
 
-    #./packages/zerotier.nix
     #./system/opentablet.nix
     #./system/touchegg.nix
 
-    #./system/mysql.nix
-
-    ./system/zram.nix
 
 
-    ./system/syncthing.nix
-
-    #./impermanence
-#   #./impermanence/steam.nix
+    #./impermanence/system.nix
+#   #./impermanence/home.nix
   ];
   
   #services.getty.autologinUser = "klaymore";

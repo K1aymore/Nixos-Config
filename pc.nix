@@ -27,34 +27,16 @@
     #./packages/zerotier.nix
     #./packages/VMs.nix
     #./packages/deep3D-depends.nix
-    
+    # ./system/ipfs.nix
+    #./pc/i2p.nix
+
+
 
     ./system/opentablet.nix
 
-    # ./system/ipfs.nix
-    #./pc/i2p.nix
-    
-    ./system/zfs.nix
-    #./system/waydroid.nix
-    ./system/zram.nix
-    ./system/yggdrasil.nix
 
-
-    ./syncthing
-
-    ./syncthing/sync.nix
-    ./syncthing/media.nix
-    ./syncthing/archive.nix
-    ./syncthing/dotfiles.nix
-    ./syncthing/ellidaProjects.nix
-    ./syncthing/ellidaSync.nix
-    ./syncthing/nixcfg.nix
-    ./syncthing/projects.nix
-
-
-    #./impermanence/home.nix
     ./impermanence/system.nix
-    #./impermanence/steam.nix
+    #./impermanence/home.nix
   ];
 
 

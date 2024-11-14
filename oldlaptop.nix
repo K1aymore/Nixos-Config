@@ -16,15 +16,8 @@
     ./system/opentablet.nix
     #./system/touchegg.nix
 
+
     ./system/syncthing.nix
-
-    ./syncthing/sync.nix
-    ./syncthing/media.nix
-    ./syncthing/dotfiles.nix
-    ./syncthing/ellidaProjects.nix
-    ./syncthing/nixcfg.nix
-    ./syncthing/projects.nix
-
 
     ./impermanence/system.nix
     ./impermanence/home.nix
@@ -51,7 +44,6 @@
   #services.getty.autologinUser = "klaymore";
 
   networking = {
-    hostName = "oldlaptop";
     hostId = "e86a53d5"; # head -c 8 /etc/machine-id
     #interfaces.wlp2s0.useDHCP = true;
   };

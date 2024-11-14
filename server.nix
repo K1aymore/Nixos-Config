@@ -12,9 +12,6 @@
     #./packages/gui.nix
 
 
-    ./system/zfs.nix
-    ./system/zram.nix
-
 
     ./server/ssh.nix
     ./server/wireguard-forwarding.nix
@@ -26,21 +23,7 @@
     #./server/syncplay.nix
     ./server/tt-rss.nix
     #./server/minecraft.nix
-    # ./server/restyaboard.nix
-    # ./server/radicale.nix
-    ./system/yggdrasil.nix
 
-
-    #./syncthing
-
-    ./syncthing/archive.nix
-    ./syncthing/dotfiles.nix
-    ./syncthing/ellidaProjects.nix
-    ./syncthing/ellidaSync.nix
-    ./syncthing/media.nix
-    ./syncthing/nixcfg.nix
-    ./syncthing/projects.nix
-    ./syncthing/sync.nix
 
 
     ./impermanence/system.nix
@@ -49,7 +32,6 @@
 
 
   networking = {
-    hostName = "server";
     hostId = "03828261";
     domain = "klaymore.me";
   };
