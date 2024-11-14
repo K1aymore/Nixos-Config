@@ -11,6 +11,7 @@
   boot.kernelParams = [ "nohibernate" ]; # can cause ZFS corruption
   boot.zfs.forceImportRoot = false;
   
+  boot.zfs.devNodes = "/dev/disk/by-id";
 
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
 

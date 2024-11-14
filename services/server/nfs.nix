@@ -11,11 +11,11 @@
     statdPort = 4000;
     lockdPort = 4001;
     mountdPort = 4002;
-    extraNfsdConfig = '''';
+    # extraNfsdConfig = '''';
 
-    exports = ''
-      /zfs2         10.0.0.125(rw,nohide,no_subtree_check,no_root_squash)
-    '';
+    # exports = ''
+    #   /zfs2         10.0.0.125(rw,nohide,no_subtree_check,no_root_squash)
+    # '';
   };
 
   /*

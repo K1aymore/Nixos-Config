@@ -68,8 +68,8 @@
   }; */
 
 
-  fileSystems."/nfs/server" = {
-    device = "10.0.0.125:/zfs2";
+  fileSystems."/nfs/stuff" = {
+    device = "10.0.0.125:/stuff";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" ];
   };
