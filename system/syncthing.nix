@@ -1,13 +1,11 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 let 
-  syncFolder = name@{ devices, path ? "/synced/${name}", ignorePerms ? false }: {
-    "${name}" = {
-      enabled = builtins.elem config.networking.hostName devices;
-      devices = devices;
-      path = path;
-      ignorePerms = ignorePerms;
-    };
+  syncFolder = name: { devices, path ? "/synced/${name}", ignorePerms ? false }: {
+    enabled = builtins.elem config.networking.hostName devices;
+    devices = devices;
+    path = path;
+    ignorePerms = ignorePerms;
   };
 in
 {
@@ -27,32 +25,32 @@ in
       "pixel" = { id = "TM2BIPF-O53YVKR-56UEPPB-E5CU3GC-SX2YXZK-LMQEKG7-F74KCLH-CHFWGAW"; };
     };
 
-    settings.folders = builtins.mapAttrs syncFolder {
-      "archive" = {
+    settings.folders = lib.attrsets.mapAttrs syncFolder {
+      archive = {
         devices = [ "server" "pc" ];
       };
-      "cfg" = {
+      cfg = {
         devices = [ "server" "pc" "laptop" "pixel" ];
         ignorePerms = false;
       };
-      "dotfiles" = {
+      dotfiles = {
         devices = [ "server" "pc" "laptop"] ;
       };
-      "ellidaProjects" = {
-        devices = [ "server" "pc" "laptop" "cDesk" ];
+      ellidaProjects = {
+        devices = [ "server" "pc" "laptop" ];
         ignorePerms = true;
       };
-      "ellidaSync" = {
-        devices = [ "server" "cDesk" ];
+      ellidaSync = {
+        devices = [ "server" "pc" ];
         ignorePerms = true;
       };
-      "media" = {
+      media = {
         devices = [ "server" "pc" "laptop" "pixel" ];
       };
-      "projects" = {
+      projects = {
         devices = [ "server" "pc" "laptop" ];
       };
-      "sync" = {
+      sync = {
         devices = [ "server" "pc" "laptop" "pixel" ];
       };
     };

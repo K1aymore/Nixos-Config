@@ -82,13 +82,13 @@
           nixos-cosmic.nixosModules.default
 
           {
-            imports = nixpkgs.lib.mkIf (systemSettings.syncthing) [
+            imports = nixpkgs.lib.optionals (systemSettings.syncthing) [
               ./system/syncthing.nix
-            ] ++ nixpkgs.lib.mkIf (systemSettings.yggdrasilPeers != []) [
+            ] ++ nixpkgs.lib.optionals (systemSettings.yggdrasilPeers != []) [
               ./system/yggdrasil.nix
-            ] ++ nixpkgs.lib.mkIf (systemSettings.zfs) [
+            ] ++ nixpkgs.lib.optionals (systemSettings.zfs) [
               ./system/zfs.nix
-            ] ++ nixpkgs.lib.mkIf (systemSettings.zram) [
+            ] ++ nixpkgs.lib.optionals (systemSettings.zram) [
               ./system/zram.nix
             ];
           }
