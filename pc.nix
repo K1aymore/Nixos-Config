@@ -73,6 +73,7 @@
   environment.systemPackages = with pkgs; [
     #godot_git
     #opentoonz
+    (pkgs.callPackage ./packages/hdrGlfw/package.nix {})
   ];
 
 
