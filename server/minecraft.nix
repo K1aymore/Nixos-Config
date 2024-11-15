@@ -9,7 +9,7 @@
     openFirewall = true;
     package = pkgs.minecraftServers.vanilla-1-17;
 
-    dataDir = "/nix/persist/MinecraftServer";
+    dataDir = "/nix/persist/server/MinecraftServer";
     jvmOpts = "-Xmx8192M -Xms8192M";
 
 

@@ -125,7 +125,7 @@
     };
 
 
-    home.persistence."/synced/dotfiles" = {
+    home.persistence."/synced/Nix/dotfiles" = {
       removePrefixDirectory = true;
       allowOther = true;
       directories = [
