@@ -27,12 +27,12 @@
       {
         sourcePort = 6969;
         proto = "tcp";
-        destination = "10.100.0.1:25565";
+        destination = "10.100.0.2:25565";
       }
       {
         sourcePort = 6968;
         proto = "udp";
-        destination = "10.100.0.1:19132";
+        destination = "10.100.0.2:19132";
       }
     ];
   };

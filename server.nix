@@ -15,14 +15,14 @@
 
     ./server/ssh.nix
     ./server/wireguard-forwarding.nix
-
-    ./server/nginx.nix
-    ./server/synapse.nix
-    ./server/gitea.nix
     ./server/nfs.nix
+
+    #./server/nginx.nix
+    #./server/synapse.nix
+    #./server/gitea.nix
     #./server/syncplay.nix
     ./server/tt-rss.nix
-    ./server/minecraft.nix
+    #./server/minecraft.nix
 
 
 
@@ -37,7 +37,6 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 25565 ];
-  networking.firewall.allowedUDPPorts = [ 25565 ];
 
   programs.java.enable = true;
 
