@@ -6,26 +6,26 @@
     allowedTCPPorts = [ 6968 6969 6970 ];
   };
 
-  networking.nftables = {
-    enable = true;
-    flushRuleset = true;
-    tables.EllMC = {
-      content = ''
-        # Check out https://wiki.nftables.org/ for better documentation.
-        chain postrouting {
-          type nat hook postrouting priority 100; policy accept;
-          masquerade
-        }
+  # networking.nftables = {
+  #   enable = true;
+  #   flushRuleset = true;
+  #   tables.EllMC = {
+  #     content = ''
+  #       # Check out https://wiki.nftables.org/ for better documentation.
+  #       chain postrouting {
+  #         type nat hook postrouting priority 100; policy accept;
+  #         masquerade
+  #       }
 
-        chain prerouting {
-          type nat hook prerouting priority -100; policy accept;
-          ip daddr 10.0.0.125 tcp dport { 6969 } dnat to 10.100.0.2:25565
-          ip daddr 10.0.0.125 udp dport { 6968 } dnat to 10.100.0.2:19132
-        }
-      '';
-      family = "inet";
-    };
-  };
+  #       chain prerouting {
+  #         type nat hook prerouting priority -100; policy accept;
+  #         ip daddr 10.0.0.125 tcp dport { 6969 } dnat to 10.100.0.2:25565
+  #         ip daddr 10.0.0.125 udp dport { 6968 } dnat to 10.100.0.2:19132
+  #       }
+  #     '';
+  #     family = "inet";
+  #   };
+  # };
 
   networking.wireguard.enable = true;
   networking.wireguard.interfaces = {
