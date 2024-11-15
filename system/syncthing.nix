@@ -26,31 +26,31 @@ in
     };
 
     settings.folders = lib.attrsets.mapAttrs syncFolder {
-      Archive = {
+      "Archive" = {
         devices = [ "server" "pc" ];
       };
-      Cfg = {
+      "cfg" = {
         devices = [ "server" "pc" "laptop" "pixel" ];
         ignorePerms = false;
       };
-      Dotfiles = {
+      "dotfiles" = {
         devices = [ "server" "pc" "laptop" ] ;
       };
-      EllidaProjects = {
+      "EllidaProjects" = {
         devices = [ "server" "pc" "laptop" ];
         ignorePerms = true;
       };
-      EllidaSync = {
+      "EllidaSync" = {
         devices = [ "server" "pc" ];
         ignorePerms = true;
       };
-      Media = {
+      "Media" = {
         devices = [ "server" "pc" "laptop" "pixel" ];
       };
-      Projects = {
+      "Projects" = {
         devices = [ "server" "pc" "laptop" ];
       };
-      Sync = {
+      "Sync" = {
         devices = [ "server" "pc" "laptop" "pixel" ];
       };
     };

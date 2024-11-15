@@ -127,6 +127,7 @@
     radeontop
     inetutils
     moreutils
+    wireguard-tools
 
     micro
     xclip
