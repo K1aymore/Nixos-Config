@@ -6,27 +6,35 @@
     allowedTCPPorts = [ 6968 6969 6970 ];
   };
 
+  # https://wiki.nixos.org/wiki/Networking
   networking.nftables = {
     enable = true;
-    flushRuleset = true;
-    tables.EllMC = {
-      content = ''
-        # Check out https://wiki.nftables.org/ for better documentation.
-        chain postrouting {
-          type nat hook postrouting priority 100; policy accept;
-          masquerade
+    ruleset = ''
+        table ip nat {
+          chain PREROUTING {
+            type nat hook prerouting priority dstnat; policy accept;
+            iifname "enp4s0" tcp dport 6969 dnat to 10.100.0.2:25565
+            iifname "enp4s0" udp dport 6968 dnat to 10.100.0.2:19132
+          }
         }
-
-        chain prerouting {
-          type nat hook prerouting priority -100; policy accept;
-          ip daddr 10.0.0.125 tcp dport { 6969 } dnat to 10.100.0.2:25565
-          ip daddr 10.0.0.125 udp dport { 6968 } dnat to 10.100.0.2:19132
-          ip daddr 71.231.123.172 tcp dport { 6969 } dnat to 10.100.0.2:25565
-          ip daddr 71.231.123.172 udp dport { 6968 } dnat to 10.100.0.2:19132
-        }
-      '';
-      family = "inet";
-    };
+    '';
+  };
+  networking.nat = {
+    enable = true;
+    internalInterfaces = [ "enp4s0" ];
+    externalInterface = "wgEllMC";
+    forwardPorts = [
+      {
+        sourcePort = 6969;
+        proto = "tcp";
+        destination = "10.100.0.1:25565";
+      }
+      {
+        sourcePort = 6968;
+        proto = "udp";
+        destination = "10.100.0.1:19132";
+      }
+    ];
   };
 
   networking.wireguard.enable = true;
