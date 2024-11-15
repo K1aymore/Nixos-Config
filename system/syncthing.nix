@@ -38,11 +38,11 @@ in
         devices = [ "server" "pc" "laptop" ] ;
         path = "/synced/Nix/dotfiles";
       };
-      "EllidaProjects" = {
+      "Ellida Projects" = {
         devices = [ "server" "pc" "laptop" ];
         ignorePerms = true;
       };
-      "EllidaSync" = {
+      "Ellida Sync" = {
         devices = [ "server" "pc" ];
         ignorePerms = true;
       };

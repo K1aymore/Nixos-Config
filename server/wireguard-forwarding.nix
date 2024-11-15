@@ -21,6 +21,8 @@
           type nat hook prerouting priority -100; policy accept;
           ip daddr 10.0.0.125 tcp dport { 6969 } dnat to 10.100.0.2:25565
           ip daddr 10.0.0.125 udp dport { 6968 } dnat to 10.100.0.2:19132
+          ip daddr 71.231.123.172 tcp dport { 6969 } dnat to 10.100.0.2:25565
+          ip daddr 71.231.123.172 udp dport { 6968 } dnat to 10.100.0.2:19132
         }
       '';
       family = "inet";
