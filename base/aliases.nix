@@ -68,7 +68,7 @@ in {
     brup = "brightnessctl set 5+%";
     brdown = "brightnessctl set 5-%";
 
-    netstat = "vnstat -i enp30s0";
+    #netstat = "vnstat -i enp30s0";
     battery = "cat /sys/class/power_supply/BAT1/capacity";
     batlvl = "cat /sys/class/power_supply/BAT1/capacity";
     ramCheck = "sudo lshw -short -C memory";

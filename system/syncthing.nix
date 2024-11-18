@@ -36,7 +36,7 @@ in
       };
       "dotfiles" = {
         devices = [ "server" "pc" "laptop" ] ;
-        path = "/synced/Nix/dotfiles";
+        path = "/nix/dotfiles";
       };
       "Ellida Projects" = {
         devices = [ "server" "pc" "laptop" ];

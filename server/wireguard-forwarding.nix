@@ -9,18 +9,21 @@
   # https://wiki.nixos.org/wiki/Networking
   networking.nftables = {
     enable = true;
+    flushRuleset = true;
     ruleset = ''
         table ip nat {
           chain PREROUTING {
             type nat hook prerouting priority dstnat; policy accept;
-            iifname "enp4s0" tcp dport 6969 dnat to 10.100.0.2:25565
-            iifname "enp4s0" udp dport 6968 dnat to 10.100.0.2:19132
+            #(use journalctl --grep=CONNECTION")
+            iifname "enp4s0" tcp dport 6969 log prefix "MCJava: " dnat to 10.100.0.2:25565
+            iifname "enp4s0" udp dport 6968 log prefix "MCBedrock: " dnat to 10.100.0.2:19132
           }
         }
     '';
   };
   networking.nat = {
     enable = true;
+    enableIPv6 = true;
     internalInterfaces = [ "enp4s0" ];
     externalInterface = "wgEllMC";
     forwardPorts = [

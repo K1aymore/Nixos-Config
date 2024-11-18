@@ -128,6 +128,7 @@
     inetutils
     moreutils
     wireguard-tools
+    vnstat
 
     micro
     xclip

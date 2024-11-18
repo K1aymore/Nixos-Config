@@ -74,12 +74,13 @@
     #godot_git
     #opentoonz
     (pkgs.callPackage ./packages/hdrGlfw/package.nix {})
+    briar-desktop
   ];
 
 
   hardware.uinput.enable = true;
   # https://rbf.dev/blog/2020/05/custom-nixos-build-for-raspberry-pis/#building-on-nixos-using-nixos-generators
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
 
   #services.power-profiles-daemon.enable = true;
