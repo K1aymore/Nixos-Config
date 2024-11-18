@@ -136,14 +136,14 @@
       server = sharedConfig "server" {
         yggdrasilPeers = [
           "tls://44.234.134.124:443"
-          "tcp://longseason.1200bps.xyz:13121"
+          "tcp://nerdvm.mywire.org:65535"
         ];
         syncthing = true;
         zfs = true;
       };
 
       laptop = sharedConfig "laptop" {
-        yggdrasilPeers = [ "tcp://klaymore.me:13121" ];
+        yggdrasilPeers = [ "tcp://71.231.123.172:6901" ];
         syncthing = true;
       };
 

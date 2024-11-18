@@ -19,6 +19,7 @@ in {
     interactiveShellInit = "set -gx GPG_TTY (tty)";
     functions = {
       run = "NIXPKGS_ALLOW_UNFREE=1 nix run nixpkgs#$argv --impure";
+      shell = "NIXPKGS_ALLOW_UNFREE=1 nix shell nixpkgs#$argv --impure";
     };
   };
 

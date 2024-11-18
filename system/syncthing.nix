@@ -21,7 +21,7 @@ in
     settings.devices = {
       "server" = { id = "S6R4I6V-STTDG4D-6X45NCM-MQGF4O7-DTYMQH4-S76ZREL-BWHB7XE-SDTALQC"; };
       "pc" = { id = "7K7FUNH-GHCYAXJ-4PNRNKS-5KRRCBF-MBE5YOT-NQ6CHMJ-2G4FMAJ-SG22GQJ"; };
-      "laptop" = { id = "NIOZEVB-77F44UB-NTNFBCT-CRGPRRZ-YT73MD6-TFZ77XH-PFDTJWR-JHU7QQE"; };
+      "laptop" = { id = "6QZH26V-YJTBBCI-VCEBW4Q-U6ILQA7-PLSWZ4W-YA3KWFQ-KSYTD4A-FS5SPQ7"; };
       "pixel" = { id = "TM2BIPF-O53YVKR-56UEPPB-E5CU3GC-SX2YXZK-LMQEKG7-F74KCLH-CHFWGAW"; };
     };
 
@@ -34,10 +34,10 @@ in
         ignorePerms = false;
         path = "/synced/Nix/cfg";
       };
-      "dotfiles" = {
-        devices = [ "server" "pc" "laptop" ] ;
-        path = "/nix/dotfiles";
-      };
+      #"dotfiles" = {
+      #  devices = [ "server" "pc" "laptop" ] ;
+      #  path = "/nix/dotfiles";
+      #};
       "Ellida Projects" = {
         devices = [ "server" "pc" "laptop" ];
         ignorePerms = true;

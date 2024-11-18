@@ -2,6 +2,8 @@
 
 {
 
+  networking.firewall.allowedTCPPorts = [ 6901 ];
+
   services.yggdrasil = {
     enable = true;
     persistentKeys = true;
@@ -10,6 +12,7 @@
 
       Listen = [
         "tcp://0.0.0.0:6901"
+        "tcp://::6901"
       ];
 
       # Yggdrasil will automatically connect and "peer" with other nodes it

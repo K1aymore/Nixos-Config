@@ -108,6 +108,7 @@
         #ms-python.python
         #ms-python.vscode-pylance
         #ms-azuretools.vscode-docker
+        ms-vscode-remote.remote-ssh
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "mayukaithemevsc";
