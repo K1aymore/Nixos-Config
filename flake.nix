@@ -114,7 +114,7 @@
         scaling = "1.75";
         #nixpkgs = "staging";
         yggdrasilPeers = [
-          "tcp://10.0.0.125:${yggdrasilPort}"
+          "tcp://10.0.0.125:${toString yggdrasilPort}"
         ];
       };
 
@@ -126,7 +126,7 @@
       };
 
       laptop = sharedConfig "laptop" {
-        yggdrasilPeers = [ "tcp://71.231.123.172:${yggdrasilPort}" ];
+        yggdrasilPeers = [ "tcp://71.231.123.172:${toString yggdrasilPort}" ];
       };
 
       oldlaptop = sharedConfig "oldlaptop" {};
