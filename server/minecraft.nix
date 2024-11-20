@@ -2,6 +2,8 @@
 
 {
 
+  networking.firewall.allowedTCPPorts = [ 25565 ];
+
   services.minecraft-server = {
     enable = true;
     eula = true;
@@ -27,7 +29,7 @@
       max-players = 25;
       allow-flight = true;
       motd = "Water World";
-      server-port = 6967;
+      #server-port = 6969;
     };
 
   };

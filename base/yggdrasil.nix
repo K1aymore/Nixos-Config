@@ -2,7 +2,7 @@
 
 {
 
-  networking.firewall.allowedTCPPorts = [ 6901 ];
+  networking.firewall.allowedTCPPorts = [ systemSettings.yggdrasilPort ];
 
   services.yggdrasil = {
     enable = true;
@@ -11,8 +11,8 @@
     settings = {
 
       Listen = [
-        "tcp://0.0.0.0:6901"
-        "tcp://::6901"
+        "tcp://0.0.0.0:${systemSettings.yggdrasilPort}"
+        "tcp://::${systemSettings.yggdrasilPort}"
       ];
 
       # Yggdrasil will automatically connect and "peer" with other nodes it

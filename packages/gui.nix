@@ -137,7 +137,7 @@
     #onionshare-gui
     #tor-browser-bundle-bin
     #session-desktop-appimage
-    #zoom-us
+    zoom-us
     #lbry
     lagrange
     filezilla

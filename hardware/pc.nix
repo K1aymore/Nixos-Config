@@ -55,12 +55,6 @@
 
   #boot.zfs.extraPools = [ "stuff" ];
 
-  # Stuff
-  /*fileSystems."/mainStuff" = {
-    device = "stuff/main";
-    fsType = "zfs";
-  };*/
-
 
 
   fileSystems."/nfs/stuff" = {
@@ -76,10 +70,10 @@
     options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];  # "x-systemd.automount" "noauto"
   };
 
-  fileSystems."/nix/synced" = {
+  fileSystems."/nfs/synced" = {
     device = "serverlan:/synced";
     fsType = "nfs";
-    options = [ "nfsvers=4.2" "noatime" ];
+    options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };
 
   /*swapDevices = [

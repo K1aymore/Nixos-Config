@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, config, ... }:
+{ pkgs, nixpkgs, config, systemSettings, ... }:
 
 
 {
@@ -12,6 +12,8 @@
     ./catppuccin.nix
     ./espanso.nix
 
+  ] ++ nixpkgs.lib.optionals (systemSettings.yggdrasilPeers != []) [
+    ./yggdrasil.nix
   ];
 
 

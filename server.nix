@@ -22,9 +22,12 @@
     #./server/gitea.nix
     #./server/syncplay.nix
     ./server/tt-rss.nix
-    #./server/minecraft.nix
+    ./server/minecraft.nix
 
 
+    ./system/syncthing.nix
+    ./system/zram.nix
+    ./system/zfs.nix
 
     ./impermanence/system.nix
     ./impermanence/home.nix

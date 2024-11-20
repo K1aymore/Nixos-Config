@@ -18,6 +18,8 @@
     #./system/touchegg.nix
 
 
+    ./system/syncthing.nix
+    ./system/zram.nix
 
     #./impermanence/system.nix
 #   #./impermanence/home.nix

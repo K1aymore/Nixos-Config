@@ -36,6 +36,7 @@
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
               catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
   let
+    yggdrasilPort = 25565;
     sharedConfig = hostname: inSettings@{ ... }:
     let
       # sets the default settings, which will be overwritten by any custom parameters
@@ -45,9 +46,7 @@
         scaling = "1";
         nixpkgs = "unstable";
         yggdrasilPeers = [];
-        syncthing = false;
-        zfs = false;
-        zram = true;
+        yggdrasilPort = yggdrasilPort;
       } // inSettings;
 
       modules = rec {
@@ -80,18 +79,6 @@
           #stylix.nixosModules.stylix
           chaotic.nixosModules.default
           nixos-cosmic.nixosModules.default
-
-          {
-            imports = nixpkgs.lib.optionals (systemSettings.syncthing) [
-              ./system/syncthing.nix
-            ] ++ nixpkgs.lib.optionals (systemSettings.yggdrasilPeers != []) [
-              ./system/yggdrasil.nix
-            ] ++ nixpkgs.lib.optionals (systemSettings.zfs) [
-              ./system/zfs.nix
-            ] ++ nixpkgs.lib.optionals (systemSettings.zram) [
-              ./system/zram.nix
-            ];
-          }
 
 
           { nixpkgs.overlays = [
@@ -127,10 +114,8 @@
         scaling = "1.75";
         #nixpkgs = "staging";
         yggdrasilPeers = [
-          "tcp://10.0.0.125:6901"
+          "tcp://10.0.0.125:${yggdrasilPort}"
         ];
-        syncthing = true;
-        zfs = true;
       };
 
       server = sharedConfig "server" {
@@ -138,13 +123,10 @@
           "tls://44.234.134.124:443"
           "tcp://nerdvm.mywire.org:65535"
         ];
-        syncthing = true;
-        zfs = true;
       };
 
       laptop = sharedConfig "laptop" {
-        yggdrasilPeers = [ "tcp://71.231.123.172:6901" ];
-        syncthing = true;
+        yggdrasilPeers = [ "tcp://71.231.123.172:${yggdrasilPort}" ];
       };
 
       oldlaptop = sharedConfig "oldlaptop" {};
