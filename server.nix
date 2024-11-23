@@ -22,7 +22,7 @@
     #./server/gitea.nix
     #./server/syncplay.nix
     ./server/tt-rss.nix
-    ./server/minecraft.nix
+    #./server/minecraft.nix
 
 
     ./system/syncthing.nix

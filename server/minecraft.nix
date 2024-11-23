@@ -29,7 +29,7 @@
       max-players = 25;
       allow-flight = true;
       motd = "Water World";
-      #server-port = 6969;
+      server-port = 6969;
     };
 
   };

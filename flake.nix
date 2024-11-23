@@ -36,6 +36,7 @@
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
               catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
   let
+    publicIP = "98.247.215.114";
     yggdrasilPort = 25565;
     sharedConfig = hostname: inSettings@{ ... }:
     let
@@ -45,6 +46,7 @@
         hdr = false;
         scaling = "1";
         nixpkgs = "unstable";
+        publicIP = publicIP;
         yggdrasilPeers = [];
         yggdrasilPort = yggdrasilPort;
       } // inSettings;
@@ -126,7 +128,7 @@
       };
 
       laptop = sharedConfig "laptop" {
-        yggdrasilPeers = [ "tcp://71.231.123.172:${toString yggdrasilPort}" ];
+        yggdrasilPeers = [ "tcp://${publicIP}:${toString yggdrasilPort}" ];
       };
 
       oldlaptop = sharedConfig "oldlaptop" {};
