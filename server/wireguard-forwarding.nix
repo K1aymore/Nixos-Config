@@ -23,7 +23,7 @@
             iifname "enp4s0" tcp dport 25565 log prefix "MC25565: " dnat to 10.100.0.2:25565
             #iifname "enp4s0" udp dport 6970 log prefix "Wg6970: "
             #iifname "enp4s0" tcp dport 6969 log prefix "MC6969: "
-            #iifname "enp4s0" udp dport 6968 log prefix "MC6968: " dnat to 10.100.0.2:19132
+            iifname "enp4s0" udp dport 19132 log prefix "MC19132: " dnat to 10.100.0.2:19132
           }
         }
     '';

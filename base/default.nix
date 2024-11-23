@@ -74,7 +74,7 @@
     #networkmanager.dns = "none";
 
     extraHosts = ''
-      10.0.0.125 serverlan
+      ${systemSettings.serverLan} serverlan
     '';
   };
 

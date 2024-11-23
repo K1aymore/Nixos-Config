@@ -37,6 +37,7 @@
               catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
   let
     publicIP = "98.247.215.114";
+    serverLan = "10.0.0.125";
     yggdrasilPort = 25565;
     sharedConfig = hostname: inSettings@{ ... }:
     let
@@ -46,8 +47,9 @@
         hdr = false;
         scaling = "1";
         nixpkgs = "unstable";
-        publicIP = publicIP;
         yggdrasilPeers = [];
+        publicIP = publicIP;
+        serverLan = serverLan;
         yggdrasilPort = yggdrasilPort;
       } // inSettings;
 
@@ -116,7 +118,7 @@
         scaling = "1.75";
         #nixpkgs = "staging";
         yggdrasilPeers = [
-          "tcp://10.0.0.125:${toString yggdrasilPort}"
+          "tcp://${serverLan}:${toString yggdrasilPort}"
         ];
       };
 

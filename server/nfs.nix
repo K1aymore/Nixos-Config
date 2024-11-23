@@ -1,4 +1,4 @@
-{ ... }:
+{ systemSettings, ... }:
 
 {
 
@@ -7,7 +7,7 @@
 
   services.nfs.server = {
     enable = true;
-    hostName = "10.0.0.125";
+    hostName = systemSettings.serverLan;
     statdPort = 4000;
     lockdPort = 4001;
     mountdPort = 4002;
