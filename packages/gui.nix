@@ -244,29 +244,31 @@
 
   home-manager.users.klaymore.programs.mpv = {
     enable = true;
-    config = lib.mkMerge [{
+    config = lib.mkMerge [ rec {
       fullscreen = true;
-      fs-screen = 0;
-      screen = 0;
-      autofit = "100%";
-      window-maximized = true;
+      # fs-screen = 0;
+      # screen = 0;
+      # autofit = "100%";
+      # window-maximized = true;
       keep-open = false;
 
       alang = "eng,en,enUS,en-US";
       #af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
 
 
-      hwdec = "vaapi,vulkan,auto";
-
-      profile = "gpu-hq";
-
       # best quality, except for 8K which is dumb
       ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
+
+      profile = "gpu-hq";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
       dscale = "mitchell";
       deband = true;
 
+      # Causes jitter with display-resample
+      hwdec = if video-sync != "audio" then "no" else "auto";
+
+      # SSimSuperRes causes jitter with display-resample
       video-sync = "display-resample-vdrop";
       interpolation = true;
       tscale = "oversample";
@@ -279,44 +281,57 @@
       target-colorspace-hint = true;
     })];
     profiles = {
-      # converts SDR into HDR
+      # Play SDR video nicely (maybe not "correctly" in HDR)
       SDR = lib.mkIf systemSettings.hdr {
         profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
 
+        # Purple test She-Ra S5E6 4:39
+        # Red test Arcane S1E7 7:54
+        # Saturation test Arcane S1E7 21:37 <- everything except bt.2020 is oversaturated
+        #
         # bt.709: way oversaturated
-        # bt.470m: better 
+        # bt.470m: messed up purples
         # dci-p3: Pretty good balance
         # display-p3: like dci-p3 with less reds
         # film-c: less than display-p3, looks decent
-        # bt.2020: Probably "correct" but looks washed out
-        # apple: more saturated than dci-p3
+        # aces-ap1: A lot like bt.2020 except worse
+        # bt.2020: Probably "correct" but looks undersaturated
+        # apple: more saturated than dci-p3, messed up purples
         # adobe: similar saturation to dci-p3 but greens are way too yellow
-        # cie1931: around apple/adobe
-        target-prim = "dci-p3";
+        # cie1931: like adobe but with messed up purples
+        target-prim = "bt.2020";
 
-        tone-mapping = "bt.2446a"; # Same as auto (most of the time?)
+
+        tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
         target-peak = 550; # Make brighter (caps at 203 nits unless doing inverse-tone-mapping)
         inverse-tone-mapping = false; # Not good for 2D animation
+      };
+      Upscale = lib.mkIf (config.networking.hostName == "pc") {
+        profile-cond = "width < 2560";
+        profile-restore = "copy";
+
+        scale = "ewa_lanczos4sharpest"; # No visible difference but what the hey
+        #glsl-shaders = "${./-mpvShaders/SSimSuperRes.glsl}";
       };
     };
     bindings = {
       "CTRL+`" = "set target-peak auto";
       "CTRL+1" = "set target-peak 550";
       "CTRL+2" = "set target-peak 100";
-      "CTRL+i" = "cycle inverse-tone-mapping";
+      "CTRL+3" = "cycle inverse-tone-mapping";
 
-      "CTRL+3" = "set target-prim bt.709";
-      "CTRL+4" = "set target-prim dci-p3";
+      "CTRL+4" = "set target-prim film-c";
       "CTRL+5" = "set target-prim bt.2020";
-      "CTRL+6" = "cycle target-prim";
+      "CTRL+6" = "cycle-values video-sync display-resample-vdrop audio";
+
+      "CTRL+i" = "cycle interpolation";
 
 
       "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       "CTRL+b" = "af toggle earwax";
 
-      "CTRL+7" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
-      "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/FSR.glsl}\"; show-text \"FSR\"";
+      "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
 
