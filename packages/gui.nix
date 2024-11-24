@@ -269,31 +269,47 @@
       video-sync = "display-resample-vdrop";
       interpolation = true;
       tscale = "oversample";
-    } // lib.mkIf systemSettings.hdr {
+    } // lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
       vo = "gpu-next"; # dmabuf-wayland doesn't work with hdr
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
 
-      target-trc = "pq";
-      target-prim = "bt.2020";
+      target-trc = "pq"; # Output properly in HDR
       target-colorspace-hint = true;
     };
     profiles = {
       # converts SDR into HDR
-      SDR_HDR_EFFECT = lib.mkIf systemSettings.hdr {
+      SDR = lib.mkIf systemSettings.hdr {
         profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
 
-        tone-mapping = "bt.2446a";
-        target-peak = 550;
-        inverse-tone-mapping = false;
+        # bt.709: way oversaturated
+        # bt.470m: better 
+        # dci-p3: Pretty good balance
+        # display-p3: slightly less than dci-p3
+        # film-c: less than display-p3
+        # bt.2020: Probably "correct" but looks washed out
+        # apple: more saturated than dci-p3
+        # adobe: similar saturation to dci-p3 but greens are way too yellow
+        # cie1931: around apple/adobe
+        target-prim = "dci-p3";
+
+        tone-mapping = "bt.2446a"; # Same as auto (most of the time?)
+        target-peak = 550; # Make brighter (caps at 208 nits or so)
+        inverse-tone-mapping = false; # Not good for 2D animation
       };
-    };  
+    };
     bindings = {
       "CTRL+`" = "set target-peak auto";
       "CTRL+1" = "set target-peak 550";
       "CTRL+2" = "set target-peak 100";
-      "CTRL+3" = "cycle inverse-tone-mapping";
+      "CTRL+i" = "cycle inverse-tone-mapping";
+
+      "CTRL+3" = "set target-prim bt.709";
+      "CTRL+4" = "set target-prim dci-p3";
+      "CTRL+5" = "set target-prim bt.2020";
+      "CTRL+6" = "cycle target-prim";
+
 
       "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       "CTRL+b" = "af toggle earwax";
