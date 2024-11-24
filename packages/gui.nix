@@ -244,20 +244,21 @@
 
   home-manager.users.klaymore.programs.mpv = {
     enable = true;
-    config = {
+    config = lib.mkMerge [{
       fullscreen = true;
       fs-screen = 0;
       screen = 0;
       autofit = "100%";
-      window-maximized = "yes";
-      keep-open = "no";
+      window-maximized = true;
+      keep-open = false;
 
       alang = "eng,en,enUS,en-US";
       #af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
 
 
-      profile = "gpu-hq";
       hwdec = "vaapi,vulkan,auto";
+
+      profile = "gpu-hq";
 
       # best quality, except for 8K which is dumb
       ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
@@ -269,14 +270,14 @@
       video-sync = "display-resample-vdrop";
       interpolation = true;
       tscale = "oversample";
-    } // lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
+    } (lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
       vo = "gpu-next"; # dmabuf-wayland doesn't work with hdr
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
 
       target-trc = "pq"; # Output properly in HDR
       target-colorspace-hint = true;
-    };
+    })];
     profiles = {
       # converts SDR into HDR
       SDR = lib.mkIf systemSettings.hdr {
@@ -286,8 +287,8 @@
         # bt.709: way oversaturated
         # bt.470m: better 
         # dci-p3: Pretty good balance
-        # display-p3: slightly less than dci-p3
-        # film-c: less than display-p3
+        # display-p3: like dci-p3 with less reds
+        # film-c: less than display-p3, looks decent
         # bt.2020: Probably "correct" but looks washed out
         # apple: more saturated than dci-p3
         # adobe: similar saturation to dci-p3 but greens are way too yellow
@@ -295,7 +296,7 @@
         target-prim = "dci-p3";
 
         tone-mapping = "bt.2446a"; # Same as auto (most of the time?)
-        target-peak = 550; # Make brighter (caps at 208 nits or so)
+        target-peak = 550; # Make brighter (caps at 203 nits unless doing inverse-tone-mapping)
         inverse-tone-mapping = false; # Not good for 2D animation
       };
     };
