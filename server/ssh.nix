@@ -13,10 +13,10 @@
     openFirewall = false;
     settings.PasswordAuthentication = false;
     settings.X11Forwarding = true;
-    hostKeys = [
-      { type = "ed25519"; path = "/nix/persist/home/SSH/.ssh/id_ed25519"; }
+    #hostKeys = [
+    #  { type = "ed25519"; path = "/nix/persist/home/SSH/.ssh/id_ed25519"; }
       # { type = "rsa"; bits = 4096; path = "/mnt/persist/etc/ssh/ssh_host_rsa_key"; }
-    ];
+    #];
   };
 
   users.users.klaymore.openssh.authorizedKeys.keys = [

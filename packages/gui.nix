@@ -246,7 +246,7 @@
     enable = true;
     config = lib.mkMerge [ rec {
       fullscreen = true;
-      # fs-screen = 0;
+      # fs-screen = 0; # screen numbers change sometimes
       # screen = 0;
       # autofit = "100%";
       # window-maximized = true;
@@ -254,6 +254,8 @@
 
       alang = "eng,en,enUS,en-US";
       #af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
+      af = "loudnorm=I=-20";
+      volume-max = 150;
 
 
       # best quality, except for 8K which is dumb
@@ -265,8 +267,8 @@
       dscale = "mitchell";
       deband = true;
 
-      # Causes jitter with display-resample
-      hwdec = if video-sync != "audio" then "no" else "auto";
+      # Causes jitter and missed/delayed frames with display-resample
+      hwdec = if video-sync == "audio" then "auto" else "no";
 
       # SSimSuperRes causes jitter with display-resample
       video-sync = "display-resample-vdrop";
@@ -277,8 +279,8 @@
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
 
-      target-trc = "pq"; # Output properly in HDR
-      target-colorspace-hint = true;
+      target-trc = "pq"; # Output in HDR
+      target-colorspace-hint = true; # makes no difference with target-trc=srgb
     })];
     profiles = {
       # Play SDR video nicely (maybe not "correctly" in HDR)
@@ -294,17 +296,21 @@
         # bt.470m: messed up purples
         # dci-p3: Pretty good balance
         # display-p3: like dci-p3 with less reds
-        # film-c: less than display-p3, looks decent
+        # film-c: Between bt.2020 and dci-p3. Looks pretty good
         # aces-ap1: A lot like bt.2020 except worse
-        # bt.2020: Probably "correct" but looks undersaturated
+        # bt.2020: correct but looks undersaturated compared to SDR colors at +40%
         # apple: more saturated than dci-p3, messed up purples
         # adobe: similar saturation to dci-p3 but greens are way too yellow
         # cie1931: like adobe but with messed up purples
         target-prim = "bt.2020";
 
 
+        # caps at 203 nits unless doing inverse-tone-mapping
+        # "auto" is affected by SDR brightness
+        # anything above 203 is the same as auto with SDR Brightness at 203
+        target-peak = 550;
+
         tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
-        target-peak = 550; # Make brighter (caps at 203 nits unless doing inverse-tone-mapping)
         inverse-tone-mapping = false; # Not good for 2D animation
       };
       Upscale = lib.mkIf (config.networking.hostName == "pc") {
@@ -312,17 +318,16 @@
         profile-restore = "copy";
 
         scale = "ewa_lanczos4sharpest"; # No visible difference but what the hey
-        #glsl-shaders = "${./-mpvShaders/SSimSuperRes.glsl}";
+        #glsl-shaders = "${./-mpvShaders/CAS.glsl}";
       };
     };
     bindings = {
       "CTRL+`" = "set target-peak auto";
       "CTRL+1" = "set target-peak 550";
-      "CTRL+2" = "set target-peak 100";
-      "CTRL+3" = "cycle inverse-tone-mapping";
+      "CTRL+2" = "cycle inverse-tone-mapping";
 
-      "CTRL+4" = "set target-prim film-c";
-      "CTRL+5" = "set target-prim bt.2020";
+      "CTRL+4" = "cycle-values target-prim bt.2020 film-c bt.709";
+      "CTRL+5" = "cycle-values target-trc pq srgb auto";
       "CTRL+6" = "cycle-values video-sync display-resample-vdrop audio";
 
       "CTRL+i" = "cycle interpolation";
@@ -330,6 +335,7 @@
 
       "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       "CTRL+b" = "af toggle earwax";
+      "CTRL+n" = "af toggle loudnorm=I=-20";
 
       "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
