@@ -37,7 +37,7 @@
 
     ./system/syncthing.nix
     ./system/zram.nix
-    ./system/zfs.nix
+    #./system/zfs.nix
 
     ./impermanence/system.nix
     #./impermanence/home.nix
@@ -89,7 +89,7 @@
 
   #services.power-profiles-daemon.enable = true;
 
-  #boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   #boot.initrd.kernelModules = [ "amdgpu" ];
   # https://discourse.nixos.org/t/amd-gpu-optimal-settings/27648/2
@@ -99,6 +99,7 @@
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 
 
+  programs.adb.enable = true;
 
 
   

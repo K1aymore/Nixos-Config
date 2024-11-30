@@ -82,6 +82,7 @@
           publicKey = "mmC2KtYIqeydbfbunLwJSCtCHwUebBLH9LKIj32wSho=";
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
           allowedIPs = [ "10.100.0.2/32" ];
+          persistentKeepalive = 25;
         }
         # { # John Doe
         #   publicKey = "{john doe's public key}";

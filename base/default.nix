@@ -81,7 +81,7 @@
   # security.doas.enable = true;
 
   hardware.bluetooth.enable = true;
-
+  services.vnstat.enable = true;
 
   # Printers
   services.printing = {
@@ -103,9 +103,6 @@
   };
 
 
-
-
-  programs.adb.enable = true;
 
   # cool but kinda useless
   #services.gpm.enable = true;
