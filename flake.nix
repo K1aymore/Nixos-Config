@@ -38,7 +38,7 @@
   let
     publicIP = "98.247.215.114";
     serverLan = "10.0.0.125";
-    yggdrasilPort = 25565;
+    yggdrasilPort = 6901;
     sharedConfig = hostname: inSettings@{ ... }:
     let
       # sets the default settings, which will be overwritten by any custom parameters

@@ -12,11 +12,6 @@
     --enable-hardware-overlays
   ";
 
-  nixpkgs.config.permittedInsecurePackages = [
-    # "libtiff-4.0.3-opentoonz"
-    # "libxls-1.6.2"
-  ];
-
   environment.systemPackages = with pkgs; [
     gtk3
     swt

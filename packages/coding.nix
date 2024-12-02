@@ -14,12 +14,12 @@
     clang-tools
     gcc
     gcc11
-    ghc # Haskell compiler
-    sbcl # Lisp compiler
-    nasm # assembly compiler
-    inklecate # Ink compiler/player
+    # ghc # Haskell compiler
+    # sbcl # Lisp compiler
+    # nasm # assembly compiler
+    # inklecate # Ink compiler/player
     gnumake
-    avalonia-ilspy # .NET exe decompiler
+    # avalonia-ilspy # .NET exe decompiler
     lldb
     valgrind
 

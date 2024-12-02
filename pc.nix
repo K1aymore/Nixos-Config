@@ -32,7 +32,7 @@
 
 
 
-    ./system/opentablet.nix
+    #./system/opentablet.nix
 
 
     ./system/syncthing.nix
@@ -99,7 +99,7 @@
   #boot.extraModulePackages = with config.boot.kernelPackages; [ amdgpu-pro ];
 
 
-  programs.adb.enable = true;
+  #programs.adb.enable = true;
 
 
   
@@ -123,7 +123,7 @@
     ];
   };
 
-  programs.corectrl.enable = true;
+  #programs.corectrl.enable = true;
 
   #environment.variables.AMD_VULKAN_ICD = "RADV";
 
