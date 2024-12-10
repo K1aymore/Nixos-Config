@@ -15,6 +15,7 @@
     heroic
     #legendary-gl
     winetricks
+    protontricks
 
     mangohud
     
@@ -42,6 +43,7 @@
     #osu-lazer
     #arx-libertatis
     #warzone2100
+    widelands
     
 
   ];

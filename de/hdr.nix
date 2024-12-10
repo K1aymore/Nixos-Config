@@ -27,7 +27,7 @@
 
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    #capSysNice = true; # seems unnecesarry with Zen kernel
     package = pkgs.gamescope-wsi_git;
     args = [ ];
     env = {

@@ -11,6 +11,10 @@
     --disable-gpu-memory-buffer-video-frames
     --enable-hardware-overlays
   ";
+  
+  environment.sessionVariables = {
+    MOZ_USE_XINPUT2 = "1";
+  };
 
   environment.systemPackages = with pkgs; [
     gtk3
@@ -123,6 +127,7 @@
     #librewolf
     #ungoogled-chromium
     discord
+    discord-canary
     vesktop
     xwaylandvideobridge
     element-desktop
@@ -247,8 +252,8 @@
       # window-maximized = true;
       keep-open = false;
 
-      alang = "eng,en,enUS,en-US";
-      #af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
+      # alang = "eng,en,enUS,en-US";
+      # af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       af = "loudnorm=I=-20";
       volume-max = 150;
 
@@ -266,19 +271,27 @@
       hwdec = if video-sync == "audio" then "auto" else "no";
 
       # SSimSuperRes causes jitter with display-resample
-      video-sync = "display-resample-vdrop";
+      video-sync = "audio";
       interpolation = true;
       tscale = "oversample";
-    } (lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
+    }
+    (lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
       vo = "gpu-next"; # dmabuf-wayland doesn't work with hdr
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
 
       target-trc = "pq"; # Output in HDR
+      target-prim = "bt.2020"; # should be used anyway
       target-colorspace-hint = true; # makes no difference with target-trc=srgb
-    })];
+    })
+    (lib.mkIf (config.networking.hostName == "pc") {
+      # No visible difference but what the hey
+      scale = lib.mkForce "ewa_lanczos4sharpest";
+    })
+    ];
+
     profiles = {
-      # Play SDR video nicely (maybe not "correctly" in HDR)
+      # Play SDR video nicely (maybe not "correctly") in HDR
       SDR = lib.mkIf systemSettings.hdr {
         profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
@@ -299,31 +312,30 @@
         # cie1931: like adobe but with messed up purples
         target-prim = "bt.2020";
 
+        # I hate myself but we all gotta have our guilty pleasures
+        saturation = 5;
+
 
         # caps at 203 nits unless doing inverse-tone-mapping
         # "auto" is affected by SDR brightness
         # anything above 203 is the same as auto with SDR Brightness at 203
-        target-peak = 550;
+        target-peak = 500;
 
         tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
         inverse-tone-mapping = false; # Not good for 2D animation
       };
-      Upscale = lib.mkIf (config.networking.hostName == "pc") {
-        profile-cond = "width < 2560";
-        profile-restore = "copy";
-
-        scale = "ewa_lanczos4sharpest"; # No visible difference but what the hey
-        #glsl-shaders = "${./-mpvShaders/CAS.glsl}";
-      };
     };
     bindings = {
       "CTRL+`" = "set target-peak auto";
-      "CTRL+1" = "set target-peak 550";
+      "CTRL+1" = "set target-peak 500";
       "CTRL+2" = "cycle inverse-tone-mapping";
 
+      "CTRL+3" = "cycle target-colorspace-hint";
       "CTRL+4" = "cycle-values target-prim bt.2020 film-c bt.709";
-      "CTRL+5" = "cycle-values target-trc pq srgb auto";
-      "CTRL+6" = "cycle-values video-sync display-resample-vdrop audio";
+      # in HDR, "auto" does gamma2.2 while --no-config gives bt.1886 (matches VLC)
+      "CTRL+5" = "cycle-values target-trc pq srgb bt.1886 auto";
+      "CTRL+6" = "cycle-values vo gpu gpu-next";
+      "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
 
       "CTRL+i" = "cycle interpolation";
 
@@ -379,9 +391,5 @@
   services.flatpak.enable = true;
   xdg.portal.enable = true;
 
-
-  environment.sessionVariables = {
-    MOZ_USE_XINPUT2 = "1";
-  };
 
 }
