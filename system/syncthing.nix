@@ -10,6 +10,11 @@ let
 in
 {
 
+  networking.firewall.allowedTCPPorts = [
+    22000 # syncthing transfer
+    22067 # syncthing relay
+  ];
+
   services.syncthing = {
     enable = true;
     dataDir = "/synced";

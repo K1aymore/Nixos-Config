@@ -13,14 +13,8 @@ in {
   environment.shellAliases = {
     nrb = "sudo nixos-rebuild boot --flake ${configPath}";
     nrs = "sudo nixos-rebuild switch --flake ${configPath}";
-    nhb = "nh os boot";
-    nhbu = "nh os boot -u";
-    nhba = "nh os boot -a";
-    nhbua = "nh os boot -ua";
-    nhs = "nh os switch";
-    nhsu = "nh os switch -u";
-    nhsa = "nh os switch -a";
-    nhsua = "nh os switch -ua";
+    nrt = "sudo nixos-rebuild test --flake ${configPath}";
+    nrd = "sudo nixos-rebuild dry-build --flake ${configPath}";
 
     rebuildBoot = "cd ${configPath} && git add .; cd - && nrb";
     rebuildSwitch = "cd ${configPath} && git add .; cd - && nrs";

@@ -338,7 +338,9 @@
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
 
       "CTRL+i" = "cycle interpolation";
-
+      
+      # https://github.com/mpv-player/mpv/issues/8413
+      "C" = "vf toggle crop=[if(lte(iw/16,ih/9),iw,ih/9*16)]:[if(lte(iw/16,ih/9),iw/16*9,ih)]"; # crop to 16:9
 
       "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       "CTRL+b" = "af toggle earwax";

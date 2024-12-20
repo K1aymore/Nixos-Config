@@ -52,8 +52,6 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        22000 # syncthing transfers & relay
-        22067
         3978 # OpenTTD
         3979
       ];
