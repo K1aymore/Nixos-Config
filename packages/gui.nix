@@ -125,7 +125,7 @@
     firefox-wayland
     #microsoft-edge
     #librewolf
-    #ungoogled-chromium
+    chromium
     discord
     discord-canary
     vesktop

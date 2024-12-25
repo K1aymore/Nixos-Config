@@ -16,24 +16,24 @@
     catppuccin = {
       flavor = "mocha";
       accent = "maroon";
+
+      gtk.enable = true;
+
+      bottom.enable = true;
+
+      fish.enable = true;
+      starship.enable = true;
+
+      alacritty.enable = true;
+      kitty.enable = true;
+
+      kvantum = {
+        enable = true;
+        accent = "maroon"; 
+      };
     };
 
-    gtk.catppuccin.enable = true;
 
-    programs = {
-      bottom.catppuccin.enable = true;
-
-      fish.catppuccin.enable = true;
-      starship.catppuccin.enable = true;
-
-      alacritty.catppuccin.enable = true;
-      kitty.catppuccin.enable = true;
-    };
-
-    qt.style.catppuccin = {
-      enable = true;
-      accent = "maroon"; 
-    };
   };
 
 }
