@@ -1,4 +1,4 @@
-{ pkgs, config, nix-std, lib, systemSettings, ... }:
+{ pkgs, config, nix-std, lib, systemSettings, adaptive-sharpen, ... }:
 
 {
 
@@ -325,6 +325,7 @@
         inverse-tone-mapping = false; # Not good for 2D animation
       };
     };
+    # test with mpv --input-test --force-window --idle
     bindings = {
       "CTRL+`" = "set target-peak auto";
       "CTRL+1" = "set target-peak 500";
@@ -337,6 +338,11 @@
       "CTRL+6" = "cycle-values vo gpu gpu-next";
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
 
+      # https://www.reddit.com/r/NixOS/comments/191wg98/using_a_directory_from_a_git_repo_as_source_for_a/
+      "CTRL+8" = "no-osd change-list glsl-shaders set \"${adaptive-sharpen}/shaders/Adaptive-sharpen - Pass one.hlsl:${adaptive-sharpen}/shaders/Adaptive-sharpen - Pass two.hlsl\"; show-text \"Adaptive-Sharpen\"";
+      "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
+      "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
+
       "CTRL+i" = "cycle interpolation";
       
       # https://github.com/mpv-player/mpv/issues/8413
@@ -345,10 +351,6 @@
       "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       "CTRL+b" = "af toggle earwax";
       "CTRL+n" = "af toggle loudnorm=I=-20";
-
-      "CTRL+8" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/CAS.glsl}\"; show-text \"CAS\"";
-      "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
-      "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
 
       "CTRL+WHEEL_UP" = "add target-peak 25";
       "CTRL+WHEEL_DOWN" = "add target-peak -25";

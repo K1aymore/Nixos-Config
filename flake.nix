@@ -30,11 +30,17 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    adaptive-sharpen = {
+      url = "github:bacondither/Adaptive-sharpen";
+      flake = false;
+    };
+
   };
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
+              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, adaptive-sharpen, ... }@attrs:
   let
     publicIP = "98.247.215.114";
     serverLan = "10.0.0.125";
