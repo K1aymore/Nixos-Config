@@ -310,10 +310,10 @@
         # apple: more saturated than dci-p3, messed up purples
         # adobe: similar saturation to dci-p3 but greens are way too yellow
         # cie1931: like adobe but with messed up purples
-        target-prim = "bt.2020";
+        target-prim = "auto";
 
-        # I hate myself but we all gotta have our guilty pleasures
-        saturation = 5;
+        # Tried it and it's noticeably more saturated sometimes
+        #saturation = 5;
 
 
         # caps at 203 nits unless doing inverse-tone-mapping
@@ -332,9 +332,9 @@
       "CTRL+2" = "cycle inverse-tone-mapping";
 
       "CTRL+3" = "cycle target-colorspace-hint";
-      "CTRL+4" = "cycle-values target-prim bt.2020 film-c bt.709";
+      "CTRL+4" = "cycle-values target-prim bt.2020 bt.709 auto";
       # in HDR, "auto" does gamma2.2 while --no-config gives bt.1886 (matches VLC)
-      "CTRL+5" = "cycle-values target-trc pq srgb bt.1886 auto";
+      "CTRL+5" = "cycle-values target-trc pq auto";
       "CTRL+6" = "cycle-values vo gpu gpu-next";
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
 
