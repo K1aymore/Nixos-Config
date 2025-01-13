@@ -252,10 +252,10 @@
       # window-maximized = true;
       keep-open = false;
 
-      # alang = "eng,en,enUS,en-US";
+      alang = "swe,sv,Swedish,eng,en,enUS,en-US";
       # af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
-      af = "loudnorm=I=-20";
-      volume-max = 150;
+      # af = "loudnorm=I=-20";
+      volume-max = 200;
 
 
       # best quality, except for 8K which is dumb
@@ -310,7 +310,7 @@
         # apple: more saturated than dci-p3, messed up purples
         # adobe: similar saturation to dci-p3 but greens are way too yellow
         # cie1931: like adobe but with messed up purples
-        target-prim = "auto";
+        #target-prim = "bt.2020"; # I think auto works fine
 
         # Tried it and it's noticeably more saturated sometimes
         #saturation = 5;
@@ -321,7 +321,7 @@
         # anything above 203 is the same as auto with SDR Brightness at 203
         target-peak = 500;
 
-        tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
+        #tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
         inverse-tone-mapping = false; # Not good for 2D animation
       };
     };
@@ -335,7 +335,7 @@
       "CTRL+4" = "cycle-values target-prim bt.2020 bt.709 auto";
       # in HDR, "auto" does gamma2.2 while --no-config gives bt.1886 (matches VLC)
       "CTRL+5" = "cycle-values target-trc pq auto";
-      "CTRL+6" = "cycle-values vo gpu gpu-next";
+      "CTRL+6" = "cycle-values tone-mapping bt.2446a auto";
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
 
       # https://www.reddit.com/r/NixOS/comments/191wg98/using_a_directory_from_a_git_repo_as_source_for_a/

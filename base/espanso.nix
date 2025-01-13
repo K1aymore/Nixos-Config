@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  scripts = "/synced/Sync/Linux/BashScripts";
-in
 {
 
   #services.espanso.enable = true;
@@ -36,38 +33,40 @@ in
           params = { cmd = "echo Hello from your shell"; };
         }];
       }
-      
+    ] ++
+    # Inserts
+    (map (input: {
+      trigger = builtins.elemAt input 0;
+      replace = builtins.elemAt input 1;
+    }) [
+      [ "]em" "—" ]
+      [ "]en" "–" ]
+      [ "]fire" "🔥"]
+      [ "]skull" "💀" ]
+      [ "]pensive" "😔" ]
+      [ "]think" "🤔" ]
+      [ "]pinch" "🤏" ]
+      [ "]fus" "🇺🇸" ]
+      [ "]fse" "🇸🇪" ]
+      [ "]fja" "🇯🇵" ]
+      [ "]fge" "🇩🇪" ]
+      [ "]ffr" "🇫🇷" ]
+      [ "]fme" "🇲🇽" ]
+      [ "]ftr" "🏳️‍⚧️" ]
+      [ "]fpr" "🏳️‍🌈" ]
+    ]) ++ 
+    # Autocorrect
+    (map (input: {
+      trigger = builtins.elemAt input 0;
+      replace = builtins.elemAt input 1;
+      word = true;
+      propagate_case = true;
+    }) [
+      [ "peopel" "people" ]
+      [ "jsut" "just" ]
+      [ "thay" "that" ]
+    ]);
 
-      {
-        trigger = "]em";
-        replace = "—";
-      }
-      {
-        trigger = "]en";
-        replace = "–";
-      }
-
-      
-      
-      
-      {
-        trigger = "peopel";
-        replace = "people";
-      }
-      {
-        trigger = "jsut";
-        replace = "just";
-      }
-      {
-        trigger = "Jsut";
-        replace = "Just";
-      }
-      {
-        trigger = "thay";
-        replace = "that";
-      }
-
-    ];
     
     
   };
