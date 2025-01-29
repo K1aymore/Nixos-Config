@@ -142,6 +142,7 @@
     lagrange
     filezilla
     ff2mpv
+    anki
 
     steam-run
 
