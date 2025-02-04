@@ -146,6 +146,7 @@
     tmux
     lesspass-cli
     croc
+    mmv
 
 
     # Rust programs

@@ -4,6 +4,7 @@
 
   environment.variables = {
     STEAM_FORCE_DESKTOPUI_SCALING = systemSettings.scaling;
+    LD_PRELOAD = "";
   };
 
   nixpkgs.config.packageOverrides = pkgs: {
