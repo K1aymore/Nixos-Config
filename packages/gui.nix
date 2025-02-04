@@ -282,8 +282,8 @@
       gpu-context = "waylandvk";
 
       target-trc = "pq"; # Output in HDR
-      target-prim = "bt.2020"; # should be used anyway
-      target-colorspace-hint = true; # makes no difference with target-trc=srgb
+      #target-prim = "bt.2020"; # should be correct on `auto`
+      target-colorspace-hint = true; # makes no difference when target-trc=srgb
     })
     (lib.mkIf (config.networking.hostName == "pc") {
       # No visible difference but what the hey
@@ -322,7 +322,7 @@
         # anything above 203 is the same as auto with SDR Brightness at 203
         target-peak = 500;
 
-        #tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
+        tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
         inverse-tone-mapping = false; # Not good for 2D animation
       };
     };
