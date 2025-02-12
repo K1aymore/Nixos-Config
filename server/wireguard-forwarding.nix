@@ -20,10 +20,10 @@
         chain prerouting {
             type nat hook prerouting priority -100; policy accept;
             #(use journalctl --grep=CONNECTION")
-            iifname "enp4s0" tcp dport ${ports.wgEllMCJava} log prefix "MC${ports.wgEllMCJava}: " dnat to 10.100.0.2:${ports.wgEllMCJava}
+            iifname "enp4s0" tcp dport ${toString ports.wgEllMCJava} log prefix "MC${toString ports.wgEllMCJava}: " dnat to 10.100.0.2:${toString ports.wgEllMCJava}
             #iifname "enp4s0" udp dport 6970 log prefix "Wg6970: "
             #iifname "enp4s0" tcp dport 6969 log prefix "MC6969: "
-            iifname "enp4s0" udp dport ${ports.wgEllMCBedrock} log prefix "MC${ports.wgEllMCBedrock}: " dnat to 10.100.0.2:${ports.wgEllMCBedrock}
+            iifname "enp4s0" udp dport ${toString ports.wgEllMCBedrock} log prefix "MC${toString ports.wgEllMCBedrock}: " dnat to 10.100.0.2:${toString ports.wgEllMCBedrock}
           }
         }
     '';
@@ -37,12 +37,12 @@
       {
         sourcePort = ports.wgEllMCJava;
         proto = "tcp";
-        destination = "10.100.0.2:${ports.wgEllMCJava}";
+        destination = "10.100.0.2:${toString ports.wgEllMCJava}";
       }
       {
         sourcePort = ports.wgEllMCBedrock;
         proto = "udp";
-        destination = "10.100.0.2:${ports.wgEllMCBedrock}";
+        destination = "10.100.0.2:${toString ports.wgEllMCBedrock}";
       }
     ];
   };

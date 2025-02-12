@@ -8,15 +8,15 @@
     dataDir = "/synced/other/ipfs";
     localDiscovery = true;
     settings.Addresses = {
-      Gateway = "/ip4/127.0.0.1/tcp/${ports.ipfsGateway}";
+      Gateway = "/ip4/127.0.0.1/tcp/${toString ports.ipfsGateway}";
       API = [
-        "/ip4/127.0.0.1/tcp/${ports.ipfsAPI}"
+        "/ip4/127.0.0.1/tcp/${toString ports.ipfsAPI}"
       ];
       Swarm = [
-        "/ip4/0.0.0.0/tcp/${ports.ipfs}"
-        "/ip6/::/tcp/${ports.ipfs}"
-        "/ip4/0.0.0.0/udp/${ports.ipfs}/quic"
-        "/ip6/::/udp/${ports.ipfs}/quic"
+        "/ip4/0.0.0.0/tcp/${toString ports.ipfs}"
+        "/ip6/::/tcp/${toString ports.ipfs}"
+        "/ip4/0.0.0.0/udp/${toString ports.ipfs}/quic"
+        "/ip6/::/udp/${toString ports.ipfs}/quic"
       ];
     };
 

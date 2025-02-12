@@ -53,10 +53,11 @@
       } // inSettings;
 
       ports = {
+        # nfs = 111 2049 4000 4001 4002 20048;
         gitea = 3000;
-
+        miniflux = 3001;
         minecraft = 6969;
-
+        
         ssh = 56789;
         yggdrasil = 6901;
         ipfsAPI = 5001;
