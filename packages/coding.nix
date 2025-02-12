@@ -101,6 +101,8 @@
         rust-lang.rust-analyzer
         bungcip.better-toml
 
+        #streetsidesoftware.code-spell-checker
+
         catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         roman.ayu-next

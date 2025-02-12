@@ -1,4 +1,4 @@
-{ pkgs, config, nix-std, lib, systemSettings, adaptive-sharpen, ... }:
+{ pkgs, config, nix-std, lib, systemSettings, ... }:
 
 {
 
@@ -340,7 +340,7 @@
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
 
       # https://www.reddit.com/r/NixOS/comments/191wg98/using_a_directory_from_a_git_repo_as_source_for_a/
-      "CTRL+8" = "no-osd change-list glsl-shaders set \"${adaptive-sharpen}/shaders/Adaptive-sharpen - Pass one.hlsl:${adaptive-sharpen}/shaders/Adaptive-sharpen - Pass two.hlsl\"; show-text \"Adaptive-Sharpen\"";
+      "CTRL+8" = "";
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
 

@@ -31,20 +31,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    adaptive-sharpen = {
-      url = "github:bacondither/Adaptive-sharpen";
-      flake = false;
-    };
-
   };
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, adaptive-sharpen, ... }@attrs:
+              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
   let
-    publicIP = "98.247.215.114";
+    publicIP = "71.231.122.199";
     serverLan = "10.0.0.125";
-    yggdrasilPort = 6901;
     sharedConfig = hostname: inSettings@{ ... }:
     let
       # sets the default settings, which will be overwritten by any custom parameters
@@ -56,7 +50,9 @@
         yggdrasilPeers = [];
         publicIP = publicIP;
         serverLan = serverLan;
-        yggdrasilPort = yggdrasilPort;
+        ports = {
+          yggdrasil = 6901;
+        };
       } // inSettings;
 
       modules = rec {
@@ -86,7 +82,6 @@
           catppuccin.nixosModules.catppuccin
 
           flake-programs-sqlite.nixosModules.programs-sqlite
-          #stylix.nixosModules.stylix
           chaotic.nixosModules.default
           nixos-cosmic.nixosModules.default
 
@@ -123,26 +118,20 @@
         hdr = true;
         scaling = "1.75";
         #nixpkgs = "staging";
-        yggdrasilPeers = [
-          "tcp://${serverLan}:${toString yggdrasilPort}"
-        ];
+        # yggdrasilPeers = [
+        #   "tcp://${serverLan}:${toString yggdrasilPort}"
+        # ];
       };
 
       server = sharedConfig "server" {
-        yggdrasilPeers = [
-          "tls://44.234.134.124:443"
-          "tcp://nerdvm.mywire.org:65535"
-        ];
+        # yggdrasilPeers = [
+        #   "tls://44.234.134.124:443"
+        #   "tcp://nerdvm.mywire.org:65535"
+        # ];
       };
 
       laptop = sharedConfig "laptop" {
-        yggdrasilPeers = [ "tcp://${publicIP}:${toString yggdrasilPort}" ];
-      };
-
-      oldlaptop = sharedConfig "oldlaptop" {};
-
-      pimusic = sharedConfig "pimusic" {
-        architecture = "aarch64-linux";
+        #yggdrasilPeers = [ "tcp://${publicIP}:${toString yggdrasilPort}" ];
       };
 
     };

@@ -1,6 +1,5 @@
 { ... }:
 
-
 {
 
   imports = [
@@ -19,9 +18,9 @@
 
     #./server/nginx.nix
     #./server/synapse.nix
-    #./server/gitea.nix
+    ./server/gitea.nix
     #./server/syncplay.nix
-    ./server/tt-rss.nix
+    ./server/miniflux.nix
     #./server/minecraft.nix
 
 
@@ -42,14 +41,6 @@
   networking.firewall.allowedTCPPorts = [ 25565 ];
 
   programs.java.enable = true;
-
-  /* services.cron = {
-    enable = true;
-    systemCronJobs = [
-      "@daily sudo rclone sync /nix/persist /synced/Archive/NixPersist && sudo chown -R klaymore:users /synced/Archive/NixPersist"
-    ];
-  }; */
-
 
 
 

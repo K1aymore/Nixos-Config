@@ -15,7 +15,6 @@
     ./packages/steam.nix
 
     #./system/opentablet.nix
-    #./system/touchegg.nix
 
 
     ./system/syncthing.nix
@@ -56,10 +55,6 @@
 
   services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
 
-  services.flatpak.enable = true;
-  
-  #stylix.image = ./hd-doge-sand.jpg;
-  #stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/ayu-mirage.yaml";
 
 
   # Use the systemd-boot EFI boot loader.

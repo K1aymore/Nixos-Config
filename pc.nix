@@ -24,9 +24,7 @@
     
     ./packages/steam.nix
 
-    #./packages/zerotier.nix
     #./packages/VMs.nix
-    #./packages/deep3D-depends.nix
     # ./system/ipfs.nix
     #./pc/i2p.nix
 
