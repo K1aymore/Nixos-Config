@@ -1,6 +1,5 @@
 { ... }:
 
-
 {
 
   # Set your time zone.

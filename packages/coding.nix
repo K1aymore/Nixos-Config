@@ -2,7 +2,6 @@
 
 {
 
-
   # https://github.com/Mic92/nix-ld
   programs.nix-ld.enable = true;
   # https://github.com/Mic92/envfs

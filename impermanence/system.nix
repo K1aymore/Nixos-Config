@@ -1,6 +1,5 @@
 { ... }:
 
-
 {
 
   environment.persistence."/nix/persist/system" = {

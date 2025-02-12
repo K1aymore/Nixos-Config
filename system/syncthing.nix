@@ -1,18 +1,16 @@
-{ config, lib, ... }:
+{ config, lib, ports, ... }:
 
 let 
   syncFolder = name: { devices, path ? "/synced/${name}", ignorePerms ? false }: {
     enabled = builtins.elem config.networking.hostName devices;
-    devices = devices;
-    path = path;
-    ignorePerms = ignorePerms;
+    inherit devices path ignorePerms;
   };
 in
 {
 
   networking.firewall.allowedTCPPorts = [
-    22000 # syncthing transfer
-    22067 # syncthing relay
+    ports.syncthingTransfer
+    ports.syncthingRelay
   ];
 
   services.syncthing = {

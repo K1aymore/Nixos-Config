@@ -2,7 +2,7 @@
 
 let
   app = "php";
-  domain = "klaymore.me";
+  #domain = "klaymore.me";
   datadir = "/synced/Projects/Websites/klaymore.me/_site";
 in
 {

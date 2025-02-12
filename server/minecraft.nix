@@ -1,8 +1,8 @@
-{ pkgs, lib, ... }:
+{ pkgs, ports, ... }:
 
 {
 
-  networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedTCPPorts = [ 25565 ports.minecraft ];
 
   services.minecraft-server = {
     enable = true;
@@ -29,7 +29,7 @@
       max-players = 25;
       allow-flight = true;
       motd = "Water World";
-      server-port = 6969;
+      server-port = ports.minecraft;
     };
 
   };

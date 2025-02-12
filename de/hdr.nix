@@ -1,11 +1,6 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
-
-  imports = [
-
-  ];
-
 
   #chaotic.hdr.enable = true;
   #chaotic.hdr.specialisation.enable = false;

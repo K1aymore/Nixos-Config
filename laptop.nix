@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 
 {
 
@@ -6,7 +6,7 @@
     ./locale/colemak.nix
     ./locale/losAngeles.nix
     
-    ./de/plasma6.nix
+    ./de/plasma.nix
     #./de/hyprland.nix
 
     ./packages/gui.nix

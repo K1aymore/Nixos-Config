@@ -50,14 +50,28 @@
         yggdrasilPeers = [];
         publicIP = publicIP;
         serverLan = serverLan;
-        ports = {
-          yggdrasil = 6901;
-        };
       } // inSettings;
+
+      ports = {
+        gitea = 3000;
+
+        minecraft = 6969;
+
+        ssh = 56789;
+        yggdrasil = 6901;
+        ipfsAPI = 5001;
+        ipfsGateway = 8081;
+        ipfs = 59271;
+        syncthingTransfer = 22000;
+        syncthingRelay = 22067;
+
+        wgEllMCJava = 25565;
+        wgEllMCBedrock = 19132;
+      };
 
       modules = rec {
         system = systemSettings.architecture;
-        specialArgs = attrs // { inherit systemSettings; };
+        specialArgs = attrs // { inherit systemSettings ports; };
 
         modules = [
           ./base

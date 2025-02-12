@@ -1,15 +1,14 @@
-{ config, pkgs, ... }:
-
+{ ports, ... }:
 
 {
 
-  networking.firewall.allowedTCPPorts = [ 56789 ];
+  networking.firewall.allowedTCPPorts = [ ports.ssh ];
 
   services.fail2ban.enable = true;
 
   services.openssh = {
     enable = true;
-    ports = [ 56789 ];
+    ports = [ ports.ssh ];
     openFirewall = false;
     settings.PasswordAuthentication = false;
     settings.X11Forwarding = true;

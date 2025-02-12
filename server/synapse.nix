@@ -1,14 +1,13 @@
-{ pkgs, lib, config, ... }:
-
+{ pkgs, ... }:
 
 let
-  fqdn =
-    let
-      join = hostName: domain: hostName + lib.optionalString (domain != null) ".${domain}";
-    in
-    join config.networking.hostName config.networking.domain;
-  config.networking.domain = "klaymore.me";
-  url = "matrix.klaymore.me";
+  # config.networking.domain = "klaymore.me";
+  # fqdn =
+  #   let
+  #     join = hostName: domain: hostName + lib.optionalString (domain != null) ".${domain}";
+  #   in
+  #   join config.networking.hostName config.networking.domain;
+  # url = "matrix.klaymore.me";
 in
 {
 
@@ -74,7 +73,7 @@ in
     };
   };
 
-  services.coturn = rec {
+  services.coturn = {
     enable = true;
     no-cli = true;
     no-tcp-relay = true;

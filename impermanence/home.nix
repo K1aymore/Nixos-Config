@@ -1,8 +1,6 @@
-{ lib, config,... }:
-
+{ ... }:
 
 {
-
 
   programs.fuse.userAllowOther = true;
 

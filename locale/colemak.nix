@@ -1,6 +1,5 @@
 { ... }:
 
-
 {
 
   # Select internationalisation properties.

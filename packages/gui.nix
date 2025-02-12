@@ -1,4 +1,4 @@
-{ pkgs, config, nix-std, lib, systemSettings, ... }:
+{ pkgs, config, lib, systemSettings, ... }:
 
 {
 

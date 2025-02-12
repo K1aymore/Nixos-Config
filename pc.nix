@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -6,15 +6,8 @@
     ./locale/qwerty.nix
     ./locale/losAngeles.nix
     
-    ./de/plasma6.nix
+    ./de/plasma.nix
     ./de/hdr.nix
-    #./de/cosmic.nix
-    #./de/niri.nix
-    #./de/wayfire.nix
-    #./de/sway.nix
-	  #./de/xfce.nix
-	  #./de/hyprland.nix
-	  #./de/gnome.nix
 
     ./packages/gui.nix
     ./packages/games.nix
@@ -28,10 +21,7 @@
     # ./system/ipfs.nix
     #./pc/i2p.nix
 
-
-
     #./system/opentablet.nix
-
 
     ./system/syncthing.nix
     ./system/zram.nix
@@ -40,8 +30,6 @@
     ./impermanence/system.nix
     #./impermanence/home.nix
   ];
-
-
 
   # nixpkgs.overlays = [
   #   
@@ -100,7 +88,6 @@
   #programs.adb.enable = true;
 
 
-  
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -127,7 +114,6 @@
 
 
   services.gvfs.enable = true;
-
 
 
   networking = {
@@ -160,8 +146,6 @@
   #   "vm.max_map_count" = 16777216;
   #   "fs.file-max" = 524288;
   # };
-  
-  
   
   
 

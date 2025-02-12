@@ -1,7 +1,6 @@
-{ lib, systemSettings, ... }:
+{ systemSettings, ... }:
 
 let
-  scripts = "/synced/Sync/Linux/BashScripts";
   configPath = "/synced/Nix/cfg";
 in {
   environment.variables = {

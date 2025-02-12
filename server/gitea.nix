@@ -1,8 +1,8 @@
-{ pkgs, lib, ... }:
+{ ports, ... }:
 
 {
 
-  networking.firewall.allowedTCPPorts = [ 3000 ];
+  networking.firewall.allowedTCPPorts = [ ports.gitea ];
 
   /* services.nginx = {
     enable = true;

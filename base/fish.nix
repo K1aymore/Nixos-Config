@@ -1,17 +1,12 @@
 { config, pkgs, ... }:
 
-let
-  scripts = "/synced/Sync/Linux/BashScripts";
-in {
-
+{
 
   users.users.klaymore.shell = pkgs.fish;
-  
   
   programs.fish = {
     enable = true;
   };
-
 
   home-manager.users.klaymore.programs.fish = {
     enable = true;

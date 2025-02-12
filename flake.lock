@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "adaptive-sharpen": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1525029095,
-        "narHash": "sha256-hcau/GhwXUJKwhk287qtBUJBb5bSMeqe79BlTheM740=",
-        "owner": "bacondither",
-        "repo": "Adaptive-sharpen",
-        "rev": "0da6654e464c4136e3a68d80f5cd3bd7563762b9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "bacondither",
-        "repo": "Adaptive-sharpen",
-        "type": "github"
-      }
-    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -620,7 +604,6 @@
     },
     "root": {
       "inputs": {
-        "adaptive-sharpen": "adaptive-sharpen",
         "catppuccin": "catppuccin",
         "chaotic": "chaotic",
         "flake-programs-sqlite": "flake-programs-sqlite",
