@@ -135,7 +135,7 @@
         "workbench.iconTheme" = "catppuccin-mocha";
         "workbench.colorTheme" = "Mayukai Semantic Mirage";
 
-        "editor.fontFamily" = "Fira Code";
+        "editor.fontFamily" = "Fira Code, Fairfax Hax HD";
         "editor.fontLigatures" = true;
 
         "nix.enableLanguageServer" = true;

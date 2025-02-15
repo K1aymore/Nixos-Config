@@ -32,6 +32,8 @@
     iosevka
     scientifica
 
+    (pkgs.callPackage ./fairfax-fonts.nix {})
+
     #font-awesome
     font-awesome_4
     terminus_font
