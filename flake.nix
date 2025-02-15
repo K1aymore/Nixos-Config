@@ -24,8 +24,6 @@
     
     stylix.url = "github:danth/stylix";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,7 +33,7 @@
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, impermanence,
-              catppuccin, nix-std, flake-programs-sqlite, stylix, chaotic, nixos-cosmic, ... }@attrs:
+              catppuccin, nix-std, flake-programs-sqlite, stylix, nixos-cosmic, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "10.0.0.125";
@@ -97,7 +95,6 @@
           catppuccin.nixosModules.catppuccin
 
           flake-programs-sqlite.nixosModules.programs-sqlite
-          chaotic.nixosModules.default
           nixos-cosmic.nixosModules.default
 
 

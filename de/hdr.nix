@@ -2,17 +2,12 @@
 
 {
 
-  #chaotic.hdr.enable = true;
-  #chaotic.hdr.specialisation.enable = false;
-
-  chaotic.hdr.wsiPackage = pkgs.gamescope-wsi_git;
-
   programs.steam.gamescopeSession.enable = true;
 
   environment.systemPackages = with pkgs; [
     # Needed for MPV
     (pkgs.callPackage ./VK_hdr_layer.nix {})
-    gamescope-wsi_git
+    gamescope-wsi
   ];
   
   environment.variables = {
@@ -23,7 +18,7 @@
   programs.gamescope = {
     enable = true;
     #capSysNice = true; # seems unnecesarry with Zen kernel
-    package = pkgs.gamescope-wsi_git;
+    package = pkgs.gamescope-wsi;
     args = [ ];
     env = {
       ENABLE_HDR_WSI = "0";
@@ -34,7 +29,7 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      gamescope-wsi_git = prev.gamescope-wsi_git.override { enableExecutable = true; };
+      gamescope-wsi = prev.gamescope-wsi.override { enableExecutable = true; };
     })
   ];
 
