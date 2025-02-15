@@ -51,12 +51,13 @@
     kdePackages.kio
     spectacle
     #flameshot
+    webcamoid
     #onboard
     #xkbd
     #latte-dock
     remmina
     #xfce.thunar
-    akregator
+    #akregator
 
     pavucontrol
     qjackctl

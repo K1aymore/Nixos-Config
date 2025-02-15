@@ -88,7 +88,7 @@
     stateless = true;
     drivers = with pkgs; [ 
       brlaser
-      canon-cups-ufr2
+      #canon-cups-ufr2
       canon-capt
       gutenprint
       gutenprintBin
