@@ -12,6 +12,8 @@
     ./catppuccin.nix
     ./espanso.nix
 
+    ./fonts
+
   ] ++ nixpkgs.lib.optionals (systemSettings.yggdrasilPeers != []) [
     ./yggdrasil.nix
   ];

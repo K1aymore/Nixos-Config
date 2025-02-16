@@ -5,7 +5,7 @@
 }:
 
 stdenvNoCC.mkDerivation (finalAttrs: {
-  pname = "fairfax-fonts";
+  pname = "fairfax";
   version = "2024";
 
   src = fetchFromGitHub {
@@ -27,11 +27,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = with lib; {
     homepage = "https://www.kreativekorp.com/software/fonts/fairfaxhd/";
     description = "Monospace font with UCSUR support and programming ligatures";
-    longDescription = ''
-      blah
-    '';
+    longDescription = '' '';
     license = licenses.ofl;
-    maintainers = [ maintainers.rycee ];
+    maintainers = [ ];
     platforms = platforms.all;
   };
 })
