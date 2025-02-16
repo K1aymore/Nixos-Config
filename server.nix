@@ -15,9 +15,9 @@
     ./server/wireguard-forwarding.nix
     ./server/nfs.nix
 
-    #./server/nginx.nix
+    ./server/nginx.nix
     #./server/synapse.nix
-    ./server/gitea.nix
+    ./server/forgejo.nix
     #./server/syncplay.nix
     ./server/miniflux.nix
     #./server/minecraft.nix

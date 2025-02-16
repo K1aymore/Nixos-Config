@@ -1,8 +1,8 @@
-{ config, systemSettings, ... }:
+{ config, systemSettings, ports, ... }:
 
 {
 
-  networking.firewall.allowedTCPPorts = [ systemSettings.ports.yggdrasil ];
+  networking.firewall.allowedTCPPorts = [ ports.yggdrasil ];
 
   services.yggdrasil = {
     enable = true;
@@ -11,8 +11,8 @@
     settings = {
 
       Listen = [
-        "tcp://0.0.0.0:${toString systemSettings.ports.yggdrasi}"
-        "tcp://::${toString systemSettings.ports.yggdrasi}"
+        "tcp://0.0.0.0:${toString ports.yggdrasi}"
+        "tcp://::${toString ports.yggdrasi}"
       ];
 
       # Yggdrasil will automatically connect and "peer" with other nodes it

@@ -62,21 +62,34 @@
       } // inSettings;
 
       ports = {
+        # forwarded on server: 80 443 6900-6999 25565 19132
         # nfs = 111 2049 4000 4001 4002 20048;
-        gitea = 3000;
+        # KDE Connect 1714-1764
+
+        nginx = 80;
+        nginxs = 443;
+
+        forgejo = 3000;
+        # forgejo database port 3306
         miniflux = 3001;
+        synapse = 8008;
+        # coturn 49000-50000
         minecraft = 6969;
+
+        wgEllMCJava = 25565;
+        wgEllMCBedrock = 19132;
         
+        openttd1 = 3978;
+        openttd2 = 3979;
+
         ssh = 56789;
+        syncthingTransfer = 22000;
+        syncthingRelay = 22067;
         yggdrasil = 6901;
         ipfsAPI = 5001;
         ipfsGateway = 8081;
         ipfs = 59271;
-        syncthingTransfer = 22000;
-        syncthingRelay = 22067;
 
-        wgEllMCJava = 25565;
-        wgEllMCBedrock = 19132;
       };
 
       modules = rec {

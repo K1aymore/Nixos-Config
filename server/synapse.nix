@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ports, ... }:
 
 let
   # config.networking.domain = "klaymore.me";
@@ -11,7 +11,7 @@ let
 in
 {
 
-  networking.firewall.allowedTCPPorts = [ 80 443 8008 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 ports.synapse ];
 
   services.postgresql.enable = true;
   services.postgresql.initialScript = pkgs.writeText "synapse-init.sql" ''
@@ -38,7 +38,7 @@ in
           let
             # use 443 instead of the default 8448 port to unite
             # the client-server and server-server port for simplicity
-            server = { "m.server" = "matrix.klaymore.me:443"; };
+            server = { "m.server" = "matrix.klaymore.me:${toString ports.nginxs}"; };
           in
           ''
             add_header Content-Type application/json;
@@ -65,7 +65,7 @@ in
             '';
           };
           "/_matrix" = {
-            proxyPass = "http://[::1]:8008"; # without a trailing /
+            proxyPass = "http://[::1]:${toString ports.synapse}"; # without a trailing /
           };
         };
       };
@@ -82,8 +82,8 @@ in
     use-auth-secret = true;
     static-auth-secret = "will be world readable for local users";
     realm = "matrix.klaymore.me";
-    cert = "/nix/persist/server/coturn/full.pem";
-    pkey = "/nix/persist/server/coturn/key.pem";
+    cert = "/zfs2/servers/coturn/full.pem";
+    pkey = "/zfs2/servers/coturn/key.pem";
   };
 
   /*
@@ -97,7 +97,7 @@ in
   services.matrix-synapse = {
     enable = true;
 
-    dataDir = "/nix/persist/server/synapse";
+    dataDir = "/zfs2/servers/synapse";
     # registration_shared_secret = "W72lPZDYLLc7vHL6z6uMm8lhrXZ6nz82skZo76bS0bd6fOPKB4fe9VJ8tPKQCqN3";
 
     settings = {
@@ -109,7 +109,7 @@ in
       server_name = "klaymore.me";
 
       listeners = [{
-        port = 8008;
+        port = ports.synapse;
         bind_addresses = [ "::1" ];
         type = "http";
         tls = false;

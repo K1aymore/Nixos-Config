@@ -3,7 +3,7 @@
 {
 
   networking.firewall = {
-    allowedTCPPorts = [ 6968 6969 6970 ports.wgEllMCJava ports.wgEllMCBedrock ];
+    allowedTCPPorts = [ ports.wgEllMCJava ports.wgEllMCBedrock ];
   };
 
   # https://wiki.nixos.org/wiki/Networking

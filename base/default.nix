@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs, config, systemSettings, ... }:
+{ pkgs, nixpkgs, config, systemSettings, ports, ... }:
 
 
 {
@@ -54,8 +54,8 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        3978 # OpenTTD
-        3979
+        ports.openttd1
+        ports.openttd2
       ];
       allowedTCPPortRanges = [
         {

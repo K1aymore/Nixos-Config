@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, ports, ... }:
 
 let
   app = "php";
@@ -7,9 +7,7 @@ let
 in
 {
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
-  networking.firewall.allowedUDPPorts = [ 80 443 ];
-
+  networking.firewall.allowedTCPPorts = [ ports.nginx ports.nginxs ];
 
   security.acme = {
     acceptTerms = true;
