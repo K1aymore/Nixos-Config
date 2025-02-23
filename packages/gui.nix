@@ -382,13 +382,6 @@
   };
 
 
-
-  services.emacs = {
-    enable = false;
-    package = config.home-manager.users.klaymore.programs.emacs.package;
-  };
-
-
   programs = {
     partition-manager.enable = true;
   };

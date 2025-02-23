@@ -47,4 +47,6 @@
   };
 
 
+  services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
+
 }

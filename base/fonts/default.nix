@@ -39,7 +39,7 @@
     monocraft
 
     linja-pi-pu-lukin
-    nasin-nanpa
+    nasin-nanpa # The only one that properly handles words inside each other. kinda hard to read
     sitelen-seli-kiwen
     linja-sike
   ] ++ map (f: pkgs.callPackage f {}) [

@@ -7,7 +7,6 @@
     ./locale/losAngeles.nix
     
     ./de/plasma.nix
-    ./de/hdr.nix
 
     ./packages/gui.nix
     ./packages/games.nix

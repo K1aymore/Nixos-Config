@@ -12,6 +12,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence.url = "github:nix-community/impermanence";
+
+    catppuccin.url = "github:catppuccin/nix";
+    
+    flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
+    flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
+    
+
     lix = {
       url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
       flake = false;
@@ -23,17 +31,6 @@
       inputs.lix.follows = "lix";
     };
 
-    impermanence.url = "github:nix-community/impermanence";
-
-    catppuccin.url = "github:catppuccin/nix";
-
-    nix-std.url = "github:chessai/nix-std";
-    
-    flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
-    flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
-    
-    
-    stylix.url = "github:danth/stylix";
 
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
@@ -44,7 +41,7 @@
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, lix, lix-module, impermanence,
-              catppuccin, nix-std, flake-programs-sqlite, stylix, nixos-cosmic, ... }@attrs:
+              catppuccin, flake-programs-sqlite, nixos-cosmic, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "10.0.0.125";
