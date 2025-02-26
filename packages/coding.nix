@@ -86,10 +86,11 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-
+      mutableExtensionsDir = false;
+    };
+    vscode.profiles.default = {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
-      mutableExtensionsDir = false;
 
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide

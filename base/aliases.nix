@@ -10,10 +10,10 @@ in {
   };
 
   environment.shellAliases = {
-    nrb = "sudo nixos-rebuild boot --flake ${configPath}";
-    nrs = "sudo nixos-rebuild switch --flake ${configPath}";
-    nrt = "sudo nixos-rebuild test --flake ${configPath}";
-    nrd = "sudo nixos-rebuild dry-build --flake ${configPath}";
+    nrb = "nice -n 19 sudo nixos-rebuild boot --flake ${configPath}";
+    nrs = "nice -n 19 sudo nixos-rebuild switch --flake ${configPath}";
+    nrt = "nice -n 19 sudo nixos-rebuild test --flake ${configPath}";
+    nrd = "nice -n 19 sudo nixos-rebuild dry-build --flake ${configPath}";
 
     rebuildBoot = "cd ${configPath} && git add .; cd - && nrb";
     rebuildSwitch = "cd ${configPath} && git add .; cd - && nrs";

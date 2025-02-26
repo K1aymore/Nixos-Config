@@ -44,7 +44,7 @@
       gst_all_1.gst-plugins-good
       gst_all_1.gst-plugins-bad
     gst_all_1.gst-plugins-ugly */
-    pamixer
+    #pamixer
 
     breakpad
     fwupd
@@ -155,7 +155,6 @@
     vitetris
     asciiquarium
     oneko
-    openttd
     pmbootstrap
     tty-clock
     
