@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     wayland-utils
   	xwayland
-  	xwaylandvideobridge
+  	kdePackages.xwaylandvideobridge
     #slurp
     #wofi
   ];

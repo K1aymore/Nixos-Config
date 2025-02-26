@@ -19,13 +19,12 @@
   environment.systemPackages = with pkgs; [
     gtk3
     swt
-    xwayland
     #eglinfo
     glxinfo
     clinfo
     vulkan-tools
     xorg.xdpyinfo
-    kgpg
+    kdePackages.kgpg
     glib
 
     libva-utils
@@ -44,12 +43,12 @@
     grim
     wl-color-picker
 
-    dolphin
-    filelight
+    kdePackages.dolphin
+    kdePackages.filelight
     gparted
-    ark
+    kdePackages.ark
     kdePackages.kio
-    spectacle
+    kdePackages.spectacle
     #flameshot
     webcamoid
     #onboard
@@ -81,10 +80,10 @@
     kdePackages.kdialog
     razergenie
 
-    kate
+    kdePackages.kate
     libreoffice
-    okular
-    gwenview
+    kdePackages.okular
+    kdePackages.gwenview
     digikam
     #clementine
     # qt-6 version doesn't save playlists well
@@ -130,7 +129,6 @@
     discord
     discord-canary
     vesktop
-    xwaylandvideobridge
     element-desktop
     qbittorrent
     protonvpn-gui
