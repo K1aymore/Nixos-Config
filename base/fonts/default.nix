@@ -48,6 +48,7 @@
     #./linja-pona.nix
   ];
 
+  # for Discord
   # https://stackoverflow.com/questions/53658303/fetchfromgithub-filter-down-and-use-as-environment-etc-file-source
   home-manager.users.klaymore.home.file.".local/share/fonts/nasin-nanpa-4.0.2-Helvetica.otf".source = pkgs.fetchFromGitHub {
     owner = "ETBCOR";

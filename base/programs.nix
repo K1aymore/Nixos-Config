@@ -171,6 +171,36 @@
     };
 
 
+    kitty = {
+      enable = true;
+      settings = {
+        font_family = "Fira Code";
+        symbol_map = "U+F1900-U+F19FF sitelen-seli-kiwen-mono-kuniko";
+        font_size = 10.0;
+
+        enable_audio_bell = false;
+
+        enabled_layouts = "horizontal,tall";
+
+        #hide_window_decorations = "yes";
+        window_border_width = 1.5;
+        active_border_color = "#585b70";
+        inactive_border_color = "#585b70";
+        bell_border_color = "#585b70";
+        #window_margin_width = "3";
+        window_padding_width = 5;
+        inactive_text_alpha = 0.6;
+
+        tab_bar_min_tabs = 1;
+        #tab_bar_margin_height = "0.0 10.0";
+        tab_bar_edge = "top";
+        tab_bar_style = "powerline";
+        tab_powerline_style = "slanted";
+        #tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
+      };
+    };
+
+
 
   };
 
