@@ -175,25 +175,26 @@
       enable = true;
       settings = {
         font_family = "Fira Code";
-        symbol_map = "U+F1900-U+F19FF sitelen-seli-kiwen-mono-kuniko";
-        font_size = 10.0;
+        symbol_map = "U+F1900-U+F19FF Fairfax Hax HD";
+        narrow_symbols = "U+F1900-U+F19FF 1";
+        #font_size = 10.0; # breaks bottoms of "g"s
 
         enable_audio_bell = false;
 
-        enabled_layouts = "horizontal,tall";
+        enabled_layouts = "tall,horizontal";
 
         #hide_window_decorations = "yes";
-        window_border_width = 1.5;
+        window_border_width = 1;
         active_border_color = "#585b70";
         inactive_border_color = "#585b70";
         bell_border_color = "#585b70";
         #window_margin_width = "3";
-        window_padding_width = 5;
-        inactive_text_alpha = 0.6;
+        window_padding_width = 4;
+        inactive_text_alpha = 0.8;
 
         tab_bar_min_tabs = 1;
         #tab_bar_margin_height = "0.0 10.0";
-        tab_bar_edge = "top";
+        tab_bar_edge = "bottom";
         tab_bar_style = "powerline";
         tab_powerline_style = "slanted";
         #tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
@@ -201,6 +202,15 @@
     };
 
 
+    alacritty = {
+      enable = true;
+      settings = {
+        font = {
+          normal = { family = "Fira Code"; style = "Regular"; };
+          size = 11;
+        };
+      };
+    };
 
   };
 

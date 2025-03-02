@@ -5,16 +5,6 @@
   imports = [
     ./mpv.nix
   ];
-
-  # For discord wayland pipewire screensharing
-  nixpkgs.config.ungoogled-chromium.commandLineArgs = "
-    --ozone-platform=auto
-    --disable-features=UseChromeOSDirectVideoDecoder
-    --enable-features=RunVideoCaptureServiceInBrowserProcess
-    --disable-gpu-memory-buffer-compositor-resources
-    --disable-gpu-memory-buffer-video-frames
-    --enable-hardware-overlays
-  ";
   
   environment.sessionVariables = {
     MOZ_USE_XINPUT2 = "1";
@@ -131,7 +121,7 @@
     #librewolf
     chromium
     discord
-    discord-canary
+    #discord-canary
     vesktop
     element-desktop
     qbittorrent

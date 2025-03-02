@@ -8,7 +8,7 @@
     enable = true;
     adminCredentialsFile = "/zfs2/servers/minifluxCredentials";
     config = {
-      LISTEN_ADDR = "localhost:${toString ports.miniflux}";
+      LISTEN_ADDR = "0.0.0.0:${toString ports.miniflux}";
     };
   };
 

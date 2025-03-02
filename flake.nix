@@ -31,20 +31,14 @@
       inputs.lix.follows = "lix";
     };
 
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, lix, lix-module, impermanence,
-              catppuccin, flake-programs-sqlite, nixos-cosmic, ... }@attrs:
+              catppuccin, flake-programs-sqlite, ... }@attrs:
   let
     publicIP = "71.231.122.199";
-    serverLan = "10.0.0.125";
+    serverLan = "172.16.0.115";
     sharedConfig = hostname: inSettings@{ ... }:
     let
       # sets the default settings, which will be overwritten by any custom parameters
@@ -118,7 +112,6 @@
           catppuccin.nixosModules.catppuccin
 
           flake-programs-sqlite.nixosModules.programs-sqlite
-          nixos-cosmic.nixosModules.default
 
 
           { nixpkgs.overlays = [
