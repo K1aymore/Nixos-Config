@@ -1,4 +1,4 @@
-{ ports, ... }:
+{ ports, config, ... }:
 
 {
 
@@ -31,6 +31,7 @@
   ];
 
 
+  users.users.forgejo.openssh.authorizedKeys.keys = config.users.users.klaymore.openssh.authorizedKeys.keys;
 
 
 }

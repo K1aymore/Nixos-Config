@@ -1,9 +1,5 @@
 { pkgs, lib, config, ports, ... }:
 
-let
-  #domain = "klaymore.me";
-  datadir = "/synced/Projects/Websites/nix-site/result";
-in
 {
 
   networking.firewall.allowedTCPPorts = [ ports.nginx ports.nginxs ];
@@ -24,11 +20,15 @@ in
     virtualHosts."klaymore.me" = {
       addSSL = true;
       enableACME = true;
-      root = datadir;
-
+      root = "/synced/Projects/Websites/nix-site/result";
+      locations."= /" = {
+        return = "301 https://klaymore.me/en/";
+      };
     };
 
     virtualHosts."shorecraft.club" = {
+      addSSL = true;
+      enableACME = true;
       root = "/synced/Projects/Websites/shorecraft.club";
       locations."/" = {
         return = "301 https://klaymore.me";

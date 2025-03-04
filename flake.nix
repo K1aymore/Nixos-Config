@@ -65,6 +65,8 @@
         miniflux = 3001;
         synapse = 8008;
         # coturn 49000-50000
+
+        yggdrasil = 6901;
         minecraft = 6969;
 
         wgEllMCJava = 25565;
@@ -76,7 +78,6 @@
         ssh = 56789;
         syncthingTransfer = 22000;
         syncthingRelay = 22067;
-        yggdrasil = 6901;
         ipfsAPI = 5001;
         ipfsGateway = 8081;
         ipfs = 59271;
