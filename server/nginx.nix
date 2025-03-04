@@ -20,7 +20,7 @@
     virtualHosts."klaymore.me" = {
       addSSL = true;
       enableACME = true;
-      root = "/synced/Projects/Websites/nix-site/result";
+      root = "/synced/Projects/Websites/site-nix/result";
       locations."= /" = {
         return = "301 https://klaymore.me/en/";
       };

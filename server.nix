@@ -16,10 +16,11 @@
     ./server/nfs.nix
 
     ./server/nginx.nix
-    #./server/synapse.nix
+    #./server/conduit.nix
     ./server/forgejo.nix
     #./server/syncplay.nix
-    ./server/miniflux.nix
+    #./server/miniflux.nix
+    #./server/freshrss.nix
     #./server/minecraft.nix
 
 
@@ -33,7 +34,6 @@
 
   networking = {
     hostId = "03828261";
-    domain = "klaymore.me";
   };
 
   networking.firewall.allowedTCPPorts = [ 25565 ];

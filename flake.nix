@@ -31,6 +31,11 @@
       inputs.lix.follows = "lix";
     };
 
+    conduwuit = {
+      url = "github:girlbossceo/conduwuit";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
   };
 
 
@@ -65,6 +70,7 @@
         miniflux = 3001;
         synapse = 8008;
         # coturn 49000-50000
+        conduit = 6920;
 
         yggdrasil = 6901;
         minecraft = 6969;
