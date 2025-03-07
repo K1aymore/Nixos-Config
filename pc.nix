@@ -21,6 +21,7 @@
     #./pc/i2p.nix
 
     #./system/opentablet.nix
+    #./system/macroboard.nix
 
     ./system/syncthing.nix
     ./system/zram.nix

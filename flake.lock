@@ -849,7 +849,8 @@
         "nixpkgs": "nixpkgs_6",
         "nixpkgs-stable": "nixpkgs-stable_3",
         "nixpkgs-staging": "nixpkgs-staging",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "sitelen-pona-UCSUR": "sitelen-pona-UCSUR"
       }
     },
     "rust-analyzer-src": {
@@ -866,6 +867,23 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "sitelen-pona-UCSUR": {
+      "locked": {
+        "dir": "sitelen-pona-UCSUR",
+        "lastModified": 1741163163,
+        "narHash": "sha256-30f7UMABi+gE45lu7Cm/uveVHs5sCxb8arEKPNdoPAg=",
+        "owner": "K1aymore",
+        "repo": "nix-utils",
+        "rev": "3efaae14dc47ce5f5d40d09c8fd2288d445f7e78",
+        "type": "github"
+      },
+      "original": {
+        "dir": "sitelen-pona-UCSUR",
+        "owner": "K1aymore",
+        "repo": "nix-utils",
         "type": "github"
       }
     },

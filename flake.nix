@@ -36,11 +36,19 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    sitelen-pona-UCSUR = {
+      url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
+    };
+
+    macroboard = {
+      url = "github:newAM/macroboard";
+    };
+
   };
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, lix, lix-module, impermanence,
-              catppuccin, flake-programs-sqlite, ... }@attrs:
+              catppuccin, flake-programs-sqlite, macroboard, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "172.16.0.115";
@@ -115,13 +123,14 @@
           ]; }
 
           lix-module.nixosModules.default
-          
           catppuccin.nixosModules.catppuccin
-
           flake-programs-sqlite.nixosModules.programs-sqlite
+
+          macroboard.nixosModules
 
 
           { nixpkgs.overlays = [
+            macroboard.overlays
             (final: prev: {
               unstable = import nixpkgs-unstable {
                 system = systemSettings.architecture;

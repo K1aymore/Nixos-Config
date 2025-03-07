@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, sitelen-pona-UCSUR, ... }:
 
 {
 
@@ -35,9 +35,9 @@
       }
     ] ++
     # Inserts
-    (map (input: {
-      trigger = builtins.elemAt input 0;
-      replace = builtins.elemAt input 1;
+    (map (pair: {
+      trigger = builtins.elemAt pair 0;
+      replace = builtins.elemAt pair 1;
     }) [
       [ "]em" "—" ]
       [ "]en" "–" ]
@@ -62,9 +62,9 @@
       [ "]\\hli" "◀️" ]
     ]) ++ 
     # Autocorrect
-    (map (input: {
-      trigger = builtins.elemAt input 0;
-      replace = builtins.elemAt input 1;
+    (map (pair: {
+      trigger = builtins.elemAt pair 0;
+      replace = builtins.elemAt pair 1; 
       word = true;
       propagate_case = true;
     }) [
@@ -72,6 +72,10 @@
       [ "jsut" "just" ]
       [ "thay" "that" ]
     ]);
+    # ++ (map (pair: {
+    #   trigger = (builtins.elemAt pair 0);
+    #   replace = (builtins.elemAt pair 1);
+    # }) sitelen-pona-UCSUR.pairsList);
 
     
     
