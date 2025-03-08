@@ -39,9 +39,6 @@
       enableACME = true;
       root = "/synced/Projects/Websites/shorecraft.club";
       globalRedirect = "https://klaymore.me";
-      locations."/" = {
-        return = "301 https://klaymore.me";
-      };
     };
 
   };

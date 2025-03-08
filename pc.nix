@@ -1,12 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
-{
+rec {
 
   imports = [
     ./locale/qwerty.nix
     ./locale/losAngeles.nix
     
-    ./de/plasma.nix
 
     ./packages/gui.nix
     ./packages/games.nix
@@ -29,7 +28,16 @@
 
     ./impermanence/system.nix
     #./impermanence/home.nix
+  ] ++ lib.optionals (specialisation != {}) [
+    ./de/hyprland.nix
   ];
+
+  specialisation.hyprland.configuration = {
+    imports = [
+      ./de/plasma.nix
+    ];
+
+  };
 
   # nixpkgs.overlays = [
   #   
