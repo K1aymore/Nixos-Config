@@ -73,7 +73,6 @@
   #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
 
-  #services.power-profiles-daemon.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 

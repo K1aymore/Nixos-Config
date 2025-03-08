@@ -7,6 +7,10 @@
   home-manager.users.klaymore.services.espanso = {
     enable = true;
     package = pkgs.espanso-wayland;
+    configs.default = {
+      toggle_key = "RIGHT_SHIFT";
+    };
+
     matches.default.matches = [
       {
         # Simple text replacement
@@ -66,16 +70,15 @@
       trigger = builtins.elemAt pair 0;
       replace = builtins.elemAt pair 1; 
       word = true;
-      propagate_case = true;
     }) [
       [ "peopel" "people" ]
       [ "jsut" "just" ]
       [ "thay" "that" ]
-    ]);
-    # ++ (map (pair: {
-    #   trigger = (builtins.elemAt pair 0);
-    #   replace = (builtins.elemAt pair 1);
-    # }) sitelen-pona-UCSUR.pairsList);
+    ])
+    ++ (map (pair: {
+      trigger = (builtins.elemAt pair 0) + " ";
+      replace = (builtins.elemAt pair 1);
+    }) sitelen-pona-UCSUR.pairsList);
 
     
     

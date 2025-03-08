@@ -16,6 +16,14 @@
   services.nginx = {
     enable = true;
     #resolver.addresses = [ "8.8.8.8" "8.8.4.4" ];
+    recommendedOptimisation = true;
+    recommendedBrotliSettings = true;
+    recommendedGzipSettings = true;
+    recommendedTlsSettings = true;
+
+    appendHttpConfig = "
+      sendfile_max_chunk 1m;
+    ";
 
     virtualHosts."klaymore.me" = {
       addSSL = true;
@@ -30,6 +38,7 @@
       addSSL = true;
       enableACME = true;
       root = "/synced/Projects/Websites/shorecraft.club";
+      globalRedirect = "https://klaymore.me";
       locations."/" = {
         return = "301 https://klaymore.me";
       };

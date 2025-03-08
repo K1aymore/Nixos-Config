@@ -42,6 +42,7 @@
 
     macroboard = {
       url = "github:newAM/macroboard";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
@@ -126,11 +127,11 @@
           catppuccin.nixosModules.catppuccin
           flake-programs-sqlite.nixosModules.programs-sqlite
 
-          macroboard.nixosModules
+          macroboard.nixosModules.default
 
 
           { nixpkgs.overlays = [
-            macroboard.overlays
+            macroboard.overlays.default
             (final: prev: {
               unstable = import nixpkgs-unstable {
                 system = systemSettings.architecture;

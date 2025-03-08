@@ -35,7 +35,8 @@
 
   #boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
 
-  services.power-profiles-daemon.enable = true;
+  # occasionally powers off if not on performance setting
+  #services.power-profiles-daemon.enable = true;
   services.tlp = {
     enable = false;
     settings = {

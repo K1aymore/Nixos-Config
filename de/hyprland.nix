@@ -1,9 +1,11 @@
-{ ... }:
+{ lib, systemSettings, ... }:
 
 {
   imports = [
     ./wayland.nix
     ./x11.nix
+  ] ++ lib.optionals systemSettings.hdr [
+    ./hdr.nix
   ];
 
   programs.hyprland.enable = true;
@@ -12,7 +14,7 @@
   home-manager.users.klaymore.wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
 
-    "$terminal" = "konsole";
+    "$terminal" = "alacritty";
     "$fileManager" = "dolphin";
     "$menu" = "wofi --show drun";
 

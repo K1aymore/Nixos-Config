@@ -177,7 +177,7 @@
         font_family = "Fira Code";
         symbol_map = "U+F1900-U+F19FF Fairfax Hax HD";
         narrow_symbols = "U+F1900-U+F19FF 1";
-        #font_size = 10.0; # breaks bottoms of "g"s
+        font_size = 10.0; # breaks bottoms of "g"s
 
         enable_audio_bell = false;
 
@@ -207,7 +207,7 @@
       settings = {
         font = {
           normal = { family = "Fira Code"; style = "Regular"; };
-          size = 11;
+          size = 10;
         };
       };
     };
