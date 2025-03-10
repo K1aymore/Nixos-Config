@@ -1,14 +1,22 @@
-{ pkgs, lib, systemSettings, ... }:
+{ pkgs, lib, config, systemSettings, ... }:
 
 {
 
-  imports = [
-    ./x11.nix
-    ./wayland.nix
-    ./pipewire.nix
-  ] ++ lib.optionals systemSettings.hdr [
-    ./hdr.nix
-  ];
+  options = {
+    myOptions.plasma = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      example = true;
+      description = "run hyprland";
+    };
+  };
+
+
+  config = lib.mkIf config.myOptions.plasma {
+
+  environment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "KDE";
+  };
 
   services = {
     displayManager.sddm.enable = true;
@@ -38,4 +46,5 @@
 
   services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
 
+};
 }

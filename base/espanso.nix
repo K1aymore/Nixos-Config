@@ -3,6 +3,15 @@
 {
 
   #services.espanso.enable = true;
+
+  # start espanso disabled so toki pona not crazy
+  systemd.user.services.espanso-start-disabled = {
+    enable = true;
+    after = [ "espanso.service" ];
+    wantedBy = [ "default.target" ];
+    script = "sleep 1; espanso cmd disable";
+  };
+
   
   home-manager.users.klaymore.services.espanso = {
     enable = true;
@@ -76,8 +85,8 @@
       [ "thay" "that" ]
     ])
     ++ (map (pair: {
-      trigger = (builtins.elemAt pair 0) + " ";
-      replace = (builtins.elemAt pair 1);
+     trigger = (builtins.elemAt pair 0) + " ";
+     replace = (builtins.elemAt pair 1);
     }) sitelen-pona-UCSUR.pairsList);
 
     

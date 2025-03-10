@@ -138,7 +138,7 @@
   };
 
 
-
+  home-manager.backupFileExtension = "hmBak";
   
   home-manager.users.klaymore = {
     home.stateVersion = "24.05";

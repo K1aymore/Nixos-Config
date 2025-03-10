@@ -243,7 +243,7 @@
     };
   };
 
-
+  home-manager.users.klaymore.programs = {
     kitty = {
       enable = true;
       settings = {
@@ -274,7 +274,6 @@
       };
     };
 
-
     alacritty = {
       enable = true;
       settings = {
@@ -284,7 +283,8 @@
         };
       };
     };
-
+    
+  };
 
   programs = {
     partition-manager.enable = true;

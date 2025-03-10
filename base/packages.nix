@@ -144,6 +144,7 @@
     bind
     php
     nodejs
+    marksman
 
     pfetch
     neofetch
