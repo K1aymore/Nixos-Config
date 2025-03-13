@@ -5,6 +5,7 @@
   imports = [
     ./hyprland.nix
     ./plasma.nix
+    ./niri.nix
   ] ++ lib.optionals systemSettings.hdr [
     ./hdr.nix
   ];

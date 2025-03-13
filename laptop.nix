@@ -6,7 +6,7 @@
     ./locale/colemak.nix
     ./locale/losAngeles.nix
     
-    ./de/plasma.nix
+    ./de
     #./de/hyprland.nix
 
     ./packages/gui.nix
@@ -23,6 +23,8 @@
     #./impermanence/system.nix
 #   #./impermanence/home.nix
   ];
+
+  myOptions.plasma.enable = true;
   
   #services.getty.autologinUser = "klaymore";
 

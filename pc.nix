@@ -31,9 +31,11 @@
     #./impermanence/home.nix
   ];
 
-  specialisation.plasma.configuration = {
-    myOptions.plasma = true;
-    myOptions.hyprland = false;
+  myOptions.plasma.enable = true;
+
+  specialisation.niri.configuration = {
+    myOptions.plasma.enable = lib.mkForce false;
+    myOptions.niri.enable = true;
   };
 
   # nixpkgs.overlays = [
