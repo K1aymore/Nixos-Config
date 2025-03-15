@@ -21,7 +21,7 @@
     #./server/syncplay.nix
     #./server/miniflux.nix
     #./server/freshrss.nix
-    #./server/minecraft.nix
+    ./server/minecraft.nix
 
 
     ./system/syncthing.nix

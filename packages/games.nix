@@ -18,6 +18,8 @@
 
     mangohud
     
+    parsec-bin
+
     #piper
 
     #minecraft

@@ -197,35 +197,6 @@
     })
   ];*/
 
-  /*home-manager.users.klaymore.home.file = {
-    ".config/lapce-nightly/settings.toml".text = nix-std.lib.serde.toTOML {
-      core = {
-        color-theme = "Lapce Dark";
-        icon-theme = "Material Icons";
-      };
-      editor = {
-        font-size = 14;
-        font-family = "Fira Code";
-        line-height = 1.5;
-        autosave-interval = 100;
-        format-on-autosave = false;
-        hover-delay = 150;
-        show-tab = true;
-        highlight-scope-lines = false;
-        atomic-soft-tabs = true;
-      };
-      ui = {
-        font-size = 14;
-        font-family = "";
-      };
-      
-      lapce-nix.lsp-path = "/run/current-system/sw/bin/nil";
-      lapce-rust.serverPath = "/run/current-system/sw/bin/rust-analyzer";
-      lapce-cpp-clangd."volt.serverPath" = "/run/current-system/sw/bin/clangd";
-      
-    };
-  };*/
-
 
   # home-manager.users.klaymore.programs.emacs = {
   #   enable = true;
@@ -281,6 +252,56 @@
           normal = { family = "Fira Code"; style = "Regular"; };
           size = 10;
         };
+      };
+    };
+
+
+    lapce = {
+      enable = true;
+
+      plugins = [ {
+          author = "MrFoxPro";
+          name = "lapce-nix";
+          version = "0.0.1";
+          hash = "sha256-n+j8p6sB/Bxdp0iY6Gty9Zkpv9Rg34HjKsT1gUuGDzQ=";
+        } {
+          author = "dzhou121";
+          name = "lapce-rust";
+          version = "0.3.2162";
+          hash = "sha256-hFKEMJt8lio/kuuZTDEshZ6NBjpDM65VoS6hl1CTSZ0=";
+        } {
+          author = "WalterOfNone";
+          name = "ayu";
+          version = "0.1.2";
+          hash = "sha256-8m9joh8VTkd4fzNevFmZROsQ5Cl7si84oVQ01nTCjdo=";
+        }
+      ];
+
+      settings = {
+        core = {
+          color-theme = "Ayu Mirage";
+          modal = false;
+          #icon-theme = "Material Icons";
+        };
+        editor = {
+          font-size = 15;
+          font-family = "Fira Code";
+          line-height = 1.3;
+          autosave-interval = 100;
+          format-on-autosave = false;
+          hover-delay = 150;
+          show-tab = true;
+          highlight-scope-lines = false;
+          atomic-soft-tabs = true;
+        };
+        ui = {
+          font-size = 14;
+          font-family = "";
+        };
+        
+        lapce-nix.lsp-path = "/run/current-system/sw/bin/nixd";
+        lapce-rust.serverPath = "/run/current-system/sw/bin/rust-analyzer";
+        lapce-cpp-clangd."volt.serverPath" = "/run/current-system/sw/bin/clangd";
       };
     };
     
