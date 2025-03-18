@@ -76,10 +76,8 @@
         #saturation = 5;
 
 
-        # caps at 203 nits unless doing inverse-tone-mapping
-        # "auto" is affected by OS SDR brightness
-        # anything above 203 is the same as auto with OS SDR Brightness at 203
-        target-peak = 500;
+        # with Plasma 6.3 no effect in pq, makes sdr dark
+        #target-peak = 500;
 
         tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
         inverse-tone-mapping = false; # Not good for 2D animation

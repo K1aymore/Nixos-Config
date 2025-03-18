@@ -37,6 +37,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedTCPPortRanges = [ { from = 6900; to = 6999; } ];
 
   programs.java.enable = true;
 

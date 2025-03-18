@@ -19,6 +19,7 @@
     mangohud
     
     parsec-bin
+    r2modman
 
     #piper
 

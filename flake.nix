@@ -36,6 +36,8 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     sitelen-pona-UCSUR = {
       url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
     };
@@ -49,7 +51,7 @@
 
 
   outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, lix, lix-module, impermanence,
-              catppuccin, flake-programs-sqlite, macroboard, ... }@attrs:
+              catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "172.16.0.115";
@@ -82,7 +84,7 @@
         conduit = 6920;
 
         yggdrasil = 6901;
-        minecraft = 6969;
+        minecraft-wildcat = 6968;
 
         wgEllMCJava = 25565;
         wgEllMCBedrock = 19132;
@@ -128,10 +130,11 @@
           flake-programs-sqlite.nixosModules.programs-sqlite
 
           macroboard.nixosModules.default
-
+          nix-minecraft.nixosModules.minecraft-servers
 
           { nixpkgs.overlays = [
             macroboard.overlays.default
+            nix-minecraft.overlay
             (final: prev: {
               unstable = import nixpkgs-unstable {
                 system = systemSettings.architecture;

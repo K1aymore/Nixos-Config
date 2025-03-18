@@ -32,6 +32,12 @@
       locations."= /" = {
         return = "301 https://klaymore.me/en/";
       };
+      locations."~* \.(woff|woff2|ttf)$" = {
+        extraConfig = ''
+          expires max;
+          add_header Cache-Control "public, no-transform";
+        '';
+      };
     };
 
     virtualHosts."shorecraft.club" = {
