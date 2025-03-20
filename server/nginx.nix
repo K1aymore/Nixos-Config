@@ -32,6 +32,9 @@
       locations."= /" = {
         return = "301 https://klaymore.me/en/";
       };
+      locations."/files/" = {
+        alias = "/zfs2/servers/klaymore.meFiles/";
+      };
       locations."~* \.(woff|woff2|ttf)$" = {
         extraConfig = ''
           expires max;
