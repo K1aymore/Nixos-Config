@@ -129,7 +129,7 @@
     networkmanagerapplet
     #onionshare-gui
     #tor-browser-bundle-bin
-    #session-desktop-appimage
+    session-desktop
     zoom-us
     #lbry
     lagrange

@@ -46,6 +46,22 @@
   };
 
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      #xdg-desktop-portal
+      #xdg-desktop-portal-kde
+      #xdg-desktop-portal-wlr
+
+      # for Firefox cursor, fixes Vesktop?
+      xdg-desktop-portal-gtk
+    ];
+    config = {
+      common.default = "*";
+    };
+  };
+
+
   services.pulseaudio.enable = false;
 
   # rtkit is optional but recommended

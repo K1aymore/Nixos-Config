@@ -130,6 +130,7 @@
     gping
     lazygit
     lsd
+    tokei
 
     ffmpeg
     yt-dlp

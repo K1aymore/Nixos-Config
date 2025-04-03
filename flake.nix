@@ -86,6 +86,8 @@
         yggdrasil = 6901;
         minecraft-wildcat = 6968;
 
+        wgBen = 6970;
+
         wgEllMCJava = 25565;
         wgEllMCBedrock = 19132;
         
@@ -122,7 +124,7 @@
 
           { home-manager.users.klaymore.imports = [
             impermanence.nixosModules.home-manager.impermanence
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
           ]; }
 
           lix-module.nixosModules.default

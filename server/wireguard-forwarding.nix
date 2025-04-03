@@ -3,7 +3,7 @@
 {
 
   networking.firewall = {
-    allowedTCPPorts = [ ports.wgEllMCJava ports.wgEllMCBedrock ];
+    allowedTCPPorts = [ ports.wgEllMCJava ports.wgEllMCBedrock ports.wgBen ];
   };
 
   # https://wiki.nixos.org/wiki/Networking
@@ -24,6 +24,7 @@
             #iifname "enp4s0" udp dport 6970 log prefix "Wg6970: "
             #iifname "enp4s0" tcp dport 6969 log prefix "MC6969: "
             iifname "enp4s0" udp dport ${toString ports.wgEllMCBedrock} log prefix "MC${toString ports.wgEllMCBedrock}: " dnat to 10.100.0.2:${toString ports.wgEllMCBedrock}
+            iifname "enp4s0" tcp dport ${toString ports.wgBen} log prefix "MC${toString ports.wgBen}: " dnat to 10.200.0.2:${toString ports.wgBen}
           }
         }
     '';
@@ -84,10 +85,25 @@
           allowedIPs = [ "10.100.0.2/32" ];
           persistentKeepalive = 25;
         }
-        # { # John Doe
-        #   publicKey = "{john doe's public key}";
-        #   allowedIPs = [ "10.100.0.3/32" ];
-        # }
+      ];
+    };
+
+    wgBen = {
+      # Determines the IP address and subnet of the server's end of the tunnel interface.
+      ips = [ "10.200.0.1/24" ];
+
+      listenPort = ports.wgBen;
+
+      privateKeyFile = "/nix/persist/stuff/wg-private";
+
+      peers = [
+        { # Feel free to give a meaning full name
+          # Public key of the peer (not a file path).
+          publicKey = "5UyCaVUWGIfTXMsYwr1G2q9MquAHtwA9fpZLK1bDXw0=";
+          # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
+          allowedIPs = [ "10.200.0.2/32" ];
+          persistentKeepalive = 25;
+        }
       ];
     };
   };

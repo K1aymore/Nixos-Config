@@ -22,17 +22,6 @@
 
     services.dbus.enable = true;
     programs.dconf.enable = true;
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        #xdg-desktop-portal
-        #xdg-desktop-portal-kde
-        #xdg-desktop-portal-wlr
-
-        # for Firefox cursor, fixes Vesktop?
-        xdg-desktop-portal-gtk
-      ];
-    };
 
     environment.systemPackages = with pkgs; [
       kdePackages.kde-gtk-config
