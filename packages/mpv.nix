@@ -31,12 +31,12 @@
       hwdec = if video-sync == "audio" then "auto" else "no";
 
       # SSimSuperRes causes jitter with display-resample
-      video-sync = "display-resample-vdrop";
+      video-sync = "audio";
       interpolation = true;
       tscale = "oversample";
     }
     (lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
-      vo = "gpu-next"; # dmabuf-wayland doesn't work with hdr
+      vo = "gpu-next"; # dmabuf-wayland works but looks greener
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
 
@@ -56,28 +56,8 @@
         profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
 
-        # Purple test She-Ra S5E6 4:39
-        # Red test Arcane S1E7 7:54
-        # Saturation test Arcane S1E7 21:37 <- everything except bt.2020 is oversaturated
-        #
-        # bt.709: way oversaturated
-        # bt.470m: messed up purples
-        # dci-p3: Pretty good balance
-        # display-p3: like dci-p3 with less reds
-        # film-c: Between bt.2020 and dci-p3. Looks pretty good
-        # aces-ap1: A lot like bt.2020 except worse
-        # bt.2020: correct but looks undersaturated compared to SDR colors at +40%
-        # apple: more saturated than dci-p3, messed up purples
-        # adobe: similar saturation to dci-p3 but greens are way too yellow
-        # cie1931: like adobe but with messed up purples
-        #target-prim = "bt.2020"; # I think auto works fine
-
-        # Tried it and it's noticeably more saturated sometimes
-        #saturation = 5;
-
-
-        # with Plasma 6.3 no effect in pq, makes sdr dark
-        #target-peak = 500;
+        #saturation = 5; # Tried it and it's noticeably more saturated sometimes
+        #target-peak = 500; # with Plasma 6.3 no effect in pq, makes sdr dark
 
         tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
         inverse-tone-mapping = false; # Not good for 2D animation
@@ -117,6 +97,14 @@
       "b" = "cycle deband";
 
       "HOME" = "seek 0 absolute";
+
+      # bring back original controls
+      "audio_track_mbtn_left_command" = "cycle audio";
+      "audio_track_mbtn_mid_command" = "script-binding select/select-aid; script-message-to osc osc-hide";
+      "audio_track_mbtn_right_command" = "cycle audio down";
+      "sub_track_mbtn_left_command" = "cycle sub";
+      "sub_track_mbtn_mid_command" = "script-binding select/select-sid; script-message-to osc osc-hide";
+      "sub_track_mbtn_right_command" = "cycle sub down";
     };
     scripts = [
       #pkgs.mpvScripts.autocrop

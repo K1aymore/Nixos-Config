@@ -85,6 +85,7 @@
 
         yggdrasil = 6901;
         minecraft-wildcat = 6968;
+        minecraft-frenched = 6967;
 
         wgBen = 6970;
 
@@ -127,7 +128,7 @@
             catppuccin.homeModules.catppuccin
           ]; }
 
-          lix-module.nixosModules.default
+          #lix-module.nixosModules.default # better but needs to compile each time
           catppuccin.nixosModules.catppuccin
           flake-programs-sqlite.nixosModules.programs-sqlite
 

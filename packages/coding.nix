@@ -44,6 +44,7 @@
 
     php
     deno # for catppuccin userstyles
+    typescript
 
     #jetbrains.idea-community
     vscode-fhs

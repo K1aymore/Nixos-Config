@@ -38,6 +38,7 @@
     };
   };
   nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+  nix.package = pkgs.lix; # some programs don't use lix, no compiling
 
   environment.variables = {
     GPG_TTY = "$(tty)";
