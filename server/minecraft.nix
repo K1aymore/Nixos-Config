@@ -14,12 +14,12 @@
     dataDir = "/zfs2/servers/minecrafts";
 
     servers.wildcat-gamer-haven = {
-      enable = true;
+      enable = false;
       package = pkgs.fabricServers.fabric-1_21_4;
       jvmOpts = "-Xmx8192M -Xms4096M";
 
       serverProperties = {
-        motd = "Wildcat Gamer Heaven";
+        motd = "Wildcat Gamer Haven";
         white-list = false;
         difficulty = 2;
         gamemode = 0;
@@ -28,6 +28,7 @@
         server-port = ports.minecraft-wildcat;
         spawn-protection = 0;
         pvp = false;
+        view-distance = 32;
       };
 
       whitelist = {
@@ -115,7 +116,7 @@
         allow-flight = true;
         server-port = ports.minecraft-frenched;
         spawn-protection = 0;
-        pvp = false;
+        view-distance = 32;
       };
 
       whitelist = {

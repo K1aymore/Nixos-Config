@@ -5,12 +5,12 @@
   #services.espanso.enable = true;
 
   # start espanso disabled so toki pona not crazy
-  systemd.user.services.espanso-start-disabled = {
-    enable = true;
-    after = [ "espanso.service" ];
-    wantedBy = [ "default.target" ];
-    script = "sleep 1; espanso cmd disable";
-  };
+  # systemd.user.services.espanso-start-disabled = {
+  #   enable = true;
+  #   after = [ "espanso.service" ];
+  #   wantedBy = [ "default.target" ];
+  #   script = "sleep 1; espanso cmd disable";
+  # };
 
   
   home-manager.users.klaymore.services.espanso = {

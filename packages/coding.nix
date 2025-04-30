@@ -166,6 +166,12 @@
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 100;
 
+        "editor.wordWrap" = "bounded";
+        "editor.wordWrapColumn" = 100;
+        "[markdown]" = {
+          "editor.wordWrap" = "bounded";
+        };
+
         "powermode.enabled" = false; # stupid
         "powermode.combo.location" = "off";
         "powermode.combo.counterEnabled" = "hide";

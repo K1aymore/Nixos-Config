@@ -7,6 +7,7 @@ in {
     GPG_TTY = "$(tty)";
     GTK_USE_PORTAL = "1";
     FLAKE = configPath;
+    NH_FLAKE = configPath;
   };
 
   environment.shellAliases = {

@@ -33,10 +33,10 @@
 
   myOptions.plasma.enable = true;
 
-  specialisation.niri.configuration = {
-    myOptions.plasma.enable = lib.mkForce false;
-    myOptions.niri.enable = true;
-  };
+  # specialisation.niri.configuration = {
+  #   myOptions.plasma.enable = lib.mkForce false;
+  #   myOptions.niri.enable = true;
+  # };
 
   # nixpkgs.overlays = [
   #   

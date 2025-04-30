@@ -84,6 +84,7 @@
     strawberry-qt6
     jamesdsp
     clematis
+    
     #puddletag
     kid3
     tageditor

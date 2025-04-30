@@ -3,7 +3,7 @@
 {
 
   networking.firewall = {
-    allowedTCPPorts = [ ports.wgEllMCJava ports.wgEllMCBedrock ports.wgBen ];
+    allowedTCPPorts = [ ports.wgEllMCJava ports.wgEllMCBedrock ports.wgBen ports.minecraft-wildcat ];
   };
 
   # https://wiki.nixos.org/wiki/Networking
@@ -24,7 +24,7 @@
             #iifname "enp4s0" udp dport 6970 log prefix "Wg6970: "
             #iifname "enp4s0" tcp dport 6969 log prefix "MC6969: "
             iifname "enp4s0" udp dport ${toString ports.wgEllMCBedrock} log prefix "MC${toString ports.wgEllMCBedrock}: " dnat to 10.100.0.2:${toString ports.wgEllMCBedrock}
-            iifname "enp4s0" tcp dport ${toString ports.wgBen} log prefix "MC${toString ports.wgBen}: " dnat to 10.200.0.2:${toString ports.wgBen}
+            iifname "enp4s0" tcp dport ${toString ports.minecraft-wildcat} log prefix "MC${toString ports.minecraft-wildcat}: " dnat to 10.200.0.2:${toString ports.minecraft-wildcat}
           }
         }
     '';

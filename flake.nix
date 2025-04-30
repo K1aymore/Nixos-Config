@@ -50,8 +50,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, lix, lix-module, impermanence,
-              catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-unstable, nixpkgs-stable, home-manager, lix, lix-module, impermanence, catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "172.16.0.115";
