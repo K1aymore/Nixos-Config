@@ -63,6 +63,7 @@
         inverse-tone-mapping = false; # Not good for 2D animation
       };
     };
+    
     # test with mpv --input-test --force-window --idle
     bindings = {
       "CTRL+`" = "set target-peak auto";
@@ -77,7 +78,6 @@
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
 
       # https://www.reddit.com/r/NixOS/comments/191wg98/using_a_directory_from_a_git_repo_as_source_for_a/
-      "CTRL+8" = "";
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
 
@@ -98,14 +98,18 @@
 
       "HOME" = "seek 0 absolute";
 
-      # bring back original controls
-      "audio_track_mbtn_left_command" = "cycle audio";
-      "audio_track_mbtn_mid_command" = "script-binding select/select-aid; script-message-to osc osc-hide";
-      "audio_track_mbtn_right_command" = "cycle audio down";
-      "sub_track_mbtn_left_command" = "cycle sub";
-      "sub_track_mbtn_mid_command" = "script-binding select/select-sid; script-message-to osc osc-hide";
-      "sub_track_mbtn_right_command" = "cycle sub down";
     };
+
+    scriptOpts.osc = {
+      # bring back original controls
+      audio_track_mbtn_left_command = "cycle audio";
+      audio_track_mbtn_mid_command = "script-binding select/select-aid; script-message-to osc osc-hide";
+      audio_track_mbtn_right_command = "cycle audio down";
+      sub_track_mbtn_left_command = "cycle sub";
+      sub_track_mbtn_mid_command = "script-binding select/select-sid; script-message-to osc osc-hide";
+      sub_track_mbtn_right_command = "cycle sub down";
+    };
+
     scripts = [
       #pkgs.mpvScripts.autocrop
     ];
