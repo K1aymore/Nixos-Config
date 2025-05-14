@@ -83,6 +83,7 @@
       [ "peopel" "people" ]
       [ "jsut" "just" ]
       [ "thay" "that" ]
+      [ "nad" "and" ]
     ])
     ++ (map (pair: {
      trigger = (builtins.elemAt pair 0) + " ";

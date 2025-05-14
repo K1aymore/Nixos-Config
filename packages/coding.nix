@@ -100,7 +100,7 @@
         vscjava.vscode-java-debug
 
         rust-lang.rust-analyzer
-        bungcip.better-toml
+        tamasfe.even-better-toml
 
         #streetsidesoftware.code-spell-checker
 

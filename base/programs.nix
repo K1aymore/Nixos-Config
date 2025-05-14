@@ -151,6 +151,10 @@
       };
     };
 
+    television = {
+      enable = true;
+    };
+
 
     hyfetch = {
       enable = true;

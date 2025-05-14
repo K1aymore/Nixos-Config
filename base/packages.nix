@@ -131,6 +131,9 @@
     lazygit
     lsd
     tokei
+    television
+
+    amfora
 
     ffmpeg
     yt-dlp
