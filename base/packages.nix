@@ -89,7 +89,7 @@
     openssl
     iperf
     iperf3d
-    ventoy
+    #ventoy
     radeontop
     inetutils
     moreutils

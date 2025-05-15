@@ -16,6 +16,7 @@
       # af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       # af = "loudnorm=I=-20";
       volume-max = 200;
+      hr-seek = true;
 
 
       # best quality, except for 8K which is dumb
@@ -27,10 +28,15 @@
       dscale = "mitchell";
       deband = true;
 
-      # Causes jitter and missed/delayed frames with display-resample
-      hwdec = if video-sync == "audio" then "auto" else "no";
+      # affects HDR->SDR, and HDR when very bright
+      # in HDR, spline/auto preserves details better, bt.2446a becomes spline when target-peak > 2400
+      # for HDR->SDR, bt.2446a darker & more contrasted
+      #tone-mapping = "bt.2446a";
 
-      # SSimSuperRes causes jitter with display-resample
+      # Causes jitter and missed/delayed frames with display-resample
+      hwdec = "auto";
+
+      # SSimSuperRes causes jitter with display-resample(-vdrop)
       video-sync = "audio";
       interpolation = true;
       tscale = "oversample";
@@ -40,9 +46,9 @@
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
 
-      target-trc = "pq"; # Output in HDR
+      target-trc = "pq"; # Output in HDR always, better for SDR than bt.1886/auto
       #target-prim = "bt.2020"; # should be correct on `auto`
-      target-colorspace-hint = true; # makes no difference when target-trc=srgb
+      target-colorspace-hint = "auto"; # makes no difference when outputting SDR
     })
     (lib.mkIf (config.networking.hostName == "pc") {
       # No visible difference but what the hey
@@ -59,7 +65,6 @@
         #saturation = 5; # Tried it and it's noticeably more saturated sometimes
         #target-peak = 500; # with Plasma 6.3 no effect in pq, makes sdr dark
 
-        tone-mapping = "bt.2446a"; # Only affects inverse-tone-mapping, all other options bad
         inverse-tone-mapping = false; # Not good for 2D animation
       };
     };
@@ -72,8 +77,7 @@
 
       "CTRL+3" = "cycle target-colorspace-hint";
       "CTRL+4" = "cycle-values target-prim bt.2020 bt.709 auto";
-      # in HDR, "auto" does gamma2.2 while --no-config gives bt.1886 (matches VLC)
-      "CTRL+5" = "cycle-values target-trc pq auto";
+      "CTRL+5" = "cycle-values target-trc pq bt.1886 auto";
       "CTRL+6" = "cycle-values tone-mapping bt.2446a auto";
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
 

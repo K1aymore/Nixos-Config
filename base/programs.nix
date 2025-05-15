@@ -153,6 +153,9 @@
 
     television = {
       enable = true;
+      settings = {
+        ui.theme = "catppuccin";
+      };
     };
 
 

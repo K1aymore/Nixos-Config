@@ -174,7 +174,7 @@
     /* linuxKernel.packages.linux_5_16.v4l2loopback */
 
 
-    lapce
+    #lapce
     #nil # Nix LSP
     nixd
     nixpkgs-fmt
@@ -258,7 +258,7 @@
 
 
     lapce = {
-      enable = true;
+      enable = false;
 
       plugins = [ {
           author = "MrFoxPro";
