@@ -12,9 +12,11 @@
     enable = true;
     shellAliases = config.environment.shellAliases;
     interactiveShellInit = "set -gx GPG_TTY (tty)";
-    functions = {
+    functions = rec {
       run = "NIXPKGS_ALLOW_UNFREE=1 nix run nixpkgs#$argv --impure";
       shell = "NIXPKGS_ALLOW_UNFREE=1 nix shell nixpkgs#$argv --impure";
+      mkcd = mkz;
+      mkz = "mkdir $argv; z $argv";
     };
   };
 

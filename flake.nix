@@ -1,10 +1,11 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
     nixpkgs-staging.url = "github:NixOS/nixpkgs/nixos-unstable-small";  # ?rev=493dfd5c25fefa57fe87d50aaa0341a47c673546
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -44,7 +45,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-stable, home-manager, lix, lix-module, impermanence, catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-staging, nixpkgs-stable, home-manager, lix, lix-module, impermanence, catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "172.16.0.115";
@@ -55,7 +56,7 @@
         architecture = "x86_64-linux";
         hdr = false;
         scaling = "1";
-        nixpkgs = "unstable";
+        nixpkgs = "default";
         yggdrasilPeers = [];
         publicIP = publicIP;
         serverLan = serverLan;
@@ -109,8 +110,8 @@
           { networking.hostName = hostname; }
           
           { nixpkgs.hostPlatform = systemSettings.architecture;
-            nixpkgs.config.pkgs = if systemSettings.nixpkgs == "staging"
-              then import nixpkgs-staging { inherit system; }
+            nixpkgs.config.pkgs = if systemSettings.nixpkgs == "unstable"
+              then import nixpkgs-unstable { inherit system; }
               else import nixpkgs { inherit system; }; }
           
           home-manager.nixosModules.home-manager
@@ -131,9 +132,14 @@
           { nixpkgs.overlays = [
             macroboard.overlays.default
             nix-minecraft.overlay
-            
             (final: prev: {
               stable = import nixpkgs-stable {
+                system = systemSettings.architecture;
+                config.allowUnfree = true;
+              };
+            })
+            (final: prev: {
+              unstable = import nixpkgs-unstable {
                 system = systemSettings.architecture;
                 config.allowUnfree = true;
               };
@@ -145,8 +151,8 @@
       };
       
     in
-    if systemSettings.nixpkgs == "staging"
-    then nixpkgs-staging.lib.nixosSystem modules
+    if systemSettings.nixpkgs == "unstable"
+    then nixpkgs-unstable.lib.nixosSystem modules
     else nixpkgs.lib.nixosSystem modules;
 
   in
@@ -156,7 +162,7 @@
       pc = sharedConfig "pc" {
         hdr = true;
         scaling = "1.75";
-        #nixpkgs = "staging";
+        nixpkgs = "unstable";
         # yggdrasilPeers = [
         #   "tcp://${serverLan}:${toString yggdrasilPort}"
         # ];

@@ -10,6 +10,21 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  boot.loader = {
+    # Use the systemd-boot EFI boot loader.
+    # systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+
+    grub = {
+      enable = true;
+      efiSupport = true;
+      #efiInstallAsRemovable = true;
+      device = "nodev";
+    };
+  };
+
+
+
   fileSystems."/" = {
     device = "none";
     fsType = "tmpfs";
@@ -63,15 +78,20 @@
     options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };
 
-
   fileSystems."/nfs/hugeArchive" = {
     device = "serverlan:/zfs2/hugeArchive";
     fsType = "nfs";
-    options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];  # "x-systemd.automount" "noauto"
+    options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };
 
   fileSystems."/nfs/synced" = {
     device = "serverlan:/synced";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
+  };
+
+  fileSystems."/nfs/games" = {
+    device = "serverlan:/zfs2/games";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };

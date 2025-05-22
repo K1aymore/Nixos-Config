@@ -5,6 +5,8 @@
   catppuccin = {
     flavor = "mocha";
     accent = "maroon";
+    
+    grub.enable = true;
   };
 
   #services.displayManager.sddm.catppuccin.enable = true;

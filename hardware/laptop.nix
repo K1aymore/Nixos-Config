@@ -10,6 +10,19 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.loader = {
+    # Use the systemd-boot EFI boot loader.
+    #systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+
+    grub = {
+      enable = true;
+      efiSupport = true;
+      #efiInstallAsRemovable = true;
+      device = "nodev";
+    };
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/188a6e36-ed18-4f14-94ab-d64f15ea0299";
       fsType = "ext4";

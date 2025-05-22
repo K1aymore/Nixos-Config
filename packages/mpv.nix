@@ -22,6 +22,10 @@
       # best quality, except for 8K which is dumb
       ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
 
+
+      vo = "gpu-next"; # dmabuf-wayland works but looks greener in HDR
+      hwdec = "auto"; # Causes jitter and missed/delayed frames with display-resample
+
       profile = "gpu-hq";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
@@ -33,16 +37,12 @@
       # for HDR->SDR, bt.2446a darker & more contrasted
       #tone-mapping = "bt.2446a";
 
-      # Causes jitter and missed/delayed frames with display-resample
-      hwdec = "auto";
-
       # SSimSuperRes causes jitter with display-resample(-vdrop)
       video-sync = "audio";
       interpolation = true;
       tscale = "oversample";
     }
     (lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
-      vo = "gpu-next"; # dmabuf-wayland works but looks greener
       gpu-api = "vulkan";
       gpu-context = "waylandvk";
 
@@ -80,6 +80,7 @@
       "CTRL+5" = "cycle-values target-trc pq bt.1886 auto";
       "CTRL+6" = "cycle-values tone-mapping bt.2446a auto";
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
+      "CTRL+8" = "cycle-values vo gpu gpu-next dmabuf-wayland";
 
       # https://www.reddit.com/r/NixOS/comments/191wg98/using_a_directory_from_a_git_repo_as_source_for_a/
       "CTRL+9" = "no-osd change-list glsl-shaders set \"${./-mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
