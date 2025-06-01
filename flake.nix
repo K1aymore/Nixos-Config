@@ -1,11 +1,10 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
+    nixpkgs.url = "github:NixOS/nixpkgs?rev=c80aab436cb1a614b485cac6e21741a33a24c2f3"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
     nixpkgs-staging.url = "github:NixOS/nixpkgs/nixos-unstable-small";  # ?rev=493dfd5c25fefa57fe87d50aaa0341a47c673546
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.4";
 
     home-manager = {
@@ -46,7 +45,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-pc, nixpkgs-stable, home-manager, lix, lix-module, impermanence, catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, home-manager, lix, lix-module, impermanence, catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "172.16.0.115";
@@ -135,12 +134,6 @@
             nix-minecraft.overlay
             (final: prev: {
               stable = import nixpkgs-stable {
-                system = systemSettings.architecture;
-                config.allowUnfree = true;
-              };
-            })
-            (final: prev: {
-              unstable = import nixpkgs-unstable {
                 system = systemSettings.architecture;
                 config.allowUnfree = true;
               };

@@ -104,7 +104,7 @@
     #handbrake
     #k3b
 
-    stable.syncplay
+    syncplay
     #python39Packages.certifi
     #python39Packages.twisted
     localsend
