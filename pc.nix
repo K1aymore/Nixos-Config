@@ -12,7 +12,7 @@
     ./packages/games.nix
     ./packages/coding.nix
     #./packages/video-editing.nix
-    #./packages/mpd.nix
+    ./packages/mpd.nix
     
     ./packages/steam.nix
 

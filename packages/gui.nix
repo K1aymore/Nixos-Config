@@ -45,6 +45,7 @@
     kdePackages.spectacle
     #flameshot
     webcamoid
+    cheese
     #onboard
     #xkbd
     #latte-dock
@@ -216,6 +217,18 @@
   };
 
   home-manager.users.klaymore.programs = {
+    # firefox.profiles.default = {
+    #   # hide empty tab groups
+    #   userChrome = "
+    #     #tabbrowser-tabs tab-group:not(:has(.tabbrowser-tab:not([hidden]))) .tab-group-label-container {
+    #       margin: 0 !important;
+    #       max-height: 0 !important;
+    #       max-width: 0 !important;
+    #       padding: 0 !important;
+    #       visibility: hidden !important;
+    #     }";
+    # };
+
     kitty = {
       enable = true;
       settings = {
@@ -239,7 +252,7 @@
 
         tab_bar_min_tabs = 1;
         #tab_bar_margin_height = "0.0 10.0";
-        tab_bar_edge = "bottom";
+        tab_bar_edge = "top";
         tab_bar_style = "powerline";
         tab_powerline_style = "slanted";
         #tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";

@@ -49,9 +49,10 @@
     helix = {
       enable = true;
       defaultEditor = false;
+      package = pkgs.evil-helix;
 
       settings = {
-        theme = "ayu_mirage";
+        theme = "catppuccin-mocha";
         editor = {
           line-number = "relative";
           lsp.display-messages = true;
@@ -75,21 +76,23 @@
       viAlias = true;
       vimdiffAlias = true;
 
-      coc.enable = true;
+      #coc.enable = true;
       #nvim-treesitter.withAllGrammars
       # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
       plugins = with pkgs.vimPlugins; [
         indentLine
         rainbow #YouCompleteMe
         #minimap-vim
-        vim-fugitive #ale nvim-autopairs
+        vim-fugitive #ale
+        nvim-autopairs
         neoformat
         vim-nix
         #rust-vim
         leap-nvim
         coc-rust-analyzer
+        vim-lsp
 
-        #catppuccin-nvim # broken
+        catppuccin-nvim # broken
         neovim-ayu
         tokyonight-nvim
         nightfox-nvim
@@ -125,13 +128,13 @@
         let g:paredit_electric_return=0
         let g:paredit_disable_ftindent=1
 
-        "require'lspconfig'.nil_ls.setup{}
 
         inoremap <silent><expr> <Right> coc#pum#visible() ? coc#pum#confirm() : "\<Right>"
 
-        colorscheme ayu-mirage
+        colorscheme catppuccin-mocha
       '';
 
+        #vim.lsp.enable('nixd')
     };
 
     tealdeer = {
@@ -158,24 +161,7 @@
       };
     };
 
-
-    hyfetch = {
-      enable = true;
-      settings = {
-        preset = "transgender";
-        mode = "rgb";
-        light_dark = "dark";
-        lightness = 0.65;
-        color_align = {
-          mode = "custom";
-          custom_colors = {
-            "1" = 1;
-            "2" = 0;
-          };
-        };
-        backend = "neofetch";
-      };
-    };
+    rmpc.enable = true;
 
   };
 

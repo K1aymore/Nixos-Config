@@ -1,11 +1,12 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
     nixpkgs-staging.url = "github:NixOS/nixpkgs/nixos-unstable-small";  # ?rev=493dfd5c25fefa57fe87d50aaa0341a47c673546
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.4";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -45,7 +46,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-staging, nixpkgs-stable, home-manager, lix, lix-module, impermanence, catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-pc, nixpkgs-stable, home-manager, lix, lix-module, impermanence, catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "172.16.0.115";
@@ -110,8 +111,8 @@
           { networking.hostName = hostname; }
           
           { nixpkgs.hostPlatform = systemSettings.architecture;
-            nixpkgs.config.pkgs = if systemSettings.nixpkgs == "unstable"
-              then import nixpkgs-unstable { inherit system; }
+            nixpkgs.config.pkgs = if systemSettings.nixpkgs == "pc"
+              then import nixpkgs-pc { inherit system; }
               else import nixpkgs { inherit system; }; }
           
           home-manager.nixosModules.home-manager
@@ -151,8 +152,8 @@
       };
       
     in
-    if systemSettings.nixpkgs == "unstable"
-    then nixpkgs-unstable.lib.nixosSystem modules
+    if systemSettings.nixpkgs == "pc"
+    then nixpkgs-pc.lib.nixosSystem modules
     else nixpkgs.lib.nixosSystem modules;
 
   in
@@ -162,7 +163,7 @@
       pc = sharedConfig "pc" {
         hdr = true;
         scaling = "1.75";
-        nixpkgs = "unstable";
+        #nixpkgs = "pc";
         # yggdrasilPeers = [
         #   "tcp://${serverLan}:${toString yggdrasilPort}"
         # ];

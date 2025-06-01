@@ -6,12 +6,12 @@
 
   environment.systemPackages = with pkgs; [
     # Needed for MPV
-    (pkgs.callPackage ./VK_hdr_layer.nix {})
+    #(pkgs.callPackage ./VK_hdr_layer.nix {})
     gamescope-wsi
   ];
   
   environment.variables = {
-    ENABLE_HDR_WSI = "1";
+    #ENABLE_HDR_WSI = "1";
   };
 
 
@@ -21,7 +21,6 @@
     package = pkgs.gamescope-wsi;
     args = [ ];
     env = {
-      ENABLE_HDR_WSI = "0";
       DXVK_HDR = "1";
       ENABLE_GAMESCOPE_WSI = "1";
     };

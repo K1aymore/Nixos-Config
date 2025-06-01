@@ -109,6 +109,7 @@
     moc
     mpc-cli
     fzf
+    fzy
     tmux
     lesspass-cli
     croc
@@ -120,6 +121,7 @@
     bat
     gitui
     ripgrep
+    ripgrep-all
     du-dust
     duf
     bacon

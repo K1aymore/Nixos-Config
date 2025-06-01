@@ -39,6 +39,19 @@
   };
   nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
   nix.package = pkgs.lix; # some programs don't use lix, no compiling
+  nix.settings.cores = 6;
+
+  systemd = {
+    slices."nix-daemon".sliceConfig = {
+      ManagedOOMMemoryPressure = "kill";
+      ManagedOOMMemoryPressureLimit = "50%";
+    };
+    services."nix-daemon".serviceConfig.Slice = "nix-daemon.slice";
+
+    # If a kernel-level OOM event does occur anyway,
+    # strongly prefer killing nix-daemon child processes
+    services."nix-daemon".serviceConfig.OOMScoreAdjust = 1000;
+  };
 
   environment.variables = {
     GPG_TTY = "$(tty)";
