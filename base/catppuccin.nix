@@ -21,9 +21,11 @@
     zellij.enable = true;
     kitty.enable = true;
     alacritty.enable = true;
+    foot.enable = true;
 
 
     bottom.enable = true;
+    yazi.enable = true;
 
     hyprland.enable = true;
     hyprlock.enable = true;

@@ -24,13 +24,17 @@
     libva-utils
     vdpauinfo
 
+    alacritty
+    kitty
+    kdePackages.yakuake
+    foot
+    xfce.xfce4-terminal
+
     wl-clipboard
     swaylock
     swayidle
     wob
     #mako # notification daemon, annoying on plasma
-    alacritty
-    kitty
     dmenu
     #wofi
     xdg-utils
@@ -168,15 +172,13 @@
     v4l-utils
     libv4l
 
-    xfce.xfce4-terminal
-
 
     obs-studio
     /* linuxKernel.packages.linux_5_16.v4l2loopback */
 
 
     #lapce
-    #nil # Nix LSP
+    nil # Nix LSP
     nixd
     nixpkgs-fmt
 
@@ -229,6 +231,28 @@
     #     }";
     # };
 
+
+    # kitty: bugs with zellij + neovim after expanding window
+    # konsole: slow with nvim in zellij
+    # work fine: alacritty, foot, st
+
+    # ctrl move and backspace by word: Alacritty, Fish
+    # ctrl backspace only one letter: konsole, st
+
+    # Alacritty re-renders during resizing, kinda jerky
+    # Foot only rerenders during pause while resizing
+    # st re-renders while resizing
+    # st is only for X11
+    # Alacritty feels slightly higher frame rate than foot
+
+    # glitch when resizing cmatrix: konsole, alacritty, kitty, foot. st?
+    # konsole fonts kinda blurry
+    # kitty fonts crisp
+    # fonts crunchy on 90% scale: alacritty, foot
+
+    # bidirectional support: konsole, kitty
+    # no bidir: alacritty, fish, st
+
     kitty = {
       enable = true;
       settings = {
@@ -265,6 +289,19 @@
         font = {
           normal = { family = "Fira Code"; style = "Regular"; };
           size = 10;
+        };
+      };
+    };
+
+    foot = {
+      enable = true;
+      settings = {
+        main = {
+          font = "Fira Code:size=10";
+          #dpi-aware = "yes"; # resizes window when moving between monitors
+        };
+        mouse = {
+          #hide-when-typing = "yes";
         };
       };
     };
