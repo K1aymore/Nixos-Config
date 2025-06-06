@@ -5,22 +5,22 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "uas" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   boot.loader = {
     # Use the systemd-boot EFI boot loader.
-    #systemd-boot.enable = true;
+    systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
 
-    grub = {
-      enable = true;
-      efiSupport = true;
-      #efiInstallAsRemovable = true;
-      device = "nodev";
-    };
+#     grub = {
+#       enable = true;
+#       efiSupport = true;
+#       #efiInstallAsRemovable = true;
+#       device = "nodev";
+#     };
   };
 
   fileSystems."/" =
@@ -41,6 +41,7 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/90B6-CF61";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   boot.initrd.luks.devices."luks-a6321344-ea78-45ee-8f5d-21f3059f09d4".device = "/dev/disk/by-uuid/a6321344-ea78-45ee-8f5d-21f3059f09d4";

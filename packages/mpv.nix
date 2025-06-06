@@ -25,6 +25,8 @@
 
       vo = "gpu-next"; # dmabuf-wayland works but looks greener in HDR
       hwdec = "auto"; # Causes jitter and missed/delayed frames with display-resample
+      gpu-api = "vulkan";
+      gpu-context = "waylandvk";
 
       profile = "gpu-hq";
       scale = "ewa_lanczossharp";
@@ -36,6 +38,8 @@
       # in HDR, spline/auto preserves details better, bt.2446a becomes spline when target-peak > 2400
       # for HDR->SDR, bt.2446a darker & more contrasted
       #tone-mapping = "bt.2446a";
+      
+      target-colorspace-hint = "auto"; # makes no difference when outputting SDR
 
       # SSimSuperRes causes jitter with display-resample(-vdrop)
       video-sync = "audio";
@@ -43,12 +47,11 @@
       tscale = "oversample";
     }
     (lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
-      gpu-api = "vulkan";
-      gpu-context = "waylandvk";
 
-      target-trc = "pq"; # Output in HDR always, better for SDR than bt.1886/auto
+      # Output in HDR always, better for SDR than bt.1886/auto
+      # works on SDR displays too but not sure about consistency in motion
+      target-trc = "pq";
       #target-prim = "bt.2020"; # should be correct on `auto`
-      target-colorspace-hint = "auto"; # makes no difference when outputting SDR
     })
     (lib.mkIf (config.networking.hostName == "pc") {
       # No visible difference but what the hey

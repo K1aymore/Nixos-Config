@@ -21,7 +21,7 @@
     ./system/zram.nix
 
     #./impermanence/system.nix
-#   #./impermanence/home.nix
+    #./impermanence/home.nix
   ];
 
   myOptions.plasma.enable = true;
