@@ -87,6 +87,18 @@
       enable = true;
     };
 
+    yt-dlp.settings = {
+      output = "name";
+      format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
+      audio-format = "best";
+      embed-metadata = true;
+      all-subs = true;
+      embed-subs = true;
+      embed-chapters = true;
+      remux-video = "mkv";
+      ignore-errors = true;
+    };
+
     zellij = {
       enable = true;
       enableFishIntegration = false; # opens by default

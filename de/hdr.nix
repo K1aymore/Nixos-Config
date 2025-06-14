@@ -2,7 +2,7 @@
 
 {
 
-  programs.steam.gamescopeSession.enable = true;
+  # programs.steam.gamescopeSession.enable = true;
 
   environment.systemPackages = with pkgs; [
     # Needed for MPV
@@ -19,11 +19,7 @@
     enable = true;
     #capSysNice = true; # seems unnecesarry with Zen kernel
     package = pkgs.gamescope-wsi;
-    args = [ ];
-    env = {
-      DXVK_HDR = "1";
-      ENABLE_GAMESCOPE_WSI = "1";
-    };
+    # args = [ ];
   };
 
   nixpkgs.overlays = [

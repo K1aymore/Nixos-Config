@@ -12,7 +12,7 @@
       # window-maximized = true;
       keep-open = false;
 
-      alang = "swe,sv,Swedish,eng,en,enUS,en-US";
+      alang = "swe,sv,Swedish";
       # af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       # af = "loudnorm=I=-20";
       volume-max = 200;
@@ -39,7 +39,9 @@
       # for HDR->SDR, bt.2446a darker & more contrasted
       #tone-mapping = "bt.2446a";
       
-      target-colorspace-hint = "auto"; # makes no difference when outputting SDR
+      # makes no difference when outputting bt.1886
+      # except not affected by sRGB Color Intensity slider in HDR
+      target-colorspace-hint = "auto";
 
       # SSimSuperRes causes jitter with display-resample(-vdrop)
       video-sync = "audio";
@@ -60,7 +62,7 @@
     ];
 
     profiles = {
-      # Play SDR video nicely (maybe not "correctly") in HDR
+      # Play SDR video nicely in HDR
       SDR = lib.mkIf systemSettings.hdr {
         profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
         profile-restore = "copy";
@@ -71,7 +73,7 @@
         inverse-tone-mapping = false; # Not good for 2D animation
       };
     };
-    
+
     # test with mpv --input-test --force-window --idle
     bindings = {
       "CTRL+`" = "set target-peak auto";
@@ -80,6 +82,8 @@
 
       "CTRL+3" = "cycle target-colorspace-hint";
       "CTRL+4" = "cycle-values target-prim bt.2020 bt.709 auto";
+
+      # srgb way worse for hdr->sdr. same otherwise. hlg busted. pq too dark on sdr display
       "CTRL+5" = "cycle-values target-trc pq bt.1886 auto";
       "CTRL+6" = "cycle-values tone-mapping bt.2446a auto";
       "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";

@@ -157,7 +157,6 @@
     tree
     cmatrix
     lolcat
-    thefuck
     hello
     vitetris
     asciiquarium

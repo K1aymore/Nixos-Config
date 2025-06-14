@@ -84,11 +84,11 @@
       [ "jsut" "just" ]
       [ "thay" "that" ]
       [ "nad" "and" ]
-    ])
-    ++ (map (pair: {
-     trigger = (builtins.elemAt pair 0) + " ";
-     replace = (builtins.elemAt pair 1);
-    }) sitelen-pona-UCSUR.pairsList);
+    ]);
+    #++ (map (pair: {
+    # trigger = (builtins.elemAt pair 0) + " ";
+    # replace = (builtins.elemAt pair 1);
+    #}) sitelen-pona-UCSUR.pairsList);
 
     
     
