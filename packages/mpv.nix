@@ -23,7 +23,7 @@
       # best quality, except for 8K which is dumb
       ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
 
-      # dmabuf-wayland works (on AMD, not on Intel laptop) but looks greener in HDR
+      # dmabuf-wayland works but worse quality.
       vo = "gpu-next";
       hwdec = "auto"; # Causes jitter and missed/delayed frames with display-resample
       gpu-api = "vulkan";

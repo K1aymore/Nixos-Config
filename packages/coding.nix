@@ -65,6 +65,8 @@
     #neovim-qt
     #gnvim
 
+    distrobox
+
   ];
 
 
@@ -76,10 +78,14 @@
     };
   };
 
-  virtualisation.docker = {
+  virtualisation.podman = {
     enable = true;
-    rootless.enable = true;
+    dockerCompat = true;
   };
+  # virtualisation.docker = {
+  #   enable = true;
+  #   rootless.enable = true;
+  # };
   users.users.klaymore.extraGroups = [ "docker" ];
 
 
@@ -165,6 +171,7 @@
         "git.enableCommitSigning" = false;
         "files.autoSave" = "afterDelay";
         "files.autoSaveDelay" = 100;
+        "update.showReleaseNotes" = false;
 
         "editor.wordWrap" = "bounded";
         "editor.wordWrapColumn" = 100;

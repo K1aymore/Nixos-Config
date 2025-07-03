@@ -49,12 +49,9 @@
     extraPackages = with pkgs; [
       intel-media-driver
       intel-ocl
-      intel-vaapi-driver
     ];
   };
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "i965";
-  };
+  environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 
 
   # occasionally powers off if not on performance setting

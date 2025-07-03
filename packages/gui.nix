@@ -68,7 +68,7 @@
     hushboard
 
     #jamesdsp
-    carla
+    #carla
     gnome-bluetooth
     gnome-control-center
     mono
@@ -107,6 +107,7 @@
     sfxr-qt
     #handbrake
     #k3b
+    superstable.displaycal
 
     syncplay
     #python39Packages.certifi
@@ -157,7 +158,7 @@
     kdePackages.kdenlive
     movit
     #log4cxx
-    lmms
+    #lmms
     #reaper
     #ardour
     #furnace
@@ -185,21 +186,21 @@
   ];
 
 
-  /*nixpkgs.overlays = [
+  nixpkgs.overlays = [
     (final: prev: {
-      lapce = prev.lapce.overrideAttrs (o: {
-        version = "nightly";
+      # lapce = prev.lapce.overrideAttrs (o: {
+      #   version = "nightly";
 
-        src = pkgs.fetchFromGitHub {
-          owner = "lapce";
-          repo = "lapce";
-          rev = "nightly";
-          hash = "sha256-McwnYHaw0LYDeHLDQzfqRIYMV2FoiMdHyOL/EE8/esU=";
-        };
-      });
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "lapce";
+      #     repo = "lapce";
+      #     rev = "nightly";
+      #     hash = "sha256-McwnYHaw0LYDeHLDQzfqRIYMV2FoiMdHyOL/EE8/esU=";
+      #   };
+      # });
       
     })
-  ];*/
+  ];
 
 
   # home-manager.users.klaymore.programs.emacs = {

@@ -1,11 +1,11 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
     nixpkgs-staging.url = "github:NixOS/nixpkgs/nixos-unstable-small";  # ?rev=493dfd5c25fefa57fe87d50aaa0341a47c673546
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.4";
+    nixpkgs-superstable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -15,9 +15,6 @@
     impermanence.url = "github:nix-community/impermanence";
 
     catppuccin.url = "github:catppuccin/nix";
-    
-    flake-programs-sqlite.url = "github:wamserma/flake-programs-sqlite";
-    flake-programs-sqlite.inputs.nixpkgs.follows = "nixpkgs";
     
 
     lix = {
@@ -45,7 +42,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, home-manager, lix, lix-module, impermanence, catppuccin, flake-programs-sqlite, macroboard, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-stable, nixpkgs-superstable, home-manager, lix, lix-module, impermanence, catppuccin, macroboard, nix-minecraft, ... }@attrs:
   let
     publicIP = "71.231.122.199";
     serverLan = "172.16.0.115";
@@ -110,8 +107,8 @@
           { networking.hostName = hostname; }
           
           { nixpkgs.hostPlatform = systemSettings.architecture;
-            nixpkgs.config.pkgs = if systemSettings.nixpkgs == "pc"
-              then import nixpkgs-pc { inherit system; }
+            nixpkgs.config.pkgs = if systemSettings.nixpkgs == "staging"
+              then import nixpkgs-staging { inherit system; }
               else import nixpkgs { inherit system; }; }
           
           home-manager.nixosModules.home-manager
@@ -124,7 +121,6 @@
 
           #lix-module.nixosModules.default # better but needs to compile each time
           catppuccin.nixosModules.catppuccin
-          flake-programs-sqlite.nixosModules.programs-sqlite
 
           macroboard.nixosModules.default
           nix-minecraft.nixosModules.minecraft-servers
@@ -137,6 +133,10 @@
                 system = systemSettings.architecture;
                 config.allowUnfree = true;
               };
+              superstable = import nixpkgs-superstable {
+                system = systemSettings.architecture;
+                config.allowUnfree = true;
+              };
             })
           ];}
           
@@ -145,8 +145,8 @@
       };
       
     in
-    if systemSettings.nixpkgs == "pc"
-    then nixpkgs-pc.lib.nixosSystem modules
+    if systemSettings.nixpkgs == "staging"
+    then nixpkgs-staging.lib.nixosSystem modules
     else nixpkgs.lib.nixosSystem modules;
 
   in
@@ -156,7 +156,7 @@
       pc = sharedConfig "pc" {
         hdr = true;
         scaling = "1.75";
-        #nixpkgs = "pc";
+        nixpkgs = "staging";
         # yggdrasilPeers = [
         #   "tcp://${serverLan}:${toString yggdrasilPort}"
         # ];

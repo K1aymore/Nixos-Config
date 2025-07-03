@@ -29,7 +29,7 @@
   };
 
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
   nix.registry = {
     nixpkgs.flake = nixpkgs; # pin nixpkgs version
     nixpkgs.to = {
@@ -41,6 +41,7 @@
   nix.package = pkgs.lix; # some programs don't use lix, no compiling
   nix.settings.cores = 6;
 
+  # stop Nix build if taking too much RAM
   systemd = {
     slices."nix-daemon".sliceConfig = {
       ManagedOOMMemoryPressure = "kill";
@@ -56,7 +57,6 @@
   environment.variables = {
     GPG_TTY = "$(tty)";
     GTK_USE_PORTAL = "1";
-    EDITOR = "micro";
   };
 
   security.polkit.enable = true;
@@ -101,7 +101,14 @@
     SSH_ASKPASS_REQUIRE = "prefer";
   };
 
-  
+  # programs.nix-index = {
+  #   enable = true;
+  #   enableBashIntegration = true;
+  #   enableFishIntegration = true;
+  # };
+  programs.command-not-found.enable = false;
+
+
   # security.doas.enable = true;
 
   hardware.bluetooth.enable = true;
