@@ -104,7 +104,7 @@
 
         #streetsidesoftware.code-spell-checker
 
-        catppuccin.catppuccin-vsc
+        #catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         roman.ayu-next
         ms-vscode.cpptools
@@ -135,7 +135,7 @@
 
       userSettings = {
         "workbench.iconTheme" = "catppuccin-mocha";
-        "workbench.colorTheme" = "Mayukai Semantic Mirage";
+        #"workbench.colorTheme" = "Mayukai Semantic Mirage";
 
         "editor.fontFamily" = "Fira Code, Fairfax Hax HD, nasin nanpa, sitelen seli kiwen asuki, Twemoji Country Flags, monospace";
         "editor.fontLigatures" = true;

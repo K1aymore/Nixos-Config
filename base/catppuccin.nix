@@ -39,6 +39,21 @@
       accent = "maroon"; 
     };
 
+    vscode = {
+      enable = true;
+      #accent = "maroon";
+      settings = {
+        boldKeywords = true;
+        italicComments = true;
+        italicKeywords = true;
+        colorOverrides = {};
+        customUIColors = {};
+        workbenchMode = "default";
+        bracketMode = "rainbow";
+        extraBordersEnabled = false;
+      };
+    };
+
   };
 
 }

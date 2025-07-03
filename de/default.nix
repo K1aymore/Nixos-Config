@@ -46,6 +46,12 @@
   };
 
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [

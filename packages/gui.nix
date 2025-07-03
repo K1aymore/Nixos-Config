@@ -59,7 +59,7 @@
 
     pavucontrol
     qjackctl
-    #helvum
+    helvum
     easyeffects
     alsa-oss
     alsa-lib
@@ -236,8 +236,8 @@
     # konsole: slow with nvim in zellij
     # work fine: alacritty, foot, st
 
-    # ctrl move and backspace by word: Alacritty, Fish
-    # ctrl backspace only one letter: konsole, st
+    # ctrl move and backspace by word: Alacritty, Kitty
+    # ctrl backspace only one letter: konsole, st, foot
 
     # Alacritty re-renders during resizing, kinda jerky
     # Foot only rerenders during pause while resizing
@@ -250,8 +250,20 @@
     # kitty fonts crisp
     # fonts crunchy on 90% scale: alacritty, foot
 
+    # ligature support: kitty
+    # no ligs: alacritty, konsole, foot
+
+    # MPV tct squished on alacritty, foot, slightly kitty.
+    # mpv tct good on Konsole
+    # line height issue? squished (horizontally) terminals have bigger line height
+    # Konsole: screen tearing and stuttering
+    # Kitty: bad stuttering
+    # Alacritty: slight stuttering but better
+    # foot: stuttering
+
     # bidirectional support: konsole, kitty
-    # no bidir: alacritty, fish, st
+    # no bidir: alacritty, foot, st
+
 
     kitty = {
       enable = true;
@@ -259,7 +271,11 @@
         font_family = "Fira Code";
         symbol_map = "U+F1900-U+F19FF Fairfax Hax HD";
         narrow_symbols = "U+F1900-U+F19FF 1";
-        font_size = 10.0; # breaks bottoms of "g"s
+        font_size = 10.0; # breaks bottoms of "g"s if less than 10?
+        "modify_font cell_height" = "100%";
+
+        show_hyperlink_targets = "yes";
+        underline_hyperlinks = "always";
 
         enable_audio_bell = false;
 
@@ -289,6 +305,7 @@
         font = {
           normal = { family = "Fira Code"; style = "Regular"; };
           size = 10;
+          offset.y = 0;
         };
       };
     };
@@ -298,7 +315,6 @@
       settings = {
         main = {
           font = "Fira Code:size=10";
-          #dpi-aware = "yes"; # resizes window when moving between monitors
         };
         mouse = {
           #hide-when-typing = "yes";

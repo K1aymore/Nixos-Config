@@ -14,6 +14,8 @@
     ./packages/coding.nix
     ./packages/steam.nix
 
+    ./packages/mpd.nix
+
     #./system/opentablet.nix
 
 
@@ -38,6 +40,22 @@
   };
 
   #boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+
+
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-ocl
+      intel-vaapi-driver
+    ];
+  };
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "i965";
+  };
+
 
   # occasionally powers off if not on performance setting
   #services.power-profiles-daemon.enable = true;
