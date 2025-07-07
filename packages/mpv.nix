@@ -47,18 +47,21 @@
     }
     (lib.mkIf systemSettings.hdr { # always output in HDR even for SDR videos
 
-      # Output in HDR always, better for SDR than bt.1886/auto
-      # works on SDR displays too but cranks screen brightness to max, worse blacks. Better when at max brightness though
-      target-trc = "pq";
-      #target-prim = "bt.2020"; # should be correct on `auto`
+      # pq outputs in HDR always, darker/contraster for SDR content than bt.1886/auto.
+      # works on SDR displays too but cranks screen brightness to max, worse blacks.
+      #target-trc = "pq";
 
-      # not affected by sRGB Color Intensity slider in HDR.
+      # should be correct on `auto`
+      #target-prim = "bt.2020";
+
+      # needs to be on/auto for HDR in HDR
+      # if on/auto, not affected by sRGB Color Intensity slider in HDR.
       # makes no difference when outputting bt.1886 in SDR
-      # changes display to display-p3 but works okay with target-prim on auto
-      # makes HDR content processed by Plasma instead, not as nice
+      # if on/auto, makes HDR content in SDR processed by Plasma, not as nice
+      # changes display to display-p3 for SDR but works okay with target-prim on auto
       target-colorspace-hint = "auto";
     })
-    (lib.mkIf (config.networking.hostName == "pc") {
+    (lib.mkIf systemSettings.powerful {
       # No visible difference but what the hey
       scale = lib.mkForce "ewa_lanczos4sharpest";
     })
@@ -67,13 +70,14 @@
     profiles = {
       # Play SDR video nicely in HDR
       SDR = lib.mkIf systemSettings.hdr {
-        profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\""; # only on SDR videos
+        # only on SDR videos
+        profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
         profile-restore = "copy";
 
         #saturation = 5; # Tried it and it's noticeably more saturated sometimes
         #target-peak = 500; # with Plasma 6.3 no effect in pq, makes sdr dark
 
-        inverse-tone-mapping = false; # Not good for 2D animation
+        inverse-tone-mapping = false; # Not good
       };
     };
 

@@ -39,7 +39,7 @@
       accent = "maroon"; 
     };
 
-    vscode = {
+    vscode.profiles.default = {
       enable = true;
       #accent = "maroon";
       settings = {

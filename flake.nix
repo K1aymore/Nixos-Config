@@ -52,6 +52,7 @@
       systemSettings = {
         architecture = "x86_64-linux";
         hdr = false;
+        powerful = false;
         scaling = "1";
         nixpkgs = "default";
         yggdrasilPeers = [];
@@ -157,6 +158,7 @@
         hdr = true;
         scaling = "1.75";
         nixpkgs = "staging";
+        powerful = true;
         # yggdrasilPeers = [
         #   "tcp://${serverLan}:${toString yggdrasilPort}"
         # ];
