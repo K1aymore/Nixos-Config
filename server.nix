@@ -22,6 +22,7 @@
     #./server/miniflux.nix
     #./server/freshrss.nix
     ./server/minecraft.nix
+    ./server/jellyfin.nix
 
 
     ./system/syncthing.nix

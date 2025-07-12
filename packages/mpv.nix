@@ -1,10 +1,10 @@
-{ lib, config, systemSettings, ... }:
+{ lib, systemSettings, ... }:
 
 {
 
   home-manager.users.klaymore.programs.mpv = {
     enable = true;
-    config = lib.mkMerge [ rec {
+    config = lib.mkMerge [ {
       fullscreen = true;
       # fs-screen = 0; # screen numbers change sometimes
       # screen = 0;
@@ -13,7 +13,7 @@
       keep-open = false;
 
       alang = "swe,sv,Swedish,";
-      slang = "English [Full]";
+      sid = "no";
       # af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       # af = "loudnorm=I=-20";
       volume-max = 200;
@@ -101,9 +101,11 @@
       "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
 
       "CTRL+i" = "cycle interpolation";
-      
+
       # https://github.com/mpv-player/mpv/issues/8413
-      "C" = "vf toggle crop=[if(lte(iw/16,ih/9),iw,ih/9*16)]:[if(lte(iw/16,ih/9),iw/16*9,ih)]"; # crop to 16:9
+      #"c" = "vf toggle crop=[if(lte(iw/16,ih/9),iw,ih/9*16)]:[if(lte(iw/16,ih/9),iw/16*9,ih)]"; # crop to 16:9
+      "c" = "vf toggle crop=in_w:in_w/1.78";
+      "CTRL+c" = "vf toggle crop=in_w:in_w/2.38";
 
       "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
       "CTRL+b" = "af toggle earwax";
