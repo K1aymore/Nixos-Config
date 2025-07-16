@@ -4,7 +4,7 @@
 
   config = lib.mkMerge [
     (lib.mkIf config.klaymore.system.impermanence.system.enable {
-      environment.persistence."/nix/persist/system" = {
+      environment.persistence."/synced/persist/system" = {
         hideMounts = true;
         directories = [
           "/etc/NetworkManager"
