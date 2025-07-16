@@ -1,37 +1,32 @@
-{ ... }:
+{ config, ... }:
 
 {
 
-  imports = [
-    ./locale/colemak.nix
-    ./locale/losAngeles.nix
-    
-    #./de/plasma.nix
-    
-    #./packages/gui.nix
+  klaymore = {
+    localIP = config.klaymore.serverLan;
 
+    system = {
+      impermanence.home.enable = true;
+      impermanence.system.enable = true;
+      zram.enable = true;
+      zfs.enable = true;
+    };
 
-    ./server/ssh.nix
-    ./server/wireguard-forwarding.nix
-    ./server/nfs.nix
+    programs = {
+    };
 
-    ./server/nginx.nix
-    #./server/conduit.nix
-    ./server/forgejo.nix
-    #./server/syncplay.nix
-    #./server/miniflux.nix
-    #./server/freshrss.nix
-    ./server/minecraft.nix
-    ./server/jellyfin.nix
+    services = {
+      fish.enable = true;
+      syncthing.enable = true;
+      wireguard-forwarding.enable = true;
+    };
 
-
-    ./system/syncthing.nix
-    ./system/zram.nix
-    ./system/zfs.nix
-
-    ./impermanence/system.nix
-    ./impermanence/home.nix
-  ];
+    servers = {
+      forgejo.enable = true;
+      minecraft.enable = true;
+      nginx.enable = true;
+    };
+  };
 
   networking = {
     hostId = "03828261";

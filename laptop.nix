@@ -2,31 +2,27 @@
 
 {
 
-  imports = [
-    ./locale/colemak.nix
-    ./locale/losAngeles.nix
-    
-    ./de
-    #./de/hyprland.nix
+  klaymore = {
 
-    ./packages/gui.nix
-    ./packages/games.nix
-    ./packages/coding.nix
-    ./packages/steam.nix
+    system = {
+      zram.enable = true;
+    };
 
-    ./packages/mpd.nix
+    gui = {
+      enable = true;
+      plasma.enable = true;
+    };
+    pipewire.enable = true;
 
-    #./system/opentablet.nix
+    programs = {
+    };
 
-
-    ./system/syncthing.nix
-    ./system/zram.nix
-
-    #./impermanence/system.nix
-    #./impermanence/home.nix
-  ];
-
-  myOptions.plasma.enable = true;
+    services = {
+      fish.enable = true;
+      mullvad.enable = true;
+      syncthing.enable = true;
+    };
+  };
   
   #services.getty.autologinUser = "klaymore";
 

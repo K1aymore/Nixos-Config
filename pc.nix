@@ -1,37 +1,32 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, ... }:
 
 {
 
-  imports = [
-    ./locale/qwerty.nix
-    ./locale/losAngeles.nix
-    
-    ./de
+  klaymore = {
+    powerful = true;
+    localIP = "172.16.0.123";
 
-    ./packages/gui.nix
-    ./packages/games.nix
-    ./packages/coding.nix
-    #./packages/video-editing.nix
-    ./packages/mpd.nix
-    
-    ./packages/steam.nix
+    system = {
+      keyboard = "";
+      zram.enable = true;
+      impermanence.system.enable = true;
+    };
 
-    #./packages/VMs.nix
-    # ./system/ipfs.nix
-    #./pc/i2p.nix
+    gui = {
+      enable = true;
+      hdr = true;
+      plasma.enable = true;
+    };
+    pipewire.enable = true;
 
-    #./system/opentablet.nix
-    #./system/macroboard.nix
+    programs = {
+    };
 
-    ./system/syncthing.nix
-    ./system/zram.nix
-    #./system/zfs.nix
-
-    ./impermanence/system.nix
-    #./impermanence/home.nix
-  ];
-
-  myOptions.plasma.enable = true;
+    services = {
+      mullvad.enable = true;
+      syncthing.enable = true;
+    };
+  };
 
   # specialisation.niri.configuration = {
   #   myOptions.plasma.enable = lib.mkForce false;
@@ -70,12 +65,10 @@
   environment.systemPackages = with pkgs; [
     #godot_git
     #opentoonz
-    (pkgs.callPackage ./packages/hdrGlfw/package.nix {})
     briar-desktop
   ];
 
 
-  hardware.uinput.enable = true;
   # https://rbf.dev/blog/2020/05/custom-nixos-build-for-raspberry-pis/#building-on-nixos-using-nixos-generators
   #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
@@ -119,24 +112,10 @@
   #environment.variables.AMD_VULKAN_ICD = "RADV";
 
 
-  services.gvfs.enable = true;
-
-
   networking = {
     hostId = "7c980de5"; # head -c 8 /etc/machine-id
-    firewall = {
-      allowedTCPPorts = [ ];
-    };
-    hosts = {
-      #"127.0.0.1" = [ "youtube.com" "youtu.be" "www.youtube.com" ];
-    };
   };
 
-
-  networking.firewall.checkReversePath = "loose";
-  networking.wireguard.enable = true;
-  services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
 
   /* services.boinc = {
     enable = true;

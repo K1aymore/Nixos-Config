@@ -12,21 +12,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+
     impermanence.url = "github:nix-community/impermanence";
-
     catppuccin.url = "github:catppuccin/nix";
-    
-
-    lix = {
-      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
-      flake = false;
-    };
-
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.lix.follows = "lix";
-    };
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
@@ -34,148 +22,108 @@
       url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
     };
 
-    macroboard = {
-      url = "github:newAM/macroboard";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-stable, nixpkgs-superstable, home-manager, lix, lix-module, impermanence, catppuccin, macroboard, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, ... }@attrs:
   let
-    publicIP = "71.231.122.199";
-    serverLan = "172.16.0.115";
-    sharedConfig = hostname: inSettings@{ ... }:
-    let
-      # sets the default settings, which will be overwritten by any custom parameters
-      systemSettings = {
-        architecture = "x86_64-linux";
-        hdr = false;
-        powerful = false;
-        scaling = "1";
-        nixpkgs = "default";
-        yggdrasilPeers = [];
-        publicIP = publicIP;
-        serverLan = serverLan;
-      } // inSettings;
+    ports = {
+      # forwarded on server: 80 443 6900-6999 25565 19132
+      # nfs = 111 2049 4000 4001 4002 20048;
+      # KDE Connect 1714-1764
 
-      ports = {
-        # forwarded on server: 80 443 6900-6999 25565 19132
-        # nfs = 111 2049 4000 4001 4002 20048;
-        # KDE Connect 1714-1764
+      nginx = 80;
+      nginxs = 443;
 
-        nginx = 80;
-        nginxs = 443;
+      forgejo = 3000;
+      # forgejo database port 3306
+      miniflux = 3001;
+      synapse = 8008;
+      # coturn 49000-50000
+      conduit = 6920;
 
-        forgejo = 3000;
-        # forgejo database port 3306
-        miniflux = 3001;
-        synapse = 8008;
-        # coturn 49000-50000
-        conduit = 6920;
+      yggdrasil = 6901;
+      minecraft-wildcat = 6968;
+      minecraft-frenched = 6967;
 
-        yggdrasil = 6901;
-        minecraft-wildcat = 6968;
-        minecraft-frenched = 6967;
+      wgBen = 6970;
 
-        wgBen = 6970;
-
-        wgEllMCJava = 25565;
-        wgEllMCBedrock = 19132;
-        
-        openttd1 = 3978;
-        openttd2 = 3979;
-
-        ssh = 56789;
-        syncthingTransfer = 22000;
-        syncthingRelay = 22067;
-        ipfsAPI = 5001;
-        ipfsGateway = 8081;
-        ipfs = 59271;
-
-      };
-
-      modules = rec {
-        system = systemSettings.architecture;
-        specialArgs = attrs // { inherit systemSettings ports; };
-
-        modules = [
-          ./base
-          ./${hostname}.nix
-          ./hardware/${hostname}.nix
-          
-          { networking.hostName = hostname; }
-          
-          { nixpkgs.hostPlatform = systemSettings.architecture;
-            nixpkgs.config.pkgs = if systemSettings.nixpkgs == "staging"
-              then import nixpkgs-staging { inherit system; }
-              else import nixpkgs { inherit system; }; }
-          
-          home-manager.nixosModules.home-manager
-          impermanence.nixosModule
-
-          { home-manager.users.klaymore.imports = [
-            impermanence.nixosModules.home-manager.impermanence
-            catppuccin.homeModules.catppuccin
-          ]; }
-
-          #lix-module.nixosModules.default # better but needs to compile each time
-          catppuccin.nixosModules.catppuccin
-
-          macroboard.nixosModules.default
-          nix-minecraft.nixosModules.minecraft-servers
-
-          { nixpkgs.overlays = [
-            macroboard.overlays.default
-            nix-minecraft.overlay
-            (final: prev: {
-              stable = import nixpkgs-stable {
-                system = systemSettings.architecture;
-                config.allowUnfree = true;
-              };
-              superstable = import nixpkgs-superstable {
-                system = systemSettings.architecture;
-                config.allowUnfree = true;
-              };
-            })
-          ];}
-          
-          
-        ];
-      };
+      wgEllMCJava = 25565;
+      wgEllMCBedrock = 19132;
       
-    in
-    if systemSettings.nixpkgs == "staging"
-    then nixpkgs-staging.lib.nixosSystem modules
-    else nixpkgs.lib.nixosSystem modules;
+      openttd1 = 3978;
+      openttd2 = 3979;
+
+      ssh = 56789;
+      syncthingTransfer = 22000;
+      syncthingRelay = 22067;
+      ipfsAPI = 5001;
+      ipfsGateway = 8081;
+      ipfs = 59271;
+
+    };
+
+    makeSystem = hostname: settings: 
+      (if settings ? "nixpkgs"
+      then attrs.${settings.nixpkgs}.lib.nixosSystem
+      else nixpkgs.lib.nixosSystem)
+    {
+      system = settings.architecture;
+      specialArgs = attrs // { inherit ports; };
+
+      modules = [
+        ./base
+        ./modules
+        ./hardware/${hostname}.nix
+        ./${hostname}.nix
+
+        { networking.hostName = hostname; }
+        { nixpkgs.hostPlatform = settings.architecture; }
+
+        home-manager.nixosModules.home-manager
+        impermanence.nixosModule
+        { home-manager.users.klaymore.imports = [
+          impermanence.nixosModules.home-manager.impermanence
+          catppuccin.homeModules.catppuccin
+        ]; }
+        catppuccin.nixosModules.catppuccin
+        nix-minecraft.nixosModules.minecraft-servers
+
+
+        { nixpkgs.overlays = [
+          nix-minecraft.overlay
+
+          (final: prev: {
+            stable = import nixpkgs-stable {
+              system = settings.architecture;
+              config.allowUnfree = true;
+            };
+            superstable = import nixpkgs-superstable {
+              system = settings.architecture;
+              config.allowUnfree = true;
+            };
+          })
+        ];}
+
+      ];
+    };
 
   in
   {
     nixosConfigurations = {
 
-      pc = sharedConfig "pc" {
-        hdr = true;
-        scaling = "1.75";
-        nixpkgs = "staging";
-        powerful = true;
-        # yggdrasilPeers = [
-        #   "tcp://${serverLan}:${toString yggdrasilPort}"
-        # ];
+      pc = makeSystem "pc" {
+        architecture = "x86_64-linux";
       };
 
-      server = sharedConfig "server" {
-        # yggdrasilPeers = [
-        #   "tls://44.234.134.124:443"
-        #   "tcp://nerdvm.mywire.org:65535"
-        # ];
+      server = makeSystem "server" {
+        architecture = "x86_64-linux";
       };
 
-      laptop = sharedConfig "laptop" {
-        #yggdrasilPeers = [ "tcp://${publicIP}:${toString yggdrasilPort}" ];
+      laptop = makeSystem "laptop" {
+        architecture = "x86_64-linux";
       };
 
     };
   };
-
 }

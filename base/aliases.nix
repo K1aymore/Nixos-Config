@@ -1,14 +1,9 @@
-{ systemSettings, ... }:
+{ config, ... }:
 
 let
-  configPath = "/synced/Nix/cfg";
-in {
-  environment.variables = {
-    GPG_TTY = "$(tty)";
-    GTK_USE_PORTAL = "1";
-    FLAKE = configPath;
-    NH_FLAKE = configPath;
-  };
+  configPath = config.klaymore.configPath;
+in 
+{
 
   environment.shellAliases = {
     nrb = "nice -n 19 sudo nixos-rebuild boot --flake ${configPath}";
@@ -45,9 +40,6 @@ in {
     gl = "git log";
 
     vi = "nvim";
-    #steam = "steam -forcedesktopscaling ${systemSettings.scaling} %U";
-    steamflat = "flatpak run com.valvesoftware.Steam";
-    steamhdr = "LD_PRELOAD=\"\" DXVK_HDR=1 gamescope -f -H 2160 --mangoapp --force-grab-cursor --hdr-enabled --hdr-debug-force-output --hdr-itm-enable -e -- env STEAM_FORCE_DESKTOPUI_SCALING=${systemSettings.scaling} steam";
     blades = "~/.cargo/bin/blades";
     ncfg = "codium ${configPath}";
     notes = "codium /synced/Sync/Notes";
