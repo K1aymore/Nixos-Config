@@ -11,8 +11,8 @@
     settings = {
 
       Listen = [
-        "tcp://0.0.0.0:${toString ports.yggdrasi}"
-        "tcp://::${toString ports.yggdrasi}"
+        "tcp://0.0.0.0:${toString ports.yggdrasil}"
+        "tcp://::${toString ports.yggdrasil}"
       ];
 
       # Yggdrasil will automatically connect and "peer" with other nodes it

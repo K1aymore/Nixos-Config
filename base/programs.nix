@@ -118,8 +118,6 @@
       };
     };
 
-    rmpc.enable = true;
-
   };
 
 

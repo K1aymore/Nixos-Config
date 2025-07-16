@@ -62,4 +62,8 @@
     };
   };
 
+  home-manager.users.klaymore.programs.rmpc = {
+    enable = true;
+  };
+
 }

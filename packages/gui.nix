@@ -211,7 +211,7 @@
   #   '';
   # };
 
-  packages.obs-studio.enable = true;
+  programs.obs-studio.enable = true;
 
 
   home-manager.users.klaymore.home.file.".config/Clematis/config.json".text = builtins.toJSON {
