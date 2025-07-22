@@ -7,14 +7,15 @@
     localIP = "172.16.0.123";
 
     system = {
+      impermanence.system.enable = true;
       keyboard = "";
       zram.enable = true;
-      impermanence.system.enable = true;
     };
 
     gui = {
       enable = true;
       hdr = true;
+      scaling = "1.65";
       plasma.enable = true;
     };
     pipewire.enable = true;

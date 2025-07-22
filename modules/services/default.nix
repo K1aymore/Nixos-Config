@@ -6,7 +6,7 @@
     ./espanso.nix
     ./ipfs.nix
     ./mullvad.nix
-    ./nfs.nix
+    ./opentablet.nix
     ./ssh.nix
     ./syncthing.nix
     ./wireguard-forwarding.nix

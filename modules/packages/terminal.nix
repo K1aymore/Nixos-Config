@@ -44,7 +44,7 @@
       helix = {
         enable = true;
         defaultEditor = false;
-        package = pkgs.evil-helix;
+        #package = pkgs.evil-helix;
 
         settings = {
           theme = "catppuccin-mocha";

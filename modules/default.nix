@@ -22,6 +22,7 @@
     gui = {
       enable = lib.mkEnableOption "GUI";
       hdr = lib.mkOption { default = false; };
+      scaling = lib.mkOption { default = "1"; };
       wayland = lib.mkOption { default = config.klaymore.gui.enable; };
       plasma = {
         enable = lib.mkEnableOption "Plasma";
@@ -51,6 +52,7 @@
       minecraft = {
         enable = lib.mkEnableOption "Minecraft servers";
       };
+      nfs.enable = lib.mkEnableOption "NFS support";
       nginx.enable = lib.mkEnableOption "NGINX";
     };
 
@@ -59,7 +61,6 @@
       espanso.enable = lib.mkOption { default = config.klaymore.gui.enable; };
       ipfs.enable = lib.mkEnableOption "IPFS";
       mullvad.enable = lib.mkEnableOption "Mullvad";
-      nfs.enable = lib.mkEnableOption "NFS support";
       ssh = {
         listen.enable = lib.mkEnableOption "SSH listening server";
       };

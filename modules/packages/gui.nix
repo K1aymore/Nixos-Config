@@ -178,7 +178,33 @@
       /* linuxKernel.packages.linux_5_16.v4l2loopback */
 
 
-      #lapce
+      # Games
+      wineWowPackages.full
+      lutris
+      #playonlinux
+      bottles
+      #grapejuice
+      protonup-qt
+      #protontricks
+      #openal
+      heroic
+      #legendary-gl
+      winetricks
+      protontricks
+
+      
+      parsec-bin
+      r2modman
+
+      #piper
+
+      #minecraft
+      #itch
+      prismlauncher
+      jdk17
+      jdk11
+      jdk8
+
 
     ] ++ lib.optionals config.klaymore.gui.hdr [
       (pkgs.callPackage ./hdrGlfw/package.nix {})

@@ -113,10 +113,17 @@
         "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
         "CTRL+b" = "af toggle earwax";
         "CTRL+n" = "af toggle loudnorm=I=-20";
-        "CTRL+m" = ""; # toggle mono audio
+        "CTRL+m" = "cycle-values audio-channels stereo mono auto-safe"; # toggle mono audio
 
         "CTRL+WHEEL_UP" = "add target-peak 25";
         "CTRL+WHEEL_DOWN" = "add target-peak -25";
+
+        "CTRL+_" = "add audio-delay -0.100";
+        "CTRL++" = "add audio-delay 0.100";
+
+        "CTRL+-" = "add video-scale-x -0.01; add video-scale-y -0.01";
+        "CTRL+=" = "add video-scale-x 0.01; add video-scale-y 0.01";
+
 
         "a" = "vf toggle hflip";
         "b" = "cycle deband";

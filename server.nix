@@ -12,11 +12,13 @@
       zfs.enable = true;
     };
 
+    pipewire.enable = true;
+    
     programs = {
     };
 
     services = {
-      fish.enable = true;
+      ssh.listen.enable = true;
       syncthing.enable = true;
       wireguard-forwarding.enable = true;
     };
@@ -24,6 +26,7 @@
     servers = {
       forgejo.enable = true;
       minecraft.enable = true;
+      nfs.enable = true;
       nginx.enable = true;
     };
   };
