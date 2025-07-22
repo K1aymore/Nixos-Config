@@ -77,6 +77,7 @@
       [
         ./hardware/${hostname}.nix
         ./${hostname}.nix
+        ./_secrets.nix
 
         { networking.hostName = hostname; }
         { nixpkgs.hostPlatform = settings.architecture; }

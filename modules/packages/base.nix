@@ -77,6 +77,7 @@
       man
       tealdeer
       git   # home manager
+      git-crypt
       nixos-option
       #awscli2
       httrack

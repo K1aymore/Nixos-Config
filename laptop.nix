@@ -18,7 +18,6 @@
     };
 
     services = {
-      fish.enable = true;
       mullvad.enable = true;
       syncthing.enable = true;
     };

@@ -35,7 +35,7 @@
       enable = true;
       endpoints."last.fm" = {
         username = "K1aymore";
-        passwordFile = "";
+        passwordFile = "../../_secrets/mpdscribbleLastfm";
       };
     };
 
