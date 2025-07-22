@@ -2,15 +2,6 @@
 
 {
 
-  imports = [
-    ./de
-    ./packages
-    ./servers
-    ./services
-    ./system
-  ];
-
-
   options.klaymore = {
     configPath = lib.mkOption { default = "/synced/Nix/cfg"; };
     powerful = lib.mkOption { default = false; };

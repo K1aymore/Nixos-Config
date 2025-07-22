@@ -205,9 +205,6 @@
       jdk11
       jdk8
 
-
-    ] ++ lib.optionals config.klaymore.gui.hdr [
-      (pkgs.callPackage ./hdrGlfw/package.nix {})
     ];
 
 

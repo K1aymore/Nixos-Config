@@ -71,9 +71,10 @@
       system = settings.architecture;
       specialArgs = attrs // { inherit ports; };
 
-      modules = [
-        ./base
-        ./modules
+      modules = builtins.filter (f: nixpkgs.lib.hasSuffix ".nix" f) (
+        (nixpkgs.lib.filesystem.listFilesRecursive ./base) ++
+        (nixpkgs.lib.filesystem.listFilesRecursive ./modules)) ++ 
+      [
         ./hardware/${hostname}.nix
         ./${hostname}.nix
 

@@ -1,3 +1,7 @@
+{ config, lib, pkgs, ... }:
+
+let
+  package = (
 { stdenv
 , lib
 , fetchFromGitHub
@@ -90,5 +94,15 @@ stdenv.mkDerivation {
     license = licenses.zlib;
     maintainers = with maintainers; [ marcweber Scrumplex twey ];
     platforms = platforms.unix ++ platforms.windows;
+  };
+});
+
+in
+{
+
+  config = lib.mkIf config.klaymore.gui.hdr {
+    environment.systemPackages = [ 
+      (pkgs.callPackage package {})
+    ];
   };
 }
