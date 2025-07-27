@@ -50,6 +50,7 @@
     GTK_USE_PORTAL = "1";
     FLAKE = config.klaymore.configPath;
     NH_FLAKE = config.klaymore.configPath;
+    #XDG_CONFIG_HOME = config.home-manager.users.klaymore.home.homeDirectory; # breaks everything
   };
 
   security.polkit.enable = true;

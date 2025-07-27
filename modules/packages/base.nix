@@ -122,6 +122,7 @@
       ripgrep-all
       du-dust
       duf
+      dysk
       bacon
       speedtest-rs
       delta

@@ -86,6 +86,7 @@
       strawberry-qt6
       jamesdsp
       clematis
+      calibre
       
       #puddletag
       kid3

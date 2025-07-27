@@ -15,7 +15,7 @@
     gui = {
       enable = true;
       hdr = true;
-      scaling = "1.65";
+      scaling = "1.75";
       plasma.enable = true;
     };
     pipewire.enable = true;
