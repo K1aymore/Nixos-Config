@@ -96,6 +96,10 @@
           nix-minecraft.overlay
 
           (final: prev: {
+            staging = import nixpkgs-staging {
+              system = settings.architecture;
+              config.allowUnfree = true;
+            };
             stable = import nixpkgs-stable {
               system = settings.architecture;
               config.allowUnfree = true;

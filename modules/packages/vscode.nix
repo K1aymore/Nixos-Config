@@ -53,6 +53,7 @@
       ];
 
       userSettings = {
+        "window.newWindowProfile" = "Default";
         "workbench.iconTheme" = "catppuccin-mocha";
         #"workbench.colorTheme" = "Mayukai Semantic Mirage";
 

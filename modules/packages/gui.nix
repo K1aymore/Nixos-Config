@@ -82,8 +82,7 @@
       kdePackages.gwenview
       digikam
       #clementine
-      # qt-6 version doesn't save playlists well
-      strawberry-qt6
+      strawberry
       jamesdsp
       clematis
       calibre
@@ -144,7 +143,7 @@
 
       steam-run
 
-      godot_4
+      godot
       blender-hip
       #python39Packages.pyzmq
       libresprite
@@ -209,21 +208,20 @@
     ];
 
 
-    nixpkgs.overlays = [
-      (final: prev: {
-        # lapce = prev.lapce.overrideAttrs (o: {
-        #   version = "nightly";
-
-        #   src = pkgs.fetchFromGitHub {
-        #     owner = "lapce";
-        #     repo = "lapce";
-        #     rev = "nightly";
-        #     hash = "sha256-McwnYHaw0LYDeHLDQzfqRIYMV2FoiMdHyOL/EE8/esU=";
-        #   };
-        # });
+    # nixpkgs.overlays = [
+    #   (final: prev: {
+    #     godot = prev.godot.overrideAttrs (o: {
+    #       version = "4.5";
+    #       src = pkgs.fetchFromGitHub {
+    #         owner = "ArchercatNEO";
+    #         repo = "godot";
+    #         rev = "wayland-hdr";
+    #         hash = "sha256-4iLKa5digWZ36akw1GtEVDhZBRxgZ/hMEIpmWVX/Ktw=";
+    #       };
+    #     });
         
-      })
-    ];
+    #   })
+    # ];
 
     services.flatpak.enable = true;
 
@@ -258,6 +256,7 @@
         wine = true;
         gamemode = true;
         vkbasalt = true;
+        wsync = true;
         resolution = true;
 
         cpu_temp = true;

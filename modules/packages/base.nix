@@ -104,7 +104,7 @@
       sc-im
       ttyper
       pwgen
-      moc
+      # moc
       mpc-cli
       fzf
       fzy

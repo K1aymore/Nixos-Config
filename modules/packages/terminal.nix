@@ -13,7 +13,7 @@
         userEmail = "klaymorer@protonmail.com";
         signing = {
           key = "BAE085A5C70F19F7";
-          signByDefault = false; # not needed
+          signByDefault = false; # don't need to sign all commits
         };
         ignores = [
           "*.swp"
@@ -31,6 +31,7 @@
           };
           merge.conflictstyle = "diff3";
           diff.colorMoved = "default";
+          core.quotepath = false; # show hex UTF8
 
         };
       };

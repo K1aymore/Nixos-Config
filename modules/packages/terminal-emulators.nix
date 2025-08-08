@@ -43,7 +43,7 @@
         settings = {
           font_family = "Fira Code";
           symbol_map = "U+F1900-U+F19FF Fairfax Hax HD";
-          narrow_symbols = "U+F1900-U+F19FF 1";
+          #narrow_symbols = "U+F1900-U+F19FF 1";
           font_size = 10.0; # breaks bottoms of "g"s if less than 10?
           "modify_font cell_height" = "100%";
 

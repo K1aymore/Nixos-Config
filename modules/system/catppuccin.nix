@@ -34,7 +34,6 @@
 
 
       fcitx5.enable = true;
-      gtk.enable = true;
       kvantum = {
         enable = true;
         accent = "maroon"; 
