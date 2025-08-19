@@ -8,27 +8,29 @@
     system = {
       impermanence.home.enable = true;
       impermanence.system.enable = true;
+      syncthing.enable = true;
       zram.enable = true;
       zfs.enable = true;
     };
 
     pipewire.enable = true;
-    
+
     programs = {
     };
-
-    services = {
-      ssh.listen.enable = true;
-      syncthing.enable = true;
-      wireguard-forwarding.enable = true;
-    };
-
+    
     servers = {
       forgejo.enable = true;
       minecraft.enable = true;
       nfs.enable = true;
       nginx.enable = true;
+      wireguard-forwarding.enable = true;
     };
+
+    services = {
+      ssh.listen.enable = true;
+      syncthing.enable = true;
+    };
+
   };
 
   networking = {

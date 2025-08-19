@@ -25,6 +25,10 @@ in
     #cat = "bat";
     fd = "fd --hidden";
 
+    # sitelen pona
+    #less = "less -r";
+    #bat = "bat -pp";
+
 
     showAllPackages = "nix path-info /run/current-system -r";
 

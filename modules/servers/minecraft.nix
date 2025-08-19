@@ -105,7 +105,7 @@
       };
 
       servers.frenched = {
-        enable = true;
+        enable = false;
         package = pkgs.fabricServers.fabric-1_21_4;
         jvmOpts = "-Xmx8192M -Xms4096M";
 

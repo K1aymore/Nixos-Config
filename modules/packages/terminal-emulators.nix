@@ -18,12 +18,13 @@
       # st is only for X11
       # Alacritty feels slightly higher frame rate than foot
 
-      # glitch when resizing cmatrix: konsole, alacritty, kitty, foot. st?
+      # glitch when resizing cmatrix: konsole, alacritty, kitty, foot, wezterm. st?
       # konsole fonts kinda blurry
       # kitty fonts crisp
       # fonts crunchy on 90% scale: alacritty, foot
+      # wezterm fonts crisp, but blurry on 90%
 
-      # ligature support: kitty
+      # ligature support: kitty, wezterm
       # no ligs: alacritty, konsole, foot
 
       # MPV tct squished on alacritty, foot, slightly kitty.
@@ -34,9 +35,17 @@
       # Alacritty: slight stuttering but better
       # foot: stuttering
 
-      # bidirectional support: konsole, kitty
-      # no bidir: alacritty, foot, st
+      # for hebrew / hindi they all suck ngl
+      # bidirectional support: kitty, wezsterm kinda
+      # no bidir: alacritty, foot, st, konsole
+      # Wezterm: butchers Hindi, gnarled but displayed Hebrew
+      # Foot: Hindi backwards, 
+      # Alacritty great font display but not RTL
 
+      # fullwidth sitelen pona: wezterm, xterm (with tty_pona), 
+      # doesn't work with fullwidth sitelen pona: kitty, alacritty, foot, konsole
+      # alacritty & foot: renders full-width anyway, crushing them together
+      # kitty: renders small unless followed by space, okay
 
       kitty = {
         enable = true;
@@ -94,6 +103,26 @@
           };
         };
       };
+
+      wezterm = {
+        enable = true;
+        extraConfig = ''
+          local wezterm = require 'wezterm'
+          return {
+            font = wezterm.font_with_fallback { "Fira Code", "Fairfax Hax HD", },
+            font_size = 10.0,
+            cell_widths = {
+              { first = 0xF1900, last = 0xF19FF, width = 2 },
+            },
+            enable_wayland = false,
+
+            color_scheme = "Catppuccin Mocha",
+            hide_tab_bar_if_only_one_tab = true,
+          }
+        '';
+      };
+
     };
+
   };
 }

@@ -45,6 +45,7 @@
       };
       nfs.enable = lib.mkEnableOption "NFS support";
       nginx.enable = lib.mkEnableOption "NGINX";
+      wireguard-forwarding.enable = lib.mkEnableOption "wireguard-forwarding";
     };
 
 
@@ -56,7 +57,6 @@
         listen.enable = lib.mkEnableOption "SSH listening server";
       };
       syncthing.enable = lib.mkOption { default = true; };
-      wireguard-forwarding.enable = lib.mkEnableOption "wireguard-forwarding";
       yggdrasil = {
         enable = lib.mkEnableOption "Yggdrasil";
         peers = lib.mkOption { default = []; };

@@ -28,6 +28,7 @@ in
         "pc" = { id = "AT7GLBF-ZC7D5FF-4JZZ7XO-VWXM5KJ-CCERYXK-6UURHEF-UZWQ5GZ-HCYDDQG"; };
         "laptop" = { id = "6QZH26V-YJTBBCI-VCEBW4Q-U6ILQA7-PLSWZ4W-YA3KWFQ-KSYTD4A-FS5SPQ7"; };
         "pixel" = { id = "TM2BIPF-O53YVKR-56UEPPB-E5CU3GC-SX2YXZK-LMQEKG7-F74KCLH-CHFWGAW"; };
+        "pixel-5" = { id = "Y4NMW6P-6WFPYZS-27ZSHPP-M4C5I2W-6RODJY3-INLKVLD-TD7MCJO-BBOZAAW"; };
       };
 
       settings.folders = lib.attrsets.mapAttrs syncFolder {
@@ -35,7 +36,7 @@ in
           devices = [ "server" "pc" ];
         };
         "NixCfg" = {
-          devices = [ "server" "pc" "laptop" "pixel" ];
+          devices = [ "server" "pc" "laptop" "pixel-5" ];
           ignorePerms = false;
           path = "/synced/Nix/cfg";
         };
@@ -48,13 +49,13 @@ in
           ignorePerms = true;
         };
         "Media" = {
-          devices = [ "server" "pc" "laptop" "pixel" ];
+          devices = [ "server" "pc" "laptop" "pixel-5" ];
         };
         "Projects" = {
           devices = [ "server" "pc" "laptop" ];
         };
         "Sync" = {
-          devices = [ "server" "pc" "laptop" "pixel" ];
+          devices = [ "server" "pc" "laptop" "pixel-5" ];
         };
       };
 

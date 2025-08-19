@@ -143,7 +143,7 @@
 
       steam-run
 
-      godot
+      #godot
       blender-hip
       #python39Packages.pyzmq
       libresprite
