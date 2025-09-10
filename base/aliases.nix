@@ -36,6 +36,9 @@ in
     yd = "bash /synced/Sync/Linux/BashScripts/yd";
     r128all = "r128gain -r ./";
 
+    # pipe in list of files, from find or etc.
+    wordCount = "xargs cat | tr -s '[:space:]:#()[]{}\\,.?!\"' '\\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -n";
+
     ga = "git add";
     gc = "git commit";
     gs = "git status";

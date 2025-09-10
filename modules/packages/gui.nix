@@ -118,7 +118,7 @@
       kdePackages.kcalc
       speedcrunch
       kdePackages.akonadi-calendar
-      plasma5Packages.kdeconnect-kde
+      kdePackages.kdeconnect-kde
 
       firefox-wayland
       #microsoft-edge
@@ -166,7 +166,7 @@
       logisim-evolution
 
       vscode-fhs
-      zed-editor
+      # zed-editor
 
       gsettings-desktop-schemas
       gsettings-qt

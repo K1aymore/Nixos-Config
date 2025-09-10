@@ -14,7 +14,7 @@
   services.gvfs.enable = true;
 
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.registry = {
     nixpkgs.flake = nixpkgs; # pin nixpkgs version
     nixpkgs.to = {

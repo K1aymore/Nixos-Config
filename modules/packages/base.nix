@@ -32,6 +32,7 @@
       lm_sensors
       acpi
       beep
+      groff
 
       gvfs
       libcdio # cd stuff for kde
@@ -133,6 +134,8 @@
       lsd
       tokei
       television
+      carl
+      gif-for-cli
 
       amfora
 
@@ -172,7 +175,6 @@
       clang
       clang-tools
       gcc
-      gcc11
       ghc # Haskell compiler
       sbcl # Lisp compiler
       # nasm # assembly compiler
