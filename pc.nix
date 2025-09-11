@@ -8,7 +8,7 @@
 
     system = {
       impermanence.system.enable = true;
-      keyboard = "";
+      keyboard = ""; # only affects tty
       zram.enable = true;
     };
 

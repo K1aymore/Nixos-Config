@@ -1,9 +1,9 @@
 {
 
-  inputs = {
+  inputs = rec {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
-    nixpkgs-staging.url = "github:NixOS/nixpkgs/nixos-unstable-small";  # ?rev=493dfd5c25fefa57fe87d50aaa0341a47c673546
+    nixpkgs-pc.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-superstable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
@@ -25,7 +25,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-staging, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -96,10 +96,6 @@
           nix-minecraft.overlay
 
           (final: prev: {
-            staging = import nixpkgs-staging {
-              system = settings.architecture;
-              config.allowUnfree = true;
-            };
             stable = import nixpkgs-stable {
               system = settings.architecture;
               config.allowUnfree = true;
@@ -120,6 +116,7 @@
 
       pc = makeSystem "pc" {
         architecture = "x86_64-linux";
+        #nixpkgs = "nixpkgs-pc";
       };
 
       server = makeSystem "server" {

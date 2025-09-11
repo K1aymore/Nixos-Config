@@ -101,8 +101,14 @@
 
             "Flatpak/.local/share/flatpak"
             #"Flatpak/.var/app"
-            "Steam/.steam"
-            "Steam/.local/share/Steam"
+            {
+              directory = "Steam/.steam";
+              method = "symlink";
+            }
+            {
+              directory = "Steam/.local/share/Steam";
+              method = "symlink";
+            }
             "Itch.io/.itch"
             "Itch.io/.config/itch"
             "Cargo/.cargo"
