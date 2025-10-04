@@ -105,6 +105,7 @@
       #handbrake
       #k3b
       superstable.displaycal
+      eyedropper
 
       syncplay
       #python39Packages.certifi
@@ -128,6 +129,9 @@
       #discord-canary
       vesktop
       element-desktop
+      signal-desktop
+      mumble
+
       qbittorrent
       protonvpn-gui
       networkmanagerapplet
@@ -143,7 +147,8 @@
 
       steam-run
 
-      #godot
+      godot
+      unityhub
       blender-hip
       #python39Packages.pyzmq
       libresprite

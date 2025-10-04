@@ -1,9 +1,9 @@
 {
 
-  inputs = rec {
+  inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
-    nixpkgs-pc.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.5";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-superstable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
@@ -77,7 +77,6 @@
       [
         ./hardware/${hostname}.nix
         ./${hostname}.nix
-        ./_secrets.nix
 
         { networking.hostName = hostname; }
         { nixpkgs.hostPlatform = settings.architecture; }
@@ -116,7 +115,7 @@
 
       pc = makeSystem "pc" {
         architecture = "x86_64-linux";
-        #nixpkgs = "nixpkgs-pc";
+        nixpkgs = "nixpkgs-pc";
       };
 
       server = makeSystem "server" {

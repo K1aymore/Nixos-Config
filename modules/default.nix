@@ -69,6 +69,7 @@
       fish.enable = lib.mkOption { default = true; };
       impermanence.home.enable = lib.mkEnableOption "Home Impermanence";
       impermanence.system.enable = lib.mkEnableOption "System Impermanence";
+      keyd.enable = lib.mkEnableOption "keyd";
       keyboard = lib.mkOption { default = "colemak"; };
       locale = lib.mkOption { default = "en_US.UTF-8"; };
       timeZone = lib.mkOption { default = "America/Los_Angeles"; };

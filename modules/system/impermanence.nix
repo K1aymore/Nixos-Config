@@ -53,6 +53,9 @@
 
             "Godot/.local/share/godot"
             "Godot/.cache/godot"
+            "Unity/.config/unityhub"
+            "Unity/.config/unity3d"
+            "Unity/Unity"
 
             "Discord/.config/discord"
             "BetterDiscord/.config/BetterDiscord"

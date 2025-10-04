@@ -72,7 +72,7 @@
           window_padding_width = 4;
           inactive_text_alpha = 0.8;
 
-          tab_bar_min_tabs = 1;
+          tab_bar_min_tabs = 2;
           #tab_bar_margin_height = "0.0 10.0";
           tab_bar_edge = "top";
           tab_bar_style = "powerline";

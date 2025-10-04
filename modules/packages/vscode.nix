@@ -15,17 +15,24 @@
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
 
-        redhat.java
-        vscjava.vscode-java-debug
+        #redhat.java
+        #vscjava.vscode-java-debug
 
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
+
+        # Not allowed in VSCodium
+        # visualstudiotoolsforunity.vstuc
+        # ms-dotnettools.vscode-dotnet-runtime
+        # ms-dotnettools.vscodeintellicode-csharp
+        # ms-dotnettools.csdevkit
+        # ms-dotnettools.csharp
 
         #streetsidesoftware.code-spell-checker
 
         #catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
-        roman.ayu-next
+        #roman.ayu-next
         ms-vscode.cpptools
         #ms-python.python
         #ms-python.vscode-pylance
@@ -38,18 +45,18 @@
           version = "3.2.4";
           sha256 = "sha256-V2hAxIVu2YWonwcIG+9n300b88jzPOnKYUFt1okSX4w=";
         }
-        {
-          name = "vscode-scheme";
-          publisher = "sjhuangx";
-          version = "0.4.0";
-          sha256 = "sha256-BN+C64YQ2hUw5QMiKvC7PHz3II5lEVVy0Shtt6t3ch8=";
-        }
-        {
-          name = "vscode-sqlite";
-          publisher = "alexcvzz";
-          version = "0.14.1";
-          sha256 = "sha256-jOQkRgBkUwJupD+cRo/KRahFRs82X3K49DySw6GlU8U=";
-        }
+        # {
+        #   name = "vscode-scheme";
+        #   publisher = "sjhuangx";
+        #   version = "0.4.0";
+        #   sha256 = "sha256-BN+C64YQ2hUw5QMiKvC7PHz3II5lEVVy0Shtt6t3ch8=";
+        # }
+        # {
+        #   name = "vscode-sqlite";
+        #   publisher = "alexcvzz";
+        #   version = "0.14.1";
+        #   sha256 = "sha256-jOQkRgBkUwJupD+cRo/KRahFRs82X3K49DySw6GlU8U=";
+        # }
       ];
 
       userSettings = {

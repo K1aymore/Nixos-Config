@@ -125,16 +125,16 @@
     },
     "nixpkgs-pc": {
       "locked": {
-        "lastModified": 1757579273,
-        "narHash": "sha256-CVZy9AvxlkyiSeiRLRLl5NA3DpzJFE81Y3ZMdRAq8fA=",
-        "owner": "NixOS",
+        "lastModified": 1758968268,
+        "narHash": "sha256-YwUXdKOHWT9x7lcnw/KYfns7y2tFAiU94rfc4XWgr4Y=",
+        "owner": "K900",
         "repo": "nixpkgs",
-        "rev": "b1809fe3b9fbee0944dd597082aff7b8648f3e6e",
+        "rev": "d85055e185611ab21d36081d7941b7e8f8c5362e",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable-small",
+        "owner": "K900",
+        "ref": "plasma-6.5",
         "repo": "nixpkgs",
         "type": "github"
       }
