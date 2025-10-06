@@ -13,7 +13,7 @@
       enable = true;
       musicDirectory = "/synced/Media/Music";
       playlistDirectory = musicDirectory;
-      startWhenNeeded = true;
+      startWhenNeeded = false;
       user = "klaymore";
       group = "users";
       extraConfig = ''
@@ -28,6 +28,7 @@
           format                  "44100:16:2"
         }
         audio_buffer_size "512"
+        auto_update "yes"
       '';
     };
 
@@ -89,7 +90,7 @@
     enable_mouse: true,
     enable_config_hot_reload: true,
     status_update_interval_ms: 1000,
-    rewind_to_start_sec: None,
+    rewind_to_start_sec: Some(10),
     reflect_changes_to_playlist: false,
     select_current_song_on_change: false,
     browser_song_sort: [Disc, Track, Artist, Title],
@@ -105,8 +106,10 @@
         global: {
             ":":       CommandMode,
             ",":       VolumeDown,
-            "s":       Stop,
             ".":       VolumeUp,
+            "9":       VolumeDown,
+            "0":       VolumeUp,
+            "s":       Stop,
             "<Tab>":   NextTab,
             "<S-Tab>": PreviousTab,
             "1":       SwitchToTab("Queue"),
@@ -118,14 +121,14 @@
             "7":       SwitchToTab("Search"),
             "q":       Quit,
             ">":       NextTrack,
-            "p":       TogglePause,
             "<":       PreviousTrack,
+            "p":       TogglePause,
+            "b":       SeekBack,
             "f":       SeekForward,
             "z":       ToggleRepeat,
             "x":       ToggleRandom,
             "c":       ToggleConsume,
             "v":       ToggleSingle,
-            "b":       SeekBack,
             "~":       ShowHelp,
             "u":       Update,
             "U":       Rescan,
@@ -149,23 +152,25 @@
             "<C-l>":     PaneRight,
             "<PageUp>":     UpHalf,
             "<PageDown>":   DownHalf,
+            "K":         MoveUp,
+            "J":         MoveDown,
+            "g":         Top,
+            "G":         Bottom,
+            "<Home>":    Top,
+            "<End>":     Bottom,
+            "n":         NextResult,
             "N":         PreviousResult,
+            "i":         FocusInput,
+            "/":         EnterSearch,
             "a":         Add,
             "A":         AddAll,
             "D":         Delete,
             "r":         Rename,
-            "n":         NextResult,
-            "g":         Top,
-            "G":         Bottom,
             "<Space>":   Select,
             "<C-Space>": InvertSelection,
-            "i":         FocusInput,
-            "/":         EnterSearch,
             "<CR>":      Confirm,
             "<C-c>":     Close,
             "<Esc>":     Close,
-            "K":         MoveUp,
-            "J":         MoveDown,
             "B":         ShowInfo,
         },
         queue: {
@@ -230,7 +235,7 @@
     ],
 ),
 cava: (
-    framerate: 60, // default 60
+    framerate: 30, // default 60
     autosens: true, // default true
     sensitivity: 100, // default 100
     lower_cutoff_freq: 50, // not passed to cava if not provided

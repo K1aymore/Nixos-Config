@@ -4,6 +4,10 @@
 
   config = {
 
+    environment.sessionVariables = {
+      LESSUTFCHARDEF = "F1900-F19FF:w"; # sitelen pona rendered in `less`
+    };
+
     programs.neovim = {
       enable = true;
       defaultEditor = true;
@@ -32,7 +36,7 @@
           interactive.diffFilter = "delta --color-only";
           delta = {
             navigate = true; # use n and N to move between diff sections
-            light = false; # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+            light = false; # set to true if using a terminal w/ a light background color
           };
           merge.conflictstyle = "diff3";
           diff.colorMoved = "default";
@@ -77,11 +81,19 @@
         viAlias = true;
         vimdiffAlias = true;
 
+        extraLuaPackages = ps: [
+          ps.magick
+        ];
+        extraPackages = [
+          pkgs.ueberzugpp
+          pkgs.imagemagick
+        ];
+
         #coc.enable = true;
         #nvim-treesitter.withAllGrammars
         # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
         plugins = with pkgs.vimPlugins; [
-          indentLine
+          #indentLine
           rainbow #YouCompleteMe
           #minimap-vim
           vim-fugitive #ale
@@ -95,13 +107,7 @@
 
           vim-lsp
 
-          catppuccin-nvim # broken
-          neovim-ayu
-          tokyonight-nvim
-          nightfox-nvim
-          onedark-nvim
-          onedarkpro-nvim
-          # vim-monokai-tasty vim-monokai vim-monokai-pro   # bad
+          catppuccin-nvim
         ];
 
         extraConfig = ''
@@ -136,6 +142,16 @@
                 \ [0xF1900, 0xF19FF, 2],
                 \ ])
           colorscheme catppuccin-mocha
+
+          set guifont=Fira\ Code,Fairfax\ Hax\ HD:h10
+
+          " Neovide settings
+          if exists("g:neovide")
+            let g:neovide_fullscreen = v:true
+            let g:neovide_cursor_trail_size = 0.4
+            let g:neovide_cursor_animation_length = 0.09
+            let g:neovide_scroll_animation_length = 0.12
+          endif
         '';
       };
 

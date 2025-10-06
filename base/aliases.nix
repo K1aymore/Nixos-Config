@@ -19,6 +19,8 @@ in
     restart = "reboot";
     
     conf = "cd ${configPath}";
+    ":q" = "exit";
+    ":wq" = "exit";
     
     #cd = "z"; # Breaks z lol
     ls = "eza";

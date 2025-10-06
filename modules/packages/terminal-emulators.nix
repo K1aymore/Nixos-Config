@@ -8,6 +8,7 @@
       # kitty: bugs with zellij + neovim after expanding window
       # konsole: slow with nvim in zellij
       # work fine: alacritty, foot, st
+      # nvim: rmpc album art pixelated
 
       # ctrl move and backspace by word: Alacritty, Kitty
       # ctrl backspace only one letter: konsole, st, foot
@@ -37,12 +38,12 @@
 
       # for hebrew / hindi they all suck ngl
       # bidirectional support: kitty, wezsterm kinda
-      # no bidir: alacritty, foot, st, konsole
+      # no bidir: alacritty, foot, st, konsole, nvim
       # Wezterm: butchers Hindi, gnarled but displayed Hebrew
       # Foot: Hindi backwards, 
       # Alacritty great font display but not RTL
 
-      # fullwidth sitelen pona: wezterm, xterm (with tty_pona), 
+      # fullwidth sitelen pona: wezterm, xterm (with tty_pona), nvim
       # doesn't work with fullwidth sitelen pona: kitty, alacritty, foot, konsole
       # alacritty & foot: renders full-width anyway, crushing them together
       # kitty: renders small unless followed by space, okay
@@ -71,6 +72,8 @@
           #window_margin_width = "3";
           window_padding_width = 4;
           inactive_text_alpha = 0.8;
+
+          cursor_trail = 3;
 
           tab_bar_min_tabs = 2;
           #tab_bar_margin_height = "0.0 10.0";
@@ -120,6 +123,18 @@
             hide_tab_bar_if_only_one_tab = true,
           }
         '';
+      };
+
+
+      neovide = {
+        enable = true;
+        settings = {
+          font = {
+            normal = [ "Fira Code" "Fairfax Hax HD" ];
+            size = 10;
+          };
+          tabs = false;
+        };
       };
 
     };
