@@ -1,7 +1,7 @@
 {
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
     nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.5";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -16,6 +16,10 @@
     impermanence.url = "github:nix-community/impermanence";
     catppuccin.url = "github:catppuccin/nix";
 
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     sitelen-pona-UCSUR = {
@@ -25,7 +29,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-minecraft, ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -88,6 +92,7 @@
           catppuccin.homeModules.catppuccin
         ]; }
         catppuccin.nixosModules.catppuccin
+        nvf.nixosModules.default
         nix-minecraft.nixosModules.minecraft-servers
 
 

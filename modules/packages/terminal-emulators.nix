@@ -74,6 +74,7 @@
           inactive_text_alpha = 0.8;
 
           cursor_trail = 3;
+          cursor_trail_decay = "0.07 0.3";
 
           tab_bar_min_tabs = 2;
           #tab_bar_margin_height = "0.0 10.0";

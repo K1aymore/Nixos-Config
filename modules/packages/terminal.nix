@@ -8,10 +8,77 @@
       LESSUTFCHARDEF = "F1900-F19FF:w"; # sitelen pona rendered in `less`
     };
 
-    programs.neovim = {
+
+    programs.nvf = {
       enable = true;
-      defaultEditor = true;
+      settings.vim = {
+        viAlias = true;
+        vimAlias = true;
+        theme = {
+          enable = true;
+          name = "catppuccin";
+          style = "mocha";
+        };
+        git.enable = true;
+        lsp = {
+          enable = true;
+          inlayHints.enable = true;
+        };
+        languages = {
+          enableTreesitter = false; # default false
+          nix.enable = true;
+          rust.enable = true;
+          clang.enable = true;
+          bash.enable = true;
+          markdown.enable = true;
+          html.enable = true;
+          css.enable = true;
+          ts.enable = true;
+          yaml.enable = true;
+        };
+        clipboard = {
+          enable = true;
+          providers.wl-copy.enable = true;
+        };
+
+        telescope.enable = true;
+        mini.pick.enable = true;
+        fzf-lua.enable = true;
+        autocomplete.nvim-cmp.enable = true;
+        filetree.neo-tree.enable = true;
+
+        visuals.indent-blankline.enable = true;
+
+        keymaps = [
+          # ctrl+s for save
+        ];
+
+        options = {
+          number = true;
+          relativenumber = true;
+          tabstop = 2;
+          shiftwidth = 2;
+          softtabstop = 2;
+
+          guifont = "Fira Code,Fairfax Hax HD:h10";
+        };
+        
+        
+        luaConfigPost = ''
+
+          -- sitelen pona correct width
+          vim.fn.setcellwidths({ {0xF1900, 0xF19FF, 2}, })
+
+
+          -- Neovide settings
+          vim.g.neovide_fullscreen = true
+          vim.g.neovide_cursor_trail_size = 0.4
+          vim.g.neovide_cursor_animation_length = 0.09
+          vim.g.neovide_scroll_animation_length = 0.13
+        '';
+      };
     };
+
 
     home-manager.users.klaymore.programs = {
 
@@ -74,86 +141,86 @@
       };
 
 
-      neovim = {
-        enable = true;
-        defaultEditor = true;
-        vimAlias = true;
-        viAlias = true;
-        vimdiffAlias = true;
+      # neovim = {
+      #   enable = true;
+      #   defaultEditor = true;
+      #   vimAlias = true;
+      #   viAlias = true;
+      #   vimdiffAlias = true;
 
-        extraLuaPackages = ps: [
-          ps.magick
-        ];
-        extraPackages = [
-          pkgs.ueberzugpp
-          pkgs.imagemagick
-        ];
+      #   extraLuaPackages = ps: [
+      #     ps.magick
+      #   ];
+      #   extraPackages = [
+      #     pkgs.ueberzugpp
+      #     pkgs.imagemagick
+      #   ];
 
-        #coc.enable = true;
-        #nvim-treesitter.withAllGrammars
-        # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
-        plugins = with pkgs.vimPlugins; [
-          #indentLine
-          rainbow #YouCompleteMe
-          #minimap-vim
-          vim-fugitive #ale
+      #   #coc.enable = true;
+      #   #nvim-treesitter.withAllGrammars
+      #   # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
+      #   plugins = with pkgs.vimPlugins; [
+      #     #indentLine
+      #     rainbow #YouCompleteMe
+      #     #minimap-vim
+      #     vim-fugitive #ale
 
-          nvim-autopairs
-          neoformat
-          vim-nix
-          #rust-vim
-          leap-nvim
-          coc-rust-analyzer
+      #     nvim-autopairs
+      #     neoformat
+      #     vim-nix
+      #     #rust-vim
+      #     leap-nvim
+      #     coc-rust-analyzer
 
-          vim-lsp
+      #     vim-lsp
 
-          catppuccin-nvim
-        ];
+      #     catppuccin-nvim
+      #   ];
 
-        extraConfig = ''
-          syntax on
-          set number
-          set relativenumber
+      #   extraConfig = ''
+      #     syntax on
+      #     set number
+      #     set relativenumber
 
-          let g:rainbow_active = 1
+      #     let g:rainbow_active = 1
 
-          "set expandtab  " spaces instead of tabs
-          set tabstop=2
-          set shiftwidth=2
-          set softtabstop=2
-          "set colorcolumn=80
-          filetype plugin indent on
-          "set list lcs=tab:\·\
+      #     "set expandtab  " spaces instead of tabs
+      #     set tabstop=2
+      #     set shiftwidth=2
+      #     set softtabstop=2
+      #     "set colorcolumn=80
+      #     filetype plugin indent on
+      #     "set list lcs=tab:\·\
 
-          set mouse=a
-          set mousehide
+      #     set mouse=a
+      #     set mousehide
 
-          set splitright
-          set splitbelow
+      #     set splitright
+      #     set splitbelow
 
-          autocmd Filetype json
-            \ let g:indentLine_setConceal = 0
+      #     autocmd Filetype json
+      #       \ let g:indentLine_setConceal = 0
 
-          let g:paredit_electric_return=0
-          let g:paredit_disable_ftindent=1
+      #     let g:paredit_electric_return=0
+      #     let g:paredit_disable_ftindent=1
 
-          " sitelen pona correct width
-          call setcellwidths([
-                \ [0xF1900, 0xF19FF, 2],
-                \ ])
-          colorscheme catppuccin-mocha
+      #     " sitelen pona correct width
+      #     call setcellwidths([
+      #           \ [0xF1900, 0xF19FF, 2],
+      #           \ ])
+      #     colorscheme catppuccin-mocha
 
-          set guifont=Fira\ Code,Fairfax\ Hax\ HD:h10
+      #     set guifont=Fira\ Code,Fairfax\ Hax\ HD:h10
 
-          " Neovide settings
-          if exists("g:neovide")
-            let g:neovide_fullscreen = v:true
-            let g:neovide_cursor_trail_size = 0.4
-            let g:neovide_cursor_animation_length = 0.09
-            let g:neovide_scroll_animation_length = 0.12
-          endif
-        '';
-      };
+      #     " Neovide settings
+      #     if exists("g:neovide")
+      #       let g:neovide_fullscreen = v:true
+      #       let g:neovide_cursor_trail_size = 0.4
+      #       let g:neovide_cursor_animation_length = 0.09
+      #       let g:neovide_scroll_animation_length = 0.12
+      #     endif
+      #   '';
+      # };
 
 
       tealdeer = {
