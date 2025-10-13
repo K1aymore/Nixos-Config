@@ -20,7 +20,7 @@
 
     system = {
       keyboard = "colemak";
-      keyd.enable = true;
+      kanata.enable = true;
       zram.enable = true;
     };
   };

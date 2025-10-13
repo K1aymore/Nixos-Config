@@ -99,13 +99,6 @@
         "[markdown]" = {
           "editor.wordWrap" = "bounded";
         };
-
-        "powermode.enabled" = false; # stupid
-        "powermode.combo.location" = "off";
-        "powermode.combo.counterEnabled" = "hide";
-        "powermode.shake.enabled" = false;
-        "powermode.explosions.frequency" = 1;
-        "powermode.combo.timerEnable" = "hide";
       };
     };
 

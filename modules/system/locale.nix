@@ -9,7 +9,7 @@
 
     services.xserver = {
       xkb.layout = "us";
-      xkb.variant = lib.mkIf (config.klaymore.system.keyd == false) (config.klaymore.system.keyboard);
+      xkb.variant = lib.mkIf (config.klaymore.system.kanata == false) (config.klaymore.system.keyboard);
       xkb.options = "compose:ralt";
     };
     environment.variables = {

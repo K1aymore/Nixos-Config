@@ -24,7 +24,7 @@
 
     system = {
       impermanence.system.enable = true;
-      keyd.enable = true;
+      kanata.enable = true;
       keyboard = ""; # only affects tty
       zram.enable = true;
     };

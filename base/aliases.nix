@@ -6,10 +6,10 @@ in
 {
 
   environment.shellAliases = {
-    nrb = "nice -n 19 sudo nixos-rebuild boot --flake ${configPath}";
-    nrs = "nice -n 19 sudo nixos-rebuild switch --flake ${configPath}";
-    nrt = "nice -n 19 sudo nixos-rebuild test --flake ${configPath}";
-    nrd = "nice -n 19 sudo nixos-rebuild dry-build --flake ${configPath}";
+    nrb = "nice -n 19 sudo nixos-rebuild boot --flake ${configPath} --option connect-timeout 30";
+    nrs = "nice -n 19 sudo nixos-rebuild switch --flake ${configPath} --option connect-timeout 30";
+    nrt = "nice -n 19 sudo nixos-rebuild test --flake ${configPath} --option connect-timeout 30";
+    nrd = "nice -n 19 sudo nixos-rebuild dry-build --flake ${configPath} --option connect-timeout 30";
 
     nrbForErrors = "bash -c \"nixos-rebuild boot --flake . --show-trace 2>/dev/stdout | grep 'while evaluating derivation'\"";
 

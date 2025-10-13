@@ -187,6 +187,7 @@
 
       dotnet-sdk
       dotnet-runtime
+      nodejs
 
 
       rustup
