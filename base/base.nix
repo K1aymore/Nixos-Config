@@ -4,7 +4,7 @@
 
   # Select internationalisation properties.
   console = {
-    font = "ter-i23b";
+    #font = "ter-i23b";
     # keyMap = "us";
     useXkbConfig = true;
     /* earlySetup = true; */
@@ -155,7 +155,7 @@
   users.users.klaymore = {
     isNormalUser = true;
     initialHashedPassword = "$6$ZKUuN3EirBtn6029$xe9DTh1bfkg6CheJsBtQzGJURFh8Wr9hla.5gX2ouNfqZ5kUhP/Xy0TCNuidUG.Ld9mfoY8.Hc0QHm634BU9q0";
-    extraGroups = [ "wheel" "networkmanager" "audio" "video" "adbusers" "input" "plugdev" "corectrl" ];
+    extraGroups = [ "wheel" "networkmanager" "audio" "video" "adbusers" "input" "uinput" "plugdev" "corectrl" ];
   };
 
 

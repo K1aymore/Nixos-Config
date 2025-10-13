@@ -4,10 +4,6 @@
 
   klaymore = {
 
-    system = {
-      zram.enable = true;
-    };
-
     gui = {
       enable = true;
       plasma.enable = true;
@@ -20,6 +16,12 @@
     services = {
       mullvad.enable = true;
       syncthing.enable = true;
+    };
+
+    system = {
+      keyboard = "colemak";
+      keyd.enable = true;
+      zram.enable = true;
     };
   };
   

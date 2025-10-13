@@ -5,14 +5,6 @@
   klaymore = {
     localIP = config.klaymore.serverLan;
 
-    system = {
-      impermanence.home.enable = true;
-      impermanence.system.enable = true;
-      syncthing.enable = true;
-      zram.enable = true;
-      zfs.enable = true;
-    };
-
     pipewire.enable = true;
 
     programs = {
@@ -29,6 +21,13 @@
     services = {
       ssh.listen.enable = true;
       syncthing.enable = true;
+    };
+
+    system = {
+      impermanence.home.enable = true;
+      impermanence.system.enable = true;
+      zram.enable = true;
+      zfs.enable = true;
     };
 
   };

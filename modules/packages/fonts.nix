@@ -89,7 +89,7 @@ in
     };
 
     fonts.packages = map (f: pkgs.callPackage f {}) [
-      craftyPE
+      #craftyPE
       fairfax
       #linja-pona
     ] ++
@@ -125,10 +125,11 @@ in
       comic-mono
       monocraft
 
-      linja-pi-pu-lukin
-      nasin-nanpa # The only one that properly handles words inside each other. kinda hard to read
-      sitelen-seli-kiwen
-      linja-sike
+      # remove so it defaults to Fairfax
+      # linja-pi-pu-lukin
+      # nasin-nanpa # The only one that properly handles words inside each other. kinda hard to read
+      # sitelen-seli-kiwen
+      # linja-sike
     ]);
 
     # for Discord

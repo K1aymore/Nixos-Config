@@ -6,13 +6,6 @@
     powerful = true;
     localIP = "172.16.0.123";
 
-    system = {
-      impermanence.system.enable = true;
-      keyd.enable = true;
-      keyboard = ""; # only affects tty
-      zram.enable = true;
-    };
-
     gui = {
       enable = true;
       hdr = true;
@@ -27,6 +20,13 @@
     services = {
       mullvad.enable = true;
       syncthing.enable = true;
+    };
+
+    system = {
+      impermanence.system.enable = true;
+      keyd.enable = true;
+      keyboard = ""; # only affects tty
+      zram.enable = true;
     };
   };
 

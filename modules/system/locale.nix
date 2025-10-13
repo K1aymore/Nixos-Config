@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, pkgs, ... }:
 
 {
 
@@ -9,10 +9,24 @@
 
     services.xserver = {
       xkb.layout = "us";
-      xkb.variant = config.klaymore.system.keyboard;
+      xkb.variant = lib.mkIf (config.klaymore.system.keyd == false) (config.klaymore.system.keyboard);
+      xkb.options = "compose:ralt";
     };
     environment.variables = {
       XKB_DEFAULT_VARIANT = config.klaymore.system.keyboard;
+    };
+
+    i18n.inputMethod = {
+      enable = true;
+      type = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [
+        anthy
+        hangul
+        mozc
+        table
+        table-others
+        typing-booster
+      ];
     };
 
   };

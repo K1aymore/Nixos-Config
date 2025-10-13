@@ -6,6 +6,7 @@
 
     environment.sessionVariables = {
       LESSUTFCHARDEF = "F1900-F19FF:w"; # sitelen pona rendered in `less`
+      EDITOR = "nvim";
     };
 
 
@@ -29,6 +30,7 @@
           nix.enable = true;
           rust.enable = true;
           clang.enable = true;
+          csharp.enable = true;
           bash.enable = true;
           markdown.enable = true;
           html.enable = true;
