@@ -16,6 +16,7 @@
       XKB_DEFAULT_VARIANT = config.klaymore.system.keyboard;
     };
 
+    # disable for kanata?
     i18n.inputMethod = {
       enable = true;
       type = "ibus";
