@@ -37,16 +37,17 @@
       )
 
       (defchordsv2
-        (esc q) (layer-switch qwerty) 200 first-release ()
-        (esc c) (layer-switch colemak) 200 first-release ()
-        (esc w) (layer-switch colemak-wide-dh) 200 first-release ()
-        (esc j) (layer-switch hiragana) 200 first-release ()
+        (esc q) (layer-switch qwerty) 500 first-release ()
+        (esc c) (layer-switch colemak) 500 first-release ()
+        (esc w) (layer-switch colemak-wide-dh) 500 first-release ()
+        (esc j) (layer-switch hiragana) 500 first-release ()
+        (esc k) (layer-switch katakana) 500 first-release ()
       )
 
       (defalias
         caps bspc
-        sft (one-shot 2000 lsft)
-        qgr (layer-toggle qwerty-symbols)
+        sft (one-shot 1000 lsft)
+        qgr (layer-while-held qwerty-symbols)
       )
 
       (deflayer qwerty-symbols
@@ -128,6 +129,59 @@
 
         (v a) 🔣ゃ    (v i) 🔣っ    (v u) 🔣ゅ                  (v o) 🔣ょ
         (n  ) 🔣ん    ([  ) 🔣［    (]  ) 🔣］    (q [) 🔣「    (q ]) 🔣」
+      )
+
+
+
+      (deflayer katakana
+        esc
+        grv  1    2    3    4    5    6    7    8    9    0    @k-  XX   bspc
+        tab  XX   @kw  @ke  @kr  @kt  @ky  @ku  @ki  @ko  @kp  @k[  @k]  XX
+        caps @ka  @ks  @kd  XX   @kg  @kh  @kj  @kk  @kl  @k;  @k'  ret
+        lsft @kz  XX   XX   @kv  @kb  @kn  @km  @k,  @k.  XX   rsft
+        lctl lmet lalt           spc            ralt rmet cmp  rctl
+      )
+
+      (defalias
+        ka (chord katakana a)   ki (chord katakana i)   ku (chord katakana u)
+        ke (chord katakana e)   ko (chord katakana o)
+
+        kk (chord katakana k)   kg (chord katakana g)
+        ks (chord katakana s)   kz (chord katakana z)
+        kt (chord katakana t)   kd (chord katakana d)
+        kn (chord katakana n)   km (chord katakana m)
+        kh (chord katakana h)   kb (chord katakana b)   kp (chord katakana p)
+        kr (chord katakana r)   kl (chord katakana r)
+        ky (chord katakana y)   kj (chord katakana y)
+        kw (chord katakana w)   kv (chord katakana v)
+
+        k[ (chord katakana [)   k] (chord katakana ])   k' (chord katakana q)
+        k, 🔣、   k. 🔣。   k- 🔣ー   k; 🔣󱦝
+      )
+
+      (defchords katakana 1000
+        (a  ) 🔣ア    (i  ) 🔣イ    (u  ) 🔣ウ    (e  ) 🔣エ    (o  ) 🔣オ
+
+        (k a) 🔣カ    (k i) 🔣キ    (k u) 🔣ク    (k e) 🔣ケ    (k o) 🔣コ
+        (g a) 🔣ガ    (g i) 🔣ギ    (g u) 🔣グ    (g e) 🔣ゲ    (g o) 🔣ゴ
+        (s a) 🔣サ    (s i) 🔣シ    (s u) 🔣ス    (s e) 🔣セ    (s o) 🔣ソ    (s h i) 🔣シ
+        (z a) 🔣ザ    (z i) 🔣ジ    (z u) 🔣ズ    (z e) 🔣ゼ    (z o) 🔣ゾ
+        (t a) 🔣タ    (t i) 🔣チ    (t u) 🔣ツ    (t e) 🔣テ    (t o) 🔣ト    (t s u) 🔣ツ
+        (d a) 🔣ダ    (d i) 🔣ヂ    (d u) 🔣ヅ    (d e) 🔣デ    (d o) 🔣ド
+
+        (n a) 🔣ナ    (n i) 🔣ニ    (n u) 🔣ヌ    (n e) 🔣ネ    (n o) 🔣ノ
+
+        (h a) 🔣ハ    (h i) 🔣ヒ    (h u) 🔣フ    (h e) 🔣ヘ    (h o) 🔣ホ
+        (b a) 🔣バ    (b i) 🔣ビ    (b u) 🔣ブ    (b e) 🔣ベ    (b o) 🔣ボ
+        (p a) 🔣パ    (p i) 🔣ピ    (p u) 🔣プ    (p e) 🔣ペ    (p o) 🔣ポ
+
+        (m a) 🔣マ    (m i) 🔣ミ    (m u) 🔣ム    (m e) 🔣メ    (m o) 🔣モ
+        (y a) 🔣ヤ                  (y u) 🔣ユ                  (y o) 🔣ヨ
+        (r a) 🔣ラ    (r i) 🔣リ    (r u) 🔣ル    (r e) 🔣レ    (r o) 🔣ロ
+        (w a) 🔣ワ    (w i) 🔣ヰ                  (w e) 🔣ヱ    (w o) 🔣ヲ
+
+        (v a) 🔣ャ    (v i) 🔣ッ    (v u) 🔣ュ                  (v o) 🔣ョ
+        (n  ) 🔣ン    ([  ) 🔣［    (]  ) 🔣］    (q [) 🔣「    (q ]) 🔣」
       )
 
     '';
