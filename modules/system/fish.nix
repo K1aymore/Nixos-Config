@@ -13,7 +13,10 @@
     home-manager.users.klaymore.programs.fish = {
       enable = true;
       shellAliases = config.environment.shellAliases;
-      interactiveShellInit = "set -gx GPG_TTY (tty)";
+      interactiveShellInit = ''
+        set -gx GPG_TTY (tty)
+        set fish_ambiguous_width 2
+      '';
       functions = rec {
         run = "NIXPKGS_ALLOW_UNFREE=1 nix run nixpkgs#$argv --impure";
         shell = "NIXPKGS_ALLOW_UNFREE=1 nix shell nixpkgs#$argv --impure";

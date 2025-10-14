@@ -10,19 +10,17 @@
       # work fine: alacritty, foot, st
       # nvim: rmpc album art pixelated
 
-      # ctrl move and backspace by word: Alacritty, Kitty
-      # ctrl backspace only one letter: konsole, st, foot
+      # ctrl move and backspace by word: Alacritty, Kitty, foot
+      # ctrl backspace only one letter: konsole, st
 
       # Alacritty re-renders during resizing, kinda jerky
       # Foot only rerenders during pause while resizing
       # st re-renders while resizing
       # st is only for X11
-      # Alacritty feels slightly higher frame rate than foot
 
-      # glitch when resizing cmatrix: konsole, alacritty, kitty, foot, wezterm. st?
       # konsole fonts kinda blurry
       # kitty fonts crisp
-      # fonts crunchy on 90% scale: alacritty, foot
+      # fonts crunchy on 90% scale: alacritty, foot (unless dpi-aware)
       # wezterm fonts crisp, but blurry on 90%
 
       # ligature support: kitty, wezterm
@@ -43,10 +41,15 @@
       # Foot: Hindi backwards, 
       # Alacritty great font display but not RTL
 
+      # with fish_ambiguous_width 2: foot perfect, kitty small
       # fullwidth sitelen pona: wezterm, xterm (with tty_pona), nvim
       # doesn't work with fullwidth sitelen pona: kitty, alacritty, foot, konsole
       # alacritty & foot: renders full-width anyway, crushing them together
       # kitty: renders small unless followed by space, okay
+
+      # supports ctrl+shift+u: foot, kitty (not with kanata?)
+      # no +u unicode: alacritty, wezterm, xfce, konsole, st
+
 
       kitty = {
         enable = true;
@@ -98,9 +101,11 @@
 
       foot = {
         enable = true;
+        server.enable = true;
         settings = {
           main = {
             font = "Fira Code:size=10";
+            dpi-aware = "yes";
           };
           mouse = {
             #hide-when-typing = "yes";
