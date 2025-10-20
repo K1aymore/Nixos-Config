@@ -105,7 +105,7 @@
         settings = {
           main = {
             font = "Fira Code:size=10";
-            dpi-aware = "yes";
+            #dpi-aware = "yes"; # too big on laptop
           };
           mouse = {
             #hide-when-typing = "yes";

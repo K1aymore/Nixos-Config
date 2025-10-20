@@ -28,32 +28,43 @@
       )
 
       (deflayer qwerty
-        esc
+        @esc
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
         @cap a    s    d    f    g    h    j    k    l    ;    '    ret
         @sft z    x    c    v    b    n    m    ,    .    /    rsft
-        lctl lmet lalt           spc            @qgr rmet cmp  rctl
-      )
-
-      (defchordsv2
-        (esc q) (layer-switch qwerty) 500 first-release ()
-        (esc c) (layer-switch colemak) 500 first-release ()
-        (esc w) (layer-switch colemak-wide-dh) 500 first-release ()
-        (esc j) (layer-switch hiragana) 500 first-release ()
-        (esc k) (layer-switch katakana) 500 first-release ()
+        lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
       (defalias
+        esc (tap-hold-press 200 500 esc (layer-while-held esc))
         cap bspc
         sft (one-shot 1000 lsft)
         qgr (layer-while-held qwerty-symbols)
       )
 
+      (deflayer esc
+        XX
+        XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+        XX   @␛q  @␛w  XX   XX   XX   XX   XX   XX   XX   @␛p  XX   XX   XX
+        XX   XX   XX   XX   XX   XX   XX   @␛j  @␛k  XX   XX   XX   XX
+        XX   XX   XX   @␛c  XX   XX   XX   XX   XX   XX   XX   XX
+        XX   XX   XX             XX             XX   XX   XX   XX
+      )
+
+      (defalias
+        ␛q (layer-switch qwerty)
+        ␛c (layer-switch colemak)
+        ␛w (layer-switch colemak-wide-dh)
+        ␛j (layer-switch hiragana)
+        ␛k (layer-switch katakana)
+        ␛p (layer-switch sitelen-pona)
+      )
+
       (deflayer qwerty-symbols
         _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
-        _    🔣ä  🔣é  🔣©  🔣ゆ 🔣󱤺 _    _    _    _    _    _    _    _
+        _    _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _              _              _    _    _    _
@@ -61,7 +72,7 @@
 
 
       (deflayer colemak
-        esc
+        @esc
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
         @cap a    r    s    t    d    h    n    e    i    o    '    ret
@@ -70,18 +81,31 @@
       )
 
       (deflayer colemak-wide-dh
-        esc
+        @esc
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  q    w    f    p    b    @sft j    l    u    y    ;    '    \
-        @cap a    r    s    t    g    @sft m    n    e    i    o    ret
+        @cap a    r    @shs @crt g    @sft m    @crn @she i    o    ret
         z    x    c    d    v    [    ]    k    h    ,    .    /
         lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
+      (defalias
+        crt (tap-hold 0 250 t lctl)
+        shs (tap-hold 0 250 s lsft)
+        alr (tap-hold 0 250 r lalt)
+        mea (tap-hold 0 250 a lmet)
+        crn (tap-hold 0 250 n lctl)
+        she (tap-hold 0 250 e lsft)
+        ali (tap-hold 0 250 i lalt)
+        meo (tap-hold 0 250 o lmet)
+      )
+
+
+
 
 
       (deflayer hiragana
-        esc
+        @esc
         grv  1    2    3    4    5    6    7    8    9    0    @j-  XX   bspc
         tab  XX   @jw  @je  @jr  @jt  @jy  @ju  @ji  @jo  @jp  @j[  @j]  XX
         @cap @ja  @js  @jd  XX   @jg  @jh  @jj  @jk  @jl  @j;  @j'  ret
@@ -135,7 +159,7 @@
 
 
       (deflayer katakana
-        esc
+        @esc
         grv  1    2    3    4    5    6    7    8    9    0    @k-  XX   bspc
         tab  XX   @kw  @ke  @kr  @kt  @ky  @ku  @ki  @ko  @kp  @k[  @k]  XX
         @cap @ka  @ks  @kd  XX   @kg  @kh  @kj  @kk  @kl  @k;  @k'  ret
@@ -187,9 +211,6 @@
       )
 
     '';
-
-
-
 
 
   };
