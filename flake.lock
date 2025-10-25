@@ -175,22 +175,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-pc": {
-      "locked": {
-        "lastModified": 1759413032,
-        "narHash": "sha256-1bRkQu7WlOVqkpK24nqZLtjRAwjRiSsABnctyZuV8pc=",
-        "owner": "K900",
-        "repo": "nixpkgs",
-        "rev": "9e55b8805c359d277647a1afcbf9750df37f4df6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "K900",
-        "ref": "plasma-6.5",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1759439645,
@@ -286,7 +270,6 @@
         "impermanence": "impermanence",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-pc": "nixpkgs-pc",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-superstable": "nixpkgs-superstable",
         "nvf": "nvf",

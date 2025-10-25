@@ -9,11 +9,11 @@
 
     services.xserver = {
       xkb.layout = "us";
-      xkb.variant = lib.mkIf (config.klaymore.system.kanata == false) (config.klaymore.system.keyboard);
-      xkb.options = "compose:ralt";
+      #xkb.variant = lib.mkIf (config.klaymore.system.kanata == false) (config.klaymore.system.keyboard);
+      #xkb.options = "compose:ralt";
     };
     environment.variables = {
-      XKB_DEFAULT_VARIANT = config.klaymore.system.keyboard;
+      #XKB_DEFAULT_VARIANT = config.klaymore.system.keyboard;
     };
 
     # disable for kanata?

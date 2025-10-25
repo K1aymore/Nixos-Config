@@ -11,7 +11,6 @@
     environment.systemPackages = with pkgs; [
       wayland-utils
       xwayland
-      kdePackages.xwaylandvideobridge
     ];
 
     xdg.portal = {

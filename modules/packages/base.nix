@@ -139,7 +139,7 @@
 
       amfora
 
-      ffmpeg
+      ffmpeg-full
       yt-dlp
       r128gain
       mediainfo

@@ -26,6 +26,7 @@
     system = {
       impermanence.home.enable = true;
       impermanence.system.enable = true;
+      kanata.enable = true;
       zram.enable = true;
       zfs.enable = true;
     };

@@ -11,6 +11,8 @@ in
     nrt = "nice -n 19 sudo nixos-rebuild test --flake ${configPath} --option connect-timeout 30";
     nrd = "nice -n 19 sudo nixos-rebuild dry-build --flake ${configPath} --option connect-timeout 30";
 
+    nfu = "nice -n 19 nix flake update --option connect-timeout 30";
+
     nrbForErrors = "bash -c \"nixos-rebuild boot --flake . --show-trace 2>/dev/stdout | grep 'while evaluating derivation'\"";
 
     rebuildBoot = "cd ${configPath} && git add .; cd - && nrb";

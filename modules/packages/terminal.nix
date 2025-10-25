@@ -49,7 +49,10 @@
         autocomplete.nvim-cmp.enable = true;
         filetree.neo-tree.enable = true;
 
-        visuals.indent-blankline.enable = true;
+        visuals = {
+          indent-blankline.enable = true;
+          rainbow-delimiters.enable = true;
+        };
 
         keymaps = [
           # ctrl+s for save
@@ -248,9 +251,11 @@
 
       zellij = {
         enable = true;
-        enableFishIntegration = false; # opens by default
+        enableFishIntegration = true; # opens by default
         settings = {
-          #theme = "catppuccin-mocha";
+          theme = "catppuccin-mocha";
+          show_startup_tips = false;
+          pane_frames = false;
         };
       };
 

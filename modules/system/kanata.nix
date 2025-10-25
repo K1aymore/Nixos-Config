@@ -2,10 +2,13 @@
 
 {
 
-  config = lib.mkIf config.klaymore.system.kanata.enable {
+  config = let 
+    chord-time = "1000";
+    tap-hold-delay = "200";
+  in  lib.mkIf config.klaymore.system.kanata.enable {
 
     # Keyd: no private use unicode support (yet). No unicode in Steam but oh well. Only supports ~67 macros or something before stops working. discord and vscode iffy, maybe only in xwayland?
-    # Kanata: unicode should work using ctrl+shift+U if ibus running - not in neovide. Better key rebinding config format.
+    # Kanata: unicode should work using ctrl+shift+U if ibus running - not in neovide sometimes. Better key rebinding config format.
     # KMonmad: no chord support, unicode enters "a instead of ä and japanese / 󱥠󱥔 breaks config.
     # ibus: works in Steam, in Kitty but not Neovide. Works Emacs with kinda strange preview
 
@@ -85,19 +88,21 @@
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  q    w    f    p    b    @sft j    l    u    y    ;    '    \
         @cap a    r    @shs @crt g    @sft m    @crn @she i    o    ret
-        z    x    c    d    v    [    ]    k    h    ,    .    /
+        @shz x    c    d    v    [    ]    k    h    ,    .    /
         lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
       (defalias
-        crt (tap-hold 0 250 t lctl)
-        shs (tap-hold 0 250 s lsft)
-        alr (tap-hold 0 250 r lalt)
-        mea (tap-hold 0 250 a lmet)
-        crn (tap-hold 0 250 n lctl)
-        she (tap-hold 0 250 e lsft)
-        ali (tap-hold 0 250 i lalt)
-        meo (tap-hold 0 250 o lmet)
+        crt (tap-hold 0 ${tap-hold-delay} t lctl)
+        shs (tap-hold 0 ${tap-hold-delay} s lsft)
+        alr (tap-hold 0 ${tap-hold-delay} r lalt)
+        mea (tap-hold 0 ${tap-hold-delay} a lmet)
+        crn (tap-hold 0 ${tap-hold-delay} n lctl)
+        she (tap-hold 0 ${tap-hold-delay} e lsft)
+        ali (tap-hold 0 ${tap-hold-delay} i lalt)
+        meo (tap-hold 0 ${tap-hold-delay} o lmet)
+
+        shz (tap-hold-press 0 ${tap-hold-delay} z lsft)
       )
 
 
