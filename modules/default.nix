@@ -50,7 +50,7 @@
 
 
     services = {
-      espanso.enable = lib.mkOption { default = config.klaymore.gui.enable; };
+      espanso.enable = lib.mkEnableOption "Espanso";
       ipfs.enable = lib.mkEnableOption "IPFS";
       mullvad.enable = lib.mkEnableOption "Mullvad";
       ssh = {

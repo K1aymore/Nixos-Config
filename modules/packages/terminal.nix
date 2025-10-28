@@ -251,7 +251,7 @@
 
       zellij = {
         enable = true;
-        enableFishIntegration = true; # opens by default
+        enableFishIntegration = false; # opens by default
         settings = {
           theme = "catppuccin-mocha";
           show_startup_tips = false;
