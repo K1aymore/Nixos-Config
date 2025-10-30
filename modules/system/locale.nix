@@ -16,9 +16,9 @@
       #XKB_DEFAULT_VARIANT = config.klaymore.system.keyboard;
     };
 
-    # disable for kanata?
+    # needed for kanata support everywhere
     i18n.inputMethod = {
-      enable = true;
+      enable = false; # add package in Plasma
       type = "ibus";
       ibus.engines = with pkgs.ibus-engines; [
         anthy

@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
-    #nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.5";
+    nixpkgs-pc.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-superstable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
@@ -17,7 +17,7 @@
     catppuccin.url = "github:catppuccin/nix";
 
     nvf = {
-      url = "github:NotAShelf/nvf";
+      url = "github:NotAShelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
@@ -29,7 +29,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-minecraft, ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -120,7 +120,7 @@
 
       pc = makeSystem "pc" {
         architecture = "x86_64-linux";
-        #nixpkgs = "nixpkgs-pc";
+        nixpkgs = "nixpkgs-pc";
       };
 
       server = makeSystem "server" {

@@ -48,6 +48,7 @@
         fzf-lua.enable = true;
         autocomplete.nvim-cmp.enable = true;
         filetree.neo-tree.enable = true;
+        #filetree.nvimTree.enable = true; # opens automatically
 
         visuals = {
           indent-blankline.enable = true;
@@ -55,7 +56,18 @@
         };
 
         keymaps = [
-          # ctrl+s for save
+          {
+            key = "<C-BS>";
+            mode = [ "n" "c" "v" ];
+            action = "db";
+            desc = "Delete previous word";
+          }
+          { # ctrl+s for save
+            key = "<C-s>";
+            mode = [ "n" "v" ];
+            action = ":w";
+            desc = "Save file";
+          }
         ];
 
         options = {
@@ -90,8 +102,6 @@
       git = {
         enable = true;
         lfs.enable = true;
-        userName = "K1aymore";
-        userEmail = "klaymorer@protonmail.com";
         signing = {
           key = "BAE085A5C70F19F7";
           signByDefault = false; # don't need to sign all commits
@@ -100,7 +110,10 @@
           "*.swp"
           ".syncthing*"
         ];
-        extraConfig = {
+        settings = {
+          user.name = "K1aymore";
+          user.email = "klaymorer@protonmail.com";
+
           init.defaultbranch = "main";
           push.autoSetupRemote = true;
 

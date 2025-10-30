@@ -15,6 +15,10 @@
     # no Unicode support: ydotool, dotool
     # no Plasma support: wtype, wlrctl
 
+    environment.systemPackages = with pkgs; [ 
+      ibus
+    ];
+
 
     services.kanata.enable = true;
     services.kanata.keyboards.default.extraDefCfg = ''

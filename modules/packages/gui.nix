@@ -11,7 +11,7 @@
       gtk3
       swt
       #eglinfo
-      glxinfo
+      mesa-demos
       clinfo
       vulkan-tools
       xorg.xdpyinfo
@@ -71,8 +71,7 @@
       mono
       kdePackages.breeze
       kdePackages.kleopatra
-      pinentry
-      pinentry-qt
+      pinentry-curses
       kdePackages.kdialog
       razergenie
 
@@ -121,7 +120,7 @@
       kdePackages.akonadi-calendar
       kdePackages.kdeconnect-kde
 
-      firefox-wayland
+      firefox
       #microsoft-edge
       #librewolf
       chromium

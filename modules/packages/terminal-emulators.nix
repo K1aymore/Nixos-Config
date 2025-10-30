@@ -10,8 +10,8 @@
       # work fine: alacritty, foot, st
       # nvim: rmpc album art pixelated
 
-      # ctrl move and backspace by word: Alacritty, Kitty, foot
-      # ctrl backspace only one letter: konsole, st
+      # ctrl move and backspace by word: Alacritty, Kitty
+      # ctrl backspace only one letter: konsole, st, foot
 
       # Alacritty re-renders during resizing, kinda jerky
       # Foot only rerenders during pause while resizing
@@ -55,8 +55,8 @@
         enable = true;
         settings = {
           font_family = "Fira Code";
-          symbol_map = "U+F1900-U+F19FF Fairfax Hax HD";
-          #narrow_symbols = "U+F1900-U+F19FF 1";
+          #symbol_map = "U+F1900-U+F19FF Fairfax Hax HD";
+
           font_size = 10.0; # breaks bottoms of "g"s if less than 10?
           "modify_font cell_height" = "100%";
 

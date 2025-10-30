@@ -106,7 +106,7 @@
       ttyper
       pwgen
       # moc
-      mpc-cli
+      mpc
       fzf
       fzy
       tmux
@@ -121,7 +121,7 @@
       gitui
       ripgrep
       ripgrep-all
-      du-dust
+      dust
       duf
       dysk
       bacon
@@ -145,7 +145,7 @@
       mediainfo
       rclone
       poppler
-      poppler_utils
+      poppler-utils
       killall
 
       ldns
