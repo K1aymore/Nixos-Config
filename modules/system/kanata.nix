@@ -65,7 +65,12 @@
         ␛w (layer-switch colemak-wide-dh)
         ␛j (layer-switch hiragana)
         ␛k (layer-switch katakana)
-        ␛p (layer-switch sitelen-pona)
+        ␛p XX ;;(layer-switch sitelen-pona)
+
+        ;; for EurKey
+        ä AG-a
+        å AG-w
+        ö AG-o
       )
 
       (deflayer qwerty-symbols
@@ -73,7 +78,7 @@
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _    _    _    _    _    _    _    _    _    _
+        _    _    _    _    _    _    _    _    _    _    🔣…  _
         _    _    _              _              _    _    _    _
       )
 
@@ -90,10 +95,10 @@
       (deflayer colemak-wide-dh
         @esc
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-        tab  q    w    f    p    b    @sft j    l    u    y    ;    '    \
-        @cap a    r    @shs @crt g    @sft m    @crn @she i    o    ret
-        @shz x    c    d    v    [    ]    k    h    ,    .    /
-        lctl lmet lalt           spc            ralt rmet cmp  rctl
+        tab  q    w    f    p    b    XX   j    l    u    y    ;    '    \
+        @cap a    r    @shs @crt g    @ö   m    @crn @she i    o    ret
+        @shz x    c    d    v    @å   @ä   k    h    ,    .    /
+        lctl lmet lalt           spc            @wgr rmet cmp  rctl
       )
 
       (defalias
@@ -107,6 +112,27 @@
         meo (tap-hold 0 ${tap-hold-delay} o lmet)
 
         shz (tap-hold-press 0 ${tap-hold-delay} z lsft)
+
+        wgr (layer-while-held wide-altgr)
+        … (tap-dance-eager 400 (. (macro bspc 🔣…)))
+      )
+
+      (deflayer wide-altgr
+        @esc
+        grv  1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
+        tab  q    w    f    p    b    XX   j    l    u    y    ;    XX    \
+        @cap -    =    S-9  [    g    XX   m    ]    S-0  '    \    ret
+        lsft x    c    d    v    XX   XX   k    h    ,    🔣…  /
+        lctl lmet lalt           spc            ralt rmet cmp  rctl
+      )
+
+      (deflayer wide-altgr-sft
+        @esc
+        grv  1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
+        tab  q    w    f    p    b    XX   j    l    u    y    ;    XX    \
+        @cap -    =    XX   {    g    XX   m    }    XX   '    \    ret
+        lsft x    c    d    v    XX   XX   k    h    ,    🔣…  /
+        lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
 

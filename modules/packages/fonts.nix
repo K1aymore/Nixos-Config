@@ -79,6 +79,96 @@ let
         platforms = platforms.all;
       };
     }));
+  
+  sevenish-sp = ({ lib, stdenvNoCC, fetchFromGitHub, }:
+    stdenvNoCC.mkDerivation (finalAttrs: {
+      pname = "sevenish-sp";
+      version = "2025-02";
+      src = fetchFromGitHub {
+        owner = "SauceDLX";
+        repo = "Sevenish";
+        rev = "ccc4bfdb5ad6af467485c02d505067994f0041a4";
+        hash = "sha256-jKnjoWP++HqBU0bGUVT6xLRIYDEYNSR8OeqCIwt6Zro=";
+      };
+      installPhase = ''
+        install -Dm644 -t $out/share/fonts/truetype SevenishSP.ttf
+      '';
+      meta = with lib; {
+        homepage = "https://github.com/SauceDLX/Sevenish";
+        description = "Pixel font, max height of ~7, ASCII SP ligatures";
+        longDescription = '' '';
+        license = licenses.mit;
+        maintainers = [ ];
+        platforms = platforms.all;
+      };
+    }));
+
+  linja-waso = ({ lib, stdenvNoCC, fetchFromGitHub, }:
+    stdenvNoCC.mkDerivation (finalAttrs: {
+      pname = "linja-waso";
+      version = "v0.5.2";
+      src = fetchFromGitHub {
+        owner = "ItMarki";
+        repo = "linja-waso";
+        rev = "91771e119db5a87a030ec14721a8bed077b8ce37";
+        hash = "sha256-1Z9A098OYGcNujhs00tOKWBDreZBpfZHrMh0rZtwPM8=";
+      };
+      installPhase = ''
+        install -Dm644 -t $out/share/fonts/truetype fonts/linja-waso-lili.ttf
+      '';
+      meta = with lib; {
+        homepage = "https://github.com/ItMarki/linja-waso";
+        description = "Based on the LxgwWenKai Chinese font";
+        longDescription = '' '';
+        license = licenses.ofl;
+        maintainers = [ ];
+        platforms = platforms.all;
+      };
+    }));
+
+  linja-insa = ({ lib, stdenvNoCC, fetchFromGitHub, }:
+    stdenvNoCC.mkDerivation (finalAttrs: {
+      pname = "linja-insa";
+      version = "2024-08";
+      src = fetchFromGitHub {
+        owner = "tomo-pi-linja-yupekosi";
+        repo = "linja-insa";
+        rev = "c1838f3d5c6eb79cf6513f1bd22e654e62de6b54";
+        hash = "sha256-SKHuzU3p7yWSybDCdyOQBBiVT72qMNYDWMU9UBe09cE=";
+      };
+      installPhase = ''
+        install -Dm644 -t $out/share/fonts/truetype TTF/linjainsa-linjameso.ttf
+      '';
+      meta = with lib; {
+        homepage = "https://github.com/tomo-pi-linja-yupekosi/linja-insa/";
+        description = "sans-serif monospace with ucsur ascii and cartouches";
+        longDescription = '' '';
+        license = licenses.mit;
+        maintainers = [ ];
+        platforms = platforms.all;
+      };
+    }));
+
+    linja-lipamanka = ({ lib, stdenvNoCC, fetchFromGitHub, }:
+    stdenvNoCC.mkDerivation (finalAttrs: {
+      pname = "linja-lipamanka";
+      version = "";
+      src = builtins.fetchurl { 
+        url = "https://lipamanka.gay/linjalipamanka-normal.otf";
+        sha256 = "sha256-ZuKxVZKfxePZAjlInTZX9cZ8AXV8O7X6RGDSq+o3s1s=";
+      };
+      installPhase = ''
+        install -Dm644 -t $out/share/fonts/opentype linjalipamanka-normal.otf
+      '';
+      meta = with lib; {
+        homepage = "https://lipamanka.gay/linjamanka";
+        description = "";
+        longDescription = '' '';
+        license = licenses.ofl;
+        maintainers = [ ];
+        platforms = platforms.all;
+      };
+    }));
 
 in
 {
@@ -91,7 +181,11 @@ in
     fonts.packages = map (f: pkgs.callPackage f {}) [
       #craftyPE
       fairfax
+      linja-insa
+      #sevenish-sp
+      #linja-waso
       #linja-pona
+      #linja-lipamanka
     ] ++
     (with pkgs; [
       #nerdfonts
@@ -124,21 +218,24 @@ in
       comic-mono
       monocraft
 
-      # remove so it defaults to Fairfax
-      # linja-pi-pu-lukin
-      # nasin-nanpa # The only one that properly handles words inside each other. kinda hard to read
-      # sitelen-seli-kiwen
-      # linja-sike
+      # The only one that properly handles words inside each other.
+      # Too bold for vscode
+      nasin-nanpa-ucsur
+      nasin-nanpa-helvetica
+
+      #sitelen-seli-kiwen
+      #linja-pi-pu-lukin
+      #linja-sike
     ]);
 
-    # for Discord
+    # for Discord - replaced with nasin-nanpa-helvetica
     # https://stackoverflow.com/questions/53658303/fetchfromgithub-filter-down-and-use-as-environment-etc-file-source
-    home-manager.users.klaymore.home.file.".local/share/fonts/nasin-nanpa-4.0.2-Helvetica.otf".source = pkgs.fetchFromGitHub {
-      owner = "ETBCOR";
-      repo = "nasin-nanpa";
-      rev = "3e533578fd591395f424e09626e7eaa2577914f3";
-      hash = "sha256-BgWt3+vIMvKx4Jrk+Z6GUZPUxYhAdkK9aWCl1/0rneo=";
-    } + "/versions/nasin-nanpa-4.0.2-Helvetica.otf";
+    # home-manager.users.klaymore.home.file.".local/share/fonts/nasin-nanpa-4.0.2-Helvetica.otf".source = pkgs.fetchFromGitHub {
+    #   owner = "ETBCOR";
+    #   repo = "nasin-nanpa";
+    #   rev = "3e533578fd591395f424e09626e7eaa2577914f3";
+    #   hash = "sha256-BgWt3+vIMvKx4Jrk+Z6GUZPUxYhAdkK9aWCl1/0rneo=";
+    # } + "/versions/nasin-nanpa-4.0.2-Helvetica.otf";
 
   };
 }

@@ -41,21 +41,26 @@
       # Foot: Hindi backwards, 
       # Alacritty great font display but not RTL
 
-      # with fish_ambiguous_width 2: foot perfect, kitty small
+      # SP with fish_ambiguous_width 2: foot konsole perfect, kitty small
+      # kitty fish fonts:
+        # inconsistent sizes: sevenish
+        # cut off: nasin nanpa, fairfax, linja waso lili, sitelen seli kiwen, linja insa
+        # not working: pu lukin, linja sike
+
       # fullwidth sitelen pona: wezterm, xterm (with tty_pona), nvim
       # doesn't work with fullwidth sitelen pona: kitty, alacritty, foot, konsole
       # alacritty & foot: renders full-width anyway, crushing them together
       # kitty: renders small unless followed by space, okay
 
-      # supports ctrl+shift+u: foot, kitty (not with kanata?)
-      # no +u unicode: alacritty, wezterm, xfce, konsole, st
+      # supports ctrl+shift+u: foot, kitty (only with ibus) konsole (ibus, visibly types codepoint)
+      # no +u unicode: alacritty, wezterm, xfce, st
 
 
       kitty = {
         enable = true;
         settings = {
           font_family = "Fira Code";
-          #symbol_map = "U+F1900-U+F19FF Fairfax Hax HD";
+          symbol_map = "U+F1900-U+F19FF nasin-nanpa"; # nasin-nanpa Fairfax Hax HD linja insa
 
           font_size = 10.0; # breaks bottoms of "g"s if less than 10?
           "modify_font cell_height" = "100%";

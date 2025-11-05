@@ -23,11 +23,20 @@
     };
   };
   nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-  nix.package = pkgs.lix; # some programs don't use lix, but no compiling
   nix.settings.cores = 6;
   nixpkgs = {
     config.allowUnfree = true;
   };
+
+  # Use Lix
+  nixpkgs.overlays = [ (final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-eval-jobs
+      nix-fast-build
+      colmena;
+  }) ];
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   # stop Nix build if taking too much RAM
   systemd = {
@@ -40,6 +49,13 @@
     # If a kernel-level OOM event does occur anyway,
     # strongly prefer killing nix-daemon child processes
     services."nix-daemon".serviceConfig.OOMScoreAdjust = 1000;
+  };
+
+  # Nice Nix builds to keep system running nicely
+  systemd.services.nix-daemon.serviceConfig = {
+    Nice = lib.mkForce 15;
+    IOSchedulingClass = lib.mkForce "idle";
+    IOSchedulingPriority = lib.mkForce 7;
   };
 
   services.journald.extraConfig = "SystemMaxUse=1G";
