@@ -25,10 +25,12 @@
           chain prerouting {
               type nat hook prerouting priority -100; policy accept;
               #(use journalctl --grep=CONNECTION")
-              iifname "enp4s0" tcp dport ${toString ports.wgEllMCJava} log prefix "MC${toString ports.wgEllMCJava}: " dnat to 10.100.0.2:${toString ports.wgEllMCJava}
               #iifname "enp4s0" udp dport 6970 log prefix "Wg6970: "
               #iifname "enp4s0" tcp dport 6969 log prefix "MC6969: "
+              
+              iifname "enp4s0" tcp dport ${toString ports.wgEllMCJava} log prefix "MC${toString ports.wgEllMCJava}: " dnat to 10.100.0.2:${toString ports.wgEllMCJava}
               iifname "enp4s0" udp dport ${toString ports.wgEllMCBedrock} log prefix "MC${toString ports.wgEllMCBedrock}: " dnat to 10.100.0.2:${toString ports.wgEllMCBedrock}
+
               iifname "enp4s0" tcp dport ${toString ports.minecraft-wildcat} log prefix "MC${toString ports.minecraft-wildcat}: " dnat to 10.200.0.2:${toString ports.minecraft-wildcat}
             }
           }
@@ -85,7 +87,7 @@
           # List of allowed peers.
           { # Feel free to give a meaning full name
             # Public key of the peer (not a file path).
-            publicKey = "mmC2KtYIqeydbfbunLwJSCtCHwUebBLH9LKIj32wSho=";
+            publicKey = "BevyIGfYO9SIdFdolDgne1RfEznn1/RPDzCBt6Pl11w=";
             # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
             allowedIPs = [ "10.100.0.2/32" ];
             persistentKeepalive = 25;

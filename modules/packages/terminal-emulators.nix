@@ -9,6 +9,7 @@
       # konsole: slow with nvim in zellij
       # work fine: alacritty, foot, st
       # nvim: rmpc album art pixelated
+      # foot: strange lines in nvim
 
       # ctrl move and backspace by word: Alacritty, Kitty
       # ctrl backspace only one letter: konsole, st, foot
@@ -55,15 +56,18 @@
       # supports ctrl+shift+u: foot, kitty (only with ibus) konsole (ibus, visibly types codepoint)
       # no +u unicode: alacritty, wezterm, xfce, st
 
+      # Kitty slightly alright setting font_family to Fairfax Hax HD
+      # Kate text offset with nasin-nanpa, setting total font to Fairfax fixes
+
 
       kitty = {
         enable = true;
         settings = {
           font_family = "Fira Code";
-          symbol_map = "U+F1900-U+F19FF nasin-nanpa"; # nasin-nanpa Fairfax Hax HD linja insa
+          symbol_map = "U+F1900-U+F19FF Fairfax Hax HD"; # nasin-nanpa Fairfax Hax HD linja insa
 
           font_size = 10.0; # breaks bottoms of "g"s if less than 10?
-          "modify_font cell_height" = "100%";
+          #"modify_font cell_height" = "100%";
 
           show_hyperlink_targets = "yes";
           underline_hyperlinks = "always";

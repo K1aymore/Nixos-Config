@@ -65,7 +65,7 @@
         ␛w (layer-switch colemak-wide-dh)
         ␛j (layer-switch hiragana)
         ␛k (layer-switch katakana)
-        ␛p XX ;;(layer-switch sitelen-pona)
+        ␛p (layer-switch sitelen-pona)
 
         ;; for EurKey
         ä AG-a
@@ -167,7 +167,7 @@
 
       (defchords hiragana 1000
         (a  ) 🔣あ    (i  ) 🔣い    (u  ) 🔣う    (e  ) 🔣え    (o  ) 🔣お
-        
+
         (k a) 🔣か    (k i) 🔣き    (k u) 🔣く    (k e) 🔣け    (k o) 🔣こ
         (g a) 🔣が    (g i) 🔣ぎ    (g u) 🔣ぐ    (g e) 🔣げ    (g o) 🔣ご
         (s a) 🔣さ    (s i) 🔣し    (s u) 🔣す    (s e) 🔣せ    (s o) 🔣そ
@@ -245,8 +245,61 @@
         (n  ) 🔣ン    ([  ) 🔣［    (]  ) 🔣］    (q [) 🔣「    (q ]) 🔣」
       )
 
-    '';
 
+      ${with builtins; let
+        list = [
+        [ "󱤀" "a"  ] [ "󱤔" "kl" ] [ "󱤨" "li" ] [ "󱤼" "mt" ] [ "󱥐" "in" ] [ "󱥤" "su" ] [ "󱥾" "to" ]
+        [ "󱤁" "ak" ] [ "󱤕" "ka" ] [ "󱤩" "lj" ] [ "󱤽" "np" ] [ "󱥑" "pi" ] [ "󱥥" "up" ] [ "󱥹" "iw" ]
+        [ "󱤂" "al" ] [ "󱤖" "km" ] [ "󱤪" "lu" ] [ "󱤾" "na" ] [ "󱥒" "oa" ] [ "󱥦" "ui" ] [ "󱥸" "nk" ]
+        [ "󱤃" "as" ] [ "󱤗" "ks" ] [ "󱤫" "lo" ] [ "󱤿" "ns" ] [ "󱥓" "oi" ] [ "󱥧" "ta" ] [ "󱥽" "os" ]
+        [ "󱤄" "ai" ] [ "󱤘" "ke" ] [ "󱤬" "ln" ] [ "󱥀" "ne" ] [ "󱥔" "po" ] [ "󱥨" "ts" ] [ "󱥻" "ip" ]
+        [ "󱤅" "ap" ] [ "󱤙" "k"  ] [ "󱤭" "u"  ] [ "󱥁" "n"  ] [ "󱥕" "pu" ] [ "󱥩" "tw" ] [ "󱦀" "kj" ]
+        [ "󱤆" "at" ] [ "󱤚" "ki" ] [ "󱤮" "lk" ] [ "󱥂" "nm" ] [ "󱥖" "sa" ] [ "󱥪" "tl" ]
+        [ "󱤇" "an" ] [ "󱤛" "kw" ] [ "󱤯" "ua" ] [ "󱥃" "no" ] [ "󱥗" "se" ] [ "󱥫" "tn" ] 
+        [ "󱤈" "aw" ] [ "󱤜" "ko" ] [ "󱤰" "ma" ] [ "󱥄" "o"  ] [ "󱥘" "el" ] [ "󱥬" "tk" ]
+        [ "󱤉" "e"  ] [ "󱤝" "kn" ] [ "󱤱" "m2" ] [ "󱥅" "ol" ] [ "󱥙" "sm" ] [ "󱥭" "tm" ]
+        [ "󱤊" "en" ] [ "󱤞" "ku" ] [ "󱤲" "m4" ] [ "󱥆" "on" ] [ "󱥚" "wi" ] [ "󱥮" "t"  ]
+        [ "󱤋" "es" ] [ "󱤟" "kp" ] [ "󱤳" "me" ] [ "󱥇" "op" ] [ "󱥛" "sj" ] [ "󱥯" "un" ]
+        [ "󱤌" "io" ] [ "󱤠" "kt" ] [ "󱤴" "m"  ] [ "󱥈" "pk" ] [ "󱥜" "sk" ] [ "󱥰" "ut" ]
+        [ "󱤍" "ik" ] [ "󱤡" "la" ] [ "󱤵" "mj" ] [ "󱥉" "pl" ] [ "󱥝" "sn" ] [ "󱥱" "ul" ]
+        [ "󱤎" "i"  ] [ "󱤢" "lp" ] [ "󱤶" "mk" ] [ "󱥊" "ps" ] [ "󱥞" "s"  ] [ "󱥲" "wl" ]
+        [ "󱤏" "is" ] [ "󱤣" "ls" ] [ "󱤷" "mo" ] [ "󱥋" "px" ] [ "󱥟" "sp" ] [ "󱥳" "wn" ]
+        [ "󱤐" "jk" ] [ "󱤤" "lw" ] [ "󱤸" "ms" ] [ "󱥌" "pa" ] [ "󱥠" "si" ] [ "󱥴" "ws" ]
+        [ "󱤑" "j"  ] [ "󱤥" "le" ] [ "󱤹" "mu" ] [ "󱥍" "p"  ] [ "󱥡" "so" ] [ "󱥵" "wa" ]
+        [ "󱤒" "jl" ] [ "󱤦" "lt" ] [ "󱤺" "mn" ] [ "󱥎" "pn" ] [ "󱥢" "sw" ] [ "󱥶" "wk" ]
+        [ "󱤓" "jo" ] [ "󱤧" "l"  ] [ "󱤻" "mi" ] [ "󱥏" "pm" ] [ "󱥣" "sl" ] [ "󱥷" "w"  ]
+      ];
+
+      groups = groupBy (l: substring 0 1 (elemAt l 1)) (filter (l: stringLength (elemAt l 1) > 1) list);
+      singles = groupBy (l: substring 0 1 (elemAt l 1)) (filter (l: stringLength (elemAt l 1) == 1) list);
+      in
+      ''
+        (deflayermap sitelen-pona
+          esc @esc
+          . 🔣󱦜
+          ; 🔣󱦝
+          [ 🔣󱦐
+          ] 🔣󱦑
+
+          ${lib.concatMapAttrsStringSep "" (name: list: ''
+            ${name} (tap-hold-press 0 ${tap-hold-delay} 🔣${elemAt (elemAt singles.${name} 0) 0} (layer-while-held sp-${name}))
+          '') groups}
+        )
+      ''
+
+      +
+
+      (lib.concatMapAttrsStringSep "\n" (name: list: ''
+        (deflayermap (sp-${name})
+          ${lib.concatMapStringsSep "    " (touple:
+            substring 1 2 (elemAt touple 1) + " 🔣" + elemAt touple 0
+          ) list}
+        )
+      '') groups)
+
+      }
+     
+  '';
 
   };
 }
