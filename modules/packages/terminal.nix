@@ -9,6 +9,13 @@
       EDITOR = "nvim";
     };
 
+    # Global Configuration
+    # Emacs is running as a daemon here, accesible via the "emacsclient" command
+    services.emacs = {
+      enable = true;
+      package = pkgs.emacs; 
+    };
+
 
     programs.nvf = {
       enable = true;
@@ -61,12 +68,21 @@
             mode = [ "n" "c" "v" ];
             action = "db";
             desc = "Delete previous word";
+            silent = false;
           }
           { # ctrl+s for save
             key = "<C-s>";
             mode = [ "n" "v" ];
-            action = ":w";
+            action = ":w<Enter>";
             desc = "Save file";
+            silent = false;
+          }
+          {
+            key = "<C-S-U>";
+            mode = [ "i" ];
+            action = "<C-v> U";
+            desc = "Insert Unicode character";
+            silent = false;
           }
         ];
 
@@ -92,6 +108,7 @@
           vim.g.neovide_cursor_trail_size = 0.4
           vim.g.neovide_cursor_animation_length = 0.09
           vim.g.neovide_scroll_animation_length = 0.13
+          vim.g.neovide_input_ime = true
         '';
       };
     };
@@ -159,86 +176,18 @@
       };
 
 
-      # neovim = {
-      #   enable = true;
-      #   defaultEditor = true;
-      #   vimAlias = true;
-      #   viAlias = true;
-      #   vimdiffAlias = true;
+      # Home Configuration
+      emacs = {
+        enable = true;
+        package = pkgs.emacs;  # replace with pkgs.emacs-gtk if desired
+        extraConfig = ''
+          (setq standard-indent 2)
+          (add-to-list 'default-frame-alist '(font . "Fira Code-10"))
+          (set-fontset-font "fontset-default" '(#xF1900 . #xF19FF) "Fairfax Hax HD-10")
+        '';
+      };
 
-      #   extraLuaPackages = ps: [
-      #     ps.magick
-      #   ];
-      #   extraPackages = [
-      #     pkgs.ueberzugpp
-      #     pkgs.imagemagick
-      #   ];
 
-      #   #coc.enable = true;
-      #   #nvim-treesitter.withAllGrammars
-      #   # nerdtree ultisnips vimproc slimv tagbar vim-surround vim-airline haskell-vim vim-parinfer
-      #   plugins = with pkgs.vimPlugins; [
-      #     #indentLine
-      #     rainbow #YouCompleteMe
-      #     #minimap-vim
-      #     vim-fugitive #ale
-
-      #     nvim-autopairs
-      #     neoformat
-      #     vim-nix
-      #     #rust-vim
-      #     leap-nvim
-      #     coc-rust-analyzer
-
-      #     vim-lsp
-
-      #     catppuccin-nvim
-      #   ];
-
-      #   extraConfig = ''
-      #     syntax on
-      #     set number
-      #     set relativenumber
-
-      #     let g:rainbow_active = 1
-
-      #     "set expandtab  " spaces instead of tabs
-      #     set tabstop=2
-      #     set shiftwidth=2
-      #     set softtabstop=2
-      #     "set colorcolumn=80
-      #     filetype plugin indent on
-      #     "set list lcs=tab:\·\
-
-      #     set mouse=a
-      #     set mousehide
-
-      #     set splitright
-      #     set splitbelow
-
-      #     autocmd Filetype json
-      #       \ let g:indentLine_setConceal = 0
-
-      #     let g:paredit_electric_return=0
-      #     let g:paredit_disable_ftindent=1
-
-      #     " sitelen pona correct width
-      #     call setcellwidths([
-      #           \ [0xF1900, 0xF19FF, 2],
-      #           \ ])
-      #     colorscheme catppuccin-mocha
-
-      #     set guifont=Fira\ Code,Fairfax\ Hax\ HD:h10
-
-      #     " Neovide settings
-      #     if exists("g:neovide")
-      #       let g:neovide_fullscreen = v:true
-      #       let g:neovide_cursor_trail_size = 0.4
-      #       let g:neovide_cursor_animation_length = 0.09
-      #       let g:neovide_scroll_animation_length = 0.12
-      #     endif
-      #   '';
-      # };
 
 
       tealdeer = {

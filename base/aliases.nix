@@ -98,6 +98,9 @@ in
     ipfslist = "ipfs pin ls | grep recursive";
 
     elementSounds = "sudo rm -r /usr/share/webapps/element/media && sudo cp -r /synced/Sync/Linux/ElementSounds /usr/share/webapps/element/media";
+
+
+    "󱥣󱤇󱤨" = "du -sh";
   };
 
 

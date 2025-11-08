@@ -34,7 +34,7 @@
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/c6922e76-ac69-4c53-814e-af31d997e831";
+    device = "/dev/disk/by-uuid/fbe3f613-943e-47ff-8ba9-930360c36f81";
     fsType="ext4";
   };
 
@@ -50,9 +50,16 @@
   }; */
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/1ba1f601-9259-43e1-a0bc-a80e01fba71c";
+    device = "/dev/disk/by-uuid/11787f82-b1b8-43b4-be7e-876d7f500a4c";
     fsType = "ext4";
   };
+
+  fileSystems."/nix/persist" = {
+    device = "/dev/disk/by-uuid/8bc5deba-3537-427b-9d9d-472dacd191eb";
+    fsType = "ext4";
+    neededForBoot = true;
+  };
+
 
   boot.zfs.extraPools = [ "zfs2" ];
 

@@ -53,12 +53,15 @@
       # alacritty & foot: renders full-width anyway, crushing them together
       # kitty: renders small unless followed by space, okay
 
-      # supports ctrl+shift+u: foot, kitty (only with ibus) konsole (ibus, visibly types codepoint)
-      # no +u unicode: alacritty, wezterm, xfce, st
+      # supports ctrl+shift+u: foot
+      # with ibus: kitty, konsole (visibly types codepoint), alacritty, xfce
+      # no +u unicode: wezterm (jank), st
 
       # Kitty slightly alright setting font_family to Fairfax Hax HD
       # Kate text offset with nasin-nanpa, setting total font to Fairfax fixes
 
+      # ALL VERY BROKEN WHEN MOVING OR CHANGING TEXT IN FISH except vim terminal
+      # Emacs editor okay, term fish broken
 
       kitty = {
         enable = true;
