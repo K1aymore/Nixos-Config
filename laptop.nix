@@ -19,8 +19,8 @@
     };
 
     system = {
-      keyboard = "colemak";
       kanata.enable = true;
+      locale = "sv_SE.UTF-8";
       zram.enable = true;
     };
   };

@@ -184,7 +184,7 @@
 
       # Games
       wineWowPackages.full
-      lutris
+      #lutris
       #playonlinux
       bottles
       #grapejuice

@@ -27,6 +27,7 @@
       impermanence.home.enable = true;
       impermanence.system.enable = true;
       kanata.enable = true;
+      locale = "en_US.UTF-8";
       zram.enable = true;
       zfs.enable = true;
     };

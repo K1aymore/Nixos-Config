@@ -36,11 +36,12 @@
       # foot: stuttering
 
       # for hebrew / hindi they all suck ngl
-      # bidirectional support: kitty, wezsterm kinda
-      # no bidir: alacritty, foot, st, konsole, nvim
+      # bidirectional support: kitty, wezterm kinda
+      # no bidir: alacritty, foot, st, konsole, nvim, nvide
       # Wezterm: butchers Hindi, gnarled but displayed Hebrew
       # Foot: Hindi backwards, 
       # Alacritty great font display but not RTL
+      # Neovide small text (font size), some Hindi squished together
 
       # SP with fish_ambiguous_width 2: foot konsole perfect, kitty small
       # kitty fish fonts:

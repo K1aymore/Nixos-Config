@@ -25,7 +25,7 @@
     system = {
       impermanence.system.enable = true;
       kanata.enable = true;
-      keyboard = ""; # only affects tty
+      locale = "sv_SE.UTF-8";
       zram.enable = true;
     };
   };

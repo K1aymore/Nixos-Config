@@ -36,10 +36,10 @@
 
       (deflayer qwerty
         @esc
-        grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+        grv  1    2    3    4    5    @6^  @7^  8    9    0    -    =    bspc
         tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
         @cap a    s    d    f    g    h    j    k    l    ;    '    ret
-        @sft z    x    c    v    b    n    m    ,    .    /    rsft
+        lsft z    x    c    v    b    n    m    ,    .    /    rsft
         lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
@@ -48,7 +48,10 @@
         cap bspc
         sft (one-shot 1000 lsft)
         qgr (layer-while-held qwerty-symbols)
+        6^ (tap-hold-press 200 500 6 AG-6)
+        7^ (tap-hold-press 200 500 7 🔣ŭ)
       )
+
 
       (deflayer esc
         XX
@@ -95,7 +98,7 @@
       (deflayer colemak-wide-dh
         @esc
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-        tab  q    w    f    p    b    XX   j    l    u    y    ;    '    \
+        tab  q    w    f    p    b    🔣þ  j    l    u    y    ;    '    \
         @cap a    r    @shs @crt g    @ö   m    @crn @she i    o    ret
         @shz x    c    d    v    @å   @ä   k    h    ,    .    /
         lctl lmet lalt           spc            @wgr rmet cmp  rctl
