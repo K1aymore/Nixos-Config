@@ -55,6 +55,7 @@
         fzf-lua.enable = true;
         autocomplete.nvim-cmp.enable = true;
         filetree.neo-tree.enable = true;
+        filetree.neo-tree.setupOpts.auto_clean_after_session_restore = true;
         #filetree.nvimTree.enable = true; # opens automatically
 
         visuals = {
@@ -104,9 +105,9 @@
 
 
           -- Neovide settings
-          vim.g.neovide_fullscreen = true
+          --vim.g.neovide_fullscreen = true
           vim.g.neovide_cursor_trail_size = 0.4
-          vim.g.neovide_cursor_animation_length = 0.09
+          vim.g.neovide_cursor_animation_length = 0.08
           vim.g.neovide_scroll_animation_length = 0.13
           vim.g.neovide_input_ime = true
         '';

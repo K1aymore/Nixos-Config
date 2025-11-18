@@ -94,10 +94,11 @@
         "files.autoSaveDelay" = 100;
         "update.showReleaseNotes" = false;
 
-        "editor.wordWrap" = "bounded";
-        "editor.wordWrapColumn" = 100;
+        "editor.wordWrap" = "on";
+        "editor.wordWrapColumn" = 80;
         "[markdown]" = {
           "editor.wordWrap" = "bounded";
+          "editor.wordWrapColumn" = 80;
         };
       };
     };

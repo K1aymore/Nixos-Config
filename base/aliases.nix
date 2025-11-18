@@ -12,6 +12,7 @@ in
     nrd = "sudo nixos-rebuild dry-build --flake ${configPath} --option connect-timeout 30";
 
     nfu = "nix flake update --option connect-timeout 30";
+    nb = "nix build --option connect-timeout 30";
 
     nrbForErrors = "bash -c \"nixos-rebuild boot --flake . --show-trace 2>/dev/stdout | grep 'while evaluating derivation'\"";
 

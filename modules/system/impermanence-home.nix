@@ -5,7 +5,7 @@
   config = lib.mkIf config.klaymore.system.impermanence.home.enable {
 
     home-manager.users.klaymore = {
-      home.persistence."/synced/persist/home" = {
+      home.persistence."/synced/Nix/persist/home" = {
         removePrefixDirectory = true;
         allowOther = true;
         directories = [
@@ -57,43 +57,21 @@
           "Android/.android"
           "Android/Android"
 
-          "Minecraft/.minecraft"
-          "Prism/.local/share/PrismLauncher"
-          "Polymc/.local/share/polymc"
-          "MultiMC/.local/share/multimc"
-          "Gradle/.gradle"
           
           "JamesDSP/.cache/jamesdsp/"
           "RazerGenie/.local/share/razergenie"
 
-          "Wine/.wine"
-          "Grapejuice/.local/var/log/grapejuice"
-          "Grapejuice/.local/share/grapejuice"
-          "Grapejuice/.config/brinkervii"
-          "PlayOnLinux/.PlayOnLinux"
-          "Lutris/.config/lutris"
-          "Lutris/.local/share/lutris"
-          "Heroic/.config/legendary"
-          "Heroic/.config/heroic"
-          "Games/Games"
-          "Games/My Games"
-          "Bottles/.local/share/bottles"
+
+          { directory = "Steam/.steam";
+            method = "symlink"; }
+          { directory = "Steam/.local/share/Steam";
+            method = "symlink"; }
 
           "Flatpak/.local/share/flatpak"
           #"Flatpak/.var/app"
-          {
-            directory = "Steam/.steam";
-            method = "symlink";
-          }
-          {
-            directory = "Steam/.local/share/Steam";
-            method = "symlink";
-          }
-          "Itch.io/.itch"
-          "Itch.io/.config/itch"
+
           "Cargo/.cargo"
           "Rustup/.rustup"
-          "DwarfFortress/.local/share/df_linux"
 
           "Exodus/.config/Exodus"
           #"Pmbootstrap/.local/var/pmbootstrap"
@@ -139,11 +117,6 @@
           "Keepassxc/.config/keepassxc"
           "GPG/.gnupg"
 
-          "OpenTTD/.config/openttd"
-          "OpenTTD/.local/share/openttd"
-          "OpenDungeons/.config/opendungeons"
-          "OpenDungeons/.local/share/opendungeons"
-          "Crawl/.crawl"
 
           "JOSM/.config/JOSM"
           "JOSM/.local/share/JOSM"
@@ -153,7 +126,7 @@
           "JamesDSP/.config/jamesdsp/liveprog"
           "JamesDSP/.config/jamesdsp/presets"
           "JamesDSP/.config/jamesdsp/vdc"
-          
+
 
           "Libreoffice/.config/libreoffice"
           "DigiKam/.local/share/digikam"
@@ -202,8 +175,40 @@
         ];
       };
 
+      home.persistence."/synced/Nix/games" = {
+        removePrefixDirectory = true;
+        allowOther = true;
+        directories = [
+          "Wine/.wine"
+          "Grapejuice/.local/var/log/grapejuice"
+          "Grapejuice/.local/share/grapejuice"
+          "Grapejuice/.config/brinkervii"
+          "PlayOnLinux/.PlayOnLinux"
+          "Lutris/.config/lutris"
+          "Lutris/.local/share/lutris"
+          "Heroic/.config/legendary"
+          "Heroic/.config/heroic"
+          "Games/Games"
+          "Games/My Games"
+          "Bottles/.local/share/bottles"
+          "Itch.io/.itch"
+          "Itch.io/.config/itch"
 
-      home.persistence."/synced/persist/home/Plasma" = {
+          "DwarfFortress/.local/share/df_linux"
+          "OpenTTD/.config/openttd"
+          "OpenTTD/.local/share/openttd"
+          "OpenDungeons/.config/opendungeons"
+          "OpenDungeons/.local/share/opendungeons"
+          "Crawl/.crawl"
+
+          "Minecraft/.minecraft"
+          "Prism/.local/share/PrismLauncher"
+          "Gradle/.gradle"
+        ];
+      };
+
+
+      home.persistence."/synced/Nix/persist/home/Plasma" = {
         removePrefixDirectory = false;
         allowOther = true;
         directories = [

@@ -44,12 +44,12 @@
       )
 
       (defalias
-        esc (tap-hold-press 200 500 esc (layer-while-held esc))
+        esc (tap-hold-press 0 500 esc (layer-while-held esc))
         cap bspc
         sft (one-shot 1000 lsft)
         qgr (layer-while-held qwerty-symbols)
-        6^ (tap-hold-press 200 500 6 AG-6)
-        7^ (tap-hold-press 200 500 7 🔣ŭ)
+        6^ (tap-hold 0 ${tap-hold-delay} 6 AG-6)
+        7^ (tap-hold 0 ${tap-hold-delay} 7 🔣ŭ)
       )
 
 
@@ -100,7 +100,7 @@
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  q    w    f    p    b    🔣þ  j    l    u    y    ;    '    \
         @cap a    r    @shs @crt g    @ö   m    @crn @she i    o    ret
-        @shz x    c    d    v    @å   @ä   k    h    ,    .    /
+        @shz x    c    d    v    @ä   @å   k    h    ,    .    /
         lctl lmet lalt           spc            @wgr rmet cmp  rctl
       )
 
