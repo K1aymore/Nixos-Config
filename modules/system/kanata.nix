@@ -36,7 +36,7 @@
 
       (deflayer qwerty
         @esc
-        grv  1    2    3    4    5    @6^  @7^  8    9    0    -    =    bspc
+        grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
         @cap a    s    d    f    g    h    j    k    l    ;    '    ret
         lsft z    x    c    v    b    n    m    ,    .    /    rsft
@@ -71,9 +71,14 @@
         ␛p (layer-switch sitelen-pona)
 
         ;; for EurKey
-        ä AG-a
-        å AG-w
-        ö AG-o
+        — AG-S--   – AG--     … AG-S-/
+        ä AG-a     å AG-w     ö AG-o
+        Ä AG-S-a   Å AG-S-w   Ö AG-S-o
+        é AG-g     É AG-S-g
+        ĉ (macro AG-6 c)     ĝ (macro AG-6 g)     ĥ (macro AG-6 h)
+        ĵ (macro AG-6 j)     ŝ (macro AG-6 s)
+        Ĉ (macro AG-6 S-c)   Ĝ (macro AG-6 S-g)   Ĥ (macro AG-6 S-h)
+        Ĵ (macro AG-6 S-j)   Ŝ (macro AG-6 S-s)
       )
 
       (deflayer qwerty-symbols
@@ -81,7 +86,7 @@
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _    _
         _    _    _    _    _    _    _    _    _    _    _    _    _
-        _    _    _    _    _    _    _    _    _    _    🔣…  _
+        _    _    _    _    _    _    _    _    _    _    @…   _
         _    _    _              _              _    _    _    _
       )
 
@@ -98,46 +103,58 @@
       (deflayer colemak-wide-dh
         @esc
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-        tab  q    w    f    p    b    🔣þ  j    l    u    y    ;    '    \
+        tab  q    w    f    p    b    🔣þ  j    l    u    y    [    ]    \
         @cap a    r    @shs @crt g    @ö   m    @crn @she i    o    ret
         @shz x    c    d    v    @ä   @å   k    h    ,    .    /
         lctl lmet lalt           spc            @wgr rmet cmp  rctl
       )
 
+      (deflayermap (wide-sft)
+        ;; TODO: doesn't re-press shift after release
+        ralt (multi (release-key lsft) (layer-while-held wide-ag-sft))
+        y 🔣Þ
+      )
+
       (defalias
         crt (tap-hold 0 ${tap-hold-delay} t lctl)
-        shs (tap-hold 0 ${tap-hold-delay} s lsft)
+        shs (tap-hold 0 ${tap-hold-delay} s (multi lsft (layer-while-held wide-sft)))
         alr (tap-hold 0 ${tap-hold-delay} r lalt)
         mea (tap-hold 0 ${tap-hold-delay} a lmet)
         crn (tap-hold 0 ${tap-hold-delay} n lctl)
-        she (tap-hold 0 ${tap-hold-delay} e lsft)
+        she (tap-hold 0 ${tap-hold-delay} e (multi lsft (layer-while-held wide-sft)))
         ali (tap-hold 0 ${tap-hold-delay} i lalt)
         meo (tap-hold 0 ${tap-hold-delay} o lmet)
 
-        shz (tap-hold-press 0 ${tap-hold-delay} z lsft)
+        shz (tap-hold-press 0 ${tap-hold-delay} z (multi lsft (layer-while-held wide-sft)))
 
-        wgr (layer-while-held wide-altgr)
-        … (tap-dance-eager 400 (. (macro bspc 🔣…)))
+        wgr (tap-hold-press 0 ${tap-hold-delay} rpt (layer-while-held wide-ag))
       )
 
-      (deflayer wide-altgr
+
+
+      (deflayer wide-ag
         @esc
-        grv  1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
-        tab  q    w    f    p    b    XX   j    l    u    y    ;    XX    \
-        @cap -    =    S-9  [    g    XX   m    ]    S-0  '    \    ret
-        lsft x    c    d    v    XX   XX   k    h    ,    🔣…  /
+        grv  1    2    3    4    5    6    7    8    9    0    @—   XX   bspc
+        tab  XX   XX   XX   XX   XX   XX   XX   S-;  🔣ŭ  @é   XX   XX   \
+        @cap @å   @ö   @gsŝ @ä   @ĝ   XX   S-[  ;    @gs= S-'  '    ret
+        @gsh XX   @ĉ   S-9  S-0  XX   XX   S-]  @ĥ   @ĵ   @…   XX
         lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
-      (deflayer wide-altgr-sft
+      (deflayer wide-ag-sft
         @esc
-        grv  1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
-        tab  q    w    f    p    b    XX   j    l    u    y    ;    XX    \
-        @cap -    =    XX   {    g    XX   m    }    XX   '    \    ret
-        lsft x    c    d    v    XX   XX   k    h    ,    🔣…  /
+        grv  1    2    3    4    5    6    7    8    9    0    @–   XX   bspc
+        tab  XX   XX   XX   XX   XX   XX   XX   XX   🔣Ŭ  @É   XX   XX   S-\
+        @cap @Å   @Ö   @Ŝ   @Ä   @Ĝ   XX   [    S-;  XX   XX   XX   ret
+        lsft XX   @Ĉ   XX   XX   XX   XX   ]    @Ĥ   @Ĵ   XX   XX
         lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
+      (defalias
+        gsh (layer-while-held wide-ag-sft)
+        gsŝ (tap-hold 0 ${tap-hold-delay} (macro AG-6 s) (layer-while-held wide-ag-sft))
+        gs= (tap-hold 0 ${tap-hold-delay} =              (layer-while-held wide-ag-sft))
+      )
 
 
 
@@ -274,8 +291,11 @@
       ];
 
       groups = groupBy (l: substring 0 1 (elemAt l 1)) (filter (l: stringLength (elemAt l 1) > 1) list);
+      #                 ^ group by first character      ^ only 2-char long words
       singles = groupBy (l: substring 0 1 (elemAt l 1)) (filter (l: stringLength (elemAt l 1) == 1) list);
+      #                  ^ first character               ^ only single char words
       in
+      # Base keybinds, plus held leader keys to switch to other layers
       ''
         (deflayermap sitelen-pona
           esc @esc
@@ -291,12 +311,12 @@
       ''
 
       +
-
-      (lib.concatMapAttrsStringSep "\n" (name: list: ''
+      # Generate different layers for second keypress
+      (lib.concatMapAttrsStringSep "\n" (name: group: ''
         (deflayermap (sp-${name})
           ${lib.concatMapStringsSep "    " (touple:
             substring 1 2 (elemAt touple 1) + " 🔣" + elemAt touple 0
-          ) list}
+          ) group}
         )
       '') groups)
 

@@ -292,6 +292,11 @@
       #     }";
       # };
 
+      obs-studio.enable = true;
+      element-desktop.enable = true;
+      chromium.enable = true;
+
+
       lapce = {
         enable = false;
 

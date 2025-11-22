@@ -26,18 +26,23 @@
 
 
       bottom.enable = true;
+      bat.enable = true;
+      eza.enable = true;
+      micro.enable = true;
+      delta.enable = true;
       yazi.enable = true;
 
       hyprland.enable = true;
       hyprlock.enable = true;
       #waybar.enable = true;
 
+      element-desktop.enable = true;
+      obs.enable = true;  # adds option to menu
+      chromium.enable = true;
+      librewolf.enable = true;
 
       fcitx5.enable = true;
-      kvantum = {
-        enable = true;
-        accent = "maroon"; 
-      };
+      kvantum.enable = true;
 
       vscode.profiles.default = {
         enable = true;

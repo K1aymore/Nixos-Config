@@ -258,5 +258,12 @@
     # };
     users.users.klaymore.extraGroups = [ "docker" ];
 
+    home-manager.users.klaymore.programs = {
+      micro.enable = true;
+      bat.enable = true;
+      eza.enable = true;
+      delta.enable = true;
+    };
+
   };
 }
