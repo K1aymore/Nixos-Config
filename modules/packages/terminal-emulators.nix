@@ -68,7 +68,7 @@
         enable = true;
         settings = {
           font_family = "Fira Code";
-          symbol_map = "U+F1900-U+F19FF Fairfax Hax HD"; # nasin-nanpa Fairfax Hax HD linja insa
+          symbol_map = "U+F1900-U+F19FF nasin-nanpa"; # nasin-nanpa Fairfax Hax HD linja insa
 
           font_size = 10.0; # breaks bottoms of "g"s if less than 10?
           #"modify_font cell_height" = "100%";
@@ -131,7 +131,7 @@
         extraConfig = ''
           local wezterm = require 'wezterm'
           return {
-            font = wezterm.font_with_fallback { "Fira Code", "Fairfax Hax HD", },
+            font = wezterm.font_with_fallback { "Fira Code", "nasin-nanpa", "Fairfax Hax HD", },
             font_size = 10.0,
             cell_widths = {
               { first = 0xF1900, last = 0xF19FF, width = 2 },
@@ -149,7 +149,7 @@
         enable = true;
         settings = {
           font = {
-            normal = [ "Fira Code" "Fairfax Hax HD" ];
+            normal = [ "Fira Code" "nasin-nanpa" ];
             size = 10;
           };
           tabs = false;

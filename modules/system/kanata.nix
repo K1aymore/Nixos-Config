@@ -5,6 +5,7 @@
   config = let 
     chord-time = "1000";
     tap-hold-delay = "200";
+    tap-dance-delay = "275";
   in  lib.mkIf config.klaymore.system.kanata.enable {
 
     # Keyd: no private use unicode support (yet). No unicode in Steam but oh well. Only supports ~67 macros or something before stops working. discord and vscode iffy, maybe only in xwayland?
@@ -44,7 +45,7 @@
       )
 
       (defalias
-        esc (tap-hold-press 0 500 esc (layer-while-held esc))
+        esc (tap-hold-press ${tap-dance-delay} 500 esc (layer-while-held esc))
         cap bspc
         sft (one-shot 1000 lsft)
         qgr (layer-while-held qwerty-symbols)
@@ -90,6 +91,11 @@
         _    _    _              _              _    _    _    _
       )
 
+
+
+
+
+      ;; COLEMAK
 
       (deflayer colemak
         @esc
@@ -159,30 +165,21 @@
 
 
 
-      (deflayer hiragana
-        @esc
-        grv  1    2    3    4    5    6    7    8    9    0    @j-  XX   bspc
-        tab  XX   @jw  @je  @jr  @jt  @jy  @ju  @ji  @jo  @jp  @j[  @j]  XX
-        @cap @ja  @js  @jd  XX   @jg  @jh  @jj  @jk  @jl  @j;  @j'  ret
-        lsft @jz  XX   XX   @jv  @jb  @jn  @jm  @j,  @j.  XX   rsft
-        lctl lmet lalt           spc            ralt rmet cmp  rctl
-      )
 
-      (defalias
-        ja (chord hiragana a)   ji (chord hiragana i)   ju (chord hiragana u)
-        je (chord hiragana e)   jo (chord hiragana o)
+      ;; HIRAGANA
 
-        jk (chord hiragana k)   jg (chord hiragana g)
-        js (chord hiragana s)   jz (chord hiragana z)
-        jt (chord hiragana t)   jd (chord hiragana d)
-        jn (chord hiragana n)   jm (chord hiragana m)
-        jh (chord hiragana h)   jb (chord hiragana b)   jp (chord hiragana p)
-        jr (chord hiragana r)   jl (chord hiragana r)
-        jy (chord hiragana y)   jj (chord hiragana y)
-        jw (chord hiragana w)   jv (chord hiragana v)
+      (deflayermap hiragana
+        esc @esc    caps @cap    lctl (multi lctl (layer-while-held qwerty))
+        , 🔣、   . 🔣。   - 🔣ー   ; 🔣󱦝
 
-        j[ (chord hiragana [)   j] (chord hiragana ])   j' (chord hiragana q)
-        j, 🔣、   j. 🔣。   j- 🔣ー   j; 🔣󱦝
+        ${lib.concatMapStrings (c: "${c} (chord hiragana ${c})\n")
+          (lib.stringToCharacters "abcdefghikmnoprstuvwyz[]'")
+        }
+        j (chord hiragana y)    l (chord hiragana r)
+        q 🔣っ    x XX
+
+        1 🔣一   2 🔣二   3 🔣三   4 🔣四   5 🔣五   6 🔣六   7 🔣七   8 🔣八   9 🔣九
+        0 (tap-dance ${tap-dance-delay} (🔣零 🔣十 🔣百 🔣千 🔣万))
       )
 
       (defchords hiragana 1000
@@ -207,36 +204,22 @@
         (w a) 🔣わ    (w i) 🔣ゐ                  (w e) 🔣ゑ    (w o) 🔣を
 
         (v a) 🔣ゃ    (v i) 🔣っ    (v u) 🔣ゅ                  (v o) 🔣ょ
-        (s h i) 🔣し  (t s u) 🔣つ  (s  ) 🔣す
-        (n  ) 🔣ん    ([  ) 🔣［    (]  ) 🔣］    (q [) 🔣「    (q ]) 🔣」
+        (s h i) 🔣し  (t s u) 🔣つ  (s  ) 🔣す    (c i) 🔣ち    (c h i) 🔣ち  (f u) 🔣ふ
+        (n  ) 🔣ん    ([  ) 🔣［    (]  ) 🔣］    (' [) 🔣「     (' ]) 🔣」
       )
 
 
 
-      (deflayer katakana
-        @esc
-        grv  1    2    3    4    5    6    7    8    9    0    @k-  XX   bspc
-        tab  XX   @kw  @ke  @kr  @kt  @ky  @ku  @ki  @ko  @kp  @k[  @k]  XX
-        @cap @ka  @ks  @kd  XX   @kg  @kh  @kj  @kk  @kl  @k;  @k'  ret
-        lsft @kz  XX   XX   @kv  @kb  @kn  @km  @k,  @k.  XX   rsft
-        lctl lmet lalt           spc            ralt rmet cmp  rctl
-      )
+      (deflayermap katakana
+        esc @esc    caps @cap    lctl (multi lctl (layer-while-held qwerty))
+        , 🔣、   . 🔣。   - 🔣ー   ; 🔣󱦝
 
-      (defalias
-        ka (chord katakana a)   ki (chord katakana i)   ku (chord katakana u)
-        ke (chord katakana e)   ko (chord katakana o)
+        ${lib.concatMapStrings (c: "${c} (chord katakana ${c})\n")
+          (lib.stringToCharacters "abcdefghikmnoprstuvwyz[]'")
+        }
+        j (chord katakana y)    l (chord katakana r)
+        q 🔣ッ    x XX
 
-        kk (chord katakana k)   kg (chord katakana g)
-        ks (chord katakana s)   kz (chord katakana z)
-        kt (chord katakana t)   kd (chord katakana d)
-        kn (chord katakana n)   km (chord katakana m)
-        kh (chord katakana h)   kb (chord katakana b)   kp (chord katakana p)
-        kr (chord katakana r)   kl (chord katakana r)
-        ky (chord katakana y)   kj (chord katakana y)
-        kw (chord katakana w)   kv (chord katakana v)
-
-        k[ (chord katakana [)   k] (chord katakana ])   k' (chord katakana q)
-        k, 🔣、   k. 🔣。   k- 🔣ー   k; 🔣󱦝
       )
 
       (defchords katakana 1000
@@ -261,20 +244,21 @@
         (w a) 🔣ワ    (w i) 🔣ヰ                  (w e) 🔣ヱ    (w o) 🔣ヲ
 
         (v a) 🔣ャ    (v i) 🔣ッ    (v u) 🔣ュ                  (v o) 🔣ョ
-        (s h i) 🔣シ  (t s u) 🔣ツ  (s  ) 🔣ス
-        (n  ) 🔣ン    ([  ) 🔣［    (]  ) 🔣］    (q [) 🔣「    (q ]) 🔣」
+        (s h i) 🔣シ  (t s u) 🔣ツ  (s  ) 🔣ス    (c i) 🔣チ    (c h i) 🔣チ  (f u) 🔣フ
+        (n  ) 🔣ン    ([  ) 🔣［    (]  ) 🔣］    (' [) 🔣「     (' ]) 🔣」
       )
+
 
 
       ${with builtins; let
         list = [
         [ "󱤀" "a"  ] [ "󱤔" "kl" ] [ "󱤨" "li" ] [ "󱤼" "mt" ] [ "󱥐" "in" ] [ "󱥤" "su" ] [ "󱥾" "to" ]
-        [ "󱤁" "ak" ] [ "󱤕" "ka" ] [ "󱤩" "lj" ] [ "󱤽" "np" ] [ "󱥑" "pi" ] [ "󱥥" "up" ] [ "󱥹" "iw" ]
+        [ "󱤁" "ak" ] [ "󱤕" "ka" ] [ "󱤩" "lj" ] [ "󱤽" "np" ] [ "󱥑" "pi" ] [ "󱥥" "sa" ] [ "󱥹" "iw" ]
         [ "󱤂" "al" ] [ "󱤖" "km" ] [ "󱤪" "lu" ] [ "󱤾" "na" ] [ "󱥒" "oa" ] [ "󱥦" "ui" ] [ "󱥸" "nk" ]
         [ "󱤃" "as" ] [ "󱤗" "ks" ] [ "󱤫" "lo" ] [ "󱤿" "ns" ] [ "󱥓" "oi" ] [ "󱥧" "ta" ] [ "󱥽" "os" ]
         [ "󱤄" "ai" ] [ "󱤘" "ke" ] [ "󱤬" "ln" ] [ "󱥀" "ne" ] [ "󱥔" "po" ] [ "󱥨" "ts" ] [ "󱥻" "ip" ]
         [ "󱤅" "ap" ] [ "󱤙" "k"  ] [ "󱤭" "u"  ] [ "󱥁" "n"  ] [ "󱥕" "pu" ] [ "󱥩" "tw" ] [ "󱦀" "kj" ]
-        [ "󱤆" "at" ] [ "󱤚" "ki" ] [ "󱤮" "lk" ] [ "󱥂" "nm" ] [ "󱥖" "sa" ] [ "󱥪" "tl" ]
+        [ "󱤆" "at" ] [ "󱤚" "ki" ] [ "󱤮" "lk" ] [ "󱥂" "nm" ] [ "󱥖" "="  ] [ "󱥪" "tl" ] [ "󱥖" "==" ]
         [ "󱤇" "an" ] [ "󱤛" "kw" ] [ "󱤯" "ua" ] [ "󱥃" "no" ] [ "󱥗" "se" ] [ "󱥫" "tn" ] 
         [ "󱤈" "aw" ] [ "󱤜" "ko" ] [ "󱤰" "ma" ] [ "󱥄" "o"  ] [ "󱥘" "el" ] [ "󱥬" "tk" ]
         [ "󱤉" "e"  ] [ "󱤝" "kn" ] [ "󱤱" "m2" ] [ "󱥅" "ol" ] [ "󱥙" "sm" ] [ "󱥭" "tm" ]
@@ -298,7 +282,9 @@
       # Base keybinds, plus held leader keys to switch to other layers
       ''
         (deflayermap sitelen-pona
-          esc @esc
+          esc @esc    caps @cap    lctl (multi lctl (layer-while-held qwerty))
+          lsft (layer-while-held sitelen-pona-sft)
+          / 🔣‍  ;; zero width joiner
           . 🔣󱦜
           ; 🔣󱦝
           [ 🔣󱦐
@@ -308,8 +294,14 @@
             ${name} (tap-hold-press 0 ${tap-hold-delay} 🔣${elemAt (elemAt singles.${name} 0) 0} (layer-while-held sp-${name}))
           '') groups}
         )
-      ''
 
+        (deflayermap sitelen-pona-sft
+          [ 🔣󱦗  ;; start of long glyph
+          ] 🔣󱦘  ;; end of long glyph
+          - 🔣󱦕  ;; stacking combiner
+          = 🔣󱦖  ;; scaling combiner
+        )
+      ''
       +
       # Generate different layers for second keypress
       (lib.concatMapAttrsStringSep "\n" (name: group: ''

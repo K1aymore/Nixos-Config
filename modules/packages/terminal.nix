@@ -67,10 +67,18 @@
           {
             key = "<C-BS>";
             mode = [ "n" "c" "v" ];
-            action = "db";
+            action = "ldb";
             desc = "Delete previous word";
             silent = false;
           }
+          {
+            key = "<C-BS>";
+            mode = [ "i" ];
+            action = "<ESC>ldbi";
+            desc = "Delete previous word";
+            silent = false;
+          }
+
           { # ctrl+s for save
             key = "<C-s>";
             mode = [ "n" "v" ];
@@ -79,9 +87,17 @@
             silent = false;
           }
           {
+            key = "<C-s>";
+            mode = [ "i" ];
+            action = "<ESC>:w<Enter>i";
+            desc = "Save file";
+            silent = false;
+          }
+
+          {
             key = "<C-S-U>";
             mode = [ "i" ];
-            action = "<C-v> U";
+            action = "<C-v>U";
             desc = "Insert Unicode character";
             silent = false;
           }
@@ -94,7 +110,7 @@
           shiftwidth = 2;
           softtabstop = 2;
 
-          guifont = "Fira Code,Fairfax Hax HD:h10";
+          guifont = "Fira Code,nasin-nanpa:h10";
         };
         
         
@@ -110,6 +126,7 @@
           vim.g.neovide_cursor_animation_length = 0.08
           vim.g.neovide_scroll_animation_length = 0.13
           vim.g.neovide_input_ime = true
+          vim.g.neovide_cursor_hack = false
         '';
       };
     };

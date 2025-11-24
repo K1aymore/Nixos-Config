@@ -241,7 +241,6 @@
     programs = {
       obs-studio.enable = true;
       partition-manager.enable = true;
-      gamemode.enable = true;
       gamescope.enable = true;
     };
 
@@ -277,6 +276,14 @@
       };
     };
 
+    programs.gamemode.enable = true;
+    programs.gamemode.settings = {
+      general = {
+        renice = 10;
+        desiredgov = "performance";
+        desiredprof = "performance";
+      };
+    };
 
 
     home-manager.users.klaymore.programs = {

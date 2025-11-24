@@ -22,9 +22,9 @@
     };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
-    sitelen-pona-UCSUR = {
-      url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
-    };
+    # sitelen-pona-UCSUR = {
+    #   url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
+    # };
 
   };
 

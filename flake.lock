@@ -290,25 +290,7 @@
         "nixpkgs-pc": "nixpkgs-pc",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-superstable": "nixpkgs-superstable",
-        "nvf": "nvf",
-        "sitelen-pona-UCSUR": "sitelen-pona-UCSUR"
-      }
-    },
-    "sitelen-pona-UCSUR": {
-      "locked": {
-        "dir": "sitelen-pona-UCSUR",
-        "lastModified": 1745474696,
-        "narHash": "sha256-8NXoJyOMHjuih5A4ipzCsOYo4L4J9o/5uDzhbvKOk3k=",
-        "owner": "K1aymore",
-        "repo": "nix-utils",
-        "rev": "fac8357802a9e32e4df7a2099c3b96cd3eda0615",
-        "type": "github"
-      },
-      "original": {
-        "dir": "sitelen-pona-UCSUR",
-        "owner": "K1aymore",
-        "repo": "nix-utils",
-        "type": "github"
+        "nvf": "nvf"
       }
     },
     "systems": {

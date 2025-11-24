@@ -178,10 +178,11 @@ in
       joypixels.acceptLicense = true;
     };
 
+    fonts.enableDefaultPackages = true;
     fonts.packages = map (f: pkgs.callPackage f {}) [
       #craftyPE
-      fairfax
-      linja-insa
+      #fairfax
+      #linja-insa
       #sevenish-sp
       #linja-waso
       #linja-pona
@@ -189,6 +190,7 @@ in
     ] ++
     (with pkgs; [
       #nerdfonts
+      nerd-fonts.symbols-only
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
@@ -227,6 +229,14 @@ in
       #linja-pi-pu-lukin
       #linja-sike
     ]);
+
+    fonts.fontconfig = {
+      subpixel.rgba = "rgb";
+      useEmbeddedBitmaps = true; # fix Firefox emoji
+      defaultFonts = {
+        monospace = [ "Fira Code" "DejaVu Sans Mono" "nasin-nanpa" "Helvetica" ];
+      };
+    };
 
     # for Discord - replaced with nasin-nanpa-helvetica
     # https://stackoverflow.com/questions/53658303/fetchfromgithub-filter-down-and-use-as-environment-etc-file-source
