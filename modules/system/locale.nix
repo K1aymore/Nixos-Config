@@ -16,7 +16,7 @@
       "C.UTF-8/UTF-8"
     ];
     i18n.extraLocaleSettings = {
-      LANGUAGE = "sv:fr:en:c.UTF-8:tok:eo";
+      LANGUAGE = "sv.UTF-8:fr.UTF-8:en.UTF-8:c.UTF-8:tok.UTF-8:eo.UTF-8";
     };
 
 

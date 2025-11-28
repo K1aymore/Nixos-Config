@@ -24,6 +24,7 @@
     services.kanata.enable = true;
     services.kanata.keyboards.default.extraDefCfg = ''
       concurrent-tap-hold yes
+      process-unmapped-keys yes
     '';
     services.kanata.keyboards.default.config = ''
       (defsrc
@@ -47,7 +48,6 @@
       (defalias
         esc (tap-hold-press ${tap-dance-delay} 500 esc (layer-while-held esc))
         cap bspc
-        sft (one-shot 1000 lsft)
         qgr (layer-while-held qwerty-symbols)
         6^ (tap-hold 0 ${tap-hold-delay} 6 AG-6)
         7^ (tap-hold 0 ${tap-hold-delay} 7 🔣ŭ)
@@ -102,7 +102,7 @@
         grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
         tab  q    w    f    p    g    j    l    u    y    ;    [    ]    \
         @cap a    r    s    t    d    h    n    e    i    o    '    ret
-        @sft z    x    c    v    b    k    m    ,    .    /    rsft
+        lsft z    x    c    v    b    k    m    ,    .    /    rsft
         lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
@@ -112,7 +112,7 @@
         tab  q    w    f    p    b    🔣þ  j    l    u    y    [    ]    \
         @cap a    r    @shs @crt g    @ö   m    @crn @she i    o    ret
         @shz x    c    d    v    @ä   @å   k    h    ,    .    /
-        lctl lmet lalt           spc            @wgr rmet cmp  rctl
+        lctl lmet lalt           @spc          @wgr rmet cmp  rctl
       )
 
       (deflayermap (wide-sft)
@@ -134,6 +134,7 @@
         shz (tap-hold-press 0 ${tap-hold-delay} z (multi lsft (layer-while-held wide-sft)))
 
         wgr (tap-hold-press 0 ${tap-hold-delay} rpt (layer-while-held wide-ag))
+        spc (tap-hold ${tap-dance-delay} ${tap-hold-delay} spc (layer-while-held wide-extend))
       )
 
 
@@ -162,7 +163,14 @@
         gs= (tap-hold 0 ${tap-hold-delay} =              (layer-while-held wide-ag-sft))
       )
 
-
+      (deflayer wide-extend
+        @esc
+        grv  1    2    3    4    5    6    7    8    9    0    XX   XX   bspc
+        tab  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+        @cap XX   XX   lsft lctl XX   XX   XX   left down up   rght ret
+        lsft XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+        lctl lmet lalt           spc            ralt rmet cmp  rctl
+      )
 
 
 
@@ -251,6 +259,7 @@
 
 
       ${with builtins; let
+        # based on https://web.archive.org/web/20210118014238/https://wyub.github.io/tokipona/sitelenike/tokiponalili
         list = [
         [ "󱤀" "a"  ] [ "󱤔" "kl" ] [ "󱤨" "li" ] [ "󱤼" "mt" ] [ "󱥐" "in" ] [ "󱥤" "su" ] [ "󱥾" "to" ]
         [ "󱤁" "ak" ] [ "󱤕" "ka" ] [ "󱤩" "lj" ] [ "󱤽" "np" ] [ "󱥑" "pi" ] [ "󱥥" "sa" ] [ "󱥹" "iw" ]

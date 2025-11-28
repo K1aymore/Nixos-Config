@@ -9,12 +9,6 @@
       EDITOR = "nvim";
     };
 
-    # Global Configuration
-    # Emacs is running as a daemon here, accesible via the "emacsclient" command
-    services.emacs = {
-      enable = true;
-      package = pkgs.emacs; 
-    };
 
 
     programs.nvf = {
@@ -193,17 +187,6 @@
         };
       };
 
-
-      # Home Configuration
-      emacs = {
-        enable = true;
-        package = pkgs.emacs;  # replace with pkgs.emacs-gtk if desired
-        extraConfig = ''
-          (setq standard-indent 2)
-          (add-to-list 'default-frame-alist '(font . "Fira Code-10"))
-          (set-fontset-font "fontset-default" '(#xF1900 . #xF19FF) "Fairfax Hax HD-10")
-        '';
-      };
 
 
 

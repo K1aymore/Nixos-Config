@@ -190,7 +190,7 @@ in
     ] ++
     (with pkgs; [
       #nerdfonts
-      nerd-fonts.symbols-only
+      #nerd-fonts.symbols-only  # collides with 󱥠󱥔
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
@@ -238,14 +238,34 @@ in
       };
     };
 
-    # for Discord - replaced with nasin-nanpa-helvetica
     # https://stackoverflow.com/questions/53658303/fetchfromgithub-filter-down-and-use-as-environment-etc-file-source
-    # home-manager.users.klaymore.home.file.".local/share/fonts/nasin-nanpa-4.0.2-Helvetica.otf".source = pkgs.fetchFromGitHub {
+    # home-manager.users.klaymore.home.file.".local/share/fonts/nasin-nanpa-5.0.0-beta.3.otf".source = pkgs.fetchFromGitHub {
     #   owner = "ETBCOR";
     #   repo = "nasin-nanpa";
-    #   rev = "3e533578fd591395f424e09626e7eaa2577914f3";
-    #   hash = "sha256-BgWt3+vIMvKx4Jrk+Z6GUZPUxYhAdkK9aWCl1/0rneo=";
-    # } + "/versions/nasin-nanpa-4.0.2-Helvetica.otf";
+    #   rev = "803e6b32f30aa99c6e779267921e3f0fd57c9f63";
+    #   hash = "sha256-5fPzJyx1PryqZLeU0EOKxtLOFP0jJ1GYS+7ffDEZoCQ=";
+    # } + "/versions/nasin-nanpa-5.0.0-beta.3.otf";
+
+
+    nixpkgs.overlays = [
+      (final: prev: {
+        nasin-nanpa-ucsur = prev.nasin-nanpa-ucsur.overrideAttrs (old: rec {
+          version = "5.0.0-beta.3";
+          src = pkgs.fetchurl {
+            url = "https://github.com/ETBCOR/nasin-nanpa/releases/download/n${version}/nasin-nanpa-${version}-UCSUR.otf";
+            hash = "sha256-vmPOTWkRelPLQtATjlSGbMEhfnkrJvuT0Ip/hi5BiGg=";
+          };
+        });
+        nasin-nanpa-helvetica = prev.nasin-nanpa-helvetica.overrideAttrs (old: rec {
+          version = "5.0.0-beta.3";
+          src = pkgs.fetchurl {
+            url = "https://github.com/ETBCOR/nasin-nanpa/releases/download/n${version}/nasin-nanpa-${version}-Helvetica.otf";
+            hash = "sha256-NlfLBzfHoHRmF4/OsadcSAS/lXu/SMDZJNm8F0yFDyM=";
+          };
+        });
+      })
+    ];
+
 
   };
 }

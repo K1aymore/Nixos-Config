@@ -229,13 +229,6 @@
 
     services.flatpak.enable = true;
 
-    # home-manager.users.klaymore.programs.emacs = {
-    #   enable = true;
-    #   package = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ emacsPackages.slime ]));
-    #   extraConfig = ''
-    #     (setq standard-indent 4)
-    #   '';
-    # };
 
 
     programs = {
