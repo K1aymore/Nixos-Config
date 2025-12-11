@@ -174,6 +174,8 @@
 
 
 
+
+
       ;; HIRAGANA
 
       (deflayermap hiragana
@@ -227,7 +229,6 @@
         }
         j (chord katakana y)    l (chord katakana r)
         q 🔣ッ    x XX
-
       )
 
       (defchords katakana 1000
@@ -283,11 +284,12 @@
         [ "󱤓" "jo" ] [ "󱤧" "l"  ] [ "󱤻" "mi" ] [ "󱥏" "pm" ] [ "󱥣" "sl" ] [ "󱥷" "w"  ]
       ];
 
+      # attrset with name = first letter; value = list of symbol-key pairs;
       groups = groupBy (l: substring 0 1 (elemAt l 1)) (filter (l: stringLength (elemAt l 1) > 1) list);
-      #                 ^ group by first character      ^ only 2-char long words
+      # attrset with name = letter; value = list of one symbol-key pair;
       singles = groupBy (l: substring 0 1 (elemAt l 1)) (filter (l: stringLength (elemAt l 1) == 1) list);
-      #                  ^ first character               ^ only single char words
       in
+      
       # Base keybinds, plus held leader keys to switch to other layers
       ''
         (deflayermap sitelen-pona
@@ -320,7 +322,6 @@
           ) group}
         )
       '') groups)
-
       }
      
   '';

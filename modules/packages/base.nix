@@ -69,6 +69,7 @@
       libnfs
       parted
       smartmontools
+      efibootmgr
 
       networkmanager-openvpn
       openvpn
@@ -183,10 +184,10 @@
       # avalonia-ilspy # .NET exe decompiler
       lldb
       valgrind
+      python314
 
       dotnet-sdk
       dotnet-runtime
-      nodejs
 
 
       rustup
@@ -248,13 +249,13 @@
     };
 
     virtualisation.podman = {
-      enable = true;
-      dockerCompat = true;
+      enable = false;
+      #dockerCompat = true;
     };
-    # virtualisation.docker = {
-    #   enable = true;
-    #   rootless.enable = true;
-    # };
+    virtualisation.docker = {
+      enable = true;
+      rootless.enable = true;
+    };
     users.users.klaymore.extraGroups = [ "docker" ];
 
     home-manager.users.klaymore.programs = {

@@ -178,7 +178,7 @@ in
       joypixels.acceptLicense = true;
     };
 
-    fonts.enableDefaultPackages = true;
+    #fonts.enableDefaultPackages = true;
     fonts.packages = map (f: pkgs.callPackage f {}) [
       #craftyPE
       #fairfax
@@ -196,29 +196,30 @@ in
       noto-fonts-color-emoji
       noto-fonts-monochrome-emoji
       noto-fonts-emoji-blob-bin
-      unicode-emoji
-      twitter-color-emoji
+      #unicode-emoji
+      #twitter-color-emoji
       #emojione
-      openmoji-color
-      joypixels
+      #openmoji-color
+      #joypixels
       #whatsapp-emoji-font
-      twemoji-color-font
+      #twemoji-color-font
       liberation_ttf
+      unifont
       
       fira
       fira-mono
       fira-code
       fira-code-symbols
       hack-font
-      iosevka
-      scientifica
+      #iosevka
+      #scientifica
 
       #font-awesome
-      font-awesome_4
-      terminus_font
+      #font-awesome_4
+      #terminus_font
 
-      comic-mono
-      monocraft
+      #comic-mono
+      #monocraft
 
       # The only one that properly handles words inside each other.
       # Too bold for vscode
