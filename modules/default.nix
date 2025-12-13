@@ -18,6 +18,9 @@
       plasma = {
         enable = lib.mkEnableOption "Plasma";
       };
+      cosmic = {
+        enable = lib.mkEnableOption "Cosmic";
+      };
     };
     pipewire = {
       enable = lib.mkOption { default = true; };

@@ -27,6 +27,8 @@
         common.default = "*";
       };
     };
+    services.dbus.enable = true;
+    programs.dconf.enable = true;
 
   };
 }

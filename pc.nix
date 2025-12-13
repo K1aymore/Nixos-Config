@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
 
@@ -30,9 +30,9 @@
     };
   };
 
-  # specialisation.niri.configuration = {
-  #   myOptions.plasma.enable = lib.mkForce false;
-  #   myOptions.niri.enable = true;
+  # specialisation.cosmic.configuration = {
+  #   klaymore.gui.plasma.enable = lib.mkForce false;
+  #   klaymore.gui.cosmic.enable = true;
   # };
 
   # nixpkgs.overlays = [

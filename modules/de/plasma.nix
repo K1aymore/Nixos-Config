@@ -16,14 +16,9 @@
     };
 
 
-    xdg.portal.enable = true;
-    services.dbus.enable = true;
-    programs.dconf.enable = true;
-
     environment.systemPackages = with pkgs; [
       kdePackages.kde-gtk-config
     ];
-
 
     services.blueman.enable = false; # Plasma comes with a Bluetooth daemon
 
