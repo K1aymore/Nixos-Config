@@ -20,6 +20,12 @@
       url = "github:NotAShelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-doom-emacs-unstraightened = {
+      url = "github:marienz/nix-doom-emacs-unstraightened";
+      # Optional, to download less. Neither the module nor the overlay uses this input.
+      inputs.nixpkgs.follows = "";
+    };
+
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     # sitelen-pona-UCSUR = {
@@ -29,7 +35,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-minecraft, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-doom-emacs-unstraightened, nix-minecraft,  ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -90,6 +96,7 @@
         { home-manager.users.klaymore.imports = [
           impermanence.nixosModules.home-manager.impermanence
           catppuccin.homeModules.catppuccin
+          nix-doom-emacs-unstraightened.homeModule
         ]; }
         catppuccin.nixosModules.catppuccin
         nvf.nixosModules.default

@@ -78,7 +78,6 @@ in
 
     findSyncConflict = ''find . -name "*sync-conflict*"'';
     fileCount = "find . -type f | cut -d/ -f 2 | uniq -c";
-    doom = "~/.emacs.d/bin/doom";
     findjdk = "cd /nix/store && ls -d */ | grep jdk";
     makeModule = "make -C $(nix-build -E '(import <nixpkgs> {}).linux.dev' --no-out-link)/lib/modules/*/build M=$(pwd) modules";
 

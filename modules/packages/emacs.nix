@@ -4,23 +4,17 @@
 
   config = lib.mkIf config.klaymore.gui.enable {
 
-    services.emacs = {
+    home-manager.users.klaymore.programs.doom-emacs = {
       enable = true;
-      package = pkgs.emacs; 
+      #emacs = pkgs.emacs-pgtk;
+      doomDir = ./doom.d;
+      doomLocalDir = "/home/klaymore/doomLocal";
+      # extraPackages = epkgs: [
+      #   pkgs.emacsPackages.catppuccin-theme
+      #   epkgs.catppuccin-theme
+      #   epkgs.treesit-grammars.with-all-grammars
+      # ];
     };
-
-
-    home-manager.users.klaymore.programs.emacs = {
-      enable = true;
-      # replace with pkgs.emacs-gtk if desired
-      package = with pkgs; ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ emacsPackages.slime ]));
-      extraConfig = ''
-        (setq standard-indent 2)
-        (add-to-list 'default-frame-alist '(font . "Fira Code-10"))
-        (set-fontset-font "fontset-default" '(#xF1900 . #xF19FF) "nasin-nanpa-10")
-      '';
-    };
-
 
   };
 }
