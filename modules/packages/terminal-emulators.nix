@@ -1,8 +1,8 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
 
-  config = {
+  config = lib.mkIf config.klaymore.gui.enable {
     home-manager.users.klaymore.programs = {
 
       # kitty: bugs with zellij + neovim after expanding window
@@ -67,10 +67,10 @@
       kitty = {
         enable = true;
         settings = {
-          font_family = "Fira Code";
-          symbol_map = "U+F1900-U+F19FF nasin-nanpa"; # nasin-nanpa Fairfax Hax HD linja insa
+          font_family = config.klaymore.font.monospace;
+          #symbol_map = "U+F1900-U+F19FF nasin-nanpa"; # nasin-nanpa Fairfax Hax HD linja insa
 
-          font_size = 10.0; # breaks bottoms of "g"s if less than 10?
+          font_size = config.klaymore.font.size; # breaks bottoms of "g"s if less than 10?
           #"modify_font cell_height" = "100%";
 
           show_hyperlink_targets = "yes";
@@ -105,9 +105,9 @@
         enable = true;
         settings = {
           font = {
-            normal = { family = "Fira Code"; style = "Regular"; };
-            size = 10;
-            offset.y = 0;
+            normal = { family = config.klaymore.font.monospace; style = "Regular"; };
+            size = config.klaymore.font.size;
+            #offset.y = 0;
           };
         };
       };
@@ -117,7 +117,7 @@
         server.enable = true;
         settings = {
           main = {
-            font = "Fira Code:size=10";
+            font = "${config.klaymore.font.monospace}:size=${toString config.klaymore.font.size}";
             #dpi-aware = "yes"; # too big on laptop
           };
           mouse = {
@@ -131,8 +131,8 @@
         extraConfig = ''
           local wezterm = require 'wezterm'
           return {
-            font = wezterm.font_with_fallback { "Fira Code", "nasin-nanpa", "Fairfax Hax HD", },
-            font_size = 10.0,
+            font = wezterm.font_with_fallback { "${config.klaymore.font.monospace}", "Fira Code", "nasin-nanpa", "Fairfax Hax HD", },
+            font_size = ${toString config.klaymore.font.size}.0,
             cell_widths = {
               { first = 0xF1900, last = 0xF19FF, width = 2 },
             },
@@ -149,8 +149,8 @@
         enable = true;
         settings = {
           font = {
-            normal = [ "Fira Code" "nasin-nanpa" ];
-            size = 10;
+            normal = [ "${config.klaymore.font.monospace}" "Fira Code" "nasin-nanpa" ];
+            size = config.klaymore.font.size;
           };
           tabs = false;
         };

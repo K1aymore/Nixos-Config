@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
 
@@ -104,7 +104,7 @@
           shiftwidth = 2;
           softtabstop = 2;
 
-          guifont = "Fira Code,nasin-nanpa:h10";
+          guifont = "${config.klaymore.font.monospace},Fira Code,nasin-nanpa:h${toString config.klaymore.font.size}";
         };
         
         

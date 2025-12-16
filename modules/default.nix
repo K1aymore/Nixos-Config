@@ -9,6 +9,11 @@
     localIP = lib.mkOption { default = ""; };
     serverLan = lib.mkOption { default = "172.16.0.115"; };
 
+    font = {
+      normal = lib.mkOption { default = "Noto Sans"; };
+      monospace = lib.mkOption { default = "Fira Code"; };
+      size = lib.mkOption { default = 10; };
+    };
 
     gui = {
       enable = lib.mkEnableOption "GUI";

@@ -181,7 +181,7 @@ in
     #fonts.enableDefaultPackages = true;
     fonts.packages = map (f: pkgs.callPackage f {}) [
       #craftyPE
-      #fairfax
+      fairfax
       #linja-insa
       #sevenish-sp
       #linja-waso
@@ -194,8 +194,8 @@ in
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
-      noto-fonts-monochrome-emoji
-      noto-fonts-emoji-blob-bin
+      #noto-fonts-monochrome-emoji
+      #noto-fonts-emoji-blob-bin
       #unicode-emoji
       #twitter-color-emoji
       #emojione
@@ -226,7 +226,7 @@ in
       nasin-nanpa-ucsur
       nasin-nanpa-helvetica
 
-      #sitelen-seli-kiwen
+      sitelen-seli-kiwen
       #linja-pi-pu-lukin
       #linja-sike
     ]);
