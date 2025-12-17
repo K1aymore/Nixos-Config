@@ -29,15 +29,15 @@
   };
 
   # Use Lix
-  nix.package = pkgs.lixPackageSets.stable.lix;
+  # nix.package = pkgs.lixPackageSets.stable.lix;
   nixpkgs.overlays = [
-    (final: prev: {
-      inherit (prev.lixPackageSets.stable)
-      nixpkgs-review
-      nix-eval-jobs
-      nix-fast-build
-      colmena;
-    })
+    # (final: prev: {
+    #   inherit (prev.lixPackageSets.stable)
+    #   nixpkgs-review
+    #   nix-eval-jobs
+    #   nix-fast-build
+    #   colmena;
+    # })
     (final: prev: {
       swt = prev.swt.overrideAttrs (old: { # fix compile error
         NIX_CFLAGS_COMPILE = "-Wno-error";

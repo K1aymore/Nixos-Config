@@ -2,7 +2,7 @@
 
 {
 
-  config = lib.mkIf config.klaymore.gui.enable {
+  config = lib.mkIf config.klaymore.programs.emacs.enable {
 
     home-manager.users.klaymore.programs.doom-emacs = {
       enable = true;

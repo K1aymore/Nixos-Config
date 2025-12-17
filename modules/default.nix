@@ -33,6 +33,7 @@
 
 
     programs = {
+      emacs.enable = lib.mkEnableOption "Emacs";
       mpd = {
         enable = lib.mkOption { default = true; };
       };
