@@ -19,6 +19,8 @@
     };
 
     system = {
+      #impermanence.home.enable = true;
+      #impermanence.system.enable = true;
       kanata.enable = true;
       locale = "sv_SE.UTF-8";
       zram.enable = true;

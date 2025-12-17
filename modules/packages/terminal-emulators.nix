@@ -67,7 +67,7 @@
       kitty = {
         enable = true;
         settings = {
-          font_family = config.klaymore.font.monospace;
+          font_family = config.klaymore.font.monospace;  # seems to read from FontConfig anyway
           #symbol_map = "U+F1900-U+F19FF nasin-nanpa"; # nasin-nanpa Fairfax Hax HD linja insa
 
           font_size = config.klaymore.font.size; # breaks bottoms of "g"s if less than 10?

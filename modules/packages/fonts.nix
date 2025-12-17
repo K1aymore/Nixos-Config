@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let 
   craftyPE = ({ lib, stdenvNoCC, fetchFromGitHub, }:
@@ -235,7 +235,9 @@ in
       subpixel.rgba = "rgb";
       useEmbeddedBitmaps = true; # fix Firefox emoji
       defaultFonts = {
-        monospace = [ "Fira Code" "DejaVu Sans Mono" "nasin-nanpa" "Helvetica" ];
+        serif     = [ config.klaymore.font.serif "Noto Serif" "nasin-nanpa" ];
+        sansSerif = [ config.klaymore.font.sans  "Noto Sans" "nasin-nanpa" ];
+        monospace = [ config.klaymore.font.monospace "Fira Code" "nasin-nanpa" ];
       };
     };
 
