@@ -207,8 +207,6 @@
 
       #android-studio
       #apksigner
-      jdk17
-      jdk11
       jdk8
       jdt-language-server
 

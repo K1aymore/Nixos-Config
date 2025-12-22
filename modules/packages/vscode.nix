@@ -66,7 +66,7 @@
 
         "editor.fontFamily" = "${config.klaymore.font.monospace}, Fira Code, nasin-nanpa, Fairfax Hax HD, sitelen seli kiwen mono juniko, Twemoji Country Flags, monospace";
         "editor.fontLigatures" = true;
-        "editor.fontSize" = config.klaymore.font.size + 2; # too small for some reason
+        "editor.fontSize" = config.klaymore.font.size + 3; # too small for some reason
 
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";

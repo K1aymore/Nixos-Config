@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
 
@@ -6,6 +6,25 @@
 
     home-manager.users.klaymore.programs.mpv = {
       enable = true;
+      package = pkgs.mpv-unwrapped.overrideAttrs (old: {
+        version = "0.41.0";
+        src = pkgs.fetchFromGitHub {
+          owner = "mpv-player";
+          repo = "mpv";
+          tag = "v0.41.0";
+          hash = "sha256-gJWqfvPE6xOKlgj2MzZgXiyOKxksJlY/tL6T/BeG19c=";
+        };
+        patches = [ ];
+        mesonFlags = [
+          (lib.mesonOption "default_library" "shared")
+          (lib.mesonBool "libmpv" true)
+          (lib.mesonEnable "manpage-build" true)
+          (lib.mesonEnable "cdda" false)
+          (lib.mesonEnable "dvbin" true)
+          (lib.mesonEnable "dvdnav" true)
+          (lib.mesonEnable "openal" true)
+        ];
+      });
       config = lib.mkMerge [ {
         fullscreen = true;
         # fs-screen = 0; # screen numbers change sometimes
@@ -14,8 +33,9 @@
         # window-maximized = true;
         keep-open = false;
 
-        alang = "swe,sv,Swedish,";
-        sid = "no";
+        alang = "sv,en,de,fr,it,eo,tok";
+        slang = "sv,en,fr,eo,tok";
+        subs-with-matching-audio = "forced";
         # af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
         # af = "loudnorm=I=-20";
         volume-max = 200;
@@ -25,7 +45,7 @@
         # best quality, except for 8K which is dumb
         ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
 
-        # dmabuf-wayland works but worse quality.
+        # dmabuf-wayland always uses source target-trc etc
         vo = "gpu-next";
         hwdec = "auto"; # Causes jitter and missed/delayed frames with display-resample
         gpu-api = "vulkan";
@@ -46,23 +66,21 @@
         video-sync = "audio";
         interpolation = true;
         tscale = "oversample";
-      }
 
-      (lib.mkIf config.klaymore.gui.hdr { # always output in HDR even for SDR videos
-        # pq outputs in HDR always, darker/contraster for SDR content than bt.1886/auto.
-        # works on SDR displays too but cranks screen brightness to max, worse blacks.
-        #target-trc = "pq";
+
+        # pq darker/contraster for SDR content than bt.1886/gamma2.2 (in gpu-next) but not nonlinear-sRGB
+        # pq matches gamma2.2 on SDR displays
+        # works on EDR displays too but cranks screen brightness to max, worse blacks
+        target-trc = "pq";
 
         # should be correct on `auto`
         #target-prim = "bt.2020";
 
         # needs to be on/auto for HDR in HDR
-        # if on/auto, not affected by sRGB Color Intensity slider in HDR.
         # makes no difference when outputting bt.1886 in SDR
-        # if on/auto, makes HDR content in SDR processed by Plasma, not as nice
-        # changes display to display-p3 for SDR but works okay with target-prim on auto
+        # outputs pq if display is HDR or has brightness lowered, otherwise bt.1886
         target-colorspace-hint = "auto";
-      })
+      }
 
       (lib.mkIf config.klaymore.powerful {
         # No visible difference but what the hey
@@ -72,16 +90,16 @@
 
       profiles = {
         # Play SDR video nicely in HDR
-        SDR = lib.mkIf config.klaymore.gui.hdr {
-          # only on SDR videos
-          profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
-          profile-restore = "copy";
+        # SDR = lib.mkIf config.klaymore.gui.hdr {
+        #   # only on SDR videos
+        #   profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
+        #   profile-restore = "copy";
 
-          #saturation = 5; # Tried it and it's noticeably more saturated sometimes
-          #target-peak = 500; # with Plasma 6.3 no effect in pq, makes sdr dark
+        #   #saturation = 5; # Tried it and it's noticeably more saturated sometimes
+        #   #target-peak = 500; # with Plasma 6.3 no effect in pq, makes sdr dark
 
-          inverse-tone-mapping = false; # Not good
-        };
+        #   inverse-tone-mapping = false; # Not good
+        # };
       };
 
       # test with mpv --input-test --force-window --idle
@@ -93,8 +111,8 @@
         "CTRL+3" = "cycle target-colorspace-hint";
         "CTRL+4" = "cycle-values target-prim bt.2020 bt.709 auto";
 
-        # srgb way worse for hdr->sdr. same otherwise. hlg busted. pq too dark on sdr display
-        "CTRL+5" = "cycle-values target-trc pq bt.1886 auto";
+        # srgb way worse for hdr->sdr. same otherwise. hlg busted
+        "CTRL+5" = "cycle-values target-trc pq bt.1886 gamma2.2 srgb auto";
         "CTRL+6" = "cycle-values tone-mapping bt.2446a auto";
         "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
         "CTRL+8" = "cycle-values vo gpu gpu-next dmabuf-wayland";

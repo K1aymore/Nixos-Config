@@ -33,10 +33,10 @@ stdenv.mkDerivation {
 
   src = fetchFromGitHub rec {
     name = "source-${rev}";
-    owner = "K1aymore";
+    owner = "rhjdvsgsgks";
     repo = "glfw";
-    rev = "a012f455341687bba14bbf6f6477ba9c3e86d762";
-    hash = "sha256-61ZtibAME41O+0ScJl7qfAZ31nTjrQYbIAgB0W0CTTU=";
+    rev = "73df2e82deb25fd508ed6b36505745d3c96eff47";
+    hash = "sha256-py2Y/MFwMlO83HauopEZ70o/2g7JLG2+Yg6cm8Ve3yc=";
   };
 
   # Fix linkage issues on X11 (https://github.com/NixOS/nixpkgs/issues/142583)

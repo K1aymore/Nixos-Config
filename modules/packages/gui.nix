@@ -91,7 +91,6 @@
       tageditor
       picard
       vlc
-      mpv
       makemkv
       #haruna
       #mpc-qt
@@ -141,7 +140,6 @@
       #lbry
       lagrange
       filezilla
-      ff2mpv
       anki
 
       steam-run
@@ -205,8 +203,8 @@
       #minecraft
       #itch
       prismlauncher
+      jdk25
       jdk17
-      jdk11
       jdk8
 
     ];
