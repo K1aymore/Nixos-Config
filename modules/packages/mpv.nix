@@ -7,6 +7,7 @@
     home-manager.users.klaymore.programs.mpv = {
       enable = true;
       package = pkgs.mpv-unwrapped.overrideAttrs (old: {
+        ffmpeg = pkgs.ffmpeg-full;
         version = "0.41.0";
         src = pkgs.fetchFromGitHub {
           owner = "mpv-player";
@@ -53,7 +54,6 @@
 
         profile = "gpu-hq";
         scale = "ewa_lanczossharp";
-        cscale = "ewa_lanczossharp";
         dscale = "mitchell";
         deband = true;
 
@@ -68,7 +68,7 @@
         tscale = "oversample";
 
 
-        # pq darker/contraster for SDR content than bt.1886/gamma2.2 (in gpu-next) but not nonlinear-sRGB
+        # pq darker/contraster for SDR content than bt.1886 and gamma2.2 (on HDR display) but not nonlinear-sRGB
         # pq matches gamma2.2 on SDR displays
         # works on EDR displays too but cranks screen brightness to max, worse blacks
         target-trc = "pq";
@@ -81,25 +81,25 @@
         # outputs pq if display is HDR or has brightness lowered, otherwise bt.1886
         target-colorspace-hint = "auto";
       }
-
       (lib.mkIf config.klaymore.powerful {
         # No visible difference but what the hey
         scale = lib.mkForce "ewa_lanczos4sharpest";
       })
       ];
 
+
       profiles = {
-        # Play SDR video nicely in HDR
-        # SDR = lib.mkIf config.klaymore.gui.hdr {
-        #   # only on SDR videos
-        #   profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
-        #   profile-restore = "copy";
+        # Play SDR videos more efficiently
+        SDR = lib.mkIf (config.klaymore.gui.hdr == false) {
+          # only on SDR videos
+          profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
+          profile-restore = "copy";
 
-        #   #saturation = 5; # Tried it and it's noticeably more saturated sometimes
-        #   #target-peak = 500; # with Plasma 6.3 no effect in pq, makes sdr dark
+          target-trc = "gamma2.2"; # often defaults to pq
+          target-prim = "bt.709";
 
-        #   inverse-tone-mapping = false; # Not good
-        # };
+          # inverse-tone-mapping = false; # Not good
+        };
       };
 
       # test with mpv --input-test --force-window --idle
@@ -109,11 +109,11 @@
         "CTRL+2" = "cycle inverse-tone-mapping";
 
         "CTRL+3" = "cycle target-colorspace-hint";
-        "CTRL+4" = "cycle-values target-prim bt.2020 bt.709 auto";
+        "CTRL+4" = "cycle-values target-prim auto bt.2020 bt.709";
 
         # srgb way worse for hdr->sdr. same otherwise. hlg busted
-        "CTRL+5" = "cycle-values target-trc pq bt.1886 gamma2.2 srgb auto";
-        "CTRL+6" = "cycle-values tone-mapping bt.2446a auto";
+        "CTRL+5" = "cycle-values target-trc auto pq bt.1886 gamma2.2 srgb";
+        "CTRL+6" = "cycle-values tone-mapping auto bt.2446a st2094-40 mobius reinhard hable";
         "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
         "CTRL+8" = "cycle-values vo gpu gpu-next dmabuf-wayland";
 
@@ -147,7 +147,6 @@
         "b" = "cycle deband";
 
         "HOME" = "seek 0 absolute";
-
       };
 
       scriptOpts.osc = {
