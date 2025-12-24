@@ -33,6 +33,7 @@
         # autofit = "100%";
         # window-maximized = true;
         keep-open = false;
+        autocreate-playlist = "same";
 
         alang = "sv,en,de,fr,it,eo,tok";
         slang = "sv,en,fr,eo,tok";
@@ -56,6 +57,9 @@
         scale = "ewa_lanczossharp";
         dscale = "mitchell";
         deband = true;
+        # deband-iterations = 4; # does nothing?
+        # deband-range = 16; # does nothing?
+        #blend-subtitles = "video";  # cool for signs but terrible for actual subs
 
         # affects HDR->SDR, and HDR when very bright
         # in HDR, spline/auto preserves details better, bt.2446a becomes spline when target-peak > 2400
@@ -68,13 +72,15 @@
         tscale = "oversample";
 
 
-        # pq darker/contraster for SDR content than bt.1886 and gamma2.2 (on HDR display) but not nonlinear-sRGB
-        # pq matches gamma2.2 on SDR displays
+        # gamma2.2 darker/contraster than bt.1886
+        # pq matches gamma2.2 on SDR displays and on HDR with clip / mobius / gamma tonemappers
         # works on EDR displays too but cranks screen brightness to max, worse blacks
-        target-trc = "pq";
+        # should be PQ because mpv does dithering/debanding in HDR space, nicer (Sanda E01 00:41)
+        target-trc = "pq";  # gamma2.2
+        target-prim = "bt.2020";  # bt.709
+        tone-mapping = "mobius";
+        treat-srgb-as-power22 = "both";
 
-        # should be correct on `auto`
-        #target-prim = "bt.2020";
 
         # needs to be on/auto for HDR in HDR
         # makes no difference when outputting bt.1886 in SDR
@@ -89,31 +95,33 @@
 
 
       profiles = {
-        # Play SDR videos more efficiently
-        SDR = lib.mkIf (config.klaymore.gui.hdr == false) {
-          # only on SDR videos
-          profile-cond = "video_params and p[\"video-params/primaries\"] ~= \"bt.2020\"";
+        # HDR = {
+        #   profile-cond = ''video_params and p["video-params/primaries"] == "bt.2020"'';
+        #   profile-restore = "copy";
+
+        #   target-trc = "pq";
+        #   target-prim = "bt.2020";
+        # };
+
+        forced = {
+          profile-cond = ''p["current-tracks/sub/forced"]'';
           profile-restore = "copy";
 
-          target-trc = "gamma2.2"; # often defaults to pq
-          target-prim = "bt.709";
-
-          # inverse-tone-mapping = false; # Not good
+          blend-subtitles = "video";
         };
       };
 
       # test with mpv --input-test --force-window --idle
       bindings = {
-        "CTRL+`" = "set target-peak auto";
-        "CTRL+1" = "set target-peak 500";
+        "CTRL+`" = "cycle-values target-peak auto 500";
+        "CTRL+1" = "cycle tone-mapping";
         "CTRL+2" = "cycle inverse-tone-mapping";
-
         "CTRL+3" = "cycle target-colorspace-hint";
-        "CTRL+4" = "cycle-values target-prim auto bt.2020 bt.709";
 
-        # srgb way worse for hdr->sdr. same otherwise. hlg busted
-        "CTRL+5" = "cycle-values target-trc auto pq bt.1886 gamma2.2 srgb";
-        "CTRL+6" = "cycle-values tone-mapping auto bt.2446a st2094-40 mobius reinhard hable";
+        "CTRL+4" = "cycle-values target-prim auto bt.2020 bt.709";
+        "CTRL+5" = "cycle-values target-trc auto pq bt.1886 gamma2.2";
+        "CTRL+6" = "cycle-values tone-mapping auto bt.2446a st2094-40 mobius hable";
+
         "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
         "CTRL+8" = "cycle-values vo gpu gpu-next dmabuf-wayland";
 
