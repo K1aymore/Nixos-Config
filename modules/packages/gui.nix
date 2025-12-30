@@ -145,7 +145,7 @@
       steam-run
 
       godot
-      unityhub
+      #unityhub
       blender-hip
       #python39Packages.pyzmq
       libresprite

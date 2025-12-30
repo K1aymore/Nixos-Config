@@ -34,6 +34,8 @@
         # window-maximized = true;
         keep-open = false;
         autocreate-playlist = "same";
+        audio-file-auto = "all";
+        sub-auto = "all";
 
         alang = "sv,en,de,fr,it,eo,tok";
         slang = "sv,en,fr,eo,tok";
@@ -42,6 +44,8 @@
         # af = "loudnorm=I=-20";
         volume-max = 200;
         hr-seek = true;
+        replaygain = "track";
+        blend-subtitles = "video";
 
 
         # best quality, except for 8K which is dumb
@@ -76,8 +80,11 @@
         # pq matches gamma2.2 on SDR displays and on HDR with clip / mobius / gamma tonemappers
         # works on EDR displays too but cranks screen brightness to max, worse blacks
         # should be PQ because mpv does dithering/debanding in HDR space, nicer (Sanda E01 00:41)
-        target-trc = "pq";  # gamma2.2
-        target-prim = "bt.2020";  # bt.709
+        # PQ flickers when OSD disappears, sometimes goes black when paused
+        # PQ subtitles slightly too dark
+        # gamma2.2 is too dark on the projector, hard to see. Default to bt.1886
+        #target-trc = "gamma2.2";
+        #target-prim = "bt.709";
         tone-mapping = "mobius";
         treat-srgb-as-power22 = "both";
 
@@ -87,21 +94,25 @@
         # outputs pq if display is HDR or has brightness lowered, otherwise bt.1886
         target-colorspace-hint = "auto";
       }
-      (lib.mkIf config.klaymore.powerful {
-        # No visible difference but what the hey
-        scale = lib.mkForce "ewa_lanczos4sharpest";
+      (lib.mkIf config.klaymore.gui.hdr {
+        target-trc = "gamma2.2";
+        target-prim = "bt.709";
       })
+      # (lib.mkIf config.klaymore.powerful {
+      #   # No visible difference but what the hey
+      #   scale = lib.mkForce "ewa_lanczos4sharpest";
+      # })
       ];
 
 
       profiles = {
-        # HDR = {
-        #   profile-cond = ''video_params and p["video-params/primaries"] == "bt.2020"'';
-        #   profile-restore = "copy";
+        HDR = {
+          profile-cond = ''video_params and p["video-params/primaries"] == "bt.2020"'';
+          profile-restore = "copy";
 
-        #   target-trc = "pq";
-        #   target-prim = "bt.2020";
-        # };
+          target-trc = "pq";
+          target-prim = "bt.2020";
+        };
 
         forced = {
           profile-cond = ''p["current-tracks/sub/forced"]'';
@@ -114,13 +125,13 @@
       # test with mpv --input-test --force-window --idle
       bindings = {
         "CTRL+`" = "cycle-values target-peak auto 500";
-        "CTRL+1" = "cycle tone-mapping";
+        "CTRL+1" = "cycle blend-subtitles";
         "CTRL+2" = "cycle inverse-tone-mapping";
         "CTRL+3" = "cycle target-colorspace-hint";
 
         "CTRL+4" = "cycle-values target-prim auto bt.2020 bt.709";
-        "CTRL+5" = "cycle-values target-trc auto pq bt.1886 gamma2.2";
-        "CTRL+6" = "cycle-values tone-mapping auto bt.2446a st2094-40 mobius hable";
+        "CTRL+5" = "cycle-values target-trc auto pq gamma2.2 bt.1886";
+        "CTRL+6" = "cycle-values tone-mapping auto bt.2446a mobius";
 
         "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
         "CTRL+8" = "cycle-values vo gpu gpu-next dmabuf-wayland";

@@ -203,11 +203,11 @@ in
       #joypixels
       #whatsapp-emoji-font
       #twemoji-color-font
-      liberation_ttf
+      #liberation_ttf
       unifont
-      
-      fira
-      fira-mono
+
+      #fira
+      #fira-mono
       fira-code
       fira-code-symbols
       hack-font

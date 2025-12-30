@@ -31,7 +31,7 @@
           nix.enable = true;
           rust.enable = true;
           clang.enable = true;
-          csharp.enable = true;
+          #csharp.enable = true;
           bash.enable = true;
           markdown.enable = true;
           html.enable = true;
@@ -109,6 +109,9 @@
         
         
         luaConfigPost = ''
+          vim.cmd [[
+            autocmd VimEnter * if getcwd() == '/home/klaymore' | cd ${config.klaymore.configPath} | endif
+          ]]
 
           -- sitelen pona correct width
           vim.fn.setcellwidths({ {0xF1900, 0xF19FF, 2}, })
@@ -118,6 +121,7 @@
           --vim.g.neovide_fullscreen = true
           vim.g.neovide_cursor_trail_size = 0.4
           vim.g.neovide_cursor_animation_length = 0.08
+          vim.g.neovide_cursor_short_animation_length = 0
           vim.g.neovide_scroll_animation_length = 0.13
           vim.g.neovide_input_ime = true
           vim.g.neovide_cursor_hack = false
@@ -226,12 +230,12 @@
         enable = true;
       };
 
-      television = {
-        enable = true;
-        settings = {
-          ui.theme = "catppuccin";
-        };
-      };
+      # television = {
+      #   enable = true;
+      #   settings = {
+      #     ui.theme = "catppuccin";
+      #   };
+      # };
 
     };
 
