@@ -15,6 +15,7 @@
     pipewire.enable = true;
 
     programs = {
+      emacs.enable = true;
     };
 
     services = {

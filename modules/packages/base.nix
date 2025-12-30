@@ -163,13 +163,13 @@
       vitetris
       asciiquarium
       oneko
-      pmbootstrap
+      #pmbootstrap
       tty-clock
       
       hspell
       hunspell
 
-
+      pandoc
 
       # Coding
       clang

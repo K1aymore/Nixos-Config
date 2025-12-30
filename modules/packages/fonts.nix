@@ -190,7 +190,7 @@ in
     ] ++
     (with pkgs; [
       #nerdfonts
-      #nerd-fonts.symbols-only  # collides with 󱥠󱥔
+      nerd-fonts.symbols-only  # collides with 󱥠󱥔
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji

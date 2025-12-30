@@ -3,8 +3,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
   
-    nixpkgs-pc.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-superstable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     home-manager = {
@@ -20,11 +18,11 @@
       url = "github:NotAShelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-doom-emacs-unstraightened = {
-      url = "github:marienz/nix-doom-emacs-unstraightened";
-      # Optional, to download less. Neither the module nor the overlay uses this input.
-      inputs.nixpkgs.follows = "";
-    };
+    # nix-doom-emacs-unstraightened = {
+    #   url = "github:marienz/nix-doom-emacs-unstraightened";
+    #   # Optional, to download less. Neither the module nor the overlay uses this input.
+    #   inputs.nixpkgs.follows = "";
+    # };
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
@@ -35,7 +33,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-pc, nixpkgs-stable, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-doom-emacs-unstraightened, nix-minecraft,  ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-minecraft,  ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -79,7 +77,7 @@
       else nixpkgs.lib.nixosSystem)
     {
       system = settings.architecture;
-      specialArgs = attrs // { inherit ports; };
+      specialArgs = { inherit ports; };
 
       modules = builtins.filter (f: nixpkgs.lib.hasSuffix ".nix" f) (
         (nixpkgs.lib.filesystem.listFilesRecursive ./base) ++
@@ -96,7 +94,7 @@
         { home-manager.users.klaymore.imports = [
           impermanence.nixosModules.home-manager.impermanence
           catppuccin.homeModules.catppuccin
-          nix-doom-emacs-unstraightened.homeModule
+          # nix-doom-emacs-unstraightened.homeModule
         ]; }
         catppuccin.nixosModules.catppuccin
         nvf.nixosModules.default
@@ -107,10 +105,6 @@
           nix-minecraft.overlay
 
           (final: prev: {
-            stable = import nixpkgs-stable {
-              system = settings.architecture;
-              config.allowUnfree = true;
-            };
             superstable = import nixpkgs-superstable {
               system = settings.architecture;
               config.allowUnfree = true;
@@ -127,7 +121,7 @@
 
       pc = makeSystem "pc" {
         architecture = "x86_64-linux";
-        nixpkgs = "nixpkgs-pc";
+        # nixpkgs = "nixpkgs-pc";
       };
 
       server = makeSystem "server" {

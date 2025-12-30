@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ports, nixpkgs, ... }:
+{ config, lib, pkgs, ports, ... }:
 
 {
 
@@ -15,14 +15,14 @@
 
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.registry = {
-    nixpkgs.flake = nixpkgs; # pin nixpkgs version
-    nixpkgs.to = {
-      type = "path";
-      path = pkgs.path;
-    };
-  };
-  nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+  # nix.registry = {
+  #   nixpkgs.flake = nixpkgs; # pin nixpkgs version
+  #   nixpkgs.to = {
+  #     type = "path";
+  #     path = pkgs.path;
+  #   };
+  # };
+  # nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
   nix.settings.cores = 6;
   nix.settings.download-buffer-size = 524288000;
   nixpkgs = {
@@ -76,6 +76,12 @@
     NH_FLAKE = config.klaymore.configPath;
     #XDG_CONFIG_HOME = config.home-manager.users.klaymore.home.homeDirectory; # breaks everything
   };
+
+  
+  environment.systemPackages = with pkgs; [
+    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv fr eo]))
+  ];
+
 
   security.polkit.enable = true;
 
