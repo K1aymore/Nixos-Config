@@ -69,7 +69,7 @@
   services.journald.extraConfig = "SystemMaxUse=1G";
 
 
-  environment.variables = {
+  environment.sessionVariables = {
     GPG_TTY = "$(tty)";
     GTK_USE_PORTAL = "1";
     FLAKE = config.klaymore.configPath;
@@ -121,7 +121,7 @@
     enableAskPassword = true;
   };
 
-  environment.variables = {
+  environment.sessionVariables = {
     SSH_ASKPASS_REQUIRE = "prefer";
   };
 

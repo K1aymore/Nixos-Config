@@ -22,7 +22,7 @@
 
         serverProperties = {
           motd = "Wildcat Gamer Haven";
-          white-list = false;
+          white-list = true;
           difficulty = 2;
           gamemode = 0;
           max-players = 25;
@@ -111,7 +111,7 @@
 
         serverProperties = {
           motd = "oui oui baguette";
-          white-list = false;
+          white-list = true;
           difficulty = 2;
           gamemode = 0;
           max-players = 25;

@@ -57,13 +57,12 @@
         gpu-api = "vulkan";
         gpu-context = "waylandvk";
 
-        profile = "gpu-hq";
+        profile = "high-quality";
         scale = "ewa_lanczossharp";
         dscale = "mitchell";
         deband = true;
         # deband-iterations = 4; # does nothing?
         # deband-range = 16; # does nothing?
-        #blend-subtitles = "video";  # cool for signs but terrible for actual subs
 
         # affects HDR->SDR, and HDR when very bright
         # in HDR, spline/auto preserves details better, bt.2446a becomes spline when target-peak > 2400
@@ -82,7 +81,7 @@
         # should be PQ because mpv does dithering/debanding in HDR space, nicer (Sanda E01 00:41)
         # PQ flickers when OSD disappears, sometimes goes black when paused
         # PQ subtitles slightly too dark
-        # gamma2.2 is too dark on the projector, hard to see. Default to bt.1886
+        # gamma2.2 is too dark on the projector, hard to see (sometimes?). Default to bt.1886
         #target-trc = "gamma2.2";
         #target-prim = "bt.709";
         tone-mapping = "mobius";

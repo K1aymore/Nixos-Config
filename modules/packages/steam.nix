@@ -3,8 +3,9 @@
 {
 
   config = lib.mkIf config.klaymore.gui.enable {
-    environment.variables = {
-      STEAM_FORCE_DESKTOPUI_SCALING = config.klaymore.gui.scaling;
+    environment.sessionVariables = {
+    #   STEAM_FORCE_DESKTOPUI_SCALING = config.klaymore.gui.scaling;
+      PROTON_ENABLE_WAYLAND = "1";
     };
 
     nixpkgs.config.packageOverrides = pkgs: {
