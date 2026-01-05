@@ -68,7 +68,7 @@
         ␛c (layer-switch colemak)
         ␛w (layer-switch colemak-wide-dh)
         ␛j (layer-switch hiragana)
-        ␛k (layer-switch katakana)
+        ␛k (tap-dance ${tap-dance-delay} ((layer-switch katakana) (layer-switch katakana-halfwidth)))
         ␛p (layer-switch sitelen-pona)
 
         ;; for EurKey
@@ -256,6 +256,52 @@
         (s h i) 🔣シ  (t s u) 🔣ツ  (s  ) 🔣ス    (c i) 🔣チ    (c h i) 🔣チ  (f u) 🔣フ
         (n  ) 🔣ン    ([  ) 🔣［    (]  ) 🔣］    (' [) 🔣「    (' ]) 🔣」
       )
+
+
+      (deflayermap katakana-halfwidth
+        esc @esc    caps @cap    lctl (multi lctl (layer-while-held qwerty))
+        , 🔣､    . 🔣｡    - 🔣ｰ    ; 🔣S-;
+
+        ${lib.concatMapStrings (c: "${c} (chord katakana-halfwidth ${c})\n")
+          (lib.stringToCharacters "abcdefghikmnoprstuvwyz[]'")
+        }
+        j (chord katakana-halfwidth y)    l (chord katakana-halfwidth r)
+        q 🔣ｯ    x XX
+      )
+
+      (defchords katakana-halfwidth 1000
+        (a  ) 🔣ｱ    (i  ) 🔣ｲ    (u  ) 🔣ｳ    (e  ) 🔣ｴ    (o  ) 🔣ｵ
+
+        (k a) 🔣ｶ    (k i) 🔣ｷ    (k u) 🔣ｸ    (k e) 🔣ｹ    (k o) 🔣ｺ
+        (s a) 🔣ｻ    (s i) 🔣ｼ    (s u) 🔣ｽ    (s e) 🔣ｾ    (s o) 🔣ｿ
+        (t a) 🔣ﾀ    (t i) 🔣ﾁ    (t u) 🔣ﾂ    (t e) 🔣ﾃ    (t o) 🔣ﾄ
+
+        (n a) 🔣ﾅ    (n i) 🔣ﾆ    (n u) 🔣ﾇ    (n e) 🔣ﾈ    (n o) 🔣ﾉ
+
+        (h a) 🔣ﾊ    (h i) 🔣ﾋ    (h u) 🔣ﾌ    (h e) 🔣ﾍ    (h o) 🔣ﾎ
+
+        (m a) 🔣ﾏ    (m i) 🔣ﾐ    (m u) 🔣ﾑ    (m e) 🔣ﾒ    (m o) 🔣ﾓ
+        (y a) 🔣ﾔ                 (y u) 🔣ﾕ                 (y o) 🔣ﾖ
+        (r a) 🔣ﾗ    (r i) 🔣ﾘ    (r u) 🔣ﾙ    (r e) 🔣ﾚ    (r o) 🔣ﾛ
+        (w a) 🔣ﾜ
+
+        (v a) 🔣ｬ    (v i) 🔣ｯ    (v u) 🔣ｭ                 (v o) 🔣ｮ
+        (s h i) 🔣ｼ  (t s u) 🔣ﾂ  (s  ) 🔣ｽ    (c i) 🔣ﾁ    (c h i) 🔣ﾁ  (f u) 🔣ﾌ
+        (n  ) 🔣ﾝ    ([  ) 🔣[    (]  ) 🔣]    (' [) 🔣｢    (' ]) 🔣｣    ('  ) 🔣ﾞ  ;;dakuten
+        
+        ${lib.concatMapStrings (p: "(${lib.elemAt p 0}) (macro 🔣${lib.elemAt p 1} 🔣ﾞ)\n")  [
+          ["g a" "ｶ"]   ["g i" "ｷ"]   ["g u" "ｸ"]   ["g e" "ｹ"]   ["g o" "ｺ"]
+          ["z a" "ｻ"]   ["z i" "ｼ"]   ["z u" "ｽ"]   ["z e" "ｾ"]   ["z o" "ｿ"]
+          ["d a" "ﾀ"]   ["d i" "ﾁ"]   ["d u" "ﾂ"]   ["d e" "ﾃ"]   ["d o" "ﾄ"]
+          ["b a" "ﾊ"]   ["b i" "ﾋ"]   ["b u" "ﾌ"]   ["b e" "ﾍ"]   ["b o" "ﾎ"]
+        ]}
+
+        ${lib.concatMapStrings (p: "(${lib.elemAt p 0}) (macro 🔣${lib.elemAt p 1} 🔣ﾟ)\n")  [
+          ["p a" "ﾊ"]   ["p i" "ﾋ"]   ["p u" "ﾌ"]   ["p e" "ﾍ"]   ["p o" "ﾎ"]
+        ]}
+          
+      )
+
 
 
 

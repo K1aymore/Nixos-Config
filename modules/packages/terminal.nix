@@ -48,9 +48,12 @@
         mini.pick.enable = true;
         fzf-lua.enable = true;
         autocomplete.nvim-cmp.enable = true;
+      
         filetree.neo-tree.enable = true;
         filetree.neo-tree.setupOpts.auto_clean_after_session_restore = true;
-        #filetree.nvimTree.enable = true; # opens automatically
+        # filetree.nvimTree.enable = true; # opens automatically
+
+        tabline.nvimBufferline.enable = true;
 
         visuals = {
           indent-blankline.enable = true;
@@ -60,7 +63,7 @@
         keymaps = [
           {
             key = "<C-BS>";
-            mode = [ "n" "c" "v" ];
+            mode = [ "n" "v" ];
             action = "ldb";
             desc = "Delete previous word";
             silent = false;
@@ -83,18 +86,40 @@
           {
             key = "<C-s>";
             mode = [ "i" ];
-            action = "<ESC>:w<Enter>i";
+            action = "<ESC>:w<Enter>a";
             desc = "Save file";
             silent = false;
           }
 
           {
-            key = "<C-S-U>";
-            mode = [ "i" ];
-            action = "<C-v>U";
-            desc = "Insert Unicode character";
+            key = "<C-c>";
+            mode = [ "n" "v" ];
+            action = ''"+y'';
+            desc = "Copy to clipboard";
             silent = false;
           }
+          {
+            key = "<C-v>";
+            mode = [ "i" ];
+            action = ''<ESC>"+pa'';
+            desc = "Paste from clipboard";
+            silent = false;
+          }
+          {
+            key = "<C-v>";
+            mode = [ "n" "v" ];
+            action = ''"+p'';
+            desc = "Paste from clipboard";
+            silent = false;
+          }
+
+          #{
+          #  key = "<C-S-U>";
+          #  mode = [ "i" ];
+          #  action = "<C-S-v>U";
+          #  desc = "Insert Unicode character";
+          #  silent = false;
+          #}
         ];
 
         options = {
@@ -112,10 +137,27 @@
           vim.cmd [[
             autocmd VimEnter * if getcwd() == '/home/klaymore' | cd ${config.klaymore.configPath} | endif
           ]]
+          vim.api.nvim_create_autocmd("VimEnter", {
+            pattern = "*",
+            group = vim.api.nvim_create_augroup("NeotreeOnOpen", { clear = true }),
+            once = true,
+            callback = function(_)
+              if vim.fn.argc() == 0 then
+                vim.cmd("Neotree")
+              end
+            end,
+          })
+          vim.api.nvim_create_autocmd("TabNew", {
+            group = vim.api.nvim_create_augroup("NeotreeOnNewTab", { clear = true }),
+            command = "Neotree",
+          })
+
+          --vim.opt.clipboard=unnamedplus
+
+
 
           -- sitelen pona correct width
           vim.fn.setcellwidths({ {0xF1900, 0xF19FF, 2}, })
-
 
           -- Neovide settings
           --vim.g.neovide_fullscreen = true

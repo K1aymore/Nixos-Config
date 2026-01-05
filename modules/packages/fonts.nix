@@ -181,7 +181,7 @@ in
     #fonts.enableDefaultPackages = true;
     fonts.packages = map (f: pkgs.callPackage f {}) [
       #craftyPE
-      fairfax
+      #fairfax  # missing half hiragana/katakana which is very dumb
       #linja-insa
       #sevenish-sp
       #linja-waso
@@ -204,13 +204,17 @@ in
       #whatsapp-emoji-font
       #twemoji-color-font
       #liberation_ttf
-      unifont
+
+      # Some things fallback to this rather than Noto
+      #unifont
+      #unifont-csur
+      #unifont_upper
 
       #fira
       #fira-mono
       fira-code
       fira-code-symbols
-      hack-font
+      #hack-font
       #iosevka
       #scientifica
 
@@ -222,11 +226,10 @@ in
       #monocraft
 
       # The only one that properly handles words inside each other.
-      # Too bold for vscode
       nasin-nanpa-ucsur
       nasin-nanpa-helvetica
 
-      sitelen-seli-kiwen
+      #sitelen-seli-kiwen
       #linja-pi-pu-lukin
       #linja-sike
     ]);
@@ -235,9 +238,9 @@ in
       subpixel.rgba = "rgb";
       useEmbeddedBitmaps = true; # fix Firefox emoji
       defaultFonts = {
-        serif     = [ config.klaymore.font.serif "Noto Serif" "nasin-nanpa" ];
-        sansSerif = [ config.klaymore.font.sans  "Noto Sans" "nasin-nanpa" ];
-        monospace = [ config.klaymore.font.monospace "Fira Code" "nasin-nanpa" ];
+        serif     = [ config.klaymore.font.serif "Noto Serif"    "nasin-nanpa" "Noto Color Emoji" "Noto Sans CJK JP" ];
+        sansSerif = [ config.klaymore.font.sans  "Noto Sans"     "nasin-nanpa" "Noto Color Emoji" "Noto Sans CJK JP" ];
+        monospace = [ config.klaymore.font.monospace "Fira Code" "nasin-nanpa" "Noto Color Emoji" "Noto Sans Mono CJK JP" "Hack" "Noto Sans Mono" "Noto Sans" ];
       };
     };
 
@@ -264,6 +267,17 @@ in
           src = pkgs.fetchurl {
             url = "https://github.com/ETBCOR/nasin-nanpa/releases/download/n${version}/nasin-nanpa-${version}-Helvetica.otf";
             hash = "sha256-NlfLBzfHoHRmF4/OsadcSAS/lXu/SMDZJNm8F0yFDyM=";
+          };
+        });
+
+        unifont = prev.unifont.overrideAttrs (old: {
+          otf = pkgs.fetchurl {
+            url = "mirror://gnu/unifont/unifont-${old.version}/unifont_jp-${old.version}.otf";
+            hash = "sha256-JwtxwjO5SK6AbpwgtGbH8fCUQQgem2T5ofThkqHGMOw=";
+          };
+          bdf = pkgs.fetchurl {
+            url = "mirror://gnu/unifont/unifont-${old.version}/unifont_jp-${old.version}.bdf.gz";
+            hash = "sha256-/dghSTu9ZYC2OHTe0ax/iqw+EFhK6g8hAMiiKxStjGY=";
           };
         });
       })

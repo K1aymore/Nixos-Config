@@ -149,7 +149,7 @@
         enable = true;
         settings = {
           font = {
-            normal = [ "${config.klaymore.font.monospace}" "Fira Code" "nasin-nanpa" ];
+            normal = [ "${config.klaymore.font.monospace}" "Fira Code" "nasin-nanpa" "Noto Sans CJK JP" ];
             size = config.klaymore.font.size;
           };
           tabs = false;
