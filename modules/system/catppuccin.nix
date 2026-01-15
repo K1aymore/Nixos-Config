@@ -40,6 +40,7 @@
       obs.enable = true;  # adds option to menu
       chromium.enable = true;
       librewolf.enable = true;
+      anki.enable = true;
 
       fcitx5.enable = true;
       kvantum.enable = true;

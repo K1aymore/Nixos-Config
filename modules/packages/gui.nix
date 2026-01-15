@@ -140,7 +140,12 @@
       #lbry
       lagrange
       filezilla
-      anki
+      (anki.withAddons [
+        ankiAddons.adjust-sound-volume
+        ankiAddons.anki-connect
+        ankiAddons.passfail2
+        ankiAddons.review-heatmap
+      ])
 
       steam-run
 

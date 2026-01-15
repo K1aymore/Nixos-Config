@@ -3,7 +3,7 @@
 {
 
   home-manager.users.klaymore.programs.firefox = lib.mkIf config.klaymore.gui.enable {
-    enable = true;
+    enable = false;
 
     profiles.default = {
       settings = {

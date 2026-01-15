@@ -6,27 +6,27 @@
 
     home-manager.users.klaymore.programs.mpv = {
       enable = true;
-      package = pkgs.mpv-unwrapped.overrideAttrs (old: {
-        ffmpeg = pkgs.ffmpeg-full;
-        version = "0.41.0";
-        src = pkgs.fetchFromGitHub {
-          owner = "mpv-player";
-          repo = "mpv";
-          tag = "v0.41.0";
-          hash = "sha256-gJWqfvPE6xOKlgj2MzZgXiyOKxksJlY/tL6T/BeG19c=";
-        };
-        patches = [ ];
-        mesonFlags = [
-          (lib.mesonOption "default_library" "shared")
-          (lib.mesonBool "libmpv" true)
-          (lib.mesonEnable "manpage-build" true)
-          (lib.mesonEnable "cdda" false)
-          (lib.mesonEnable "dvbin" true)
-          (lib.mesonEnable "dvdnav" true)
-          (lib.mesonEnable "openal" true)
-        ];
-      });
-      config = lib.mkMerge [ {
+      # package = pkgs.mpv-unwrapped.overrideAttrs (old: {
+      #   ffmpeg = pkgs.ffmpeg-full;
+      #   version = "0.41.0";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "mpv-player";
+      #     repo = "mpv";
+      #     rev = "9483d6e12f793d9e7b8c270e2b04d3e79809c701";
+      #     hash = "sha256-4DkPxq82J2a4XgGOA4R21+7BpWP+WuEHPMCJLZysziQ=";
+      #   };
+      #   patches = [ ];
+      #   mesonFlags = [
+      #     (lib.mesonOption "default_library" "shared")
+      #     (lib.mesonBool "libmpv" true)
+      #     (lib.mesonEnable "manpage-build" true)
+      #     (lib.mesonEnable "cdda" false)
+      #     (lib.mesonEnable "dvbin" true)
+      #     (lib.mesonEnable "dvdnav" true)
+      #     (lib.mesonEnable "openal" true)
+      #   ];
+      # });
+      config = {
         fullscreen = true;
         # fs-screen = 0; # screen numbers change sometimes
         # screen = 0;
@@ -82,26 +82,16 @@
         # PQ flickers when OSD disappears, sometimes goes black when paused
         # PQ subtitles slightly too dark
         # gamma2.2 is too dark on the projector, hard to see (sometimes?). Default to bt.1886
-        #target-trc = "gamma2.2";
-        #target-prim = "bt.709";
+        target-trc = if config.klaymore.gui.hdr then "gamma2.2" else "bt.1886";
+        target-prim = "bt.709";
         tone-mapping = "mobius";
         treat-srgb-as-power22 = "both";
-
 
         # needs to be on/auto for HDR in HDR
         # makes no difference when outputting bt.1886 in SDR
         # outputs pq if display is HDR or has brightness lowered, otherwise bt.1886
         target-colorspace-hint = "auto";
-      }
-      (lib.mkIf config.klaymore.gui.hdr {
-        target-trc = "gamma2.2";
-        target-prim = "bt.709";
-      })
-      # (lib.mkIf config.klaymore.powerful {
-      #   # No visible difference but what the hey
-      #   scale = lib.mkForce "ewa_lanczos4sharpest";
-      # })
-      ];
+      };
 
 
       profiles = {
@@ -148,7 +138,7 @@
 
         "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
         "CTRL+b" = "af toggle earwax";
-        "CTRL+n" = "af toggle loudnorm=I=-20";
+        #"CTRL+n" = "af toggle loudnorm=I=-20";
         "CTRL+m" = "cycle-values audio-channels stereo mono auto-safe"; # toggle mono audio
 
         "CTRL+WHEEL_UP" = "add target-peak 25";
@@ -161,7 +151,7 @@
         "CTRL+=" = "add video-scale-x 0.01; add video-scale-y 0.01";
 
 
-        "a" = "vf toggle hflip";
+        # "a" = "vf toggle hflip";
         "b" = "cycle deband";
 
         "HOME" = "seek 0 absolute";
@@ -179,6 +169,7 @@
 
       scripts = [
         #pkgs.mpvScripts.autocrop
+        pkgs.mpvScripts.mpvacious
       ];
     };
 

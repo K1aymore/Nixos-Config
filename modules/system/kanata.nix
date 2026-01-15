@@ -22,9 +22,11 @@
 
 
     services.kanata.enable = true;
+    services.kanata.package = pkgs.kanata-with-cmd;
     services.kanata.keyboards.default.extraDefCfg = ''
       concurrent-tap-hold yes
       process-unmapped-keys yes
+      danger-enable-cmd yes
     '';
     services.kanata.keyboards.default.config = ''
       (defsrc
@@ -36,18 +38,17 @@
         lctl lmet lalt           spc            ralt rmet cmp  rctl
       )
 
-      (deflayer qwerty
-        @esc
-        grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-        tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-        @cap a    s    d    f    g    h    j    k    l    ;    '    ret
-        lsft z    x    c    v    b    n    m    ,    .    /    rsft
-        lctl lmet lalt           spc            ralt rmet cmp  rctl
+      (deflayermap (qwerty)
+        esc @esc
+        caps @cap
+        scrlck (layer-while-held emoji)
+        brk @swp
       )
 
       (defalias
         esc (tap-hold-press ${tap-dance-delay} 500 esc (layer-while-held esc))
         cap bspc
+        swp (macro , M-tab)  ;; comma so MPV remains paused if currently paused
         qgr (layer-while-held qwerty-symbols)
         6^ (tap-hold 0 ${tap-hold-delay} 6 AG-6)
         7^ (tap-hold 0 ${tap-hold-delay} 7 🔣ŭ)
@@ -91,6 +92,34 @@
         _    _    _              _              _    _    _    _
       )
 
+
+      (deflayermap (emoji)
+        b 🔣🔥
+        w 🔣🛞
+        s 🔣💀
+        c 🔣😭
+        p 🔣😔
+        h 🔣❤️
+        l 🔣🤏
+        t 🔣🗑️
+        f (layer-while-held emoji-flags)
+      )
+
+      (deflayermap (emoji-flags)
+        u 🔣🇺🇸    n 🔣🇳🇴    r 🔣🇫🇷
+        d 🔣🇩🇪    i 🔣🇮🇹    j 🔣🇯🇵    m 🔣🇲🇽    s 🔣🇪🇸
+
+        t 🔣🏳️‍⚧️    g 🔣🏳️‍🌈
+
+        v (macro
+          ;;(clipboard-save 0)
+          ;;20
+          (cmd sudo -u klaymore bash -c "wl-copy 🇸🇪")
+          300
+          C-v
+          ;;(clipboard-restore 0)
+        )
+      )
 
 
 
