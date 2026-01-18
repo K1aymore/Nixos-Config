@@ -39,11 +39,11 @@
     #   nix-fast-build
     #   colmena;
     # })
-    (final: prev: {
-      swt = prev.swt.overrideAttrs (old: { # fix compile error
-        NIX_CFLAGS_COMPILE = "-Wno-error";
-      });
-    })
+    # (final: prev: {
+    #   swt = prev.swt.overrideAttrs (old: { # fix compile error
+    #     NIX_CFLAGS_COMPILE = "-Wno-error";
+    #   });
+    # })
   ];
 
   # stop Nix build if taking too much RAM

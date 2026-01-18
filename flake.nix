@@ -2,6 +2,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
+    nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.6";
   
     nixpkgs-superstable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
@@ -90,9 +91,8 @@
         { nixpkgs.hostPlatform = settings.architecture; }
 
         home-manager.nixosModules.home-manager
-        impermanence.nixosModule
+        impermanence.nixosModules.impermanence
         { home-manager.users.klaymore.imports = [
-          impermanence.nixosModules.home-manager.impermanence
           catppuccin.homeModules.catppuccin
           # nix-doom-emacs-unstraightened.homeModule
         ]; }

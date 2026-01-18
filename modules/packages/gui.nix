@@ -9,7 +9,7 @@
 
     environment.systemPackages = with pkgs; [
       gtk3
-      swt
+      # swt
       #eglinfo
       mesa-demos
       clinfo
@@ -25,7 +25,7 @@
       kitty
       kdePackages.yakuake
       foot
-      xfce.xfce4-terminal
+      xfce4-terminal
 
       wl-clipboard
       swaylock
@@ -151,7 +151,7 @@
 
       godot
       #unityhub
-      blender-hip
+      pkgsRocm.blender
       #python39Packages.pyzmq
       libresprite
       #aseprite

@@ -11,6 +11,7 @@
 
     services = {
       displayManager.sddm.enable = true;
+      # displayManager.plasma-login-manager.enable = true;
       # displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
       desktopManager.plasma6.enable = true;
     };
