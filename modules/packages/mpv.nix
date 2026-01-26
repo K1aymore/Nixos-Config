@@ -34,8 +34,9 @@
         # window-maximized = true;
         keep-open = false;
         autocreate-playlist = "same";
-        audio-file-auto = "all";
-        sub-auto = "all";
+        audio-file-auto = "fuzzy";
+        sub-auto = "fuzzy";
+        # secondary-sid = 0; # mpvacious overrides anyway
 
         alang = "sv,en,de,fr,it,eo,tok";
         slang = "sv,en,fr,eo,tok";
@@ -134,10 +135,10 @@
         # https://github.com/mpv-player/mpv/issues/8413
         #"c" = "vf toggle crop=[if(lte(iw/16,ih/9),iw,ih/9*16)]:[if(lte(iw/16,ih/9),iw/16*9,ih)]"; # crop to 16:9
         "c" = "vf toggle crop=in_w:in_w/1.78";
-        "CTRL+c" = "vf toggle crop=in_w:in_w/2.38";
+        "C" = "vf toggle crop=in_w:in_w/2.38";
 
         "CTRL+v" = "af toggle dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
-        "CTRL+b" = "af toggle earwax";
+        #"CTRL+b" = "af toggle earwax";
         #"CTRL+n" = "af toggle loudnorm=I=-20";
         "CTRL+m" = "cycle-values audio-channels stereo mono auto-safe"; # toggle mono audio
 
@@ -150,6 +151,8 @@
         "CTRL+-" = "add video-scale-x -0.01; add video-scale-y -0.01";
         "CTRL+=" = "add video-scale-x 0.01; add video-scale-y 0.01";
 
+        "CTRL+s" = "cycle secondary-sid";
+        "CTRL+S" = "cycle secondary-sid down";
 
         # "a" = "vf toggle hflip";
         "b" = "cycle deband";

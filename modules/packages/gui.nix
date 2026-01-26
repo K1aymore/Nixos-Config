@@ -140,12 +140,6 @@
       #lbry
       lagrange
       filezilla
-      (anki.withAddons [
-        ankiAddons.adjust-sound-volume
-        ankiAddons.anki-connect
-        ankiAddons.passfail2
-        ankiAddons.review-heatmap
-      ])
 
       steam-run
 
@@ -298,6 +292,16 @@
       obs-studio.enable = true;
       element-desktop.enable = true;
       chromium.enable = true;
+
+      anki = {
+        enable = true;
+        addons = with pkgs.ankiAddons; [
+          adjust-sound-volume
+          anki-connect
+          passfail2
+          review-heatmap
+        ];
+      };
 
 
       lapce = {
