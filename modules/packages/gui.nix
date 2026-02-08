@@ -85,6 +85,7 @@
       jamesdsp
       clematis
       calibre
+      yacreader
       
       #puddletag
       kid3

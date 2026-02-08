@@ -50,6 +50,7 @@
       synapse = 8008;
       # coturn 49000-50000
       conduit = 6920;
+      kavita = 5000;
 
       yggdrasil = 6901;
       minecraft-wildcat = 6968;

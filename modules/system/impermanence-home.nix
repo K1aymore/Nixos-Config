@@ -2,13 +2,63 @@
 
 {
 
-  config = lib.mkIf config.klaymore.system.impermanence.home.enable {
+  config = let
+    getPrefixName = s: builtins.elemAt (lib.splitString "/" s) 0;
 
-    home-manager.users.klaymore = {
-      home.persistence."/synced/Nix/persist/home" = {
-        removePrefixDirectory = true;
-        allowOther = true;
-        directories = [
+    # takes list of files or directories as strings
+    # returns attrset where names are prefix and values are list of home paths
+    extractPrefixes = dirs: builtins.mapAttrs (dir: path:
+      map (lib.removePrefix (dir + "/")) path
+    ) (builtins.groupBy getPrefixName dirs);
+
+
+    # takes two args, dirs and files as lists of strings "prefix/homePath"
+    # returns attrset where each element is
+    #   "prefix" = {
+    #     dirs = [ "homePath" ];
+    #     files = [ "homePath" ];
+    groupByPrefix = dirs: files: let
+      dirPrefixes = builtins.attrNames (extractPrefixes dirs);
+      filePrefixes = builtins.attrNames (extractPrefixes files);
+      prefixes = lib.lists.unique (dirPrefixes ++ filePrefixes);
+    in lib.mergeAttrsList (map (prefix:
+    {
+      ${prefix} = {
+        dirs = (extractPrefixes dirs).${prefix} or [];
+        files = (extractPrefixes files).${prefix} or [];
+      };
+    }) prefixes);
+
+
+    # return attrset for output
+    genOutForPrefix = sourcePath: prefix: {dirs, files}: {
+      ${sourcePath + "/" + prefix} = {
+        directories = dirs;
+        files = files;
+      };
+    };
+
+    # take single source path
+    # return attrsets with prefixes for output
+    genOutsForSource = sourcePath: {dirs, files}@d: lib.concatMapAttrs (genOutForPrefix sourcePath) (groupByPrefix dirs files);
+
+
+    # take attrset where each element is
+    #   "sourcePath" = {
+    #     dirs = [ "" ]
+    #     files = [ "" ]
+    # return attrsets
+    #   "source/prefix" = {
+    #     allowOther = true;
+    #     directories = [ "" ];
+    #     files = [ "" ];
+    removePrefixDirs = d: lib.concatMapAttrs genOutsForSource d;
+
+  in lib.mkIf config.klaymore.system.impermanence.home.enable {
+
+    home-manager.users.klaymore.home.persistence = removePrefixDirs {
+      "/synced/Nix/persist/home" = {
+        dirs = [
           "Autostart/.config/autostart"
           "Pipewire/.local/state/pipewire"
           "Pipewire/.local/state/wireplumber"
@@ -56,16 +106,12 @@
 
           "Android/.android"
           "Android/Android"
-
           
           "JamesDSP/.cache/jamesdsp/"
           "RazerGenie/.local/share/razergenie"
 
-
-          { directory = "Steam/.steam";
-            method = "symlink"; }
-          { directory = "Steam/.local/share/Steam";
-            method = "symlink"; }
+          "Steam/.steam"
+          "Steam/.local/share/Steam"
 
           "Flatpak/.local/share/flatpak"
           #"Flatpak/.var/app"
@@ -75,7 +121,6 @@
 
           "Exodus/.config/Exodus"
           #"Pmbootstrap/.local/var/pmbootstrap"
-
 
           "Cache/.cache"
 
@@ -96,11 +141,8 @@
         ];
       };
 
-
-      home.persistence."/synced/Nix/dotfiles" = {
-        removePrefixDirectory = true;
-        allowOther = true;
-        directories = [
+      "/synced/Nix/dotfiles" = {
+        dirs = [
           "Wallpapers/.local/share/wallpapers"
           "OpenTabletDriver/.config/OpenTabletDriver"
 
@@ -110,8 +152,8 @@
           "GitHubCLI/.config/gh"
           #"Git/.config/git"
 
-          /* "Chromium/.cache/chromium"
-          "Chromium/.config/chromium"*/
+          #"Chromium/.cache/chromium"
+          #"Chromium/.config/chromium"
 
           "Keepassxc/.cache/keepassxc"
           "Keepassxc/.config/keepassxc"
@@ -175,10 +217,8 @@
         ];
       };
 
-      home.persistence."/synced/Nix/games" = {
-        removePrefixDirectory = true;
-        allowOther = true;
-        directories = [
+      "/synced/Nix/games" = {
+        dirs = [
           "Wine/.wine"
           "Grapejuice/.local/var/log/grapejuice"
           "Grapejuice/.local/share/grapejuice"
@@ -205,12 +245,11 @@
           "Prism/.local/share/PrismLauncher"
           "Gradle/.gradle"
         ];
+        files = [];
       };
-
-
-      home.persistence."/synced/Nix/persist/home/Plasma" = {
-        removePrefixDirectory = false;
-        allowOther = true;
+    } # end of home.persistence removePrefixDirs
+    // {
+      "/synced/Nix/persist/home/Plasma" = {
         directories = [
           ".config/gtk-3.0"
           ".config/gtk-4.0"
@@ -298,7 +337,7 @@
           ".local/share/user-places.xbel.tbcache"
         ];
       };
-    };
-  
+    }; # end of non-prefixed dirs
+
   };
 }

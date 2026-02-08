@@ -50,6 +50,7 @@
     servers = {
       forgejo.enable = lib.mkEnableOption "Forgejo";
       jellyfin.enable = lib.mkEnableOption "Jellyfin";
+      kavita.enable = lib.mkEnableOption "Kavita";
       minecraft = {
         enable = lib.mkEnableOption "Minecraft servers";
       };
