@@ -25,33 +25,26 @@
     device = "tmpfs";
     fsType = "tmpfs";
     options = [ "mode=755" ];
+    neededForBoot = true;
   };
 
   fileSystems."/home/klaymore" = {
     device = "tmpfs";
     fsType = "tmpfs";
     options = [ "mode=777" ];
+    neededForBoot = true;
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/fbe3f613-943e-47ff-8ba9-930360c36f81";
     fsType="ext4";
+    neededForBoot = true;
   };
-
-  #fileSystems."/synced" = {
-  #  device = "/dev/disk/by-uuid/f7b4de5e-00b6-4b2a-b2e2-9ae1fd3df093";
-  #  fsType = "ext4";
-  #  neededForBoot = true;
-  #};
-
-  /* fileSystems."/synced/HugeArchive" = {
-    device = "/dev/disk/by-uuid/ee575e80-6b75-4abe-854a-bf31fcf3d2b9";
-    fsType = "ext4";
-  }; */
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/11787f82-b1b8-43b4-be7e-876d7f500a4c";
     fsType = "ext4";
+    neededForBoot = true;
   };
 
   fileSystems."/nix/persist" = {

@@ -6,26 +6,16 @@
 
     home-manager.users.klaymore.programs.mpv = {
       enable = true;
-      # package = pkgs.mpv-unwrapped.overrideAttrs (old: {
-      #   ffmpeg = pkgs.ffmpeg-full;
-      #   version = "0.41.0";
-      #   src = pkgs.fetchFromGitHub {
-      #     owner = "mpv-player";
-      #     repo = "mpv";
-      #     rev = "9483d6e12f793d9e7b8c270e2b04d3e79809c701";
-      #     hash = "sha256-4DkPxq82J2a4XgGOA4R21+7BpWP+WuEHPMCJLZysziQ=";
-      #   };
-      #   patches = [ ];
-      #   mesonFlags = [
-      #     (lib.mesonOption "default_library" "shared")
-      #     (lib.mesonBool "libmpv" true)
-      #     (lib.mesonEnable "manpage-build" true)
-      #     (lib.mesonEnable "cdda" false)
-      #     (lib.mesonEnable "dvbin" true)
-      #     (lib.mesonEnable "dvdnav" true)
-      #     (lib.mesonEnable "openal" true)
-      #   ];
-      # });
+      package = pkgs.mpv-unwrapped.overrideAttrs (old: {
+        ffmpeg = pkgs.ffmpeg-full;
+        version = "0.41.0-UNKNOWN";
+        src = pkgs.fetchFromGitHub {
+          owner = "mpv-player";
+          repo = "mpv";
+          rev = "4fd2600c65b6a11f3407270a6b3f3206b7f6f51c";
+          hash = "sha256-i+C/hvUzuhDvIDTrhQ2YvjnE7rSHqHUK3v8dWu9P2tQ=";
+        };
+      });
       config = {
         fullscreen = true;
         # fs-screen = 0; # screen numbers change sometimes
@@ -33,7 +23,7 @@
         # autofit = "100%";
         # window-maximized = true;
         keep-open = false;
-        autocreate-playlist = "same";
+        # autocreate-playlist = "same";
         audio-file-auto = "fuzzy";
         sub-auto = "fuzzy";
         # secondary-sid = 0; # mpvacious overrides anyway
@@ -58,9 +48,11 @@
         gpu-api = "vulkan";
         gpu-context = "waylandvk";
 
-        profile = "high-quality";
+        # https://artoriuz.github.io/blog/imagemagick_resampling.html
+        profile = if config.klaymore.powerful then "high-quality" else "fast";
         scale = "ewa_lanczossharp";
-        dscale = "mitchell";
+        dscale = "hermite";
+        dither = "fruit";
         deband = true;
         # deband-iterations = 4; # does nothing?
         # deband-range = 16; # does nothing?
@@ -172,7 +164,7 @@
 
       scripts = [
         #pkgs.mpvScripts.autocrop
-        pkgs.mpvScripts.mpvacious
+        #pkgs.mpvScripts.mpvacious
       ];
     };
 

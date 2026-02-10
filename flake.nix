@@ -13,6 +13,8 @@
 
 
     impermanence.url = "github:nix-community/impermanence";
+    impermanence.inputs.nixpkgs.follows = ""; # not used
+    impermanence.inputs.home-manager.follows = ""; # not used
     catppuccin.url = "github:catppuccin/nix";
 
     nvf = {

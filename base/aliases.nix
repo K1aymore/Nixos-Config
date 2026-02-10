@@ -2,17 +2,18 @@
 
 let
   configPath = config.klaymore.configPath;
+  connect-timeout = "60";
 in 
 {
 
   environment.shellAliases = {
-    nrb = "sudo nixos-rebuild boot --flake ${configPath} --option connect-timeout 30";
-    nrs = "sudo nixos-rebuild switch --flake ${configPath} --option connect-timeout 30";
-    nrt = "sudo nixos-rebuild test --flake ${configPath} --option connect-timeout 30";
-    nrd = "sudo nixos-rebuild dry-build --flake ${configPath} --option connect-timeout 30";
+    nrb = "sudo nixos-rebuild boot --flake ${configPath} --option connect-timeout ${connect-timeout}";
+    nrs = "sudo nixos-rebuild switch --flake ${configPath} --option connect-timeout ${connect-timeout}";
+    nrt = "sudo nixos-rebuild test --flake ${configPath} --option connect-timeout ${connect-timeout}";
+    nrd = "sudo nixos-rebuild dry-build --flake ${configPath} --option connect-timeout ${connect-timeout}";
 
-    nfu = "nix flake update --option connect-timeout 30";
-    nb = "nix build --option connect-timeout 30";
+    nfu = "nix flake update --option connect-timeout ${connect-timeout}";
+    nb = "nix build --option connect-timeout ${connect-timeout}";
 
     nrbForErrors = "bash -c \"nixos-rebuild boot --flake . --show-trace 2>/dev/stdout | grep 'while evaluating derivation'\"";
 

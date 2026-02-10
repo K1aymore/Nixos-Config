@@ -5,9 +5,10 @@
 
     networking.firewall.allowedTCPPorts = [ ports.kavita ];
 
-    services.kavita = {
+    services.kavita = rec {
       enable = true;
-      dataDir = "/zfs2/servers/kavita";
+      dataDir = config.klaymore.serversPath + "/kavita";
+      tokenKeyFile = dataDir + "/tokenKeyFile"; # head -c 64 /dev/urandom | base64 --wrap=0
       settings = {
         Port = ports.kavita;
       };

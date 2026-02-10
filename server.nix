@@ -12,6 +12,7 @@
     
     servers = {
       forgejo.enable = true;
+      kavita.enable = true;
       minecraft.enable = true;
       nfs.enable = true;
       nginx.enable = true;
