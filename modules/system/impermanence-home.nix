@@ -7,8 +7,8 @@
 
     # takes list of files or directories as strings
     # returns attrset where names are prefix and values are list of home paths
-    extractPrefixes = dirs: builtins.mapAttrs (dir: path:
-      map (lib.removePrefix (dir + "/")) path
+    extractPrefixes = dirs: builtins.mapAttrs (prefix: path:
+      map (p: "/home/klaymore/" + (lib.removePrefix (prefix + "/") p)) path
     ) (builtins.groupBy getPrefixName dirs);
 
 
@@ -33,6 +33,7 @@
     # return attrset for output
     genOutForPrefix = sourcePath: prefix: {dirs, files}: {
       ${sourcePath + "/" + prefix} = {
+        hideMounts = false;
         directories = dirs;
         files = files;
       };
@@ -40,7 +41,7 @@
 
     # take single source path
     # return attrsets with prefixes for output
-    genOutsForSource = sourcePath: {dirs, files}@d: lib.concatMapAttrs (genOutForPrefix sourcePath) (groupByPrefix dirs files);
+    genOutsForSource = sourcePath: {dirs, files}: lib.concatMapAttrs (genOutForPrefix sourcePath) (groupByPrefix dirs files);
 
 
     # take attrset where each element is
@@ -49,14 +50,14 @@
     #     files = [ "" ]
     # return attrsets
     #   "source/prefix" = {
-    #     allowOther = true;
+    #     hideMounts = true;
     #     directories = [ "" ];
     #     files = [ "" ];
     removePrefixDirs = d: lib.concatMapAttrs genOutsForSource d;
 
   in lib.mkIf config.klaymore.system.impermanence.home.enable {
 
-    home-manager.users.klaymore.home.persistence = removePrefixDirs {
+    environment.persistence = removePrefixDirs {
       "/synced/Nix/persist/home" = {
         dirs = [
           "Autostart/.config/autostart"

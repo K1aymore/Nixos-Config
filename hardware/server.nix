@@ -54,7 +54,47 @@
   };
 
 
-  boot.zfs.extraPools = [ "zfs2" ];
+  # boot.zfs.extraPools = [ "zfs2" ];
+
+
+  fileSystems."zfs2" = {
+    device = "zfs2";
+    fsType = "zfs";
+    options = [ "zfsutil" ];
+    neededForBoot = true;
+  };
+  fileSystems."zfs2/games" = {
+    device = "zfs2/games";
+    fsType = "zfs";
+    options = [ "zfsutil" ];
+    neededForBoot = true;
+  };
+  fileSystems."zfs2/hugeArchive" = {
+    device = "zfs2/hugeArchive";
+    fsType = "zfs";
+    options = [ "zfsutil" ];
+    neededForBoot = true;
+  };
+  fileSystems."zfs2/servers" = {
+    device = "zfs2/servers";
+    fsType = "zfs";
+    options = [ "zfsutil" ];
+    neededForBoot = true;
+  };
+  fileSystems."/zfs2/stuff" = {
+    device = "zfs2/stuff";
+    fsType = "zfs";
+    options = [ "zfsutil" ];
+    neededForBoot = true;
+  };
+  fileSystems."/synced" = {
+    device = "zfs2/synced";
+    fsType = "zfs";
+    options = [ "zfsutil" ];
+    neededForBoot = true;
+  };
+
+
 
   # swapDevices =
   #   [ { device = "/dev/disk/by-uuid/dbbe870f-c951-4465-8ef0-0e4517afd415"; }

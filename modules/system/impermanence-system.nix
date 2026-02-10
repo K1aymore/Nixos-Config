@@ -12,6 +12,7 @@
         "/var/lib"
         "/var/log"
 
+        "/etc/zfs"
         "/etc/mullvad-vpn"
         "/etc/openvpn"
         #"/etc/ssh"
@@ -19,7 +20,7 @@
       ];
 
       files = [
-        # "/etc/machine-id"
+        "/etc/machine-id"
         # "/etc/nix/id_rsa"
         #"/var/lib/yggdrasil/keys.json"
       ];
