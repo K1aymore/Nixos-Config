@@ -13,7 +13,7 @@
     servers = {
       forgejo.enable = true;
       kavita.enable = true;
-      minecraft.enable = true;
+      # minecraft.enable = true;
       nfs.enable = true;
       nginx.enable = true;
       wireguard-forwarding.enable = true;
@@ -25,7 +25,7 @@
     };
 
     system = {
-      impermanence.home.enable = true;
+      #impermanence.home.enable = true;
       impermanence.system.enable = true;
       kanata.enable = true;
       locale = "en_US.UTF-8";

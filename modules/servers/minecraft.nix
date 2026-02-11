@@ -16,7 +16,7 @@
       dataDir = "/zfs2/servers/minecrafts";
 
       servers.wildcat-gamer-haven = {
-        enable = false;
+        enable = true;
         package = pkgs.fabricServers.fabric-1_21_4;
         jvmOpts = "-Xmx8192M -Xms4096M";
 

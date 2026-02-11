@@ -13,8 +13,6 @@
 
 
     impermanence.url = "github:nix-community/impermanence";
-    impermanence.inputs.nixpkgs.follows = ""; # not used
-    impermanence.inputs.home-manager.follows = ""; # not used
     catppuccin.url = "github:catppuccin/nix";
 
     nvf = {
@@ -52,11 +50,11 @@
       synapse = 8008;
       # coturn 49000-50000
       conduit = 6920;
-      kavita = 5000;
 
       yggdrasil = 6901;
       minecraft-wildcat = 6968;
       minecraft-frenched = 6967;
+      kavita = 6999;
 
       wgBen = 6970;
 
