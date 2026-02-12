@@ -1,4 +1,4 @@
-{ config, lib, ports, ... }:
+{ config, lib, pkgs, ports, ... }:
 
 {
   config = lib.mkIf config.klaymore.servers.kavita.enable {
