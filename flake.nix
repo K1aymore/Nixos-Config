@@ -2,7 +2,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
-    nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.6";
+    # nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.6";
   
     nixpkgs-superstable.url = "github:NixOS/nixpkgs/nixos-24.11";
 

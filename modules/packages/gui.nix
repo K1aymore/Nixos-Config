@@ -14,7 +14,7 @@
       mesa-demos
       clinfo
       vulkan-tools
-      xorg.xdpyinfo
+      xdpyinfo
       kdePackages.kgpg
       glib
 
@@ -181,7 +181,7 @@
 
 
       # Games
-      wineWowPackages.full
+      wineWow64Packages.full
       #lutris
       #playonlinux
       bottles

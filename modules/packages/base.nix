@@ -95,6 +95,7 @@
       moreutils
       wireguard-tools
       vnstat
+      gallery-dl
 
       micro
       xclip
@@ -197,7 +198,7 @@
       wasm-pack # Rust WebAssembly
       rust-analyzer
       pkg-config
-      xorg.libX11
+      libX11
       libxkbcommon
       alsa-lib
 

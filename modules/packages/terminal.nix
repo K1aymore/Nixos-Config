@@ -270,6 +270,7 @@
 
       yazi = {
         enable = true;
+        shellWrapperName = "y";
       };
 
       # television = {
