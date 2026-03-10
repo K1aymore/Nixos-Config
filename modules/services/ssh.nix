@@ -21,9 +21,12 @@
     };
 
     users.users.klaymore.openssh.authorizedKeys.keys = [
-      # Phone connectbot
+      # Phone (Pixel 2) connectbot
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDE3BuIuioGUdZ/13witApvVN7TXgG8/fL18sC/BiQYpyh24k6AkZwsRM+0fE2GjdYAptXOFKmAAzuQSekZ8UmWhL93UWUHnb+OvyqGqr+W6Aap6fr/OmSldCtDqIrMkgKF7vUgTx9YVMV+Xcer1PUKKspd/Lv9YSDEEz+g3XhSnWEPNE7Kb2+u5XKAVrYb59SBvnpFofsTaepCewrUrmh27F0MAIfGsU4E7FCBNnvCWZCukWV8tlckl8Zeni+gVSAkB065ktlzhJkQGW1rxAuMEed2Fahop/c/qWlKe07F0Jk+ycSUPf6pRblbN8L37uPlHfJQK4GTD9ACeE/gVagv server"
-      
+
+      # Pixel 9a ConnectBot
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDSTmZ93kLjBgFVPFDP2U4MVOuDhs9HUNNXsc0yMJg509ww638gPVbRjGBWtFV6CCLvFgNtVwHRA0IlXonWjmujmyTiXgbsrB7WIy5zrMvJG2Pf2zU6TJOlYC5XKi+sSkWHCqnenO/M0pi5hg6pGhJ+hAcrsRbbUPBfz5NPHqf2FnDtmBgwH776DYx8aUs5g6j4gmgNxuz/lqkcIaYmqU9LO6q6RRqZguZ/AsrZGFadZ2nGfVQcb1oSQ7VY9uCnjLHdAyo7IJoMpJeidvLVKlrAxhjjHo2sN8HolajusUCeqavvJ0fOPq39Z1HUy1XbrRpECbdcyFKfie/zmntcs3Tx ConnectBot \"PC\""
+    
       # Laptop
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDtXaikBKQO+y9Fc0bloDJ2V3OP8FBzkLCUlci9xGz8whQqANDG+T4UTIixTReOb8zyO3sEyhqqC8Gp8EpflRQ1C/faFg0KEKNhdNh8fWEwlXVGx6o9FlSkfAuUqGEYfJDwawWuE52tbBKMAsc1vIUY7xR8i0P5NC7cWhnGjbyZOYmM18tMpqngF62fdDR7t2yZa8VvfaOy7BP1tFrsKdRm/fZ1MZn5h/MJnZayvw6y/gl5F/1+Xq+0oVt7xwYpdVrGEL6qfKZZBiHBfTA3pBNZn1QVgYsyrGQDqLh6vCgIKNF8pTZRXcCx7TlpQA40USH0yD+f5WRUtzhoujQj+WlnmduwRd2htYD2GoIhp0kCd0sNAeCK3glCypV6Uqzl5SOAvGaoVwP/NIbak87dVPQ6diWnQIcvpD+dD3m8Bt1juHL++M9pu+/VTPZcpKqD8zf0b0BkwIVKUauiXAgPwL4P17OeySsib7+JQprACS+SzJsahA8pbtC7QND9T8W+SsFEVRYf+qpax/km9ogx34rXRo3uVux3TYJdm4G6IJa3McP/rACUpxD47Sz0Vr1ztfN7X+irdGsT9KAoe7nsC2+fPSFfk3nrrszLfnAA2PO19KwjNZeJ+2hAdNOKfoiApiby7gYcA5i+YMEKJwSEuEDQ0+PG+WDaWX9VvLcoDJqxIQ== Klaymore-Laptop"
 

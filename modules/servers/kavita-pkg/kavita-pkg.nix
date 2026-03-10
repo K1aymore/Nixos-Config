@@ -12,8 +12,8 @@
         src = fetchFromGitHub {
           owner = "K1aymore"; #"linkion";
           repo = "Kavita";
-          rev = "7d8e5b8b728bd5e87781c82207cf5d8ab8a861c7"; # me odd lock 4c58023f1aad48843da162d2a04c97fee659fd5c # me no covers "339f9833da7669927f436835d8d6aaa7450b0eee"; # works jan 11 "a610a057c798b5bd5332aa29ed44f76015b4f20c"; # no jan 12 "53a7e690a1bc3b12d59020c857fc29dd8a0f4d15"; # no jan 13 "7c2be140c72fe49f17b4c25a729771ec791b16aa"; # jan 10 "dcd9bd50bfc249e2e07cb41fe2a8e7bca599be6c"; # Last of the year "6d1c7a4ff502b87329fb1f2fb11a5eb46c146547";
-          hash = "sha256-QASE7Hg+WQgdWnmuxXJ1kKkLMhu88zCYaTVdrkeu0eM="; # me odd lock "sha256-7tdxL0Bt+pImaKwhsf6znMXifSWecklZ1U3oY9JWi6I="; # me no covers "sha256-rPq8GcjsMHorEmMp8XEZErN32RKLoS2DlqPw4pjvxow="; # linkion "sha256-ctnSq5d8FB6DCORTi7IPIMQu0xyamUiAAcYJZdjHQlM="; # jan 11 "sha256-cOICeUX9bmcgC2ZpcEroMPNmP5BJcD0Mbgl7P16FQg4="; # jan 10 "sha256-BcreJ4RFZHpd97O6eQAzFJEq2Iyv6XZvTdbILb8hx80="; # Last of the Year "sha256-lVe3bApwYzlLBhC36AHc4g1WO7Fc3aXAXkafqST07NQ="; # 8.9.1 "sha256-pQuHnhHlctWhh3ZV5Qvi8vBVegwO57GYpwLI3ZReWws=";
+          rev = "f442759b91eb92a23f1ddf14f89454f819ee3de5"; # me single cover "f7f08c56e2892c562a31552d3fd77d991de32d42"; # me cover double "7d8e5b8b728bd5e87781c82207cf5d8ab8a861c7"; # works jan 11 "a610a057c798b5bd5332aa29ed44f76015b4f20c"; # no jan 12 "53a7e690a1bc3b12d59020c857fc29dd8a0f4d15"; # no jan 13 "7c2be140c72fe49f17b4c25a729771ec791b16aa"; # jan 10 "dcd9bd50bfc249e2e07cb41fe2a8e7bca599be6c"; # Last of the year "6d1c7a4ff502b87329fb1f2fb11a5eb46c146547";
+          hash = "sha256-ha2swxFoqhKk84AY391ac+aAFGN524/EZj5+L8DSabI="; # me single cover "sha256-7xwBZcIofpv/j4MYY/UXvLY2PfUEivpll+RIxfKAI4U="; # me cover double "sha256-QASE7Hg+WQgdWnmuxXJ1kKkLMhu88zCYaTVdrkeu0eM="; # linkion "sha256-ctnSq5d8FB6DCORTi7IPIMQu0xyamUiAAcYJZdjHQlM="; # jan 11 "sha256-cOICeUX9bmcgC2ZpcEroMPNmP5BJcD0Mbgl7P16FQg4="; # jan 10 "sha256-BcreJ4RFZHpd97O6eQAzFJEq2Iyv6XZvTdbILb8hx80="; # Last of the Year "sha256-lVe3bApwYzlLBhC36AHc4g1WO7Fc3aXAXkafqST07NQ="; # 8.9.1 "sha256-pQuHnhHlctWhh3ZV5Qvi8vBVegwO57GYpwLI3ZReWws=";
         };
 
         backend = buildDotnetModule {

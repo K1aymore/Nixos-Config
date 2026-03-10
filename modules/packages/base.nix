@@ -156,7 +156,7 @@
       marksman
 
       pfetch
-      neofetch
+      fastfetch
       tree
       cmatrix
       lolcat

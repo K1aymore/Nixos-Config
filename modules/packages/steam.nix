@@ -5,7 +5,6 @@
   config = lib.mkIf config.klaymore.gui.enable {
     environment.sessionVariables = {
     #   STEAM_FORCE_DESKTOPUI_SCALING = config.klaymore.gui.scaling;
-      PROTON_ENABLE_WAYLAND = "1";
     };
 
     nixpkgs.config.packageOverrides = pkgs: {
@@ -22,6 +21,13 @@
           libkrb5
           keyutils
         ];
+        extraEnv = {
+          LD_PRELOAD = "";
+          MANGOHUD = "1";
+          GAMEMODERUN = "1";
+          PROTON_ENABLE_WAYLAND = "1";
+          PROTON_ENABLE_HDR = "1";
+        };
       };
     };
 
@@ -29,7 +35,7 @@
       enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
       dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-      extest.enable = true;
+      # extest.enable = true;
 
       extraCompatPackages = with pkgs; [
         proton-ge-bin

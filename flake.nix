@@ -64,7 +64,7 @@
       openttd1 = 3978;
       openttd2 = 3979;
 
-      ssh = 56789;
+      ssh = 6900;
       syncthingTransfer = 22000;
       syncthingRelay = 22067;
       ipfsAPI = 5001;

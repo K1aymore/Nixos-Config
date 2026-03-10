@@ -12,8 +12,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "mpv-player";
           repo = "mpv";
-          rev = "4fd2600c65b6a11f3407270a6b3f3206b7f6f51c";
-          hash = "sha256-i+C/hvUzuhDvIDTrhQ2YvjnE7rSHqHUK3v8dWu9P2tQ=";
+          rev = "147c951a1735e9164d8e862e081792631f7d27f8";
+          hash = "sha256-tMViONJwaqLVSbBVenEuguOcfIAl8hPJHvqbpcUtnkw=";
         };
       });
       config = {
@@ -47,20 +47,18 @@
         hwdec = "auto"; # Causes jitter and missed/delayed frames with display-resample
         gpu-api = "vulkan";
         gpu-context = "waylandvk";
+        cache = true;
+        vd-queue-enable = true; # laptop software AV1 decoding
 
         # https://artoriuz.github.io/blog/imagemagick_resampling.html
         profile = if config.klaymore.powerful then "high-quality" else "fast";
-        scale = "ewa_lanczossharp";
-        dscale = "hermite";
+        scale = if config.klaymore.powerful then "ewa_lanczossharp" else "hermite";
+        dscale = if config.klaymore.powerful then "ewa_lanczossharp" else "hermite"; # ewa_lanczossharp/lanczos > catmull_rom/mitchell/hermite > bilinear 
         dither = "fruit";
         deband = true;
         # deband-iterations = 4; # does nothing?
         # deband-range = 16; # does nothing?
 
-        # affects HDR->SDR, and HDR when very bright
-        # in HDR, spline/auto preserves details better, bt.2446a becomes spline when target-peak > 2400
-        # for HDR->SDR, bt.2446a darker & more contrasted
-        #tone-mapping = "bt.2446a";
 
         # SSimSuperRes causes jitter with display-resample(-vdrop)
         video-sync = "audio";
@@ -77,7 +75,12 @@
         # gamma2.2 is too dark on the projector, hard to see (sometimes?). Default to bt.1886
         target-trc = if config.klaymore.gui.hdr then "gamma2.2" else "bt.1886";
         target-prim = "bt.709";
-        tone-mapping = "mobius";
+
+        # affects HDR->SDR, and HDR when very bright
+        # in HDR, spline/auto preserves details better, bt.2446a becomes spline when target-peak > 2400
+        # for HDR->SDR, bt.2446a darker & more contrasted.
+        # mobius more saturated. Reinhard = mobius but flatter and desaturated. Hable dark. bt.2390 like mobius but brighter and less saturated. st2094-40 actually visible in dark.
+        tone-mapping = "bt.2446a";
         treat-srgb-as-power22 = "both";
 
         # needs to be on/auto for HDR in HDR
@@ -88,7 +91,7 @@
 
 
       profiles = {
-        HDR = {
+        HDR = lib.mkIf config.klaymore.gui.hdr {
           profile-cond = ''video_params and p["video-params/primaries"] == "bt.2020"'';
           profile-restore = "copy";
 
@@ -106,14 +109,14 @@
 
       # test with mpv --input-test --force-window --idle
       bindings = {
-        "CTRL+`" = "cycle-values target-peak auto 500";
-        "CTRL+1" = "cycle blend-subtitles";
-        "CTRL+2" = "cycle inverse-tone-mapping";
+        "CTRL+`" = "cycle blend-subtitles";
+        "CTRL+1" = "cycle-values dscale bilinear hermite mitchell catmull_rom lanczos ewa_lanczossharp";
+        "CTRL+2" = "cycle-values scale bilinear hermite mitchell catmull_rom lanczos ewa_lanczossharp";
         "CTRL+3" = "cycle target-colorspace-hint";
 
         "CTRL+4" = "cycle-values target-prim auto bt.2020 bt.709";
         "CTRL+5" = "cycle-values target-trc auto pq gamma2.2 bt.1886";
-        "CTRL+6" = "cycle-values tone-mapping auto bt.2446a mobius";
+        "CTRL+6" = "cycle-values tone-mapping auto bt.2446a mobius reinhard hable bt.2390 gamma linear st2094-40";
 
         "CTRL+7" = "cycle-values video-sync display-resample-vdrop audio";
         "CTRL+8" = "cycle-values vo gpu gpu-next dmabuf-wayland";

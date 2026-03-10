@@ -84,9 +84,9 @@
       strawberry
       jamesdsp
       clematis
-      calibre
+      # calibre
       yacreader
-      
+
       #puddletag
       kid3
       tageditor
