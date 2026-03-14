@@ -12,8 +12,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "mpv-player";
           repo = "mpv";
-          rev = "147c951a1735e9164d8e862e081792631f7d27f8";
-          hash = "sha256-tMViONJwaqLVSbBVenEuguOcfIAl8hPJHvqbpcUtnkw=";
+          rev = "cbecfb40465c854c7f7895eef6ba0c750e6a5c2e";
+          hash = "sha256-Xn0rrKv2qOk0h02qZ3TMk4gnO7/hestIR6MdnsFzEvg=";
         };
       });
       config = {
