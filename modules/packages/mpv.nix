@@ -23,7 +23,7 @@
         # autofit = "100%";
         # window-maximized = true;
         keep-open = false;
-        # autocreate-playlist = "same";
+        autocreate-playlist = "same";
         audio-file-auto = "fuzzy";
         sub-auto = "fuzzy";
         # secondary-sid = 0; # mpvacious overrides anyway
@@ -37,6 +37,7 @@
         hr-seek = true;
         replaygain = "track";
         blend-subtitles = "video";
+        # sub-font-size = 49; # only for some subs (find out what)
 
 
         # best quality, except for 8K which is dumb
@@ -51,7 +52,7 @@
         vd-queue-enable = true; # laptop software AV1 decoding
 
         # https://artoriuz.github.io/blog/imagemagick_resampling.html
-        profile = if config.klaymore.powerful then "high-quality" else "fast";
+        profile = lib.mkIf config.klaymore.powerful "high-quality";
         scale = if config.klaymore.powerful then "ewa_lanczossharp" else "hermite";
         dscale = if config.klaymore.powerful then "ewa_lanczossharp" else "hermite"; # ewa_lanczossharp/lanczos > catmull_rom/mitchell/hermite > bilinear 
         dither = "fruit";
@@ -66,7 +67,7 @@
         tscale = "oversample";
 
 
-        # gamma2.2 darker/contraster than bt.1886
+        # gamma2.2 darker than bt.1886
         # pq matches gamma2.2 on SDR displays and on HDR with clip / mobius / gamma tonemappers
         # works on EDR displays too but cranks screen brightness to max, worse blacks
         # should be PQ because mpv does dithering/debanding in HDR space, nicer (Sanda E01 00:41)
@@ -75,18 +76,41 @@
         # gamma2.2 is too dark on the projector, hard to see (sometimes?). Default to bt.1886
         target-trc = if config.klaymore.gui.hdr then "gamma2.2" else "bt.1886";
         target-prim = "bt.709";
-
-        # affects HDR->SDR, and HDR when very bright
-        # in HDR, spline/auto preserves details better, bt.2446a becomes spline when target-peak > 2400
-        # for HDR->SDR, bt.2446a darker & more contrasted.
-        # mobius more saturated. Reinhard = mobius but flatter and desaturated. Hable dark. bt.2390 like mobius but brighter and less saturated. st2094-40 actually visible in dark.
-        tone-mapping = "bt.2446a";
         treat-srgb-as-power22 = "both";
-
-        # needs to be on/auto for HDR in HDR
-        # makes no difference when outputting bt.1886 in SDR
-        # outputs pq if display is HDR or has brightness lowered, otherwise bt.1886
         target-colorspace-hint = "auto";
+
+        # for HDR->SDR with bt.709 and bt.1886: bt.2446a darker & more contrasted. mobius more saturated. Reinhard = mobius but flatter and desaturated. Hable dark. bt.2390 like mobius but brighter and less saturation / bloom. gamma = bt.2390 but less blown out highlights. st2094-40 actually visible in dark, terrible colors and washed out shadows.
+        # for HDR->SDR, for standard content < 203 nits, bt.2446a / reinhard / slightly hable wash out colors and brighten, not good
+        # dark content < 80 nits, bt.2390 brightens slightly, good.
+
+        # on SDR display: hable just linear but brighter, bad. bt.2390 more pop than linear, blown out, bad. bt.2446a washed out shadows, flatter, bad.
+
+        # HDR->SDR bt.1886 on 3rd monitor with ICC profile, versus XV275K HDR 203 nits
+        # HTTYD 54:38 full brightness/contrast
+          # auto (spline): good dark shadows with details. Bright colors desaturated obvi, high mids (horizon) little too bright
+          # bt.2446a: shadows raised, high mids still too bright
+          # mobius: highlights way too blown out, clouds desaturated as hell
+          # reinhard: mobius but worse
+          # hable: shadows slightly lifted, horizon/clouds too bright still
+          # bt.2390: very bright. Highlight really fricking glowing. Shadows slighhtly raised
+          # gamma: shadows decent. Highlight alright but high mids still pretty bright
+          # linear: good hangling of highlight and pretty good high mids (still too bright). Shadows kinda washed out
+          # st.2094-40: shadows raised, way too blown out
+          # hable (vs spline): darker high-mids, brighter shadows
+          # gamma (vs auto): brighter high-mids, darker shadows
+          # linear (vs auto): flatter. Darker highlight / brigher shadows
+        # HTTYD 32:36 brightness 100% contrast 75%
+          # auto: slightly raised shadows, too bright overall. Face slightly desaturated
+          # mobius: just spline with -2 brightness and +6 saturation, except highlights barely brighter
+          # gamma: exact same as mobius
+          # bt.2390: darker, less contrast than spline
+          # bt2446a / reinhard / hable / st.2094-40 / linear too washed out, suck
+        
+        # Literally just run as pq (or bt.1886) with auto (spline). bt.1886 brighter.
+
+        # don't use pq on sdr display, issues with scene detection etc
+        # With gamma2.2, need either mobius, gamma, or maybe bt.2390 for alright shadows. Others washed out.
+        tone-mapping = "auto";
       };
 
 
@@ -157,6 +181,7 @@
 
       scriptOpts.osc = {
         # bring back original controls
+        # ''no-osd cycle audio; show-text "''${!current-tracks/audio/id:Audio: no}''${?current-tracks/audio/id:Audio: (''${current-tracks/audio/id}) ''${current-tracks/audio/title:} (''${current-tracks/audio/lang:}) [''${current-tracks/audio/codec}}]"''
         audio_track_mbtn_left_command = "cycle audio";
         audio_track_mbtn_mid_command = "script-binding select/select-aid; script-message-to osc osc-hide";
         audio_track_mbtn_right_command = "cycle audio down";

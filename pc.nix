@@ -18,6 +18,10 @@
       emacs.enable = true;
     };
 
+    servers = {
+      syncplay.enable = true;
+    };
+
     services = {
       mullvad.enable = true;
       syncthing.enable = true;

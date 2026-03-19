@@ -57,6 +57,7 @@
       };
       nfs.enable = lib.mkEnableOption "NFS support";
       nginx.enable = lib.mkEnableOption "NGINX";
+      syncplay.enable = lib.mkEnableOption "Syncplay";
       wireguard-forwarding.enable = lib.mkEnableOption "wireguard-forwarding";
     };
 
