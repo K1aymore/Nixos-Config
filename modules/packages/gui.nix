@@ -132,7 +132,7 @@
       mumble
 
       qbittorrent
-      protonvpn-gui
+      proton-vpn
       networkmanagerapplet
       #onionshare-gui
       #tor-browser-bundle-bin

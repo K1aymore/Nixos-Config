@@ -179,6 +179,7 @@
         lfs.enable = true;
         signing = {
           key = "BAE085A5C70F19F7";
+          format = "openpgp";
           signByDefault = false; # don't need to sign all commits
         };
         ignores = [
