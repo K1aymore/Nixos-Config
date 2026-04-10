@@ -6,7 +6,7 @@
     configPath = lib.mkOption { default = "/synced/Nix/cfg"; };
     serversPath = lib.mkOption { default = "/zfs2/servers"; };
     powerful = lib.mkOption { default = false; };
-    publicIP = lib.mkOption { default = "71.231.122.199"; };
+    publicIP = lib.mkOption { default = "71.212.197.144"; };
     localIP = lib.mkOption { default = ""; };
     serverLan = lib.mkOption { default = "172.16.0.115"; };
 

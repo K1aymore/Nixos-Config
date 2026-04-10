@@ -4,6 +4,22 @@
 
   config = lib.mkIf config.klaymore.programs.mpv.enable {
 
+    nixpkgs.overlays = [
+      (final: prev: {
+        libplacebo = prev.libplacebo.overrideAttrs (old: {
+          version = "7.360.1";
+          patches = [];
+          src = pkgs.fetchFromGitLab {
+            domain = "code.videolan.org";
+            owner = "videolan";
+            repo = "libplacebo";
+            rev = "v7.360.1";
+            hash = "sha256-h8uMWRe4SysbKNLWdGYxAwj2k7yh4sO62/Ca30mRT3g=";
+          };
+        });
+      })
+    ];
+
     home-manager.users.klaymore.programs.mpv = {
       enable = true;
       package = pkgs.mpv-unwrapped.overrideAttrs (old: {
@@ -12,8 +28,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "mpv-player";
           repo = "mpv";
-          rev = "cbecfb40465c854c7f7895eef6ba0c750e6a5c2e";
-          hash = "sha256-Xn0rrKv2qOk0h02qZ3TMk4gnO7/hestIR6MdnsFzEvg=";
+          rev = "428edff9c19d5bfa83a6ba9ddaeb752e4039a7ba";
+          hash = "sha256-gRr8hdS15kUBUxoqjjCpXQ24yHnaxTJWbmEpqAMFVng=";
         };
       });
       config = {

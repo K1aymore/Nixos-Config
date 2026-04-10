@@ -165,6 +165,7 @@
 
   services.fstrim.enable = true; # for ssd trimming
 
+  boot.kernelModules = [ "ntsync" ];
   boot.kernel.sysctl = {
     # for Syncthing watches
     # Note that inotify watches consume 1kB on 64-bit machines.

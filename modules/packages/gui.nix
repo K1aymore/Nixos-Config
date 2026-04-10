@@ -182,7 +182,9 @@
 
       # Games
       wineWow64Packages.full
-      #lutris
+      umu-launcher
+      dxvk
+      lutris
       #playonlinux
       bottles
       #grapejuice

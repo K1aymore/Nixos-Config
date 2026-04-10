@@ -43,7 +43,7 @@
       # Alacritty great font display but not RTL
       # Neovide small text (font size), some Hindi squished together
 
-      # SP with fish_ambiguous_width 2: foot konsole perfect, kitty small
+      # SP with fish_ambiguous_width 2: foot konsole perfect, kitty small, wezterm perfect
       # kitty fish fonts:
         # inconsistent sizes: sevenish
         # cut off: nasin nanpa, fairfax, linja waso lili, sitelen seli kiwen, linja insa
@@ -61,9 +61,10 @@
       # Kitty slightly alright setting font_family to Fairfax Hax HD
       # Kate text offset with nasin-nanpa, setting total font to Fairfax fixes
 
-      # ALL VERY BROKEN WHEN MOVING OR CHANGING TEXT IN FISH except vim terminal
+      # ALL VERY BROKEN WHEN MOVING OR CHANGING TEXT IN FISH except vim terminal and wezterm. Broken: kitty, alacritty, konsole, foot
       # Emacs editor okay, term fish broken
 
+      # uses AI
       kitty = {
         enable = true;
         settings = {
@@ -126,6 +127,7 @@
         };
       };
 
+      # uses AI
       wezterm = {
         enable = true;
         extraConfig = ''
@@ -139,7 +141,7 @@
             enable_wayland = false,
 
             color_scheme = "Catppuccin Mocha",
-            hide_tab_bar_if_only_one_tab = true,
+            hide_tab_bar_if_only_one_tab = false,
           }
         '';
       };

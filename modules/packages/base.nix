@@ -60,7 +60,7 @@
       cryptsetup
       ntfs3g
       exfat
-      /* exfatprogs */
+      exfatprogs
       f2fs-tools
       btrfs-progs
       btrfs-heatmap
