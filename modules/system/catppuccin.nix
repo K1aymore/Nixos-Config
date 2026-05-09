@@ -45,7 +45,7 @@
       fcitx5.enable = true;
       kvantum.enable = true;
 
-      vscode.profiles.default = {
+      vscodium.profiles.default = {
         enable = true;
         #accent = "maroon";
         settings = {

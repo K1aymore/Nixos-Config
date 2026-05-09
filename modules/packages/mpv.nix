@@ -7,14 +7,14 @@
     nixpkgs.overlays = [
       (final: prev: {
         libplacebo = prev.libplacebo.overrideAttrs (old: {
-          version = "7.360.1";
+          version = "7.360.1-UNKNOWN";
           patches = [];
           src = pkgs.fetchFromGitLab {
             domain = "code.videolan.org";
             owner = "videolan";
             repo = "libplacebo";
-            rev = "v7.360.1";
-            hash = "sha256-h8uMWRe4SysbKNLWdGYxAwj2k7yh4sO62/Ca30mRT3g=";
+            rev = "baa7f8547f49636a78cf4d03c483ddb2bcbf3d87";
+            hash = "sha256-Epvp5ksu+OT5kKS5EQEnm/+Yw7k3UyBRX296HAoUyGo=";
           };
         });
       })
@@ -28,8 +28,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "mpv-player";
           repo = "mpv";
-          rev = "428edff9c19d5bfa83a6ba9ddaeb752e4039a7ba";
-          hash = "sha256-gRr8hdS15kUBUxoqjjCpXQ24yHnaxTJWbmEpqAMFVng=";
+          rev = "4d944b2fad25149b32c911468455914436f8559b";
+          hash = "sha256-OuQRLa17B2PcRlMa8XeL4NCgN8352LC4g6UgtEL11nE=";
         };
       });
       config = {

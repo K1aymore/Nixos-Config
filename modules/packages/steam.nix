@@ -23,7 +23,7 @@
         ];
         extraEnv = {
           LD_PRELOAD = "";
-          MANGOHUD = "1";
+          # MANGOHUD = "1";
           GAMEMODERUN = "1";
           PROTON_ENABLE_WAYLAND = "1";
           PROTON_ENABLE_HDR = "1";
@@ -41,6 +41,25 @@
         proton-ge-bin
       ];
     };
+
+
+    # systemd.packages = lib.mkIf config.klaymore.powerful [
+    #   pkgs.dmemcg-booster
+    # ];
+
+    # systemd.services.dmemcg-booster-system = lib.mkIf config.klaymore.powerful {
+    #   overrideStrategy = "asDropin";
+    #   wantedBy = [ "multi-user.target" ];
+    # };
+
+    # systemd.user.services.dmemcg-booster-user = lib.mkIf config.klaymore.powerful {
+    #   overrideStrategy = "asDropin";
+    #   wantedBy = [ "graphical-session-pre.target" ];
+    # };
+
+    # environment.systemPackages = lib.mkIf config.klaymore.powerful [ 
+    #   pkgs.plasma-foreground-booster
+    # ];
 
   };
 }

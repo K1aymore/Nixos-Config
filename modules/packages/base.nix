@@ -83,7 +83,7 @@
       nixos-option
       #awscli2
       httrack
-      elinks
+      # elinks
       links2
       w3m
       openssl

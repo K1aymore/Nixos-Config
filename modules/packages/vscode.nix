@@ -3,12 +3,11 @@
 {
 
   config = lib.mkIf config.klaymore.programs.vscode.enable {
-    home-manager.users.klaymore.programs.vscode = {
+    home-manager.users.klaymore.programs.vscodium = {
       enable = true;
-      package = pkgs.vscodium;
       mutableExtensionsDir = false;
     };
-    home-manager.users.klaymore.programs.vscode.profiles.default = {
+    home-manager.users.klaymore.programs.vscodium.profiles.default = {
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
 
@@ -30,7 +29,7 @@
 
         #streetsidesoftware.code-spell-checker
 
-        #catppuccin.catppuccin-vsc
+        catppuccin.catppuccin-vsc
         catppuccin.catppuccin-vsc-icons
         #roman.ayu-next
         ms-vscode.cpptools
@@ -39,12 +38,12 @@
         #ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-        {
-          name = "mayukaithemevsc";
-          publisher = "GulajavaMinistudio";
-          version = "3.2.4";
-          sha256 = "sha256-V2hAxIVu2YWonwcIG+9n300b88jzPOnKYUFt1okSX4w=";
-        }
+        # {
+        #   name = "mayukaithemevsc";
+        #   publisher = "GulajavaMinistudio";
+        #   version = "3.2.4";
+        #   sha256 = "sha256-V2hAxIVu2YWonwcIG+9n300b88jzPOnKYUFt1okSX4w=";
+        # }
         # {
         #   name = "vscode-scheme";
         #   publisher = "sjhuangx";
@@ -62,7 +61,7 @@
       userSettings = {
         "window.newWindowProfile" = "Default";
         "workbench.iconTheme" = "catppuccin-mocha";
-        #"workbench.colorTheme" = "Mayukai Semantic Mirage";
+        "workbench.colorTheme" = "Catppuccin Mocha";
 
         "editor.fontFamily" = "${config.klaymore.font.monospace}, Fira Code, nasin-nanpa, Fairfax Hax HD, sitelen seli kiwen mono juniko, Twemoji Country Flags, monospace";
         "editor.fontLigatures" = true;

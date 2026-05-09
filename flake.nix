@@ -19,13 +19,10 @@
       url = "github:NotAShelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nix-doom-emacs-unstraightened = {
-    #   url = "github:marienz/nix-doom-emacs-unstraightened";
-    #   # Optional, to download less. Neither the module nor the overlay uses this input.
-    #   inputs.nixpkgs.follows = "";
-    # };
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
+    jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS";
 
     # sitelen-pona-UCSUR = {
     #   url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
@@ -34,7 +31,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-minecraft,  ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-minecraft, jovian-nixos,  ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -100,10 +97,12 @@
         catppuccin.nixosModules.catppuccin
         nvf.nixosModules.default
         nix-minecraft.nixosModules.minecraft-servers
+        jovian-nixos.nixosModules.default
 
 
         { nixpkgs.overlays = [
           nix-minecraft.overlay
+          jovian-nixos.overlays.default
 
           (final: prev: {
             superstable = import nixpkgs-superstable {

@@ -184,9 +184,9 @@
       wineWow64Packages.full
       umu-launcher
       dxvk
-      lutris
+      # lutris
       #playonlinux
-      bottles
+      # bottles
       #grapejuice
       protonup-qt
       #protontricks
