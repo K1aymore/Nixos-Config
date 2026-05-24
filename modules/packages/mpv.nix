@@ -13,8 +13,8 @@
             domain = "code.videolan.org";
             owner = "videolan";
             repo = "libplacebo";
-            rev = "baa7f8547f49636a78cf4d03c483ddb2bcbf3d87";
-            hash = "sha256-Epvp5ksu+OT5kKS5EQEnm/+Yw7k3UyBRX296HAoUyGo=";
+            rev = "051cc36fd6e3ca06d64f848b6a38f708f98a2a91";
+            hash = "sha256-iJPCOzPGOSzM/XCZYOTtzPCpYmECDkAOgtWG9BeZ0Lc=";
           };
         });
       })
@@ -28,8 +28,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "mpv-player";
           repo = "mpv";
-          rev = "4d944b2fad25149b32c911468455914436f8559b";
-          hash = "sha256-OuQRLa17B2PcRlMa8XeL4NCgN8352LC4g6UgtEL11nE=";
+          rev = "9e06c3248a67a14717909db4a02709bc22fe559e";
+          hash = "sha256-ISG5kZBmaQ1RzmQpFN+FxM6Dvty4dnbr78siJvkgBIc=";
         };
       });
       config = {
@@ -44,6 +44,7 @@
         sub-auto = "fuzzy";
         # secondary-sid = 0; # mpvacious overrides anyway
 
+        ao = "pulse"; # for Discord screenshare
         alang = "sv,en,de,fr,it,eo,tok";
         slang = "sv,en,fr,eo,tok";
         subs-with-matching-audio = "forced";
@@ -59,7 +60,7 @@
         # best quality, except for 8K which is dumb
         ytdl-format = "bestvideo[height<=2160]+bestaudio/best[height<=2160]";
 
-        # dmabuf-wayland always uses source target-trc etc
+        # dmabuf-wayland always uses target-trc etc from source
         vo = "gpu-next";
         hwdec = "auto"; # Causes jitter and missed/delayed frames with display-resample
         gpu-api = "vulkan";
@@ -164,6 +165,8 @@
         # https://www.reddit.com/r/NixOS/comments/191wg98/using_a_directory_from_a_git_repo_as_source_for_a/
         "CTRL+9" = "no-osd change-list glsl-shaders set \"${./mpvShaders/SSimSuperRes.glsl}\"; show-text \"SSimSuperRes\"";
         "CTRL+0" = "no-osd change-list glsl-shaders clr \"\"; show-text \"GLSL shaders cleared\"";
+
+        "CTRL+A" = "cycle-values ao pipewire pulse";
 
         "CTRL+i" = "cycle interpolation";
 

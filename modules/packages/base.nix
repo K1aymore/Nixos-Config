@@ -114,6 +114,7 @@
       lesspass-cli
       croc
       mmv
+      recutils # GNU text database
 
 
       # Rust programs
@@ -141,6 +142,7 @@
       amfora
 
       ffmpeg-full
+      ffmpegthumbnailer
       yt-dlp
       r128gain
       mediainfo

@@ -10,13 +10,12 @@
 
     services.emacs = {
       enable = true;
-      package = pkgs.emacs; 
+      package = (if config.klaymore.gui.enable then pkgs.emacs else pkgs.emacs-nox);
     };
 
     environment.systemPackages = with pkgs; [
       # required dependencies
       git
-      emacs    # Emacs 27.2
       ripgrep
       # optional dependencies
       coreutils # basic GNU utilities
