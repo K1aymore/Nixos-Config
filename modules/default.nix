@@ -4,7 +4,7 @@
 
   options.klaymore = {
     configPath = lib.mkOption { default = "/synced/Nix/cfg"; };
-    serversPath = lib.mkOption { default = "/zfs2/servers"; };
+    serversPath = lib.mkOption { default = "/zfs3/servers"; };
     powerful = lib.mkOption { default = false; };
     publicIP = lib.mkOption { default = "71.212.197.144"; };
     localIP = lib.mkOption { default = ""; };

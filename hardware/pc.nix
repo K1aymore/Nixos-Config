@@ -73,13 +73,13 @@
 
 
   fileSystems."/nfs/stuff" = {
-    device = "serverlan:/zfs2/stuff";
+    device = "serverlan:/zfs3/stuff";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };
 
   fileSystems."/nfs/hugeArchive" = {
-    device = "serverlan:/zfs2/hugeArchive";
+    device = "serverlan:/zfs3/hugeArchive";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };
@@ -91,7 +91,7 @@
   };
 
   fileSystems."/nfs/games" = {
-    device = "serverlan:/zfs2/games";
+    device = "serverlan:/zfs3/games";
     fsType = "nfs";
     options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
   };

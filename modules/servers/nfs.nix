@@ -15,7 +15,7 @@
       # extraNfsdConfig = '''';
 
       # exports = ''
-      #   /zfs2         10.0.0.125(rw,nohide,no_subtree_check,no_root_squash)
+      #   /zfs3         10.0.0.125(rw,nohide,no_subtree_check,no_root_squash)
       # '';
     };
 

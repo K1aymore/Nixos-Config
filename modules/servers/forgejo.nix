@@ -11,8 +11,8 @@
     services.forgejo = {
       enable = true;
 
-      stateDir = "/zfs2/servers/forgejo/state";
-      repositoryRoot = "/zfs2/servers/forgejo/repository";
+      stateDir = config.klaymore.serversPath + "/forgejo/state";
+      repositoryRoot = config.klaymore.serversPath + "/forgejo/repository";
 
       settings = {
         service = {

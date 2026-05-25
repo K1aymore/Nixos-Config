@@ -13,7 +13,7 @@
       enable = true;
       eula = true;
       openFirewall = true;
-      dataDir = "/zfs2/servers/minecrafts";
+      dataDir = config.klaymore.serversPath + "/minecrafts";
 
       servers.wildcat-gamer-haven = {
         enable = true;

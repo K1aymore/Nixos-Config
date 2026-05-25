@@ -32,7 +32,7 @@
         enableACME = true;
         root = "/synced/Sync/site-nix/result";
         locations."/files/" = {
-          alias = "/zfs2/servers/klaymore.meFiles/";
+          alias = config.klaymore.serversPath +  "/klaymore.meFiles/";
         };
         locations."~* \.(woff|woff2|ttf|otf)$" = {
           extraConfig = ''

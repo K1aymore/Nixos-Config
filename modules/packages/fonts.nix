@@ -190,7 +190,7 @@ in
     ] ++
     (with pkgs; [
       #nerdfonts
-      nerd-fonts.symbols-only  # collides with 󱥠󱥔
+      # nerd-fonts.symbols-only  # collides with 󱥠󱥔
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
@@ -238,9 +238,9 @@ in
       subpixel.rgba = "rgb";
       useEmbeddedBitmaps = true; # fix Firefox emoji
       defaultFonts = {
-        serif     = [ config.klaymore.font.serif "Noto Serif"    "nasin-nanpa" "Noto Color Emoji" "Noto Sans CJK JP" ];
-        sansSerif = [ config.klaymore.font.sans  "Noto Sans"     "nasin-nanpa" "Noto Color Emoji" "Noto Sans CJK JP" ];
-        monospace = [ config.klaymore.font.monospace "Fira Code" "nasin-nanpa" "Noto Color Emoji" "Noto Sans Mono CJK JP" "Hack" "Noto Sans Mono" "Noto Sans" ];
+        serif     = [ config.klaymore.font.serif     "Noto Serif" "nasin-nanpa" "Noto Color Emoji" "Noto Sans CJK JP" ];
+        sansSerif = [ config.klaymore.font.sans      "Noto Sans"  "nasin-nanpa" "Noto Color Emoji" "Noto Sans CJK JP" ];
+        monospace = [ config.klaymore.font.monospace "Fira Code"  "nasin-nanpa" "Noto Color Emoji" "Noto Sans Mono CJK JP" "Hack" "Noto Sans Mono" "Noto Sans" ];
       };
     };
 
