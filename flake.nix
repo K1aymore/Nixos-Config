@@ -3,8 +3,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; #"github:NixOS/nixpkgs?rev=2631b0b7abcea6e640ce31cd78ea58910d31e650";
     # nixpkgs-pc.url = "github:K900/nixpkgs/plasma-6.6";
-  
     nixpkgs-superstable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-kavita.url = "github:nevivurn/nixpkgs/update/kavita";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -31,7 +31,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nvf, nix-minecraft, jovian-nixos,  ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-superstable, nixpkgs-kavita, home-manager, impermanence, catppuccin, nvf, nix-minecraft, jovian-nixos,  ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -106,6 +106,12 @@
 
           (final: prev: {
             superstable = import nixpkgs-superstable {
+              system = settings.architecture;
+              config.allowUnfree = true;
+            };
+          })
+          (final: prev: {
+            nixpkgs-kavita = import nixpkgs-kavita {
               system = settings.architecture;
               config.allowUnfree = true;
             };
