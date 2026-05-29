@@ -91,6 +91,7 @@
 
     firewall = {
       enable = true;
+      allowPing = true;
       allowedTCPPorts = [
         ports.openttd1
         ports.openttd2

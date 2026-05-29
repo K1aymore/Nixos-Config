@@ -1,9 +1,8 @@
 { config, lib, pkgs, ...}:
 
 {
-
- config = lib.mkIf config.klaymore.servers.kavita.enable {
-  nixpkgs.overlays = with pkgs; [
+  config = lib.mkIf config.klaymore.servers.kavita.enable {
+    nixpkgs.overlays = with pkgs; [
   #   (final: prev: {
   #     kavita = stdenvNoCC.mkDerivation (finalAttrs: {
   #       pname = "kavita";

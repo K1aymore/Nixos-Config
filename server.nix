@@ -16,6 +16,7 @@
       # minecraft.enable = true;
       nfs.enable = true;
       nginx.enable = true;
+      samba.enable = true;
       wireguard-forwarding.enable = true;
     };
 
