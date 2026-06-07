@@ -54,7 +54,7 @@
   };
 
 
-  boot.zfs.extraPools = [ "zfs3" ];
+  # boot.zfs.extraPools = [ "zfs3" ];
 
 
   # swapDevices =

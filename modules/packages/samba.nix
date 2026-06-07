@@ -16,7 +16,7 @@
       usershares.enable = true;
       settings.global = {
         "workgroup" = "WORKGROUP";
-        "server string" = "klaymore %h";
+        "server string" = "klaymore ${config.networking.hostName}";
         "netbios name" = "klaymore %h";
         "security" = "user";
         #"use sendfile" = "yes";

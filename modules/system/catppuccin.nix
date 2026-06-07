@@ -4,6 +4,8 @@
 
   config = lib.mkIf config.klaymore.system.catppuccin.enable {
     catppuccin = {
+      enable = true;
+      autoEnable = false;
       flavor = "mocha";
       accent = "maroon";
       
@@ -14,6 +16,8 @@
 
     # need program to be enabled in home manager as well
     home-manager.users.klaymore.catppuccin = {
+      enable = true;
+      autoEnable = false;
       flavor = "mocha";
       accent = "maroon";
 

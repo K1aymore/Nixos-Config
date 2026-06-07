@@ -2,6 +2,7 @@
 
 let
   configPath = config.klaymore.configPath;
+  scriptPath = "/synced/Sync/Linux/BashScripts";
   connect-timeout = "60";
 in 
 {
@@ -39,7 +40,8 @@ in
     showAllPackages = "nix path-info /run/current-system -r";
 
 
-    yd = "bash /synced/Sync/Linux/BashScripts/yd";
+    yd = "bash ${scriptPath}/yd";
+    ffmpeg-av1-gpu = "sbcl --script ${scriptPath}/ffmpeg-av1-gpu.lisp";
     r128all = "r128gain -r ./";
 
     # pipe in list of files, from find or etc.
