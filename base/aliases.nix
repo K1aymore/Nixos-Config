@@ -40,8 +40,9 @@ in
     showAllPackages = "nix path-info /run/current-system -r";
 
 
-    yd = "bash ${scriptPath}/yd";
+    yd = "${scriptPath}/yd";
     ffmpeg-av1-gpu = "sbcl --script ${scriptPath}/ffmpeg-av1-gpu.lisp";
+    to_gif = "${scriptPath}/to_gif";
     r128all = "r128gain -r ./";
 
     # pipe in list of files, from find or etc.

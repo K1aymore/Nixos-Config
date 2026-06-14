@@ -11,18 +11,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     impermanence.url = "github:nix-community/impermanence";
     catppuccin.url = "github:catppuccin/nix";
 
-    nvf = {
-      url = "github:NotAShelf/nvf/v0.8";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nvf = {
+    #   url = "github:NotAShelf/nvf/v0.8";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
-    jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS";
+    # jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS";
 
     # sitelen-pona-UCSUR = {
     #   url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
@@ -31,7 +30,7 @@
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-superstable, nixpkgs-kavita, home-manager, impermanence, catppuccin, nvf, nix-minecraft, jovian-nixos,  ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-superstable, nixpkgs-kavita, home-manager, impermanence, catppuccin, nix-minecraft, ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -92,17 +91,16 @@
         impermanence.nixosModules.impermanence
         { home-manager.users.klaymore.imports = [
           catppuccin.homeModules.catppuccin
-          # nix-doom-emacs-unstraightened.homeModule
         ]; }
         catppuccin.nixosModules.catppuccin
-        nvf.nixosModules.default
+        # nvf.nixosModules.default
         nix-minecraft.nixosModules.minecraft-servers
-        jovian-nixos.nixosModules.default
+        # jovian-nixos.nixosModules.default
 
 
         { nixpkgs.overlays = [
           nix-minecraft.overlay
-          jovian-nixos.overlays.default
+          # jovian-nixos.overlays.default
 
           (final: prev: {
             superstable = import nixpkgs-superstable {

@@ -39,7 +39,7 @@
         # autofit = "100%";
         # window-maximized = true;
         keep-open = false;
-        autocreate-playlist = "same";
+        # autocreate-playlist = "same";
         audio-file-auto = "fuzzy";
         sub-auto = "fuzzy";
         # secondary-sid = 0; # mpvacious overrides anyway

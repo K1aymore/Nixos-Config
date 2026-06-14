@@ -99,7 +99,7 @@
 
       micro
       xclip
-      /* neovim */    # home manager
+      neovim  # home manager
       universal-ctags
       fd
       ranger
@@ -188,6 +188,9 @@
       lldb
       valgrind
       python314
+      bash
+      zsh
+      fish
 
       dotnet-sdk
       dotnet-runtime
