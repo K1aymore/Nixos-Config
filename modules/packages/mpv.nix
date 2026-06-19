@@ -53,7 +53,7 @@
         volume-max = 200;
         hr-seek = true;
         replaygain = "track";
-        blend-subtitles = "video";
+        # blend-subtitles = "video";
         # sub-font-size = 49; # only for some subs (find out what)
 
 
