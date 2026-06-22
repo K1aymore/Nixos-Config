@@ -62,7 +62,8 @@
   # https://rbf.dev/blog/2020/05/custom-nixos-build-for-raspberry-pis/#building-on-nixos-using-nixos-generators
   #boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
-
+  # https://www.reddit.com/r/NixOS/comments/1u47cnb/nixos_2605_can_be_used_with_gccarch_x8664v3/
+  nix.settings.system-features = [ "gccarch-znver2" "gccarch-x86-64-v3" "gccarch-x86-64-v2" "gccarch-x86-64" ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 

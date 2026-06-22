@@ -23,7 +23,6 @@
   #   };
   # };
   # nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
-  nix.settings.cores = 6;
   nix.settings.download-buffer-size = 524288000;
   nixpkgs = {
     config.allowUnfree = true;

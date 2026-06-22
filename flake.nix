@@ -26,9 +26,7 @@
     # sitelen-pona-UCSUR = {
     #   url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
     # };
-
   };
-
 
   outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, ... }@attrs:
   let
@@ -36,7 +34,6 @@
       # forwarded on server: 80 443 6900-6999 25565 19132
       # nfs = 111 2049 4000 4001 4002 20048;
       # KDE Connect 1714-1764
-
       nginx = 80;
       nginxs = 443;
 
@@ -66,7 +63,6 @@
       ipfsAPI = 5001;
       ipfsGateway = 8081;
       ipfs = 59271;
-
     };
 
     makeSystem = hostname: settings: 
@@ -84,8 +80,51 @@
         ./hardware/${hostname}.nix
         ./${hostname}.nix
 
+        # https://www.reddit.com/r/NixOS/comments/1u47cnb/nixos_2605_can_be_used_with_gccarch_x8664v3/
+        ( if settings ? "gccArch"
+          then { nixpkgs.localSystem = {
+            gcc.arch = settings.gccArch; # g++ -march=native -Q --help=target | grep march= | head -n1 | cut -f3-
+            gcc.tune = settings.gccArch;
+            system = settings.architecture;
+            # x64_v3 Fixes
+            nixpkgs.overlays = [
+              (final: prev: {
+                # https://github.com/assimp/assimp/issues/6342
+                assimp = prev.assimp.overrideAttrs (old: {
+                  NIX_CFLAGS_COMPILE =
+                    (old.NIX_CFLAGS_COMPILE or "") + " -ffp-contract=on";
+                });
+
+                # https://github.com/godotengine/godot/issues/91217
+                # https://github.com/godotengine/godot/pull/95158
+                embree = prev.embree.overrideAttrs (old: {
+                  cmakeFlags = (old.cmakeFlags or []) ++ [
+                    "-DEMBREE_ISA_SSE2=OFF"
+                    "-DEMBREE_ISA_SSE42=OFF"
+                  ];
+                });
+
+                # https://lists.xenproject.org/archives/html/xen-devel/2025-01/msg00439.html
+                xen = prev.xen.overrideAttrs (old: {
+                  patches = (old.patches or []) ++ [
+                    (prev.writeText "xen-text-alignment.patch" ''
+                      --- a/xen/arch/x86/boot/Makefile
+                      +++ b/xen/arch/x86/boot/Makefile
+                      @@ -44,2 +44,2 @@
+                      -text_gap := 0x010200
+                      -text_diff := 0x408020
+                      +text_gap := 0x010240
+                      +text_diff := 0x608040
+                    '')
+                  ];
+                });
+              })
+            ];
+          }; }
+          else { nixpkgs.hostPlatform = settings.architecture; } )
+        { nix.settings.max-jobs = 3; # https://nix.dev/manual/nix/2.28/command-ref/conf-file#conf-max-substitution-jobs
+          nix.settings.cores = 0; } # set to host core count automaticallty
         { networking.hostName = hostname; }
-        { nixpkgs.hostPlatform = settings.architecture; }
 
         home-manager.nixosModules.home-manager
         impermanence.nixosModules.impermanence
@@ -96,7 +135,6 @@
         # nvf.nixosModules.default
         nix-minecraft.nixosModules.minecraft-servers
         # jovian-nixos.nixosModules.default
-
 
         { nixpkgs.overlays = [
           nix-minecraft.overlay
@@ -116,10 +154,10 @@
   in
   {
     nixosConfigurations = {
-
       pc = makeSystem "pc" {
         architecture = "x86_64-linux";
         # nixpkgs = "nixpkgs-pc";
+        # gccArch = "znver2";
       };
 
       server = makeSystem "server" {
@@ -129,7 +167,6 @@
       laptop = makeSystem "laptop" {
         architecture = "x86_64-linux";
       };
-
     };
   };
 }
