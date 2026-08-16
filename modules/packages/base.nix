@@ -180,6 +180,7 @@
       gcc
       ghc # Haskell compiler
       sbcl # Lisp compiler
+      chicken # Scheme
       go
       # nasm # assembly compiler
       # inklecate # Ink compiler/player
@@ -191,6 +192,8 @@
       bash
       zsh
       fish
+      ledger
+      hledger
 
       dotnet-sdk
       dotnet-runtime

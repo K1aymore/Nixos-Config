@@ -136,13 +136,14 @@
       networkmanagerapplet
       #onionshare-gui
       #tor-browser-bundle-bin
-      session-desktop
+      #session-desktop
       zoom-us
       #lbry
       lagrange
       filezilla
 
       steam-run
+      river
 
       godot
       #unityhub

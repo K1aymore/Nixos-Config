@@ -12,7 +12,7 @@
       openFirewall = true;
       # The full package is needed to register mDNS records (for discoverability), see discussion in
       # https://gist.github.com/vy-let/a030c1079f09ecae4135aebf1e121ea6
-      package = pkgs.samba4Full;
+      package = pkgs.samba4;  # samba4Full
       usershares.enable = true;
       settings.global = {
         "workgroup" = "WORKGROUP";

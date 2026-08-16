@@ -270,14 +270,15 @@ in
           };
         });
 
+        # Japanese kanji
         unifont = prev.unifont.overrideAttrs (old: {
           otf = pkgs.fetchurl {
             url = "mirror://gnu/unifont/unifont-${old.version}/unifont_jp-${old.version}.otf";
-            hash = "sha256-gAsOF8EasDRJmdeChxbZTy6EDFKuZ1q/0TilbhnfAXk=";
+            hash = "sha256-XyBzegn0DD8LdRHmxlfkjKH2g+AvC8C5Vlo8NjgnqIc=";
           };
           bdf = pkgs.fetchurl {
             url = "mirror://gnu/unifont/unifont-${old.version}/unifont_jp-${old.version}.bdf.gz";
-            hash = "sha256-UnklufAxRKl+GJyHFfUmm5dbA0CFQofjt6yPJ8/Tv5s=";
+            hash = "sha256-06TJjkHvzzi0m9UgoEkjDMBA1EQzq5ws3Nnx9IFEOXY=";
           };
         });
       })
