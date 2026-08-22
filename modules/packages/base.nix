@@ -181,6 +181,8 @@
       ghc # Haskell compiler
       sbcl # Lisp compiler
       chicken # Scheme
+      janet
+      jpm
       go
       # nasm # assembly compiler
       # inklecate # Ink compiler/player

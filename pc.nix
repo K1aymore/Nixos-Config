@@ -1,4 +1,4 @@
-{ lib, pkgs, mesa-vram, ... }@pcInputs:
+{ lib, pkgs, ... }@pcInputs:
 
 {
 
@@ -42,81 +42,12 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      #   mesa = pkgs.callPackage ./mesa-vram (with pkgs; {
-      #     mesa-libclc = pkgs.mesa-libclc;
-      #     inherit lib
-      #       bison
-      #       buildPackages
-      #       directx-headers
-      #       elfutils
-      #       expat
-      #       fetchCrate
-      #       fetchFromGitLab
-      #       file
-      #       flex
-      #       glslang
-      #       spirv-tools
-      #       intltool
-      #       libdisplay-info
-      #       libdrm
-      #       libgbm
-      #       libglvnd
-      #       libpng
-      #       libunwind
-      #       libva-minimal
-      #       llvmPackages
-      #       lm_sensors
-      #       meson
-      #       ninja
-      #       pkg-config
-      #       python3Packages
-      #       runCommand
-      #       rust-bindgen
-      #       rust-cbindgen
-      #       rustc
-      #       spirv-llvm-translator
-      #       stdenv
-      #       udev
-      #       valgrind-light
-      #       vulkan-loader
-      #       wayland
-      #       wayland-protocols
-      #       wayland-scanner
-      #       libxcb-keysyms
-      #       libxxf86vm
-      #       libxrandr
-      #       libxfixes
-      #       libxext
-      #       libx11
-      #       xorgproto
-      #       libxshmfence
-      #       libxcb
-      #       zstd;
-      #   });
       mesa = prev.mesa.overrideAttrs (old: {
         patches = old.patches ++ [ ./mesa-vram-777966a7cd402248a06603691ec89eb3bf3bade8.patch ];
       });
-      # mesa = prev.mesa.overrideAttrs (old: {
-      #   version = "26.3.0";
-      #   src = pkgs.fetchFromGitLab {
-      #     domain = "gitlab.freedesktop.org";
-      #     owner = "pixelcluster";
-      #     repo = "mesa";
-      #     rev = "777966a7cd402248a06603691ec89eb3bf3bade8";
-      #     hash = "sha256-fyYGgCgnreBRgUc9ZEkEaT0NogeGGOWVzzfEK+rCRok=";
-      #   };
-      # });
     })
   ];
 
-  # nixpkgs.config.packageOverrides = pkgs: {
-  #   mesa = ((pkgs.mesa.override {
-  #     # driDrivers = [ ];
-  #   }).overrideAttrs (attrs: {
-  #     name = "mesa-vram";
-  #     src = mesa-vram;
-  #   }));
-  # };
 
   environment.systemPackages = with pkgs;
     [
@@ -197,48 +128,24 @@
   #programs.adb.enable = true;
 
 
-  hardware.graphics =
-    let
-      attrs = oa: {
-        name = "mesa-vram";
-        src = mesa-vram;
-        nativeBuildInputs = oa.nativeBuildInputs ++ [ pkgs.glslang pkgs.cmake pkgs.pkg-config pkgs.pkgconf ];
-        # mesonFlags = oa.mesonFlags ++ [ "-Dvulkan-layers=device-select,overlay" ];
-        # postInstall = oa.postInstall + ''
-        #   mv $out/lib/libVkLayer* $drivers/lib
-        #   layer=VkLayer_MESA_device_select
-        #   substituteInPlace $drivers/share/vulkan/implicit_layer.d/''${layer}.json \
-        #     --replace "lib''${layer}" "$drivers/lib/lib''${layer}"
-        #   layer=VkLayer_MESA_overlay
-        #   substituteInPlace $drivers/share/vulkan/explicit_layer.d/''${layer}.json \
-        #     --replace "lib''${layer}" "$drivers/lib/lib''${layer}"
-        # '';
-      };
+  hardware.graphics = with pkgs; {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+      rocmPackages.clr
+      libva
+      libva-utils
+      #libvdpau-va-gl
+      #vaapiVdpau
+      vdpauinfo
 
-      vramPatch = old: {
-        patches = old.patches ++ [ ./mesa-vram-777966a7cd402248a06603691ec89eb3bf3bade8.patch ];
-      };
-    in
-    with pkgs; {
-      enable = true;
-      # package = (mesa.overrideAttrs vramPatch);
-      # package32 = (pkgsi686Linux.mesa.overrideAttrs vramPatch);
-      extraPackages = with pkgs; [
-        rocmPackages.clr.icd
-        rocmPackages.clr
-        libva
-        libva-utils
-        #libvdpau-va-gl
-        #vaapiVdpau
-        vdpauinfo
-
-        # AMDVLK seems to break MPV
-        #amdvlk
-      ];
-      extraPackages32 = with pkgs; [
-        #driversi686Linux.amdvlk
-      ];
-    };
+      # AMDVLK seems to break MPV
+      #amdvlk
+    ];
+    extraPackages32 = with pkgs; [
+      #driversi686Linux.amdvlk
+    ];
+  };
 
   #programs.corectrl.enable = true;
 

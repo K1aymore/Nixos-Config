@@ -42,24 +42,5 @@
       ];
     };
 
-
-    # systemd.packages = lib.mkIf config.klaymore.powerful [
-    #   pkgs.dmemcg-booster
-    # ];
-
-    # systemd.services.dmemcg-booster-system = lib.mkIf config.klaymore.powerful {
-    #   overrideStrategy = "asDropin";
-    #   wantedBy = [ "multi-user.target" ];
-    # };
-
-    # systemd.user.services.dmemcg-booster-user = lib.mkIf config.klaymore.powerful {
-    #   overrideStrategy = "asDropin";
-    #   wantedBy = [ "graphical-session-pre.target" ];
-    # };
-
-    # environment.systemPackages = lib.mkIf config.klaymore.powerful [ 
-    #   pkgs.plasma-foreground-booster
-    # ];
-
   };
 }

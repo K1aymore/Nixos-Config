@@ -113,25 +113,6 @@
         "type": "github"
       }
     },
-    "mesa-vram": {
-      "flake": false,
-      "locked": {
-        "host": "gitlab.freedesktop.org",
-        "lastModified": 1786961106,
-        "narHash": "sha256-fyYGgCgnreBRgUc9ZEkEaT0NogeGGOWVzzfEK+rCRok=",
-        "owner": "pixelcluster",
-        "repo": "mesa",
-        "rev": "777966a7cd402248a06603691ec89eb3bf3bade8",
-        "type": "gitlab"
-      },
-      "original": {
-        "host": "gitlab.freedesktop.org",
-        "owner": "pixelcluster",
-        "ref": "vram-prios",
-        "repo": "mesa",
-        "type": "gitlab"
-      }
-    },
     "nix-github-actions": {
       "inputs": {
         "nixpkgs": [
@@ -273,7 +254,6 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "jovian-nixos": "jovian-nixos",
-        "mesa-vram": "mesa-vram",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-superstable": "nixpkgs-superstable"
