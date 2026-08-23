@@ -73,7 +73,6 @@
       kdePackages.kleopatra
       pinentry-curses
       kdePackages.kdialog
-      razergenie
 
       kdePackages.kate
       libreoffice
@@ -177,38 +176,9 @@
       libv4l
 
 
+      parsec-bin
       obs-studio
       /* linuxKernel.packages.linux_5_16.v4l2loopback */
-
-
-      # Games
-      wineWow64Packages.full
-      umu-launcher
-      dxvk
-      # lutris
-      #playonlinux
-      # bottles
-      #grapejuice
-      protonup-qt
-      #protontricks
-      #openal
-      heroic
-      #legendary-gl
-      winetricks
-      protontricks
-
-      
-      parsec-bin
-      r2modman
-
-      #piper
-
-      #minecraft
-      #itch
-      prismlauncher
-      jdk25
-      jdk17
-      jdk8
 
     ];
 
@@ -224,7 +194,7 @@
     #         hash = "sha256-4iLKa5digWZ36akw1GtEVDhZBRxgZ/hMEIpmWVX/Ktw=";
     #       };
     #     });
-        
+
     #   })
     # ];
 
@@ -235,11 +205,7 @@
     programs = {
       obs-studio.enable = true;
       partition-manager.enable = true;
-      gamescope.enable = true;
     };
-
-
-    hardware.steam-hardware.enable = true;
 
     home-manager.users.klaymore.programs.mangohud = {
       enable = true;
@@ -269,16 +235,6 @@
         io_write = true;
       };
     };
-
-    programs.gamemode.enable = true;
-    programs.gamemode.settings = {
-      general = {
-        renice = 10;
-        desiredgov = "performance";
-        desiredprof = "performance";
-      };
-    };
-
 
     home-manager.users.klaymore.programs = {
       # firefox.profiles.default = {
@@ -311,17 +267,20 @@
       lapce = {
         enable = false;
 
-        plugins = [ {
+        plugins = [
+          {
             author = "MrFoxPro";
             name = "lapce-nix";
             version = "0.0.1";
             hash = "sha256-n+j8p6sB/Bxdp0iY6Gty9Zkpv9Rg34HjKsT1gUuGDzQ=";
-          } {
+          }
+          {
             author = "dzhou121";
             name = "lapce-rust";
             version = "0.3.2162";
             hash = "sha256-hFKEMJt8lio/kuuZTDEshZ6NBjpDM65VoS6hl1CTSZ0=";
-          } {
+          }
+          {
             author = "WalterOfNone";
             name = "ayu";
             version = "0.1.2";
@@ -350,7 +309,7 @@
             font-size = 14;
             font-family = "";
           };
-          
+
           lapce-nix.lsp-path = "/run/current-system/sw/bin/nixd";
           lapce-rust.serverPath = "/run/current-system/sw/bin/rust-analyzer";
           lapce-cpp-clangd."volt.serverPath" = "/run/current-system/sw/bin/clangd";
