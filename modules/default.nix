@@ -73,7 +73,7 @@
       syncthing.enable = lib.mkOption { default = true; };
       yggdrasil = {
         enable = lib.mkEnableOption "Yggdrasil";
-        peers = lib.mkOption { default = []; };
+        peers = lib.mkOption { default = [ ]; };
       };
     };
 
@@ -86,6 +86,7 @@
       kanata.enable = lib.mkEnableOption "kanata";
       locale = lib.mkOption { default = "en_US.UTF-8"; };
       timeZone = lib.mkOption { default = "America/Los_Angeles"; };
+      vram-fix = lib.mkOption { default = false; };
       zfs.enable = lib.mkEnableOption "ZFS";
       zram.enable = lib.mkOption { default = true; };
     };
