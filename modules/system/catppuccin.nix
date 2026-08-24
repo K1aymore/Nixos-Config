@@ -14,7 +14,7 @@
 
     #services.displayManager.sddm.catppuccin.enable = true;
 
-    # need program to be enabled in home manager as well
+    # programs must be enabled in home manager as well
     home-manager.users.klaymore.catppuccin = {
       enable = true;
       autoEnable = false;
@@ -36,8 +36,6 @@
       delta.enable = true;
       yazi.enable = true;
 
-      hyprland.enable = true;
-      hyprlock.enable = true;
       #waybar.enable = true;
 
       element-desktop.enable = true;

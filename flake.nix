@@ -23,6 +23,10 @@
 
     jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS";
 
+    linux-git = {
+      flake = false;
+      url = "git+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"; # ?shallow=1
+    };
     mpv = {
       flake = false;
       url = "github:mpv-player/mpv";
@@ -42,7 +46,7 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, jovian-nixos,
-      mpv, libplacebo, firefox-nightly, ... }@attrs:
+      linux-git, mpv, libplacebo, firefox-nightly, ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -85,7 +89,7 @@
       else nixpkgs.lib.nixosSystem)
     {
       system = settings.architecture;
-      specialArgs = { inherit ports mpv libplacebo firefox-nightly; };
+      specialArgs = { inherit ports linux-git mpv libplacebo firefox-nightly; };
 
       modules = builtins.filter (f: nixpkgs.lib.hasSuffix ".nix" f) (
         (nixpkgs.lib.filesystem.listFilesRecursive ./base) ++

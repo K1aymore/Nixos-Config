@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, linux-git, ... }:
 
 {
   config = lib.mkIf config.klaymore.system.vram-fix {
@@ -11,17 +11,14 @@
             version = "7.2.0";
             modDirVersion = version;
 
-            src = fetchurl {
-              url = "https://gitlab.freedesktop.org/pixelcluster/kernel/-/archive/2d900c1f9793fdb23bbbd6a42585b72c555266b7/kernel-2d900c1f9793fdb23bbbd6a42585b72c555266b7.tar.gz";
-              hash = "sha256-4LcA5/PRUmOn/x8lKGWufJuZj2WU6zSRQC8MZl69Lzk=";
-            };
+            src = linux-git; # fixes are merged into master
             kernelPatches = [ ];
 
             structuredExtraConfig = with lib.kernel; {
               # INTEL_SGX = yes;
             };
 
-            extraMeta.branch = "7.2";
+            extraMeta.branch = "master";
           } // (args.argsOverride or { }));
         linux_vram = pkgs.callPackage linux_vram_pkg { };
       in

@@ -205,6 +205,22 @@
         "type": "gitlab"
       }
     },
+    "linux-git": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787516937,
+        "narHash": "sha256-OwH11w0fYPB+dYDgvdJ8NE4VODYXT83TR49Ssc6bcLc=",
+        "ref": "refs/heads/master",
+        "rev": "4352b8aee98005853aa63f57d6377282de17a33f",
+        "revCount": 1477715,
+        "type": "git",
+        "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
+      }
+    },
     "mpv": {
       "flake": false,
       "locked": {
@@ -379,6 +395,7 @@
         "impermanence": "impermanence",
         "jovian-nixos": "jovian-nixos",
         "libplacebo": "libplacebo",
+        "linux-git": "linux-git",
         "mpv": "mpv",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_5",
