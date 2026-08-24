@@ -23,12 +23,26 @@
 
     jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS";
 
+    mpv = {
+      flake = false;
+      url = "github:mpv-player/mpv";
+    };
+    libplacebo = {
+      flake = false;
+      url = "gitlab:videolan/libplacebo?host=code.videolan.org";
+    };
+    firefox-nightly = {
+      url = "github:nix-community/flake-firefox-nightly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # sitelen-pona-UCSUR = {
     #   url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
     # };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, jovian-nixos, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, jovian-nixos,
+      mpv, libplacebo, firefox-nightly, ... }@attrs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -71,7 +85,7 @@
       else nixpkgs.lib.nixosSystem)
     {
       system = settings.architecture;
-      specialArgs = { inherit ports; };
+      specialArgs = { inherit ports mpv libplacebo firefox-nightly; };
 
       modules = builtins.filter (f: nixpkgs.lib.hasSuffix ".nix" f) (
         (nixpkgs.lib.filesystem.listFilesRecursive ./base) ++

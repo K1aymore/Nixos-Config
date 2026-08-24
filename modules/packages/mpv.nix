@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, mpv, libplacebo, ... }:
 
 {
 
@@ -8,14 +8,8 @@
       (final: prev: {
         libplacebo = prev.libplacebo.overrideAttrs (old: {
           version = "7.360.1-UNKNOWN";
-          patches = [];
-          src = pkgs.fetchFromGitLab {
-            domain = "code.videolan.org";
-            owner = "videolan";
-            repo = "libplacebo";
-            rev = "051cc36fd6e3ca06d64f848b6a38f708f98a2a91";
-            hash = "sha256-iJPCOzPGOSzM/XCZYOTtzPCpYmECDkAOgtWG9BeZ0Lc=";
-          };
+          patches = [ ];
+          src = libplacebo;
         });
       })
     ];
@@ -25,6 +19,7 @@
       package = pkgs.mpv-unwrapped.overrideAttrs (old: {
         ffmpeg = pkgs.ffmpeg-full;
         version = "0.41.0-UNKNOWN";
+        # src = mpv; # TODO: newer versions error
         src = pkgs.fetchFromGitHub {
           owner = "mpv-player";
           repo = "mpv";
@@ -104,25 +99,25 @@
 
         # HDR->SDR bt.1886 on 3rd monitor with ICC profile, versus XV275K HDR 203 nits
         # HTTYD 54:38 full brightness/contrast
-          # auto (spline): good dark shadows with details. Bright colors desaturated obvi, high mids (horizon) little too bright
-          # bt.2446a: shadows raised, high mids still too bright
-          # mobius: highlights way too blown out, clouds desaturated as hell
-          # reinhard: mobius but worse
-          # hable: shadows slightly lifted, horizon/clouds too bright still
-          # bt.2390: very bright. Highlight really fricking glowing. Shadows slighhtly raised
-          # gamma: shadows decent. Highlight alright but high mids still pretty bright
-          # linear: good hangling of highlight and pretty good high mids (still too bright). Shadows kinda washed out
-          # st.2094-40: shadows raised, way too blown out
-          # hable (vs spline): darker high-mids, brighter shadows
-          # gamma (vs auto): brighter high-mids, darker shadows
-          # linear (vs auto): flatter. Darker highlight / brigher shadows
+        # auto (spline): good dark shadows with details. Bright colors desaturated obvi, high mids (horizon) little too bright
+        # bt.2446a: shadows raised, high mids still too bright
+        # mobius: highlights way too blown out, clouds desaturated as hell
+        # reinhard: mobius but worse
+        # hable: shadows slightly lifted, horizon/clouds too bright still
+        # bt.2390: very bright. Highlight really fricking glowing. Shadows slighhtly raised
+        # gamma: shadows decent. Highlight alright but high mids still pretty bright
+        # linear: good hangling of highlight and pretty good high mids (still too bright). Shadows kinda washed out
+        # st.2094-40: shadows raised, way too blown out
+        # hable (vs spline): darker high-mids, brighter shadows
+        # gamma (vs auto): brighter high-mids, darker shadows
+        # linear (vs auto): flatter. Darker highlight / brigher shadows
         # HTTYD 32:36 brightness 100% contrast 75%
-          # auto: slightly raised shadows, too bright overall. Face slightly desaturated
-          # mobius: just spline with -2 brightness and +6 saturation, except highlights barely brighter
-          # gamma: exact same as mobius
-          # bt.2390: darker, less contrast than spline
-          # bt2446a / reinhard / hable / st.2094-40 / linear too washed out, suck
-        
+        # auto: slightly raised shadows, too bright overall. Face slightly desaturated
+        # mobius: just spline with -2 brightness and +6 saturation, except highlights barely brighter
+        # gamma: exact same as mobius
+        # bt.2390: darker, less contrast than spline
+        # bt2446a / reinhard / hable / st.2094-40 / linear too washed out, suck
+
         # Literally just run as pq (or bt.1886) with auto (spline). bt.1886 brighter.
 
         # don't use pq on sdr display, issues with scene detection etc

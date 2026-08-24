@@ -36,6 +36,9 @@
 
     programs = {
       emacs.enable = lib.mkOption { default = true; };
+      firefox = {
+        nightly = lib.mkEnableOption "Firefox Nightly";
+      };
       mpd = {
         enable = lib.mkOption { default = true; };
       };

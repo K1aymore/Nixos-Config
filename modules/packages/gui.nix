@@ -119,7 +119,7 @@
       kdePackages.akonadi-calendar
       kdePackages.kdeconnect-kde
 
-      firefox
+      # firefox # in firefox.nix
       #microsoft-edge
       #librewolf
       chromium
@@ -237,17 +237,6 @@
     };
 
     home-manager.users.klaymore.programs = {
-      # firefox.profiles.default = {
-      #   # hide empty tab groups
-      #   userChrome = "
-      #     #tabbrowser-tabs tab-group:not(:has(.tabbrowser-tab:not([hidden]))) .tab-group-label-container {
-      #       margin: 0 !important;
-      #       max-height: 0 !important;
-      #       max-width: 0 !important;
-      #       padding: 0 !important;
-      #       visibility: hidden !important;
-      #     }";
-      # };
 
       obs-studio.enable = true;
       element-desktop.enable = true;

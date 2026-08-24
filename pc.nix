@@ -16,6 +16,7 @@
 
     programs = {
       emacs.enable = true;
+      firefox.nightly = true;
     };
 
     servers = {
