@@ -1,39 +1,10 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-
   config = {
 
     environment.systemPackages = with pkgs; [
-      coreutils
-      usbutils
-      diffutils
-      pciutils
-      nix-diff
-      findutils
-      # utillinux
-      gnused
-      gnugrep
-      gnupg
-      ripgrep
-      gnutar
-      gzip
-      xz
-      zip
-      unzip
-      unrar
-      /* tzdata */
-      glibc
-      glib
-      clang
-      libva-utils
-      lshw
-      libxcrypt
-      lm_sensors
-      acpi
-      beep
-      groff
-
+      # Libraries
       gvfs
       libcdio # cd stuff for kde
       faac # mp4 aac
@@ -41,22 +12,12 @@
       /* gst_all_1.gst-libav
         gst_all_1.gst-plugins-good
         gst_all_1.gst-plugins-bad
-      gst_all_1.gst-plugins-ugly */
+        gst_all_1.gst-plugins-ugly */
       #pamixer
-
       breakpad
-      fwupd
-      xdotool
-      wtype
-      sox
+      hunspell
 
-      pdftk
-      imagemagick
-      bc
-
-      brightnessctl
-      playerctl
-
+      libxcrypt
       cryptsetup
       ntfs3g
       exfat
@@ -67,9 +28,36 @@
       zfs
       nfs-utils
       libnfs
-      parted
       smartmontools
       efibootmgr
+
+      # Utils
+      coreutils
+      usbutils
+      diffutils
+      pciutils
+      findutils
+      # utillinux
+      gnused
+      gnugrep
+      gnupg
+      gnutar
+      gzip
+      xz
+      zip
+      unzip
+      unrar
+      # tzdata
+      glibc
+      glib
+      clang
+      libva-utils
+      lshw
+      lm_sensors
+      acpi
+
+      brightnessctl
+      playerctl
 
       networkmanager-openvpn
       openvpn
@@ -77,9 +65,34 @@
       curl
       htop
       man
-      tealdeer
-      git   # home manager
+      git # home manager
       git-crypt
+      bash
+      zsh
+      fish
+
+      parted
+
+      fwupd
+      xdotool
+      wtype
+
+      ffmpeg-full
+      yt-dlp
+      r128gain
+      mediainfo
+      pdftk
+      imagemagick
+      pandoc
+      gallery-dl
+
+      # Terminal Tools
+      bc
+      beep
+      sox
+      groff
+
+      tealdeer
       nixos-option
       #awscli2
       httrack
@@ -92,35 +105,26 @@
       #ventoy
       radeontop
       inetutils
-      moreutils
       wireguard-tools
       vnstat
-      gallery-dl
 
       micro
-      xclip
-      neovim  # home manager
+      neovim # home manager
       universal-ctags
       fd
       ranger
-      sc-im
-      ttyper
       pwgen
       # moc
-      mpc
       fzf
       fzy
       tmux
-      lesspass-cli
       croc
       mmv
       recutils # GNU text database
 
-
       # Rust programs
       eza
       bat
-      gitui
       ripgrep
       ripgrep-all
       dust
@@ -136,16 +140,10 @@
       lsd
       tokei
       television
-      carl
       gif-for-cli
 
       amfora
 
-      ffmpeg-full
-      ffmpegthumbnailer
-      yt-dlp
-      r128gain
-      mediainfo
       rclone
       poppler
       poppler-utils
@@ -168,11 +166,6 @@
       oneko
       #pmbootstrap
       tty-clock
-      
-      hspell
-      hunspell
-
-      pandoc
 
       # Coding
       clang
@@ -191,15 +184,11 @@
       lldb
       valgrind
       python314
-      bash
-      zsh
-      fish
       ledger
       hledger
 
       dotnet-sdk
       dotnet-runtime
-
 
       rustup
       #cargo
@@ -212,9 +201,9 @@
       libxkbcommon
       alsa-lib
 
-      nil # Nix LSP
+      # nil # Nix LSP
       nixd
-      nixpkgs-fmt
+      nixfmt
 
       #android-studio
       #apksigner
@@ -225,22 +214,14 @@
       deno # for catppuccin userstyles
       typescript
 
-      #jetbrains.idea-community
       docker
       #arduino
 
       sqlite
 
-      /* qtcreator */
-      /* libsForQt5.full */
       cmake
       gdb
-
       glibc_multi
-
-      #neovide
-      #neovim-qt
-      #gnvim
 
       distrobox
     ];

@@ -1,8 +1,9 @@
 { config, lib, ... }:
 
 {
-
   options.klaymore = {
+
+    username = lib.mkOption { default = "klaymore"; };
     configPath = lib.mkOption { default = "/synced/Nix/cfg"; };
     serversPath = lib.mkOption { default = "/zfs3/servers"; };
     powerful = lib.mkOption { default = false; };

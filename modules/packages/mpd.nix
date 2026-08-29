@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.programs.mpd.enable {
 
     environment.systemPackages = with pkgs; [
+      mpc
       cava
     ];
 

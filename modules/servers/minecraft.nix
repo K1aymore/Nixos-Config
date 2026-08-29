@@ -1,7 +1,6 @@
 { config, lib, pkgs, ports, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.servers.minecraft.enable {
 
     networking.firewall.allowedTCPPorts = [ 25565 ports.minecraft-wildcat ];

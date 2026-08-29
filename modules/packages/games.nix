@@ -1,7 +1,6 @@
 { config, lib, pkgs, settings, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.gui.enable {
 
     environment.systemPackages = with pkgs; [

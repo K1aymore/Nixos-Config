@@ -14,11 +14,6 @@
     impermanence.url = "github:nix-community/impermanence";
     catppuccin.url = "github:catppuccin/nix";
 
-    # nvf = {
-    #   url = "github:NotAShelf/nvf/v0.8";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS";
@@ -40,9 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # sitelen-pona-UCSUR = {
-    #   url = "github:K1aymore/nix-utils?dir=sitelen-pona-UCSUR";
-    # };
   };
 
   outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, jovian-nixos, ... }@inputs:
@@ -97,50 +89,7 @@
         ./hardware/${hostname}.nix
         ./${hostname}.nix
 
-        # https://www.reddit.com/r/NixOS/comments/1u47cnb/nixos_2605_can_be_used_with_gccarch_x8664v3/
-        ( if settings ? "gccArch"
-          then { nixpkgs.localSystem = {
-            gcc.arch = settings.gccArch; # g++ -march=native -Q --help=target | grep march= | head -n1 | cut -f3-
-            gcc.tune = settings.gccArch;
-            system = settings.architecture;
-            # x64_v3 Fixes
-            nixpkgs.overlays = [
-              (final: prev: {
-                # https://github.com/assimp/assimp/issues/6342
-                assimp = prev.assimp.overrideAttrs (old: {
-                  NIX_CFLAGS_COMPILE =
-                    (old.NIX_CFLAGS_COMPILE or "") + " -ffp-contract=on";
-                });
-
-                # https://github.com/godotengine/godot/issues/91217
-                # https://github.com/godotengine/godot/pull/95158
-                embree = prev.embree.overrideAttrs (old: {
-                  cmakeFlags = (old.cmakeFlags or []) ++ [
-                    "-DEMBREE_ISA_SSE2=OFF"
-                    "-DEMBREE_ISA_SSE42=OFF"
-                  ];
-                });
-
-                # https://lists.xenproject.org/archives/html/xen-devel/2025-01/msg00439.html
-                xen = prev.xen.overrideAttrs (old: {
-                  patches = (old.patches or []) ++ [
-                    (prev.writeText "xen-text-alignment.patch" ''
-                      --- a/xen/arch/x86/boot/Makefile
-                      +++ b/xen/arch/x86/boot/Makefile
-                      @@ -44,2 +44,2 @@
-                      -text_gap := 0x010200
-                      -text_diff := 0x408020
-                      +text_gap := 0x010240
-                      +text_diff := 0x608040
-                    '')
-                  ];
-                });
-              })
-            ];
-          }; }
-          else { nixpkgs.hostPlatform = settings.architecture; } )
-        { nix.settings.max-jobs = 3; # https://nix.dev/manual/nix/2.28/command-ref/conf-file#conf-max-substitution-jobs
-          nix.settings.cores = 0; } # set to host core count automaticallty
+        { nixpkgs.hostPlatform = settings.architecture; }
         { networking.hostName = hostname; }
 
         home-manager.nixosModules.home-manager
@@ -174,7 +123,6 @@
       pc = makeSystem "pc" {
         architecture = "x86_64-linux";
         # nixpkgs = "nixpkgs-pc";
-        # gccArch = "znver2";
       };
 
       server = makeSystem "server" {

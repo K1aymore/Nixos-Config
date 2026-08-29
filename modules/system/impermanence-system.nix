@@ -1,7 +1,6 @@
 { config, lib, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.system.impermanence.system.enable {
 
     environment.persistence."/nix/persist/system" = {

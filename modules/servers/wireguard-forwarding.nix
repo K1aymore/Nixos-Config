@@ -1,7 +1,6 @@
 { config, lib, ports, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.servers.wireguard-forwarding.enable {
 
     networking.firewall = {

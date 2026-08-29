@@ -1,8 +1,8 @@
 { config, lib, ports, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.services.yggdrasil.enable {
+
     networking.firewall.allowedTCPPorts = [ ports.yggdrasil ];
 
     services.yggdrasil = {

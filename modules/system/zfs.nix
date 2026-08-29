@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.system.zfs.enable {
 
     boot.initrd.supportedFilesystems = [ "zfs" ]; # boot from zfs

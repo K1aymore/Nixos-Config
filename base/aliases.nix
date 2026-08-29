@@ -4,7 +4,7 @@ let
   configPath = config.klaymore.configPath;
   scriptPath = "/synced/Sync/Linux/BashScripts";
   connect-timeout = "60";
-in 
+in
 {
 
   environment.shellAliases = {
@@ -22,23 +22,16 @@ in
     rebuildSwitch = "cd ${configPath} && git add .; cd - && nrs";
     update = "cd ${configPath} && git add . && git commit -m \"before update\" && nix flake update && rebuildBoot; cd -";
     restart = "reboot";
-    
+
     conf = "cd ${configPath}";
     ":q" = "exit";
     ":wq" = "exit";
-    
-    #cd = "z"; # Breaks z lol
-    ls = "eza";
-    #cat = "bat";
-    fd = "fd --hidden";
 
     # sitelen pona
     #less = "less -r";
     #bat = "bat -pp";
 
-
     showAllPackages = "nix path-info /run/current-system -r";
-
 
     yd = "${scriptPath}/yd";
     ffmpeg-av1-gpu = "sbcl --script ${scriptPath}/ffmpeg-av1-gpu.lisp";
@@ -85,7 +78,6 @@ in
     findjdk = "cd /nix/store && ls -d */ | grep jdk";
     makeModule = "make -C $(nix-build -E '(import <nixpkgs> {}).linux.dev' --no-out-link)/lib/modules/*/build M=$(pwd) modules";
 
-
     #rm = "rm -i";
 
     eleventy = "npx @11ty/eleventy";
@@ -96,25 +88,18 @@ in
     webMirror = "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent";
     rcloneS3 = "rclone sync --fast-list --checksum --progress";
 
-
-
     ipfsbafysimple = "ipfs add --cid-version 1";
     ipfslist = "ipfs pin ls | grep recursive";
 
     elementSounds = "sudo rm -r /usr/share/webapps/element/media && sudo cp -r /synced/Sync/Linux/ElementSounds /usr/share/webapps/element/media";
 
-
     "󱥣󱤇󱤨" = "du -sh";
   };
 
-
-
-
   # programs.bash.shellInit = [
 
-    # for i in /synced/Sync/Linux/BashScripts/*; do alias "${i##*/}"="$i"; done
+  # for i in /synced/Sync/Linux/BashScripts/*; do alias "${i##*/}"="$i"; done
 
   # ];
-
 
 }

@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
-/* Enables Samba sharing from Dolphin.
-*/
+/* Enables Samba sharing from Dolphin. */
 
 {
   config = {
+
     services.samba = let 
       localNet = (lib.concatStringsSep "." (lib.take 3 (lib.splitString "." config.klaymore.localIP))) + ".";
     in  {

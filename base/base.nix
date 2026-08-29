@@ -13,7 +13,7 @@
   hardware.uinput.enable = true;
   services.gvfs.enable = true;
 
-  
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # nix.registry = {
   #   nixpkgs.flake = nixpkgs; # pin nixpkgs version
@@ -23,6 +23,8 @@
   #   };
   # };
   # nix.nixPath = [ "nixpkgs=${nixpkgs}" ];
+  nix.settings.max-jobs = 3; # https://nix.dev/manual/nix/2.28/command-ref/conf-file#conf-max-substitution-jobs
+  nix.settings.cores = 0; # 0 sets to host core count automaticallty
   nix.settings.download-buffer-size = 524288000;
   nixpkgs = {
     config.allowUnfree = true;
@@ -65,6 +67,8 @@
     IOSchedulingPriority = lib.mkForce 7;
   };
 
+  systemd.oomd.enable = true;
+
   services.journald.extraConfig = "SystemMaxUse=1G";
 
 
@@ -76,9 +80,9 @@
     #XDG_CONFIG_HOME = config.home-manager.users.klaymore.home.homeDirectory; # breaks everything
   };
 
-  
+
   environment.systemPackages = with pkgs; [
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv fr eo]))
+    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv fr eo ]))
   ];
 
 
@@ -104,7 +108,7 @@
       allowedUDPPorts = config.networking.firewall.allowedTCPPorts;
       allowedUDPPortRanges = config.networking.firewall.allowedTCPPortRanges;
     };
-    
+
     #nameservers = [ "1.1.1.1" "1.0.0.1" "2606:4700:4700::1111" "2606:4700:4700::1001" ];
     # If using dhcpcd:
     #dhcpcd.extraConfig = "nohook resolv.conf";
@@ -143,7 +147,7 @@
     enable = true;
     browsing = true;
     stateless = true;
-    drivers = with pkgs; [ 
+    drivers = with pkgs; [
       brlaser
       #canon-cups-ufr2
       canon-capt

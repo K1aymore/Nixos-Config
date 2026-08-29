@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.programs.vscode.enable {
+
     home-manager.users.klaymore.programs.vscodium = {
       enable = true;
       mutableExtensionsDir = false;
@@ -69,11 +69,11 @@
 
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
-        "nix.formatterPath" = "nixpkgs-fmt";
+        "nix.formatterPath" = "nixfmt";
         "nix.serverSettings" = {
           "nixd" = {
             "formatting" = {
-              "command" = [ "nixpkgs-fmt" ];
+              "command" = [ "nixfmt" ];
             };
             # "options" = {
             #   # By default, this entry will be read from `import <nixpkgs> { }`.

@@ -1,8 +1,8 @@
 { config, lib, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.gui.enable {
+
     home-manager.users.klaymore.programs = {
 
       # kitty: bugs with zellij + neovim after expanding window

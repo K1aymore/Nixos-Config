@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.gui.enable {
+
     environment.sessionVariables = {
       MOZ_USE_XINPUT2 = "1";
     };
@@ -17,6 +17,8 @@
       xdpyinfo
       kdePackages.kgpg
       glib
+      xclip
+      ffmpegthumbnailer
 
       libva-utils
       vdpauinfo

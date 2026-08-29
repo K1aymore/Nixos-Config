@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.system.fish.enable {
 
     users.users.klaymore.shell = pkgs.fish;

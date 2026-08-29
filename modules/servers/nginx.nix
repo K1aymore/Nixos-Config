@@ -1,7 +1,6 @@
 { config, lib, ports,... }:
 
 {
-
   config = lib.mkIf config.klaymore.servers.nginx.enable {
 
     networking.firewall.allowedTCPPorts = [ ports.nginx ports.nginxs ];

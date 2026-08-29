@@ -1,8 +1,8 @@
 { config, lib, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.system.catppuccin.enable {
+
     catppuccin = {
       enable = true;
       autoEnable = false;

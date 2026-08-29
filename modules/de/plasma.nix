@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.gui.plasma.enable {
     klaymore.gui.enable = true;
 

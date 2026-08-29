@@ -1,7 +1,6 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.programs.mpv.enable {
 
     nixpkgs.overlays = [

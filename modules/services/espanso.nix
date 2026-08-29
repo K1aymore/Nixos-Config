@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.services.espanso.enable {
 
     home-manager.users.klaymore.services.espanso = {

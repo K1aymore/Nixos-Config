@@ -1,7 +1,6 @@
 { config, lib, ports, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.servers.forgejo.enable {
 
     networking.firewall.allowedTCPPorts = [ ports.forgejo ];
@@ -28,5 +27,6 @@
     };
 
     users.users.forgejo.openssh.authorizedKeys.keys = config.users.users.klaymore.openssh.authorizedKeys.keys;
+
   };
 }

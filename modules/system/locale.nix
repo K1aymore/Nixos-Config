@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   config = {
 
     time.timeZone = config.klaymore.system.timeZone;

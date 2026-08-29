@@ -1,7 +1,6 @@
 { config, lib, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.pipewire.enable {
 
     services.pipewire = {

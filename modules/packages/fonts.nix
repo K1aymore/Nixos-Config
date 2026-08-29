@@ -172,8 +172,8 @@ let
 
 in
 {
-
   config = {
+
     nixpkgs.config = {
       joypixels.acceptLicense = true;
     };

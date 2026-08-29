@@ -1,7 +1,6 @@
 { config, lib, ports, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.services.ipfs.enable {
 
     services.kubo = {

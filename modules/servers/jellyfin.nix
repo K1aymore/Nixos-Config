@@ -1,7 +1,6 @@
 { config, lib, ... }:
 
 {
-
   config = lib.mkIf config.klaymore.servers.jellyfin.enable {
 
     services.jellyfin = {
@@ -9,5 +8,6 @@
       openFirewall = true;
       dataDir = config.klaymore.serversPath +  "/jellyfin";
     };
+
   };
 }

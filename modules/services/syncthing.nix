@@ -7,7 +7,6 @@ let
   };
 in
 {
-
   config = lib.mkIf config.klaymore.services.syncthing.enable {
 
     networking.firewall.allowedTCPPorts = [

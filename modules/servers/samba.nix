@@ -2,6 +2,7 @@
 
 {
   config = lib.mkIf config.klaymore.servers.samba.enable {
+
     services.samba = {
       enable = true;
       openFirewall = true;
@@ -43,5 +44,6 @@
       nssmdns4 = true;
       # ^^ Not one hundred percent sure if this is needed- if it aint broke, don't fix it
     };
+
   };
 }
