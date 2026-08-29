@@ -47,6 +47,11 @@
       # mesa = prev.mesa.overrideAttrs (old: {
       #   patches = old.patches ++ [ ./mesa-vram-777966a7cd402248a06603691ec89eb3bf3bade8.patch ];
       # });
+      kdePackages = prev.kdePackages.overrideScope (kdeFinal: kdePrev: {
+        kwin = kdePrev.kwin.overrideAttrs (prevPdAttrs: {
+          patches = prevPdAttrs.patches ++ [ ./kwin-HDR-ICC-9824.patch ];
+        });
+      });
     })
   ];
 
