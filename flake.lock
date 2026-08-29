@@ -187,7 +187,7 @@
         "type": "github"
       }
     },
-    "libplacebo": {
+    "libplacebo-git": {
       "flake": false,
       "locked": {
         "host": "code.videolan.org",
@@ -221,7 +221,7 @@
         "url": "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
       }
     },
-    "mpv": {
+    "mpv-git": {
       "flake": false,
       "locked": {
         "lastModified": 1787501342,
@@ -394,9 +394,9 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "jovian-nixos": "jovian-nixos",
-        "libplacebo": "libplacebo",
+        "libplacebo-git": "libplacebo-git",
         "linux-git": "linux-git",
-        "mpv": "mpv",
+        "mpv-git": "mpv-git",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-superstable": "nixpkgs-superstable"

@@ -19,6 +19,7 @@
 
     environment.systemPackages = with pkgs; [
       kdePackages.kde-gtk-config
+      # kdePackages.kgamma
     ];
 
     services.blueman.enable = false; # Plasma comes with a Bluetooth daemon

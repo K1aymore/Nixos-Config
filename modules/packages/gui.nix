@@ -207,34 +207,6 @@
       partition-manager.enable = true;
     };
 
-    home-manager.users.klaymore.programs.mangohud = {
-      enable = true;
-      enableSessionWide = false;
-      settings = {
-        fps_limit = [ 0 150 60 ]; # doesn't work with mangoapp
-        show_fps_limit = true;
-
-        arch = true;
-        vulkan_driver = true;
-        wine = true;
-        gamemode = true;
-        vkbasalt = true;
-        wsync = true;
-        resolution = true;
-
-        cpu_temp = true;
-        gpu_temp = true;
-        #gpu_fan = true;
-        gpu_core_clock = true;
-        gpu_mem_clock = true;
-        #gpu_voltage = true;
-
-        ram = true;
-        vram = true;
-        io_read = true;
-        io_write = true;
-      };
-    };
 
     home-manager.users.klaymore.programs = {
 

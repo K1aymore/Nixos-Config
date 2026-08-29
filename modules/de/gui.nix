@@ -6,7 +6,7 @@
 
     services.xserver = {
       enable = true;
-      displayManager.lightdm.enable = false;
+      # displayManager.lightdm.enable = true;
       # Configure keymap in X11
       # xkbOptions = "eurosign:e";
     };

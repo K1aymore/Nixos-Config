@@ -1,4 +1,4 @@
-{ config, lib, pkgs, linux-git, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   config = lib.mkIf config.klaymore.system.vram-fix {
@@ -11,7 +11,7 @@
             version = "7.2.0";
             modDirVersion = version;
 
-            src = linux-git; # fixes are merged into master
+            src = inputs.linux-git; # fixes are merged into master
             kernelPatches = [ ];
 
             structuredExtraConfig = with lib.kernel; {

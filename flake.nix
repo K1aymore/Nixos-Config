@@ -27,11 +27,11 @@
       flake = false;
       url = "git+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"; # ?shallow=1
     };
-    mpv = {
+    mpv-git = {
       flake = false;
       url = "github:mpv-player/mpv";
     };
-    libplacebo = {
+    libplacebo-git = {
       flake = false;
       url = "gitlab:videolan/libplacebo?host=code.videolan.org";
     };
@@ -45,8 +45,7 @@
     # };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, jovian-nixos,
-      linux-git, mpv, libplacebo, firefox-nightly, ... }@attrs:
+  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, jovian-nixos, ... }@inputs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -85,11 +84,11 @@
 
     makeSystem = hostname: settings: 
       (if settings ? "nixpkgs"
-      then attrs.${settings.nixpkgs}.lib.nixosSystem
+      then inputs.${settings.nixpkgs}.lib.nixosSystem
       else nixpkgs.lib.nixosSystem)
     {
       system = settings.architecture;
-      specialArgs = { inherit ports linux-git mpv libplacebo firefox-nightly; };
+      specialArgs = { inherit ports inputs settings; };
 
       modules = builtins.filter (f: nixpkgs.lib.hasSuffix ".nix" f) (
         (nixpkgs.lib.filesystem.listFilesRecursive ./base) ++

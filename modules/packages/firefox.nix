@@ -1,16 +1,16 @@
-{ config, lib, pkgs, firefox-nightly, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   config = lib.mkIf config.klaymore.gui.enable {
 
     environment.systemPackages = with pkgs;
       if config.klaymore.programs.firefox.nightly
-      then [ firefox-nightly.packages.${pkgs.stdenv.hostPlatform.system}.firefox-nightly-bin ]
+      then [ inputs.firefox-nightly.packages.${pkgs.stdenv.hostPlatform.system}.firefox-nightly-bin ]
       else [ firefox ];
 
     home-manager.users.klaymore.programs.firefox = {
       enable = false;
-      package = lib.mkIf config.klaymore.programs.firefox.nightly firefox-nightly.packages.${pkgs.stdenv.hostPlatform.system}.firefox-nightly-bin;
+      package = lib.mkIf config.klaymore.programs.firefox.nightly inputs.firefox-nightly.packages.${pkgs.stdenv.hostPlatform.system}.firefox-nightly-bin;
 
       profiles.default = {
         settings = {

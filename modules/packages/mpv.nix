@@ -1,4 +1,4 @@
-{ config, lib, pkgs, mpv, libplacebo, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
 
@@ -9,7 +9,7 @@
         libplacebo = prev.libplacebo.overrideAttrs (old: {
           version = "7.360.1-UNKNOWN";
           patches = [ ];
-          src = libplacebo;
+          src = inputs.libplacebo-git;
         });
       })
     ];
@@ -19,12 +19,12 @@
       package = pkgs.mpv-unwrapped.overrideAttrs (old: {
         ffmpeg = pkgs.ffmpeg-full;
         version = "0.41.0-UNKNOWN";
-        # src = mpv; # TODO: newer versions error
+        # src = inputs.mpv-git; # TODO: commit 0fc000b10b64747d8aba9f7472acfe8454794096 breaks build
         src = pkgs.fetchFromGitHub {
           owner = "mpv-player";
           repo = "mpv";
-          rev = "9e06c3248a67a14717909db4a02709bc22fe559e";
-          hash = "sha256-ISG5kZBmaQ1RzmQpFN+FxM6Dvty4dnbr78siJvkgBIc=";
+          rev = "4013a3c9b6f6b3b4d2d8f971e91c2e1eab3f8184";
+          hash = "sha256-hXegoyTeD4szr9yTLqqZlOKEO8sr7ChNRcfT1MkTW+A=";
         };
       });
       config = {
