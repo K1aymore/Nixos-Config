@@ -51,6 +51,7 @@
         subs-with-matching-audio = "forced";
         # af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
         # af = "loudnorm=I=-20";
+        volume = 50;
         volume-max = 200;
         hr-seek = true;
         replaygain = "track";

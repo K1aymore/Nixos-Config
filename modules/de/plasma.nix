@@ -10,6 +10,7 @@
 
     services = {
       displayManager.sddm.enable = true;
+      displayManager.defaultSession = lib.mkForce "plasma";
       # displayManager.plasma-login-manager.enable = true; # breaks taskbar?
       # displayManager.sddm.settings.Wayland.SessionDir = "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
       desktopManager.plasma6.enable = true;

@@ -131,6 +131,7 @@
       element-desktop
       signal-desktop
       mumble
+      thunderbird
 
       qbittorrent
       proton-vpn
@@ -171,6 +172,7 @@
 
       vscode-fhs
       # zed-editor
+      nyxt
 
       gsettings-desktop-schemas
       gsettings-qt

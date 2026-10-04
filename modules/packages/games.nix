@@ -100,7 +100,7 @@
 
     home-manager.users.klaymore.programs.mangohud = {
       enable = true;
-      enableSessionWide = true;
+      enableSessionWide = false; # otherwise enables in MPV etc
       settings = {
         fps_limit = [ 0 150 60 ]; # doesn't work with mangoapp
         show_fps_limit = true;

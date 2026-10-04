@@ -97,7 +97,7 @@
       #awscli2
       httrack
       elinks
-# links2
+      # links2
       w3m
       openssl
       iperf
@@ -176,6 +176,7 @@
       chicken # Scheme
       janet
       jpm
+      guile
       go
       # nasm # assembly compiler
       # inklecate # Ink compiler/player

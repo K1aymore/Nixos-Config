@@ -20,7 +20,7 @@
     };
 
     servers = {
-      syncplay.enable = true;
+      # syncplay.enable = true;
     };
 
     services = {
@@ -37,10 +37,10 @@
     };
   };
 
-  # specialisation.cosmic.configuration = {
-  #   klaymore.gui.plasma.enable = lib.mkForce false;
-  #   klaymore.gui.cosmic.enable = true;
-  # };
+  specialisation.niri.configuration = {
+    klaymore.gui.plasma.enable = lib.mkForce false;
+    klaymore.gui.niri.enable = true;
+  };
 
   nixpkgs.overlays = [
     (final: prev: {

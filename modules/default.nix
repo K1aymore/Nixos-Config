@@ -29,6 +29,7 @@
       cosmic = {
         enable = lib.mkEnableOption "Cosmic";
       };
+      niri.enable = lib.mkEnableOption "Niri";
     };
     pipewire = {
       enable = lib.mkOption { default = true; };
