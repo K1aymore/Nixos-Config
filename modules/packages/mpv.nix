@@ -5,11 +5,18 @@
 
     nixpkgs.overlays = [
       (final: prev: {
-        libplacebo = prev.libplacebo.overrideAttrs (old: {
-          version = "7.360.1-UNKNOWN";
-          patches = [ ];
-          src = inputs.libplacebo-git;
-        });
+        # libplacebo = prev.libplacebo.overrideAttrs (old: {
+        #   version = "7.360.1-UNKNOWN";
+        #   patches = [ ];
+        #   # src = inputs.libplacebo-git;
+        #   src = pkgs.fetchFromGitLab {
+        #     domain = "code.videolan.org";
+        #     owner = "videolan";
+        #     repo = "libplacebo";
+        #     rev = "051cc36fd6e3ca06d64f848b6a38f708f98a2a91";
+        #     hash = "sha256-iJPCOzPGOSzM/XCZYOTtzPCpYmECDkAOgtWG9BeZ0Lc=";
+        #   };
+        # });
       })
     ];
 
@@ -17,14 +24,14 @@
       enable = true;
       package = pkgs.mpv-unwrapped.overrideAttrs (old: {
         ffmpeg = pkgs.ffmpeg-full;
-        version = "0.41.0-UNKNOWN";
+        # version = "0.41.0-UNKNOWN";
         # src = inputs.mpv-git; # TODO: commit 0fc000b10b64747d8aba9f7472acfe8454794096 breaks build
-        src = pkgs.fetchFromGitHub {
-          owner = "mpv-player";
-          repo = "mpv";
-          rev = "4013a3c9b6f6b3b4d2d8f971e91c2e1eab3f8184";
-          hash = "sha256-hXegoyTeD4szr9yTLqqZlOKEO8sr7ChNRcfT1MkTW+A=";
-        };
+        # src = pkgs.fetchFromGitHub {
+        #   owner = "mpv-player";
+        #   repo = "mpv";
+        #   rev = "9e06c3248a67a14717909db4a02709bc22fe559e";
+        #   hash = "sha256-ISG5kZBmaQ1RzmQpFN+FxM6Dvty4dnbr78siJvkgBIc=";
+        # };
       });
       config = {
         fullscreen = true;

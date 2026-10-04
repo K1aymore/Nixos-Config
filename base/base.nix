@@ -69,8 +69,6 @@
 
   systemd.oomd.enable = true;
 
-  services.journald.extraConfig = "SystemMaxUse=1G";
-
 
   environment.sessionVariables = {
     GPG_TTY = "$(tty)";
@@ -82,7 +80,7 @@
 
 
   environment.systemPackages = with pkgs; [
-    (aspellWithDicts (dicts: with dicts; [ en en-computers en-science sv fr eo ]))
+    (aspellWithDicts (dicts: with dicts; [ en sv fr eo ]))
   ];
 
 

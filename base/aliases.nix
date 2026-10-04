@@ -36,7 +36,7 @@ in
     yd = "${scriptPath}/yd";
     ffmpeg-av1-gpu = "sbcl --script ${scriptPath}/ffmpeg-av1-gpu.lisp";
     to_gif = "${scriptPath}/to_gif";
-    r128all = "r128gain -r ./";
+    rsall = "rsgain -r ./";
 
     # pipe in list of files, from find or etc.
     wordCount = "xargs cat | tr -s '[:space:]:#()[]{}\\,.?!\"' '\\n' | tr '[:upper:]' '[:lower:]' | sort | uniq -c | sort -n";

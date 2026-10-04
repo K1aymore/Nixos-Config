@@ -14,7 +14,7 @@
         gst_all_1.gst-plugins-bad
         gst_all_1.gst-plugins-ugly */
       #pamixer
-      breakpad
+      # breakpad
       hunspell
 
       libxcrypt
@@ -79,7 +79,7 @@
 
       ffmpeg-full
       yt-dlp
-      r128gain
+      rsgain
       mediainfo
       pdftk
       imagemagick
@@ -96,8 +96,8 @@
       nixos-option
       #awscli2
       httrack
-      # elinks
-      links2
+      elinks
+# links2
       w3m
       openssl
       iperf

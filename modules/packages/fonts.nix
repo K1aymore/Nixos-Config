@@ -274,11 +274,11 @@ in
         unifont = prev.unifont.overrideAttrs (old: {
           otf = pkgs.fetchurl {
             url = "mirror://gnu/unifont/unifont-${old.version}/unifont_jp-${old.version}.otf";
-            hash = "sha256-XyBzegn0DD8LdRHmxlfkjKH2g+AvC8C5Vlo8NjgnqIc=";
+            hash = "sha256-tBHnhIjYYfa0H7pRQ4ESOrsBunrerI0N+IAaYYkaFNM=";
           };
           bdf = pkgs.fetchurl {
             url = "mirror://gnu/unifont/unifont-${old.version}/unifont_jp-${old.version}.bdf.gz";
-            hash = "sha256-06TJjkHvzzi0m9UgoEkjDMBA1EQzq5ws3Nnx9IFEOXY=";
+            hash = "sha256-Og3fgU+JmQ6E4immnv3V9dexXgcwKGWt2EY/9/aWWsw=";
           };
         });
       })
