@@ -387,6 +387,40 @@
         "type": "github"
       }
     },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1780243769,
+        "narHash": "sha256-x5UQuRsH3MqI0U9afaXSNqzTPSeZlRLvFAav2Ux1pNw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "331800de5053fcebacf6813adb5db9c9dca22a0c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "river-kwm": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_6"
+      },
+      "locked": {
+        "lastModified": 1780656974,
+        "narHash": "sha256-WANGYhoD/0ckxyxwRw3qQ3/laNP5PsdY33a5wk1fpV0=",
+        "owner": "rowsred",
+        "repo": "river_kwm_modules_nixos",
+        "rev": "dc0bf4a9c031a7226f5dbdcae45477415d80bf97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rowsred",
+        "repo": "river_kwm_modules_nixos",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
@@ -399,7 +433,8 @@
         "mpv-git": "mpv-git",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_5",
-        "nixpkgs-superstable": "nixpkgs-superstable"
+        "nixpkgs-superstable": "nixpkgs-superstable",
+        "river-kwm": "river-kwm"
       }
     },
     "systems": {

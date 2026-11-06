@@ -177,6 +177,7 @@
       janet
       jpm
       guile
+      zig
       go
       # nasm # assembly compiler
       # inklecate # Ink compiler/player

@@ -15,6 +15,7 @@
       # disabling mouse acceleration
       mouse = {
         accelProfile = "flat";
+        accelSpeed = "-0.20";
       };
       # touchpad settings
       touchpad = {
