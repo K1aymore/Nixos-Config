@@ -1,18 +1,25 @@
-{ config, lib, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "ahci"
+    "usb_storage"
+    "usbhid"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   boot.loader = {
     # Use the systemd-boot EFI boot loader.
-    # systemd-boot.enable = true;
+    #     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
 
     grub = {
@@ -23,87 +30,25 @@
     };
   };
 
-
-
   fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = [ "size=25G" "mode=755" ]; # "size=500M"
+    device = "/dev/disk/by-uuid/ed2adad0-e1a1-499a-84d1-83ad4109b3bb";
+    fsType = "xfs";
   };
-
-  fileSystems."/home/klaymore" = {
-    device = "/dev/disk/by-uuid/bd091aa1-d529-4801-a095-64a96379fbcb";
-    fsType = "ext4";
-    #options = [ "mode=777" ]; # "size=2G"
-  };
-
-  #fileSystems."/home/klaymore" = {
-  #  device = "none";
-  #  fsType = "tmpfs";
-  #  options = [ "mode=777" ]; # "size=500M"
-  #};
-
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/C552-4091";
+    device = "/dev/disk/by-uuid/BE58-59A8";
     fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/66e4e3fc-2d0f-4979-80ff-e5f3529a3672"; }
+  ];
 
-  boot.initrd.luks.devices."luks-nix".device = "/dev/disk/by-uuid/2642c33e-d402-48df-ba22-1929fac80352";
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/b7980e87-ee6a-42f8-ad0b-9bb3dbec23de";
-    fsType = "ext4";
-    neededForBoot = true;
-  };
-
-
-
-  boot.initrd.luks.devices."luks-synced".device = "/dev/disk/by-uuid/a1d87862-3676-4f71-ab9d-2d63734eb5b2";
-  fileSystems."/synced" = {
-    device = "/dev/disk/by-uuid/578ff020-2da7-497d-af01-f8983e1c2e40";
-    #device = "serverlan:/synced";
-    neededForBoot = true;
-    fsType = "ext4";
-  };
-
-
-  #boot.zfs.extraPools = [ "stuff" ];
-
-
-
-  # fileSystems."/nfs/stuff" = {
-  #   device = "serverlan:/zfs3/stuff";
-  #   fsType = "nfs";
-  #   options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
-  # };
-
-  # fileSystems."/nfs/hugeArchive" = {
-  #   device = "serverlan:/zfs3/hugeArchive";
-  #   fsType = "nfs";
-  #   options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
-  # };
-
-  # fileSystems."/nfs/synced" = {
-  #   device = "serverlan:/synced";
-  #   fsType = "nfs";
-  #   options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
-  # };
-
-  # fileSystems."/nfs/games" = {
-  #   device = "serverlan:/zfs3/games";
-  #   fsType = "nfs";
-  #   options = [ "x-systemd.automount" "noauto" "nfsvers=4.2" "noatime" ];
-  # };
-
-  /*swapDevices = [
-    { 
-      device = "/dev/disk/by-uuid/46249488-631c-498e-b600-77d3ba10cbe1";
-      priority = 2;
-    }
-  ];*/
-
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
 }

@@ -5,6 +5,7 @@
   klaymore = {
     powerful = true;
     localIP = "172.16.0.123";
+    configPath = "/synced/Nix/cfg";
 
     gui = {
       enable = true;
@@ -29,7 +30,7 @@
     };
 
     system = {
-      impermanence.system.enable = true;
+      # impermanence.system.enable = true;
       # kanata.enable = true;
       locale = "sv_SE.UTF-8";
       vram-fix = true;
@@ -37,10 +38,10 @@
     };
   };
 
-  specialisation.niri.configuration = {
-    klaymore.gui.plasma.enable = lib.mkForce false;
-    klaymore.gui.niri.enable = true;
-  };
+  # specialisation.niri.configuration = {
+  #   klaymore.gui.plasma.enable = lib.mkForce false;
+  #   klaymore.gui.niri.enable = true;
+  # };
 
   nixpkgs.overlays = [
     (final: prev: {

@@ -1,10 +1,11 @@
-{ config, lib, pkgs, settings, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   config = lib.mkIf config.klaymore.gui.enable {
 
     environment.systemPackages = with pkgs; [
-      wineWow64Packages.full
+      wine
+      wine64
       umu-launcher
       dxvk
       # lutris
@@ -21,6 +22,7 @@
 
 
       r2modman
+      gale
 
       #piper
       # razergenie
@@ -37,23 +39,23 @@
       #   STEAM_FORCE_DESKTOPUI_SCALING = config.klaymore.gui.scaling;
     };
 
-    nixpkgs.overlays = [
-      (final: prev: {
-        proton-ge-bin = prev.proton-ge-bin.overrideAttrs (old: rec {
-          version = "GE-Proton11-6";
-          src =
-            if settings.architecture == "x86_64-linux"
-            then pkgs.fetchzip {
-              url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${version}/${version}-x86_64.tar.gz";
-              hash = "sha256-rX27DUrrrHtR1cgyr/424m9JPjrdASIisVGv2vWzMAs=";
-            }
-            else pkgs.fetchzip {
-              url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${version}/${version}-aarch64.tar.gz";
-              hash = "";
-            };
-        });
-      })
-    ];
+    # nixpkgs.overlays = [
+    #   (final: prev: {
+    #     proton-ge-bin = prev.proton-ge-bin.overrideAttrs (old: rec {
+    #       version = "GE-Proton11-6";
+    #       src =
+    #         if settings.architecture == "x86_64-linux"
+    #         then pkgs.fetchzip {
+    #           url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${version}/${version}-x86_64.tar.gz";
+    #           hash = "sha256-rX27DUrrrHtR1cgyr/424m9JPjrdASIisVGv2vWzMAs=";
+    #         }
+    #         else pkgs.fetchzip {
+    #           url = "https://github.com/GloriousEggroll/proton-ge-custom/releases/download/${version}/${version}-aarch64.tar.gz";
+    #           hash = "";
+    #         };
+    #     });
+    #   })
+    # ];
 
     hardware.steam-hardware.enable = true;
 
