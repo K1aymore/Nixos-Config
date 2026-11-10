@@ -39,6 +39,9 @@
       xdg-utils
       grim
       wl-color-picker
+      kdePackages.kcolorpicker
+      bella
+      # gpick
 
       kdePackages.dolphin
       kdePackages.filelight

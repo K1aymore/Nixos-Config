@@ -20,18 +20,18 @@
 
     river-kwm.url = "github:rowsred/river_kwm_modules_nixos";
 
-    linux-git = {
-      flake = false;
-      url = "git+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"; # ?shallow=1
-    };
-    mpv-git = {
-      flake = false;
-      url = "github:mpv-player/mpv";
-    };
-    libplacebo-git = {
-      flake = false;
-      url = "gitlab:videolan/libplacebo?host=code.videolan.org";
-    };
+    # linux-git = {
+    #   flake = false;
+    #   url = "git+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git?shallow=1"; # ?shallow=1
+    # };
+    # mpv-git = {
+    #   flake = false;
+    #   url = "github:mpv-player/mpv";
+    # };
+    # libplacebo-git = {
+    #   flake = false;
+    #   url = "gitlab:videolan/libplacebo?host=code.videolan.org";
+    # };
     firefox-nightly = {
       url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -11,7 +11,7 @@
       # nvim: rmpc album art pixelated
       # foot: strange lines in nvim
 
-      # ctrl move and backspace by word: Alacritty, Kitty
+      # ctrl move and backspace by word: Alacritty, Kitty, wezterm
       # ctrl backspace only one letter: konsole, st, foot
 
       # Alacritty re-renders during resizing, kinda jerky
@@ -61,7 +61,7 @@
       # Kitty slightly alright setting font_family to Fairfax Hax HD
       # Kate text offset with nasin-nanpa, setting total font to Fairfax fixes
 
-      # ALL VERY BROKEN WHEN MOVING OR CHANGING TEXT IN FISH except vim terminal and wezterm. Broken: kitty, alacritty, konsole, foot
+      # ALL VERY BROKEN WHEN MOVING OR CHANGING TEXT IN FISH except wezterm. Broken: kitty, alacritty, konsole, foot, vim terminal
       # Emacs editor okay, term fish broken
 
       # uses AI
