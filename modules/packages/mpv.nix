@@ -46,8 +46,8 @@
         # secondary-sid = 0; # mpvacious overrides anyway
 
         ao = "pulse"; # for Discord screenshare
-        alang = "sv,en,de,fr,it,eo,tok";
-        slang = "sv,en,fr,eo,tok";
+        alang = "tok,eo,en,sv,de,fr,it";
+        slang = "tok,eo,en,sv,fr";
         subs-with-matching-audio = "forced";
         # af = "dynaudnorm=framelen=250:gausssize=11:maxgain=12:peak=0.8:targetrms=0.8";
         # af = "loudnorm=I=-20";

@@ -41,9 +41,10 @@
         };
       };
 
-      keychain = {
-        enable = true;
-      };
+      # keychain = {
+      #   enable = true;
+      #   keys = [ "id_ed25519" ];
+      # };
 
 
       helix = {

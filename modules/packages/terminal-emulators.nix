@@ -138,10 +138,13 @@
             cell_widths = {
               { first = 0xF1900, last = 0xF19FF, width = 2 },
             },
-            enable_wayland = false,
+            enable_wayland = true,
+            
+            initial_cols = 126,
+            initial_rows = 34,
 
             color_scheme = "Catppuccin Mocha",
-            hide_tab_bar_if_only_one_tab = false,
+            hide_tab_bar_if_only_one_tab = true,
           }
         '';
       };

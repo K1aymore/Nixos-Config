@@ -23,11 +23,13 @@
       libva-utils
       vdpauinfo
 
+      kdePackages.konsole
       alacritty
       kitty
-      kdePackages.yakuake
       foot
       xfce4-terminal
+      wezterm
+      kdePackages.yakuake
 
       wl-clipboard
       swaylock
@@ -42,6 +44,7 @@
       kdePackages.kcolorpicker
       bella
       # gpick
+      kdePackages.ksshaskpass
 
       kdePackages.dolphin
       kdePackages.filelight
@@ -132,6 +135,7 @@
       #discord-canary
       vesktop
       element-desktop
+      commet-chat
       signal-desktop
       mumble
       thunderbird
@@ -187,6 +191,8 @@
       obs-studio
       /* linuxKernel.packages.linux_5_16.v4l2loopback */
 
+      uxn
+      uxn11
     ];
 
 
