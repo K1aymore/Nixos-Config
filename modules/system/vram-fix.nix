@@ -21,5 +21,32 @@
       })
     ];
 
+
+    environment.systemPackages = with pkgs.jovianPackages; [
+      dmemcg-booster
+      kcgroups
+      plasma-foreground-booster
+    ];
+
+    systemd.services.dmemcg-booster = {
+      enable = true;
+      # overrideStrategy = "asDropin";
+      wantedBy = [ "multi-user.target" ];
+      description = "Service for enabling and controlling dmem cgroup limits for boosting foreground games, system-level";
+      serviceConfig = {
+        ExecStart = "${pkgs.jovianPackages.dmemcg-booster}/bin/dmemcg-booster --use-system-bus";
+      };
+    };
+
+    systemd.user.services.dmemcg-booster = {
+      enable = true;
+      # overrideStrategy = "asDropin";
+      wantedBy = [ "graphical-session-pre.target" ];
+      description = "Service for enabling and controlling dmem cgroup limits for boosting foreground games, user-level";
+      serviceConfig = {
+        ExecStart = "${pkgs.jovianPackages.dmemcg-booster}/bin/dmemcg-booster";
+      };
+    };
+
   };
 }
