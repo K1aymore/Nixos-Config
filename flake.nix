@@ -18,7 +18,6 @@
 
     jovian-nixos.url = "github:Jovian-Experiments/Jovian-NixOS";
 
-    river-kwm.url = "github:rowsred/river_kwm_modules_nixos";
 
     # linux-git = {
     #   flake = false;
@@ -39,7 +38,7 @@
 
   };
 
-  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, jovian-nixos, river-kwm, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-superstable, home-manager, impermanence, catppuccin, nix-minecraft, jovian-nixos, ... }@inputs:
   let
     ports = {
       # forwarded on server: 80 443 6900-6999 25565 19132
@@ -103,7 +102,6 @@
         # nvf.nixosModules.default
         nix-minecraft.nixosModules.minecraft-servers
         jovian-nixos.nixosModules.default
-        river-kwm.nixosModules.default
 
         { nixpkgs.overlays = [
           nix-minecraft.overlay
