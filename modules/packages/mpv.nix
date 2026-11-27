@@ -89,12 +89,12 @@
         # gamma2.2 darker than bt.1886
         # pq matches gamma2.2 on SDR displays and on HDR with clip / mobius / gamma tonemappers
         # works on EDR displays too but cranks screen brightness to max, worse blacks
-        # should be PQ because mpv does dithering/debanding in HDR space, nicer (Sanda E01 00:41)
+        # should be PQ because mpv does dithering/debanding in HDR space, nicer (Sanda E01 00:41)?
         # PQ flickers when OSD disappears, sometimes goes black when paused
         # PQ subtitles slightly too dark
         # gamma2.2 is too dark on the projector, hard to see (sometimes?). Default to bt.1886
-        target-trc = if config.klaymore.gui.hdr then "gamma2.2" else "bt.1886";
-        target-prim = "bt.709";
+        target-trc = if config.klaymore.gui.hdr then "auto" else "bt.1886";
+        target-prim = "auto";
         treat-srgb-as-power22 = "both";
         target-colorspace-hint = "auto";
 
@@ -134,14 +134,6 @@
 
 
       profiles = {
-        HDR = lib.mkIf config.klaymore.gui.hdr {
-          profile-cond = ''video_params and p["video-params/primaries"] == "bt.2020"'';
-          profile-restore = "copy";
-
-          target-trc = "pq";
-          target-prim = "bt.2020";
-        };
-
         forced = {
           profile-cond = ''p["current-tracks/sub/forced"]'';
           profile-restore = "copy";

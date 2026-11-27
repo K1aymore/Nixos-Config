@@ -21,7 +21,7 @@
     system = {
       #impermanence.home.enable = true;
       #impermanence.system.enable = true;
-      kanata.enable = true;
+      # kanata.enable = true;
       locale = "sv_SE.UTF-8";
       zram.enable = true;
     };
@@ -29,7 +29,7 @@
   
   #services.getty.autologinUser = "klaymore";
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking = {
     hostId = "57d90d30"; # head -c 8 /etc/machine-id

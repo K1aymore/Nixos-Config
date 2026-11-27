@@ -65,6 +65,7 @@
       pavucontrol
       qjackctl
       crosspipe
+      helvum
       easyeffects
       alsa-oss
       alsa-lib
